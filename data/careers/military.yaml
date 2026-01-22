@@ -1,0 +1,69 @@
+# Military Career
+# Source: references/careers1.pdf
+
+name: Military
+description: Armed forces, navy, marines, army
+
+qualification:
+  attribute: STR
+  target: 5
+
+leadership:
+  attribute: INT
+  target: 7
+
+skills:
+  service:
+    1: Firearms
+    2: Heavy Weapons
+    3: Drive
+    4: Gunnery
+    5: Scout
+    6: Zero-G
+
+  personal_development:
+    1: "+1 STR"
+    2: "+1 DEX"
+    3: "+1 END"
+    4: Athletics
+    5: Blades
+    6: Brawling
+
+  advanced_education:  # Requires EDU 8+
+    1: Pilot
+    2: Mechanics
+    3: Navigation
+    4: Medicine
+    5: Tactics
+    6: Investigation
+
+leadership_ranks:
+  1:
+    benefit: Firearms
+  2:
+    benefit: Tactics
+  3:
+    benefit: "+1 SOC"
+  4:
+    benefit: "Stipend: 20 Cr/week"
+  5:
+    benefit: Tactics
+  6:
+    benefit: "+1 SOC"
+
+retirement:
+  cash:
+    2: 2000
+    3-5: 7000
+    6-8: 10000
+    9-11: 13000
+    12-14: 20000
+    15+: 30000
+
+  material:
+    1: Middle Passage
+    2: Personal Vehicle
+    3: Quantum Weapon
+    4: "+1 END"
+    5: "+1 INT"
+    6: "+1 SOC"

@@ -1,0 +1,80 @@
+# Drifter Career
+# Source: references/careers2.pdf
+
+name: Drifter
+description: Wanderers, vagabonds, odd-jobbers, those between careers
+
+# Drifter has no qualification requirement - it's the fallback career
+qualification: null
+
+# Drifter does not use leadership ranks - uses Specials instead
+leadership: null
+
+# Note: Drifter terms are 6 years instead of 4
+term_length: 6
+
+# Basic Training: Roll twice on ONE chart of your choice (not Service Skills)
+basic_training_note: "Roll twice on one chart of your choice"
+
+skills:
+  scoundrel:
+    1: Streetwise
+    2: Subterfuge
+    3: Carousing
+    4: Performer
+    5: Stealth
+    6: Blades
+
+  exploration:
+    1: Athletics
+    2: Bushcraft
+    3: Scout
+    4: Drive
+    5: Zero-G
+    6: Firearms
+
+  occupational:
+    1: Pilot
+    2: Broker
+    3: Medicine
+    4: Bureaucracy
+    5: Mechanics
+    6: Steward
+
+  specialist:
+    1: Electronics
+    2: Animals
+    3: Sensors
+    4: Navigation
+    5: Investigation
+    6: Heavy Weapons
+
+# Instead of leadership ranks, Drifters roll for Specials
+# Roll 2d6 for each, adding terms of service as modifier
+specials:
+  8+: Contact
+  9+: Rumor
+  10+: Job Offer
+  13+:
+    - Ally
+    - Exotic Pet
+    - Rival
+  14+: "Starship (200 tons)"
+  15+: Psychic Talent
+
+retirement:
+  cash:
+    2: 1000
+    3-5: 5000
+    6-8: 10000
+    9-11: 15000
+    12-14: 25000
+    15+: 40000
+
+  material:
+    1: Middle Passage
+    2: Brawling
+    3: Streetwise
+    4: Performer
+    5: "+1 to STR, DEX, or END"
+    6: "+1 to INT, EDU, or SOC"

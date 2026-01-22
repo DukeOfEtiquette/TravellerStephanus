@@ -1,0 +1,134 @@
+# Combat Rules
+# Source: references/chargen.pdf (page 4), references/system-fundamentals.md
+
+basics:
+  surprise: "Keep surprise until you lose it"
+  action: "Simultaneous"
+  timing: "Flexible, typically ~15 seconds per round"
+  actions_per_round: 2
+  action_types:
+    - Move
+    - Fire
+    - Aim
+    - Reload
+    - Stow/prepare item
+
+hit_protection:
+  total: "STR + DEX + END"
+  bloodied: "At 2/3 HP lost"
+  dying: "Note: Character sheet has 'Dying' field - threshold not defined in rules, verify with GM"
+
+attack_procedure:
+  roll: 2d6
+  modifiers: "Cumulative"
+  target: 8+
+  on_success: "Roll damage dice based on weapon"
+  armor: "Reduces hits on each rolled damage die (minimum 1 hit per die)"
+  bloodied_save:
+    trigger: "When crossing bloodied threshold"
+    target: 8+
+    modifiers:
+      - "+1 for END 9+"
+      - "+2 for END 12"
+
+attack_modifiers:
+  attacker:
+    per_expertise_rank: +1
+    unskilled: -3
+    brawling_or_blades:
+      dex_9: +1
+      dex_12: +2
+    heavy_weapons:
+      int_10_plus: +2
+
+  firearms:
+    aiming:
+      bonus: "+1 per round"
+      max: +3
+      note: "Cannot move while aiming"
+    autofire: "+2 (but -1 hit per die)"
+    continuous_fire: "-1 if no reload last round"
+
+  range:
+    optimal: 0
+    suboptimal: -2
+    terrible: -5
+
+  target:
+    in_cover: -2
+    evasive_movement: -2
+    grappling_parrying: "-[Brawling/Blades Rank]"
+
+damage:
+  weapon_damage:
+    1d:
+      - Hand to hand
+      - Improvised weapons
+      - Less lethal weapons (beanbag rounds)
+    2d:
+      - Hand weapons (blades, clubs)
+      - Pistol
+      - Shotgun (far range)
+    3d:
+      - Rifle
+      - Shotgun (close range)
+    4d:
+      - Crew-fed weapons (machine gun)
+    "+2d":
+      note: "Quantum weapons add +2d"
+      types:
+        - Beam
+        - Plasma
+        - Monomolecular
+        - Vibro
+
+  blast_damage:
+    grenade_mortar:
+      close: 5d
+      far: 3d
+    rocket:
+      close: 8d
+      far: 4d
+    disintegration_grenade:
+      close: Death
+      far: 6d
+
+  damage_modifiers:
+    first_blood: "+1d"
+    melee:
+      str_9: "+1 per die"
+      str_12: "+2 per die"
+    autofire: "-1 per die"
+
+armor:
+  types:
+    cloth:
+      value: 1
+      situational:
+        vs_brawling: 2
+        vs_blasts: 2
+    mesh:
+      value: 1
+      situational:
+        vs_brawling: 2
+        vs_blades: 2
+    ballistic:
+      value: 1
+      situational:
+        vs_blasts: 2
+        vs_firearms: 3
+    power_armor:
+      value: 3
+      note: "Only 1 without Drive-1"
+    dislocation:
+      value: 2
+      situational:
+        vs_direct_ranged: 4
+
+healing:
+  not_bloodied:
+    rate: "1d6 HP per day"
+  bloodied:
+    rate: "1 HP per week"
+    note: "Until no longer bloodied"
+    requirement: "Formal medical care required to heal from bloodied"

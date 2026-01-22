@@ -1,0 +1,69 @@
+# Frontier Career
+# Source: references/careers2.pdf
+
+name: Frontier
+description: Scouts, explorers, colonists, prospectors, surveyors
+
+qualification:
+  attribute: END
+  target: 5
+
+leadership:
+  attribute: DEX
+  target: 7
+
+skills:
+  service:
+    1: Athletics
+    2: Firearms
+    3: Drive
+    4: Bushcraft
+    5: Mechanics
+    6: Zero-G
+
+  personal_development:
+    1: "+1 STR"
+    2: "+1 DEX"
+    3: "+1 END"
+    4: "+1 INT"
+    5: Stealth
+    6: Brawling
+
+  advanced_education:  # Requires EDU 8+
+    1: Animals
+    2: Medicine
+    3: Electronics
+    4: Sensors
+    5: Gunnery
+    6: Scout
+
+leadership_ranks:
+  1:
+    benefit: Athletics
+  2:
+    benefit: "+1 SOC"
+  3:
+    benefit: Mechanics
+  4:
+    benefit: "Stipend: 20 Cr/week"
+  5:
+    benefit: "+1 EDU"
+  6:
+    benefit: "+1 SOC"
+
+retirement:
+  cash:
+    2: 2000
+    3-5: 4000
+    6-8: 10000
+    9-11: 16000
+    12-14: 24000
+    15+: 35000
+
+  material:
+    1: Middle Passage
+    2: Weapon
+    3: "+1 INT"
+    4: "+1 EDU"
+    5: "+1 END"
+    6: Personal Vehicle

@@ -1,0 +1,9 @@
+I need your help creating a CLAUDE.md and README.md for this project I just started.
+
+I recently joined a table top role playing group as a player. The game master is running a custom system and the main channel of communication for handouts and resources is Discord. I downloaded all PDFs the GM has shared so far, and all markdown files (except next-prompt) are have file names that match channel names in the discord server, and I've copy/pasted the content directory from discord into the corresponding markdown file (so, take caution with formatting issues, the rich text did not transfer).
+
+For this project, I want to transform all relevant data out of the PDFs and markdowns into a format that will be easier for an AI assistant (like Claude Code) to navigate and retrieve data. From there, I'd like create a web app with a digital version of the character sheet. For the MVP it'll be a very simple/crude implementation of the character sheet that requires completely manual entry and no dynamic calculations. The MVP will also include a way to export or locally save the character sheet (e.g. browser's localStorage) for future reference and to create a stable of characters to choose from during a session. We will iteratively enhance it over time.
+
+Aside from the digital character sheet, the web app could also be enhanced to serve as a knowledge base of all rules and data for the campaign. A future enhancement might include a journal system to track notes for specific characters and the campaign/party overall.
+
+Does this make sense? Don't make assumptions at this stage, ask clarifying questions.

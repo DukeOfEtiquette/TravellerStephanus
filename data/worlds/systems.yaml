@@ -1,0 +1,353 @@
+# Inhabited Systems
+# Source: references/world-profiles.md, references/world-profiles-how-to.md
+
+# UWP Format: [Starport]-[Size][Atmo][Hydro]-[Pop][Law][Tech]
+# Starport: A (best) to X (none)
+# Size/Atmo/Hydro: Hex, 7 = Earth-like
+# Pop: Exponent (7 = tens of millions)
+# Law: 0 (anarchy) to F (totalitarian)
+# Tech: P (primitive), I (industrial), A (atomic), Q (quantum)
+
+systems:
+  - name: Spirelle
+    uwp: X-A66-4AI
+    starport: X
+    size: A      # Large
+    atmosphere: 6
+    hydrosphere: 6
+    population: 4  # Tens of thousands
+    law_level: A   # Very restrictive
+    tech_level: I  # Industrial
+    description: |
+      Little is known to outsiders about Spirelle, except that it is low-population
+      terran planet that orbits a dim red dwarf star. The people have developed a
+      famously xenophobic society that is strictly closed to outsiders for many centuries.
+      While Spirelle has no presence off-world, transiting ships can freely skim gas
+      from the system's five gas giants. The world vigorously protects its local region
+      with a dense shield of militarized satellites and missile defenses.
+
+  - name: Quiru
+    uwp: A-796-6BQ
+    starport: A
+    size: 7
+    atmosphere: 9  # Dense/tainted
+    hydrosphere: 6
+    population: 6  # Millions
+    law_level: B   # Very restrictive
+    tech_level: Q  # Quantum
+    description: |
+      Quiru is feared throughout the sector. The totalitarian government is highly
+      restrictive and aggressive. Quiru's oppressive policies gave rise to the Jade Front,
+      a decentralized group of freedom fighters (or terrorists) dedicated to overthrowing
+      the dominion of Quiru and Newhall in the Mora cluster. Quiru manufactures the most
+      advanced weapons in the entire sector, thanks to special, secret manufacturing techniques.
+
+      Quiru has affirmed a political alliance with Newhall over the last century, after
+      assisting Newhall in winning the Second Agretic War against Mora. The war showcased
+      the terrifying efficiency of Quiru's weapons and mercenaries.
+
+  - name: Newhall
+    uwp: A-B75-77Q
+    starport: A
+    size: B      # Very large
+    atmosphere: 7
+    hydrosphere: 5
+    population: 7  # Tens of millions
+    law_level: 7
+    tech_level: Q  # Quantum
+    description: |
+      Newhall is an enormous, rocky world blessed with incredible reserves of natural
+      resources, compounded by space mining opportunities in the rare chemical makeup
+      of the trinary star system (two blue supergiants and a yellow star). These
+      advantages have led Newhall to accumulate unprecedented wealth—and an imperialistic
+      attitude toward its neighbors. Newhall possesses the most expansive shipyards in
+      the sector, more vast than even Ith's, and the most advanced spacecraft,
+      technologically superior even to Mowebe's.
+
+  - name: Adabicci
+    uwp: C-647-86I
+    starport: C
+    size: 6
+    atmosphere: 4  # Thin, tainted
+    hydrosphere: 7
+    population: 8  # Hundreds of millions
+    law_level: 6
+    tech_level: I  # Industrial
+    description: |
+      Adabicci is famous for its extremely hedonistic culture. Perhaps the thin, tainted
+      atmosphere is to blame, or the endless days spent in fully subterranean megalopolises
+      away from the acidic oceans and rivers, but most Adabiccis are strongly focused on
+      presentist, sometimes nihilistic attachment to pleasure. This inwardness has led to
+      a rather detached attitude to fractious interstellar politics. Adabicci prefers to
+      be left alone.
+
+      Home to an extremely large foreign population thanks to lax immigration, low taxes,
+      no mandatory military service, and constant carnival-like vibes. Famous through the
+      sector for its pleasure circuses: "What happens on Adabicci stays on Adabicci."
+
+  - name: Mora
+    uwp: C-26A-9BQ
+    starport: C
+    size: 2      # Small
+    atmosphere: 6
+    hydrosphere: A  # Water world
+    population: 9  # Billions
+    law_level: B   # Very restrictive
+    tech_level: Q  # Quantum
+    description: |
+      Mora is a medium-sized water world with atypically weak gravity due to low-density
+      internal geology. Morans must wear powered exosuits on more typical planets but are
+      extremely adept in zero-g.
+
+      Nearly a billion people live in enormous, beautiful floating cities that circulate
+      with the planet's currents. Many billions more live on planetary outposts and space
+      habs, most on the huge manufactured ring structure orbiting Mora itself.
+
+      For nearly a millennium, Mora was the undisputed cultural hegemon in the cluster.
+      Following the Second Agretic War, its military, shipyards, and advanced spaceports
+      were destroyed by Newhall (with Quiru's assistance). Mora's ancient regal motif,
+      the Jade Throne, inspired the Jade Front's popular resistance. Mora remains a hotbed
+      of discontent against Quiru-Newhall.
+
+      Moran society is highly collectivist, to the point that outsiders have difficulty
+      understanding Moran ethical reasoning. Some scholars theorize this difference from
+      Newhall's individualistic culture underlies much of the historical competition.
+
+  - name: Tivid
+    uwp: C-4C1-73I
+    starport: C
+    size: 4
+    atmosphere: C  # Very dense/corrosive
+    hydrosphere: 1
+    population: 7  # Tens of millions
+    law_level: 3   # Low
+    tech_level: I  # Industrial
+    description: |
+      Tivid is an unimportant world that occupies a crucial strategic position in the
+      sector. The planet is an oppressive, venusian volcanic world with hardscrabble
+      frontier culture that, despite substantial population, has yet to fully outgrow
+      its origin as a long-independent colony of Quiru. Most live in huge, sealed,
+      partially subterranean cities.
+
+      The rest of the system is generally quiet and uninhabited, except for a significant
+      naval base maintained by Quiru between the system's two gas giants. The planet is
+      known for freewheeling, fiercely independent small governments—and a lack of reasons
+      for outsiders to visit.
+
+  - name: Thane
+    uwp: C-886-5CA
+    starport: C
+    size: 8
+    atmosphere: 8
+    hydrosphere: 6
+    population: 5  # Hundreds of thousands
+    law_level: C   # Extremely restrictive
+    tech_level: A  # Atomic
+    description: |
+      Thane is a particularly earth-like planet, though the dominant culture is highly
+      socially rigid, with individuals bound tightly into a brutal caste-based system.
+      The government practices strict control over procreation, artificially restricting
+      citizens to a few hundred thousand.
+
+      Outsiders' presence and movement is extremely regulated, with few beyond "guest
+      workers" permitted to even leave the spaceport—if they can even acquire a landing
+      permit. Despite this, Thane is home to highly advanced extraction industry, including
+      production of much of the exotic matter necessary for the cluster's atomic-era fusion
+      engineering, making Thane an indispensable trading partner.
+
+      Thane and Wal-ta-ka have historically been rivals, though the relationship has
+      thawed in recent decades.
+
+  - name: Wal-ta-ka
+    uwp: C-795-B5I
+    starport: C
+    size: 7
+    atmosphere: 9  # Dense
+    hydrosphere: 5
+    population: B  # Hundreds of billions
+    law_level: 5
+    tech_level: I  # Industrial
+    description: |
+      Wal-ta-ka is an extremely populous terran planet. Despite not yet achieving advanced
+      technology, it has used its wealth and massive industrial capacity to build a
+      significant military. The system is heavily developed, with multiple colonized
+      (but mostly not self-sufficient) outposts, including the holy monastery planet
+      of Lih-ta-ka, strictly off limits to outsiders.
+
+      The Ta-ka-ti are known as a belligerent, imperialistic presence, and their agents
+      are often suspected of espionage, infiltration, and sabotage. Despite the government's
+      poor reputation, Wal-ta-ka and its two large moons are home to numerous natural
+      wonders, boasting a large and lucrative tourism industry.
+
+  - name: Karabeth
+    uwp: X-4A3-A7P
+    starport: X
+    size: 4
+    atmosphere: A  # Dense/unusual
+    hydrosphere: 3
+    population: A  # Tens of billions
+    law_level: 7
+    tech_level: P  # Primitive
+    description: |
+      The Karabeth system is little more than a transit point to more relevant
+      civilizations. Karabeth itself is a small, sweltering jungle moon orbiting the
+      sixth of seven massive gas giants—and one brown dwarf—in the binary system.
+      The planet is peopled by a primitive civilization organized into huge city-states,
+      each home to hundreds of millions of souls.
+
+  - name: Maitz
+    uwp: D-563-36I
+    starport: D
+    size: 5
+    atmosphere: 6
+    hydrosphere: 3
+    population: 3  # Thousands
+    law_level: 6
+    tech_level: I  # Industrial
+    description: |
+      Already an arid, martian world, Maitz seems to be a planet in terminal decline
+      following centuries of climate change that decimated the hydrosphere. Terraforming
+      efforts largely failed to staunch runaway desertification. The population is now
+      extremely low, just a few thousand destitute individuals, criminals, and outcasts
+      living in ghost cities of a previously glorious culture.
+
+      Aside from treasure hunters and relic pickers, Maitz no longer features any economic
+      activity, and its infrastructure has fallen into ruin. According to folklore,
+      civilization in the sector started on Maitz before spreading throughout the cluster.
+
+  - name: Jokotre
+    uwp: C-9B7-46I
+    starport: C
+    size: 9      # Large
+    atmosphere: B  # Corrosive
+    hydrosphere: 7
+    population: 4  # Tens of thousands
+    law_level: 6
+    tech_level: I  # Industrial
+    description: |
+      Jokotre is a large, wet planet constantly shrouded in thick, alkaline clouds.
+      The jaundiced atmosphere makes typical agriculture difficult, so Jokotrians rely
+      on advanced hydroponics. The planet is largely uninhabited except for a few
+      frontier cities centered around extraction industries, especially rare aquatic
+      delicacies.
+
+  - name: Ith
+    uwp: A-673-C9Q
+    starport: A
+    size: 6
+    atmosphere: 7
+    hydrosphere: 3
+    population: C  # Trillions
+    law_level: 9
+    tech_level: Q  # Quantum
+    description: |
+      A generally arid planet, Ith sports a massive population of trillions. Known for
+      highly advanced technology and influential culture in the region, with most
+      diplomats learning Ith as the prestige language. Iths have developed an adventurous,
+      energetic culture of starfaring and colonization. Ith trades peacefully with
+      Stoyben, and over the last hundred years the two polities have drawn closer.
+
+  - name: Stoyben
+    uwp: B-457-C5I
+    starport: B
+    size: 4
+    atmosphere: 5  # Thin
+    hydrosphere: 7
+    population: C  # Trillions
+    law_level: 5
+    tech_level: I  # Industrial
+    description: |
+      Despite its wet (mostly icy) climate, the Stoyben system is home to a massive
+      population. Hundreds of billions live on the planet's frigid surface, while
+      trillions more live in permanent orbital habitats throughout the system. Due to
+      the slight gravity, Stoybeni are tall and slender, and their architecture can be
+      uncomfortable for more compact humanoids. Stoyben's laissez faire culture makes
+      it a popular system for traders throughout the sector.
+
+  - name: Ugrik
+    uwp: D-466-4AI
+    starport: D
+    size: 4
+    atmosphere: 6
+    hydrosphere: 6
+    population: 4  # Tens of thousands
+    law_level: A   # Very restrictive
+    tech_level: I  # Industrial
+    description: |
+      Ugrik is a small, cold, depopulated world with a highly insular, religious society
+      ruled by a council of clerics, the Convocation. Independent asteroid miners work
+      highly productive fields in the system's four asteroid fields for gallium, beryllium,
+      cobalt, and rare upper-table elements. Ugricyi colonies are present throughout
+      the system.
+
+  - name: Atsah
+    uwp: C-377-86I
+    starport: C
+    size: 3
+    atmosphere: 7
+    hydrosphere: 7
+    population: 8  # Hundreds of millions
+    law_level: 6
+    tech_level: I  # Industrial
+    description: |
+      A modest, Earth-like moon around a gas giant, Atsah was a massive terraforming
+      success for Mowebean scientists. Now long independent, Atsah possesses especially
+      advanced agricultural technology and productivity. Atsahn steak and blue yak milk
+      are favored delicacies on several planets.
+
+      Atsah has developed a relatively pacifistic, decentralized, regionalized system
+      of government, and remains culturally (even if no longer politically) aligned
+      with Mowebe.
+
+  - name: Mowebe
+    uwp: A-769-36A
+    starport: A
+    size: 7
+    atmosphere: 6
+    hydrosphere: 9
+    population: 3  # Thousands (on planet)
+    law_level: 6
+    tech_level: A  # Atomic
+    description: |
+      A water world of advanced starfarers. The vast majority of Mowebe's citizens live
+      in diaspora throughout the sector, many on permanent, roving trade cities composed
+      of ad hoc collections of smaller modular space stations and spacecraft.
+
+      Mowebean orbital shipyards produce most of the ships in the sector, rivalled only
+      by those of Ith and Newhall. Jewelry and fine art produced on Mowebe are highly
+      sought after throughout the cluster. Mowebe is a luxury tourist destination famed
+      for its beaches and underwater resorts.
+
+# UWP Reference
+uwp_reference:
+  starport:
+    A: "Can build ships, make major repairs, refined fuel"
+    B: "Can make major repairs, refined fuel"
+    C: "Can make minor repairs, refined fuel"
+    D: "Can make minor repairs, unrefined fuel only"
+    X: "No maintenance capacity, no fuel"
+
+  tech_level:
+    P: "Primitive (stone age to pre-industrial)"
+    I: "Industrial (18th-20th century equivalent)"
+    A: "Atomic (fusion-powered, highly electrified, information-driven)"
+    Q: "Quantum (appears like magic, can build jump drives, reality-warping weapons)"
+
+  population_scale:
+    1: "Tens"
+    2: "Hundreds"
+    3: "Thousands"
+    4: "Tens of thousands"
+    5: "Hundreds of thousands"
+    6: "Millions"
+    7: "Tens of millions"
+    8: "Hundreds of millions"
+    9: "Billions"
+    A: "Tens of billions"
+    B: "Hundreds of billions"
+    C: "Trillions"
+
+  fuel_notes:
+    refined: "Available at A, B, C starports"
+    unrefined: "Available at C, D starports, or skimmed from gas giants"
+    unrefined_risk: "Can cause damage to jump drive with repeated use"

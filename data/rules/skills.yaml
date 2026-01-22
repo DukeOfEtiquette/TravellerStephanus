@@ -1,0 +1,219 @@
+# Skills Reference
+# Source: Compiled from career tables in references/careers1.pdf, references/careers2.pdf
+
+# Expertise ranks: 1 = full occupational competency, 3 = expert specialist
+# Each rank adds +1 to relevant throws
+
+skills:
+  # Combat Skills
+  - id: firearms
+    name: Firearms
+    category: Combat
+    description: Proficiency with pistols, rifles, shotguns
+    careers: [Military, Frontier, Drifter]
+
+  - id: heavy_weapons
+    name: Heavy Weapons
+    category: Combat
+    description: Crew-fed weapons, mortars, rockets
+    attribute_bonus: "+2 for INT 10+"
+    careers: [Military, Drifter]
+
+  - id: gunnery
+    name: Gunnery
+    category: Combat
+    description: Vehicle and ship-mounted weapons
+    careers: [Military, Frontier]
+
+  - id: blades
+    name: Blades
+    category: Combat
+    description: Knives, swords, melee weapons
+    attribute_bonus: "+1 for DEX 9, +2 for DEX 12"
+    careers: [Military, Mercantile, Noble, Drifter, Psion]
+
+  - id: brawling
+    name: Brawling
+    category: Combat
+    description: Unarmed combat, hand-to-hand
+    attribute_bonus: "+1 for DEX 9, +2 for DEX 12"
+    careers: [Military, Frontier, Drifter]
+
+  - id: tactics
+    name: Tactics
+    category: Combat
+    description: Military strategy and battlefield coordination
+    careers: [Military]
+
+  # Vehicle/Transport Skills
+  - id: pilot
+    name: Pilot
+    category: Vehicle
+    description: Operating spacecraft and aircraft
+    careers: [Military, Mercantile, Frontier, Noble, Drifter]
+
+  - id: drive
+    name: Drive
+    category: Vehicle
+    description: Ground vehicles, grav vehicles, power armor
+    careers: [Military, Frontier, Drifter]
+
+  - id: zero_g
+    name: Zero-G
+    category: Vehicle
+    description: Maneuvering in microgravity environments
+    careers: [Military, Frontier, Drifter]
+
+  # Technical Skills
+  - id: mechanics
+    name: Mechanics
+    category: Technical
+    description: Repair and maintenance of machines and vehicles
+    careers: [Military, Frontier, Drifter]
+
+  - id: electronics
+    name: Electronics
+    category: Technical
+    description: Computers, communications, electronic systems
+    careers: [Mercantile, Frontier, Noble, Drifter, Psion]
+
+  - id: sensors
+    name: Sensors
+    category: Technical
+    description: Operating detection and scanning equipment
+    careers: [Mercantile, Frontier, Drifter]
+
+  - id: navigation
+    name: Navigation
+    category: Technical
+    description: Plotting courses, astrogation, pathfinding
+    careers: [Military, Mercantile, Noble, Drifter]
+
+  # Exploration Skills
+  - id: scout
+    name: Scout
+    category: Exploration
+    description: Reconnaissance, surveying, pathfinding
+    careers: [Military, Frontier, Psion]
+
+  - id: bushcraft
+    name: Bushcraft
+    category: Exploration
+    description: Survival, tracking, wilderness skills
+    careers: [Frontier, Drifter]
+
+  - id: animals
+    name: Animals
+    category: Exploration
+    description: Handling, riding, training animals
+    careers: [Frontier, Drifter]
+
+  - id: athletics
+    name: Athletics
+    category: Exploration
+    description: Running, climbing, swimming, physical feats
+    careers: [Military, Frontier, Noble, Drifter, Psion]
+
+  # Social Skills
+  - id: broker
+    name: Broker
+    category: Social
+    description: Negotiating trades, evaluating goods
+    careers: [Mercantile, Noble, Drifter]
+
+  - id: carousing
+    name: Carousing
+    category: Social
+    description: Socializing, gathering information informally
+    careers: [Mercantile, Noble, Drifter]
+
+  - id: diplomacy
+    name: Diplomacy
+    category: Social
+    description: Formal negotiation, representing interests
+    careers: [Mercantile, Noble, Psion]
+
+  - id: bureaucracy
+    name: Bureaucracy
+    category: Social
+    description: Navigating organizations, paperwork, regulations
+    careers: [Mercantile, Noble, Drifter]
+
+  - id: streetwise
+    name: Streetwise
+    category: Social
+    description: Urban survival, criminal contacts, black markets
+    careers: [Mercantile, Drifter]
+
+  - id: steward
+    name: Steward
+    category: Social
+    description: Hospitality, passenger care, service industry
+    careers: [Mercantile, Noble, Drifter]
+
+  - id: performer
+    name: Performer
+    category: Social
+    description: Entertainment, art, public speaking
+    careers: [Mercantile, Noble, Drifter, Psion]
+
+  # Covert Skills
+  - id: stealth
+    name: Stealth
+    category: Covert
+    description: Moving unseen, hiding, ambush
+    careers: [Frontier, Drifter, Psion]
+
+  - id: subterfuge
+    name: Subterfuge
+    category: Covert
+    description: Deception, disguise, sleight of hand
+    careers: [Noble, Drifter, Psion]
+
+  - id: investigation
+    name: Investigation
+    category: Covert
+    description: Research, forensics, finding clues
+    careers: [Military, Mercantile, Noble, Drifter]
+
+  # Professional Skills
+  - id: medicine
+    name: Medicine
+    category: Professional
+    description: Medical treatment, surgery, pharmaceuticals
+    careers: [Military, Mercantile, Frontier, Noble, Drifter]
+
+  # Psychic Skills (Psion only)
+  - id: hypercognition
+    name: Hypercognition
+    category: Psychic
+    description: Enhanced mental processing, precognition
+    careers: [Psion]
+
+  - id: translocation
+    name: Translocation
+    category: Psychic
+    description: Teleportation, spatial manipulation
+    careers: [Psion]
+
+  - id: telekinesis
+    name: Telekinesis
+    category: Psychic
+    description: Moving objects with the mind
+    careers: [Psion]
+
+  - id: biogenesis
+    name: Biogenesis
+    category: Psychic
+    description: Healing, biological manipulation
+    careers: [Psion]
+
+categories:
+  - Combat
+  - Vehicle
+  - Technical
+  - Exploration
+  - Social
+  - Covert
+  - Professional
+  - Psychic

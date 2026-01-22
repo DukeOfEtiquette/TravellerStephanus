@@ -1,0 +1,174 @@
+# Character Creation Rules
+# Source: references/chargen.pdf
+
+# Step 1: Attributes
+attributes:
+  list:
+    - id: STR
+      name: Strength
+      description: Muscle and brawn
+    - id: DEX
+      name: Dexterity
+      description: Speed and coordination
+    - id: END
+      name: Endurance
+      description: Hardiness and stamina
+    - id: INT
+      name: Intelligence
+      description: Quick wits and lateral thinking
+    - id: EDU
+      name: Education
+      description: Formal knowledge and memory
+    - id: SOC
+      name: Social Standing
+      description: Social class and rank
+    - id: PSI
+      name: Psionic Strength
+      description: Psychic power (only if psychic talent)
+
+  generation: "Roll 2d6 for each attribute, in order (down the line)"
+
+  chargen_modifiers:
+    2: -2
+    3: -1
+    4: -1
+    5: -1
+    6: 0
+    7: 0
+    8: 0
+    9: +1
+    10: +1
+    11: +1
+    12: +2
+
+# Step 2: Background
+background:
+  homeworld:
+    roll: 1d10
+    modifier: SOC chargen modifier
+    results:
+      1-2: Agricultural
+      3-4: Fringe
+      5-6: Spacer
+      7-9: Industrial
+      10+: High Culture
+
+  schooling:
+    roll: 1d10
+    modifier: "SOC chargen modifier x2 (double)"
+    results:
+      1-2: The Streets
+      3-4: Apprenticeship
+      5-6: Military Academy
+      7-9: University
+      10+: Finishing School
+
+  psychic_talent:
+    roll: 2d6
+    target: 12+
+    modifier: INT chargen modifier
+    note: "If successful, character gains PSI attribute and may enter Psion career"
+
+# Step 3: Terms
+terms:
+  total_terms:
+    roll: 2d6
+    results:
+      2-3: 3
+      4-6: 4
+      7-10: 5
+      11-12: 6
+
+  careers_per_character:
+    method: "Roll 1d6 for first career length. If less than total terms, roll again for subsequent careers."
+    note: "Continue until all terms are allocated"
+
+  term_length:
+    standard: 4  # years
+    drifter: 6   # years
+
+# Step 4: Career Procedure
+career_procedure:
+  entering:
+    method: "Roll 2d6 + attribute modifier vs qualification target"
+    failure_options:
+      - "Once per character: Be drafted into Military, Mercantile, or Frontier"
+      - "Otherwise: Must join Drifter"
+
+  basic_training:
+    standard: "Roll twice on Service Skills chart"
+    drifter: "Roll twice on ONE chart of your choice"
+    note: "Only for first career"
+
+  training:
+    method: "For each term, roll once on a chart of your choice"
+    advanced_education: "Requires EDU 8+"
+
+  special_assignment:
+    roll: 2d6
+    target: 7+
+    benefit: "Gain additional expertise or attribute improvement"
+    note: "Roll once per term"
+
+  leadership_rank:
+    method: "Roll 2d6 + attribute modifier for each term"
+    success: "Improve leadership rank by one"
+    benefits: "Gain benefits for ALL ranks achieved"
+    drifter_note: "Drifters do not check for leadership. Instead, roll for Specials."
+
+  retirement:
+    cash:
+      roll: 2d6
+      modifier: "Add leadership rank"
+      note: "Roll once per career"
+    material:
+      roll: 1d6
+      times: "Once per term + once per leadership rank"
+
+# Step 5: Additional Careers
+additional_careers:
+  note: "Repeat career procedure, but do NOT gain basic training"
+
+# Step 6: Age and Aging
+age:
+  calculation: "18 + (4 × standard terms) + (6 × drifter terms)"
+
+  aging:
+    trigger: "If total terms >= 4"
+    roll: 1d6
+    per: "Each term from 4th onward"
+    results:
+      1-3: "-1 from random one of STR, DEX, END"
+      4-5: "-1 from random two of STR, DEX, END, INT"
+      6: "-1 from random three of STR, DEX, END, INT"
+
+# Step 7: Hit Protection
+hit_protection:
+  total: "STR + DEX + END"
+  bloodied: "2/3 of total (rounded normally)"
+  note: "Bloodied threshold requires medical care to heal past"
+
+# Step 8: Equipment
+equipment:
+  material_benefits:
+    weapon: "Choose any non-quantum weapon"
+    quantum_weapon: "Choose any weapon including quantum"
+    armor: "Choose any non-quantum armor"
+    quantum_armor: "Choose any armor including quantum"
+
+  personal_vehicles:
+    one_pick:
+      - "Ground Car (2 tons)"
+      - "Grav Bike (1 ton)"
+      - "Power Loader (1 ton)"
+    two_picks:
+      - "Militarized Ground Car (4 tons)"
+      - "Grav Car (2 tons)"
+    three_picks:
+      - "Militarized Grav Car (4 tons)"
+      - "Shuttlecraft (10 tons)"
+
+  sabbatical:
+    cost: 50000
+    duration: "2 years"
+    benefit: "Gain Expertise-1 in any skill of your choice"

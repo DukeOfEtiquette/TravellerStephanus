@@ -1,0 +1,73 @@
+# Psion Career
+# Source: references/careers2.pdf
+
+name: Psion
+description: Psychics, telepaths, those with psionic abilities
+
+qualification:
+  attribute: INT
+  target: 5
+
+leadership:
+  attribute: INT
+  target: 8
+
+# Note: Requires psychic talent (throw 12+ with INT modifier during character creation)
+
+skills:
+  psychic:
+    1: Hypercognition
+    2: Translocation
+    3: Telekinesis
+    4: Biogenesis
+    5: "[Choose one above]"
+    6: "[Choose one above]"
+
+  personal_development:
+    1: "+1 END"
+    2: "+1 INT"
+    3: "+1 EDU"
+    4: Subterfuge
+    5: Athletics
+    6: Blades
+
+  advanced_education:  # Requires EDU 8+
+    1: Scout
+    2: Stealth
+    3: Electronics
+    4: Performer
+    5: Subterfuge
+    6: Diplomacy
+
+leadership_ranks:
+  1:
+    benefit: "+1 PSI"
+  2:
+    benefit: "+1 PSI"
+  3:
+    benefit: "+1 PSI"
+  4:
+    benefit: "+1 SOC"
+  5:
+    benefit: "+1 PSI"
+  6:
+    benefit: "+1 SOC"
+
+retirement:
+  cash:
+    2: 2000
+    3-5: 10000
+    6-8: 16000
+    9-11: 22000
+    12-14: 30000
+    15+: 45000
+
+  material:
+    # Note: PDF layout ambiguous, positions 2/4 both show "Weapon"
+    # and position 5 shows both "+1 EDU" and "+1 PSI" - verify with GM
+    1: Middle Passage
+    2: Weapon
+    3: "+1 INT"
+    4: Weapon
+    5: "+1 EDU"
+    6: "+1 PSI"

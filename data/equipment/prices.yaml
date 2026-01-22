@@ -1,0 +1,309 @@
+# Traveller Stephanus Price Guide
+# Source: https://smparkin.com/games/ctrav/prices
+
+economics:
+  living_expenses:
+    - name: Ordinary Lifestyle
+      cost: 100
+      unit: Cr/week
+      annual: 5200
+    - name: High Lifestyle
+      cost: 200
+      unit: Cr/week
+      annual: 10400
+
+  starship_operations:
+    life_support:
+      - name: Stateroom
+        cost: 500
+        unit: Cr/week
+        note: When underway
+      - name: Low Berth
+        cost: 100
+        unit: Cr/week
+        note: When underway
+
+    fuel:
+      - name: Conventional Fuel
+        cost: 100
+        unit: Cr/week per 100 tons displacement
+      - name: Refined Jump Fuel
+        cost: 20000
+        unit: Cr/jump
+      - name: Unrefined Jump Fuel
+        cost: 10000
+        unit: Cr/jump
+
+    port_and_maintenance:
+      - name: Docking (first week)
+        cost: 100
+        unit: Cr/week
+      - name: Docking (additional weeks)
+        cost: 100
+        unit: Cr/week additional
+        note: Cumulative increase per week
+      - name: Annual Maintenance
+        cost: 50000
+        unit: Cr/year
+
+    crew_salaries:
+      - skill_level: 1
+        cost: 200
+        unit: Cr/week
+      - skill_level: 2
+        cost: 400
+        unit: Cr/week
+      - skill_level: 3
+        cost: 800
+        unit: Cr/week
+      - skill_level: 4
+        cost: 1600
+        unit: Cr/week
+
+services:
+  staff_wages:
+    - name: Unskilled
+      cost: 100
+      unit: Cr/week
+    - name: Skill-1
+      cost: 200
+      unit: Cr/week
+    - name: Skill-2
+      cost: 400
+      unit: Cr/week
+    - name: Skill-3
+      cost: 800
+      unit: Cr/week
+    - name: Skill-4
+      cost: 1600
+      unit: Cr/week
+
+  delivery:
+    - name: Local Parcel
+      cost_min: 5
+      cost_max: 10
+      unit: Cr
+    - name: Intrasystem
+      cost_min: 15
+      cost_max: 40
+      unit: Cr
+    - name: Interstellar
+      cost_min: 50
+      cost_max: 100
+      unit: Cr/parsec
+
+travel:
+  passage:
+    - name: Low Passage
+      cost: 1000
+      unit: Cr/jump
+      note: Cryogenic freezer, risky
+    - name: Middle Passage
+      cost: 8000
+      unit: Cr/jump
+      note: Stateroom, shared
+    - name: High Passage
+      cost: 10000
+      unit: Cr/jump
+      note: Stateroom, private with amenities
+
+  navigation:
+    - name: Jump Cassette
+      cost: 1000
+      unit: Cr/parsec
+      note: Pre-computed navigation data
+    - name: Fuel Pods
+      cost_multiplier: 2
+      note: Double standard fuel cost
+    - name: Intrasystem Transit
+      cost_min: 75
+      cost_max: 100
+      unit: Cr
+    - name: Shuttle Charter
+      cost: 20
+      unit: Cr/hour
+
+weapons:
+  hand_weapons:
+    - name: Standard Hand Weapon
+      cost_min: 10
+      cost_max: 50
+      unit: Cr
+      damage: 1d
+      note: Blades, clubs, improvised
+    - name: Quantum Hand Weapon
+      cost: 2000
+      unit: Cr
+      damage: 3d
+      note: Monomolecular, vibro
+
+  firearms:
+    - name: Basic Firearm
+      cost: 100
+      unit: Cr
+      damage: 2d (pistol), 3d (rifle)
+    - name: Automatic Upgrade
+      cost: 50
+      unit: Cr additional
+      note: Adds autofire capability
+    - name: Shotgun
+      cost: 100
+      unit: Cr
+      damage: 2d (far), 3d (close)
+    - name: Atomic Laser
+      cost: 800
+      unit: Cr
+      damage: 4d
+    - name: Quantum Beam Weapon
+      cost: 3500
+      unit: Cr
+      damage: 4d+2d
+    - name: Ammunition
+      cost_ratio: 0.1
+      note: 1/10 weapon cost
+
+  ordnance:
+    - name: Grenade
+      cost: 20
+      unit: Cr
+      damage: 5d/3d (close/far)
+    - name: Explosive Charge
+      cost: 30
+      unit: Cr
+    - name: Rocket
+      cost: 250
+      unit: Cr each
+      damage: 8d/4d (close/far)
+    - name: Flamer
+      cost: 400
+      unit: Cr
+      ammo_cost: 50
+    - name: Mortar
+      cost: 100
+      unit: Cr
+      shell_cost: 100
+      damage: 5d/3d (close/far)
+    - name: Crew-Fed Gun
+      cost_min: 1000
+      cost_max: 3000
+      unit: Cr
+      damage: 4d
+      ammo_cost: 400
+      note: Machine gun, etc.
+
+armor:
+  - name: Cloth
+    cost: 100
+    unit: Cr
+    value: 1
+    situational: "2 vs brawling, blasts"
+  - name: Mesh
+    cost: 100
+    unit: Cr
+    value: 1
+    situational: "2 vs brawling, blades"
+  - name: Ballistic Vest/Plates
+    cost: 400
+    unit: Cr
+    value: 1
+    situational: "2 vs blasts, 3 vs firearms"
+  - name: Ballistic Advanced Fabric
+    cost: 1500
+    unit: Cr
+    value: 1
+    situational: "2 vs blasts, 3 vs firearms"
+  - name: Reflective
+    cost: 800
+    unit: Cr
+    note: Anti-laser
+  - name: Power Armor
+    cost: 4000
+    unit: Cr
+    value: 3
+    situational: "Only 1 without Drive-1"
+  - name: Dislocation
+    cost: 3000
+    unit: Cr
+    value: 2
+    situational: "4 vs direct ranged attacks"
+
+equipment:
+  general:
+    - name: Mundane Tool
+      cost: 10
+      unit: Cr
+      note: Approximate
+    - name: High-Tech Tool
+      cost: 50
+      unit: Cr
+      note: Approximate
+    - name: Vacc Suit
+      cost: 600
+      unit: Cr
+
+  electronics:
+    - name: Computer
+      cost: 400
+      unit: Cr
+    - name: Communicator
+      cost: 100
+      unit: Cr
+    - name: Professional Toolkit
+      cost: 1000
+      unit: Cr
+      note: Medical, mechanical, electronics, etc.
+
+  drugs:
+    - name: Medical Drugs
+      cost: 15
+      unit: Cr
+      note: Standard pharmaceuticals
+    - name: Combat/High-Tech Drugs
+      cost: 100
+      unit: Cr
+      note: Performance enhancers, advanced medicine
+
+vehicles:
+  - name: Wheeled/Treaded Vehicle
+    cost_min: 2000
+    cost_max: 3000
+    unit: Cr
+    tonnage: 2
+  - name: Speeder Bike
+    cost: 4000
+    unit: Cr
+    tonnage: 1
+    note: Grav Bike
+  - name: Grav Car
+    cost: 6000
+    unit: Cr
+    tonnage: 2
+  - name: Shuttlecraft
+    cost: 25000
+    unit: Cr
+    tonnage: 10
+
+robots:
+  - name: Cargo Robot
+    cost: 2000
+    unit: Cr
+  - name: Repair Robot
+    cost: 2000
+    unit: Cr
+  - name: Personal Robot
+    cost: 2000
+    unit: Cr
+  - name: Probe Droid
+    cost: 4000
+    unit: Cr
+  - name: Robodoc
+    cost: 8000
+    unit: Cr
+    note: Medical robot
+  - name: Combat Robot
+    cost: 15000
+    unit: Cr
+  - name: Lazarus Pod
+    cost: 30000
+    unit: Cr
+    note: Emergency medical/resurrection system

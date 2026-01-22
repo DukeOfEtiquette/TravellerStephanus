@@ -1,0 +1,69 @@
+# Noble Career
+# Source: references/careers2.pdf
+
+name: Noble
+description: Aristocrats, politicians, diplomats, socialites
+
+qualification:
+  attribute: SOC
+  target: 8
+
+leadership:
+  attribute: EDU
+  target: 8
+
+skills:
+  service:
+    1: Diplomacy
+    2: Carousing
+    3: Performer
+    4: Bureaucracy
+    5: Blades
+    6: Subterfuge
+
+  personal_development:
+    1: "+1 STR"
+    2: "+1 DEX"
+    3: "+1 INT"
+    4: "+1 EDU"
+    5: Investigation
+    6: Athletics
+
+  advanced_education:  # Requires EDU 8+
+    1: Pilot
+    2: Electronics
+    3: Navigation
+    4: Broker
+    5: Medicine
+    6: Steward
+
+leadership_ranks:
+  1:
+    benefit: Carousing
+  2:
+    benefit: "Stipend: 20 Cr/week"
+  3:
+    benefit: Bureaucracy
+  4:
+    benefit: "+1 EDU"
+  5:
+    benefit: "Stipend: 20 Cr/week"
+  6:
+    benefit: "+1 SOC"
+
+retirement:
+  cash:
+    2: 20000
+    3-5: 25000
+    6-8: 30000
+    9-11: 40000
+    12-14: 55000
+    15+: 75000
+
+  material:
+    1: "Stipend (50 Cr/week)"
+    2: "Stipend (100 Cr/week)"
+    3: High Passage
+    4: Personal Vehicle
+    5: "+1 SOC"
+    6: "+1 EDU"

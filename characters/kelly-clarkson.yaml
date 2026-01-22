@@ -262,9 +262,31 @@ final:
     weapons: [Rifle, Pistol, Shotgun, Survival Knife]
     vehicles: [Grav Bike]
 
+  backstory:
+    birthplace: Atsah
+    birthplace_notes: |
+      Earth-like agricultural moon orbiting a gas giant. Known for advanced
+      farming technology, Atsahn steak, and blue yak milk. Pacifistic,
+      decentralized society. Kelly grew up on a ranch, first in her family
+      to leave the moon.
+
+    university: Ith
+    university_notes: |
+      Most populous world in the sector (trillions). Quantum-level technology,
+      influential culture, prestige language for diplomats. Kelly won a
+      scholarship — a huge achievement for a farm kid from Atsah. The culture
+      shock was overwhelming: quiet rural moon to bustling mega-civilization.
+
   notes: |
-    Farm kid from an agricultural world, first in family to attend university.
-    Felt out of place in both rural and urban settings. Joined Frontier rescue
-    services to stay mobile. 16 years as a rescue operator, became expert in
-    electronics (distress beacons, scanners). Recruited by military special ops
-    for extraction support. Now 38, experienced, and ready for adventure.
+    Kelly Clarkson grew up raising blue yaks on an Atsahn ranch. Bright and
+    restless, she won a scholarship to university on Ith — the cultural and
+    technological center of the sector. She excelled academically but never
+    fit in among trillions of urbanites. Too educated to return to the farm,
+    too rural for Ith's crowds, she joined Frontier rescue services to stay
+    mobile and useful.
+
+    16 years as a rescue operator made her an expert in electronics — finding
+    distress beacons, scanning for life signs, tracking survivors through
+    wilderness. Her reputation caught the attention of military special ops,
+    who recruited her for covert extraction support. After one term, she
+    mustered out at 38: experienced, well-equipped, and ready for adventure.

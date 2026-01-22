@@ -1,8 +1,17 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { characters } from '$lib/stores/characters';
+	import { createEmptyCharacter } from '$lib/types';
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
 
 	let { children } = $props();
+
+	function createNewCharacter() {
+		const newCharacter = createEmptyCharacter();
+		characters.add(newCharacter);
+		goto(`/character/${newCharacter.id}`);
+	}
 </script>
 
 <svelte:head>
@@ -18,9 +27,12 @@
 			</a>
 			<div class="flex gap-4">
 				<a href="/" class="text-gray-300 hover:text-white">Characters</a>
-				<a href="/character/new" class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded">
+				<button
+					onclick={createNewCharacter}
+					class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded"
+				>
 					New Character
-				</a>
+				</button>
 			</div>
 		</div>
 	</nav>

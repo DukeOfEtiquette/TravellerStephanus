@@ -1,19 +1,84 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { characters } from '$lib/stores/characters';
+	import { createEmptyCharacter } from '$lib/types';
+
+	let fileInput: HTMLInputElement;
+
+	function createNewCharacter() {
+		const newCharacter = createEmptyCharacter();
+		characters.add(newCharacter);
+		goto(`/character/${newCharacter.id}`);
+	}
+
+	function exportCharacters() {
+		const data = characters.exportAll();
+		const blob = new Blob([data], { type: 'application/json' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'traveller-characters.json';
+		a.click();
+		URL.revokeObjectURL(url);
+	}
+
+	function handleImport(event: Event) {
+		const input = event.target as HTMLInputElement;
+		const file = input.files?.[0];
+		if (!file) return;
+
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			const content = e.target?.result as string;
+			if (characters.importAll(content)) {
+				alert('Characters imported successfully!');
+			} else {
+				alert('Failed to import characters. Invalid file format.');
+			}
+		};
+		reader.readAsText(file);
+		input.value = '';
+	}
 </script>
 
+<input
+	type="file"
+	accept=".json"
+	bind:this={fileInput}
+	onchange={handleImport}
+	class="hidden"
+/>
+
 <div class="space-y-6">
-	<h1 class="text-2xl font-bold text-amber-400">Your Characters</h1>
+	<div class="flex items-center justify-between">
+		<h1 class="text-2xl font-bold text-amber-400">Your Characters</h1>
+		<div class="flex gap-2">
+			<button
+				onclick={() => fileInput.click()}
+				class="text-sm bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded"
+			>
+				Import
+			</button>
+			{#if $characters.length > 0}
+				<button
+					onclick={exportCharacters}
+					class="text-sm bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded"
+				>
+					Export
+				</button>
+			{/if}
+		</div>
+	</div>
 
 	{#if $characters.length === 0}
 		<div class="bg-gray-800 rounded-lg p-8 text-center">
 			<p class="text-gray-400 mb-4">No characters yet.</p>
-			<a
-				href="/character/new"
-				class="inline-block bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded"
+			<button
+				onclick={createNewCharacter}
+				class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded"
 			>
 				Create Your First Character
-			</a>
+			</button>
 		</div>
 	{:else}
 		<div class="grid gap-4">

@@ -1,5 +1,7 @@
 # Traveller Stephanus - Claude Code Guide
 
+> **IMPORTANT**: Do NOT read files from `references/` unless explicitly instructed by the user. All game data has been extracted into structured YAML files in `data/`. Use those instead.
+
 ## Project Overview
 
 This is a companion web app for a tabletop RPG campaign using **Traveller Stephanus**, a custom variant of Classic Traveller. The project serves two purposes:
@@ -216,15 +218,16 @@ career:
 
 ## Querying Campaign Data
 
-When helping with rules questions, reference:
+When helping with rules questions, use the structured data files in `data/`:
 
-- **Combat rules**: `references/system-fundamentals.md` lines 27-32, `references/chargen.pdf` page 4
-- **Throws/skills**: `references/system-fundamentals.md` lines 12-17
-- **Character creation**: `references/chargen.pdf` pages 1-3
-- **Career tables**: `references/careers1.pdf` (Military, Mercantile), `references/careers2.pdf` (Frontier, Noble, Drifter, Psion)
-- **World info**: `references/world-profiles.md` for descriptions, `references/world-profiles-how-to.md` for UWP format
-- **Setting context**: `references/settings-fundamentals.md`
-- **Prices/equipment**: https://smparkin.com/games/ctrav/prices
+- **Character creation**: `data/rules/character-creation.yaml`
+- **Combat rules**: `data/rules/combat.yaml`
+- **Skills**: `data/rules/skills.yaml`
+- **Career tables**: `data/careers/*.yaml` (military, mercantile, frontier, noble, drifter, psion)
+- **World info**: `data/worlds/systems.yaml`
+- **Prices/equipment**: `data/equipment/prices.yaml`
+
+> Do NOT use `references/` - those are raw source files. All data has been extracted into `data/`.
 
 ## Notes
 

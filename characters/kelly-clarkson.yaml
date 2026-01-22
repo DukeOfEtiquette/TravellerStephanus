@@ -1,0 +1,270 @@
+# Kelly Clarkson - Character Creation Log
+# Traveller Stephanus
+
+name: Kelly Clarkson
+created: 2026-01-21
+
+# =============================================================================
+# STEP 1: ATTRIBUTES (roll 2d6 x6, in order)
+# =============================================================================
+attributes:
+  rolls: [4, 8, 9, 7, 8, 5]
+  result:
+    STR: 4  # modifier: -1
+    DEX: 8  # modifier: 0
+    END: 9  # modifier: +1
+    INT: 7  # modifier: 0
+    EDU: 8  # modifier: 0
+    SOC: 5  # modifier: -1
+
+# =============================================================================
+# STEP 2: BACKGROUND
+# =============================================================================
+background:
+  homeworld:
+    roll: 2
+    modifier: -1  # SOC modifier
+    total: 1
+    result: Agricultural  # 1-2 on table
+
+  schooling:
+    roll: 10
+    modifier: -2  # SOC modifier x2
+    total: 8
+    result: University  # 7-9 on table
+
+  psychic_talent:
+    roll: 9
+    target: 12+
+    result: false  # no PSI
+
+# =============================================================================
+# STEP 3: TERMS
+# =============================================================================
+terms:
+  total:
+    roll: 8
+    result: 5  # 7-10 = 5 terms
+
+  distribution:
+    rolls: [4, 2]
+    result:
+      - career: 1
+        terms: 4
+      - career: 2
+        terms: 1  # capped (4+1=5)
+
+# =============================================================================
+# STEP 4: CAREER 1 - FRONTIER (4 terms)
+# =============================================================================
+career_1:
+  name: Frontier
+  attempted: true
+
+  qualification:
+    attribute: END
+    target: 5
+    roll: 8
+    modifier: +1  # END 9
+    total: 9
+    result: pass
+
+  basic_training:
+    table: service
+    rolls: [1, 6]
+    skills_gained:
+      - Athletics-1
+      - Zero-G-1
+
+  training:  # 1 roll per term
+    - { term: 1, table: advanced, roll: 3, result: Electronics-1 }
+    - { term: 2, table: service,  roll: 4, result: Bushcraft-1 }
+    - { term: 3, table: advanced, roll: 3, result: Electronics-2 }
+    - { term: 4, table: service,  roll: 5, result: Mechanics-1 }
+
+  special_assignments:  # 2d6 per term, 7+ = bonus
+    - { term: 1, roll: 5,  result: none }
+    - { term: 2, roll: 8,  result: bonus }
+    - { term: 3, roll: 10, result: bonus }
+    - { term: 4, roll: 8,  result: bonus }
+
+  bonus_training:  # from special assignments
+    - { table: advanced, roll: 3, result: Electronics-3 }
+    - { table: service,  roll: 4, result: Bushcraft-2 }
+    - { table: service,  roll: 2, result: Firearms-1 }
+
+  leadership:  # 2d6 per term vs 7+, DEX modifier (+0)
+    attribute: DEX
+    target: 7
+    rolls:
+      - { term: 1, roll: 8, result: promoted }  # rank 1
+      - { term: 2, roll: 6, result: none }
+      - { term: 3, roll: 8, result: promoted }  # rank 2
+      - { term: 4, roll: 5, result: none }
+    final_rank: 2
+    benefits:
+      - { rank: 1, benefit: Athletics-2 }
+      - { rank: 2, benefit: "+1 SOC (5→6)" }
+
+  retirement:
+    cash:
+      roll: 11
+      modifier: +2  # rank
+      total: 13
+      result: 24000
+    material:
+      rolls: 6  # 4 terms + 2 ranks
+      results:
+        - { roll: 3, benefit: "+1 INT (7→8)" }
+        - { roll: 6, benefit: "Personal Vehicle" }
+        - { roll: 2, benefit: "Weapon" }
+        - { roll: 2, benefit: "Weapon" }
+        - { roll: 2, benefit: "Weapon" }
+        - { roll: 2, benefit: "Weapon" }
+
+  state_after:
+    attributes: { STR: 4, DEX: 8, END: 9, INT: 8, EDU: 8, SOC: 6 }
+    skills: [Athletics-2, Zero-G-1, Electronics-3, Bushcraft-2, Mechanics-1, Firearms-1]
+    cash: 24000
+    gear: [Weapon x4, Personal Vehicle]
+
+# =============================================================================
+# STEP 5: CAREER 2 - MILITARY (1 term)
+# =============================================================================
+career_2:
+  name: Military
+  attempted: true
+
+  qualification:
+    attribute: STR
+    target: 5
+    roll: 7
+    modifier: -1  # STR 4
+    total: 6
+    result: pass
+
+  # No basic training (only first career)
+
+  training:
+    - { term: 1, table: advanced, roll: 1, result: Pilot-1 }
+
+  special_assignments:
+    - { term: 1, roll: 6, result: none }
+
+  leadership:
+    attribute: INT
+    target: 7
+    rolls:
+      - { term: 1, roll: 5, result: none }
+    final_rank: 0
+    benefits: []
+
+  retirement:
+    cash:
+      roll: 9
+      modifier: 0  # rank
+      total: 9
+      result: 13000
+    material:
+      rolls: 1  # 1 term + 0 ranks
+      results:
+        - { roll: 5, benefit: "+1 INT (8→9)" }
+
+  state_after:
+    attributes: { STR: 4, DEX: 8, END: 9, INT: 9, EDU: 8, SOC: 6 }
+    skills: [Athletics-2, Zero-G-1, Electronics-3, Bushcraft-2, Mechanics-1, Firearms-1, Pilot-1]
+    cash: 37000
+    gear: [Weapon x4, Personal Vehicle]
+
+# =============================================================================
+# STEP 6: AGE & AGING
+# =============================================================================
+age:
+  calculation: "18 + (4 years × 5 terms)"
+  result: 38
+
+aging:
+  terms_requiring_roll: [4, 5]  # terms 4+ require aging
+  rolls:
+    - term: 4
+      roll: 4
+      effect: "-1 from two random (STR, DEX, END, INT)"
+      attribute_rolls: [1, 2]  # 1=STR, 2=DEX
+      result: "STR 4→3, DEX 8→7"
+    - term: 5
+      roll: 3
+      effect: "-1 from one random (STR, DEX, END)"
+      attribute_rolls: [3]  # 3=END
+      result: "END 9→8"
+
+  final_attributes: { STR: 3, DEX: 7, END: 8, INT: 9, EDU: 8, SOC: 6 }
+
+# =============================================================================
+# STEP 7: HIT PROTECTION
+# =============================================================================
+hit_protection:
+  formula: "STR + DEX + END"
+  calculation: "3 + 7 + 8"
+  total: 18
+  bloodied: 12  # 2/3 of total
+
+# =============================================================================
+# STEP 8: EQUIPMENT SELECTION
+# =============================================================================
+equipment:
+  vehicle_pick: 1
+  vehicle_choice: Grav Bike
+
+  weapon_picks: 4
+  weapon_choices:
+    - Rifle
+    - Pistol
+    - Shotgun
+    - Survival Knife
+
+# =============================================================================
+# FINAL CHARACTER
+# =============================================================================
+final:
+  name: Kelly Clarkson
+  age: 38
+  homeworld: Agricultural
+  schooling: University
+
+  attributes:
+    STR: 3
+    DEX: 7
+    END: 8
+    INT: 9
+    EDU: 8
+    SOC: 6
+
+  careers:
+    - { name: Frontier, terms: 4, rank: 2 }
+    - { name: Military, terms: 1, rank: 0 }
+
+  expertise:
+    - { skill: Athletics, rank: 2 }
+    - { skill: Bushcraft, rank: 2 }
+    - { skill: Electronics, rank: 3 }
+    - { skill: Firearms, rank: 1 }
+    - { skill: Mechanics, rank: 1 }
+    - { skill: Pilot, rank: 1 }
+    - { skill: Zero-G, rank: 1 }
+
+  hit_protection:
+    total: 18
+    current: 18
+    bloodied: 12
+
+  equipment:
+    cash: 37000
+    weapons: [Rifle, Pistol, Shotgun, Survival Knife]
+    vehicles: [Grav Bike]
+
+  notes: |
+    Farm kid from an agricultural world, first in family to attend university.
+    Felt out of place in both rural and urban settings. Joined Frontier rescue
+    services to stay mobile. 16 years as a rescue operator, became expert in
+    electronics (distress beacons, scanners). Recruited by military special ops
+    for extraction support. Now 38, experienced, and ready for adventure.

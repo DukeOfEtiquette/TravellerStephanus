@@ -1,0 +1,366 @@
+# William Hung - Character Creation Log
+# Traveller Stephanus
+
+name: William Hung
+created: 2026-01-21
+
+# =============================================================================
+# STEP 1: ATTRIBUTES (roll 2d6 x6, in order)
+# =============================================================================
+attributes:
+  rolls: [8, 10, 6, 10, 5, 3]
+  result:
+    STR: 8   # modifier: 0
+    DEX: 10  # modifier: +1
+    END: 6   # modifier: 0
+    INT: 10  # modifier: +1
+    EDU: 5   # modifier: -1
+    SOC: 3   # modifier: -1
+
+# =============================================================================
+# STEP 2: BACKGROUND
+# =============================================================================
+background:
+  homeworld:
+    roll: 3
+    modifier: -1  # SOC modifier
+    total: 2
+    result: Agricultural  # 1-2 on table
+    world: Atsah
+    world_notes: |
+      Earth-like moon around a gas giant. Advanced agricultural technology,
+      famous for Atsahn steak and blue yak milk. Pacifistic, decentralized
+      society. William had no family farm, no prospects, just the streets
+      around the starport.
+
+  schooling:
+    roll: 3
+    modifier: -2  # SOC modifier x2
+    total: 1
+    result: The Streets  # 1-2 on table
+
+  psychic_talent:
+    roll: 10
+    modifier: +1  # INT modifier
+    total: 11
+    target: 12+
+    result: false  # no PSI
+
+# =============================================================================
+# STEP 3: TERMS
+# =============================================================================
+terms:
+  total:
+    roll: 8
+    result: 5  # 7-10 = 5 terms
+
+  distribution:
+    rolls: [2, 4]
+    result:
+      - career: 1
+        terms: 2
+      - career: 2
+        terms: 3  # capped (2+3=5)
+
+# =============================================================================
+# STEP 4: CAREER 1 - MERCANTILE (2 terms)
+# =============================================================================
+career_1:
+  name: Mercantile
+  attempted: true
+
+  backstory: |
+    At 18, William snuck aboard an outbound freighter hidden in a cargo container
+    of blue yak cheese. When they found him three days out, the captain was ready
+    to space him, but William talked his way into a job instead of an airlock.
+    He started in the galley, washing dishes and serving meals to passengers.
+    His natural charm turned out to be worth more than the cargo he'd hidden behind.
+
+    Over two terms he worked his way up from galley rat to junior purser, learning
+    to handle difficult passengers (Steward), cut favorable deals for the ship
+    (Broker), and navigate the shadier corners of every starport they visited
+    (Streetwise). He threw the best crew parties in the fleet (Carousing) and
+    eventually earned a promotion to Rank 1. When he mustered out at 26, he walked
+    away with 30,000 credits, a ground car he'd won in a card game, and enough
+    polish to almost pass for respectable.
+
+  qualification:
+    attribute: INT
+    target: 7
+    roll: 6
+    modifier: +1  # INT 10
+    total: 7
+    result: pass
+
+  basic_training:
+    table: service
+    rolls: [6, 1]
+    skills_gained:
+      - Steward-1
+      - Broker-1
+
+  training:  # 1 roll per term
+    - { term: 1, table: service, roll: 5, result: Streetwise-1 }
+    - { term: 2, table: service, roll: 6, result: Steward-2 }
+
+  special_assignments:  # 2d6 per term, 7+ = bonus
+    - { term: 1, roll: 12, result: bonus }
+    - { term: 2, roll: 4,  result: none }
+
+  bonus_training:  # from special assignments
+    - { table: service, roll: 2, result: Carousing-1 }
+
+  leadership:  # 2d6 per term vs 7+, EDU modifier (-1)
+    attribute: EDU
+    target: 7
+    rolls:
+      - { term: 1, roll: 4, total: 3, result: none }
+      - { term: 2, roll: 8, total: 7, result: promoted }  # rank 1
+    final_rank: 1
+    benefits:
+      - { rank: 1, benefit: Broker-2 }
+
+  retirement:
+    cash:
+      roll: 9
+      modifier: +1  # rank
+      total: 10
+      result: 30000
+    material:
+      rolls: 3  # 2 terms + 1 rank
+      results:
+        - { roll: 5, benefit: "Personal Vehicle" }
+        - { roll: 3, benefit: "+1 EDU (5->6)" }
+        - { roll: 4, benefit: "+1 SOC (3->4)" }
+
+  state_after:
+    attributes: { STR: 8, DEX: 10, END: 6, INT: 10, EDU: 6, SOC: 4 }
+    skills: [Broker-2, Carousing-1, Steward-2, Streetwise-1]
+    cash: 30000
+    gear: [Personal Vehicle]
+
+# =============================================================================
+# STEP 5: CAREER 2 - MERCANTILE DRAFTED (3 terms)
+# =============================================================================
+career_2:
+  name: Mercantile
+  attempted: Military
+  drafted: true
+
+  backstory: |
+    Captain Mira Vasquez was the one who found William hiding in that cargo
+    container eight years earlier. She could have spaced him, but she saw
+    something in the fast-talking kid and gave him a chance instead. By the
+    time William mustered out at 26, she had moved on to bigger things: her
+    own ship, then a small fleet, then a stake in a growing trade consortium.
+
+    When the military rejected William, he was adrift. No plan, no prospects,
+    drinking away his mustering-out pay in a starport bar on Stoyben. Then
+    Vasquez tracked him down. She was expanding into new routes through the
+    Mora cluster and needed someone she could trust. Not just someone competent,
+    but someone who owed her, someone loyal.
+
+    William owed her his life. When she asked, he couldn't say no.
+
+    The next three terms were the most successful of his career. Vasquez put
+    him in positions where he could shine, gave him special assignments that
+    let him prove himself, and advocated for his promotions. By the end, he'd
+    reached Rank 3, paid back everything he owed her, and built a reputation
+    of his own. They parted as equals, or close to it.
+
+  qualification:
+    attribute: STR
+    target: 5
+    roll: 4
+    modifier: 0  # STR 8
+    total: 4
+    result: fail
+    resolution: drafted into Mercantile
+
+  # No basic training (only first career)
+
+  training:
+    - { term: 1, table: service, roll: 1, result: Broker-3 }
+    - { term: 2, table: service, roll: 2, result: Carousing-2 }
+    - { term: 3, table: service, roll: 6, result: Steward-3 }
+
+  special_assignments:
+    - { term: 1, roll: 8,  result: bonus }
+    - { term: 2, roll: 9,  result: bonus }
+    - { term: 3, roll: 9,  result: bonus }
+
+  bonus_training:
+    - { table: service, roll: 3, result: Diplomacy-1 }
+    - { table: service, roll: 2, result: Carousing-3 }
+    - { table: service, roll: 2, result: Carousing-4 }
+
+  leadership:  # 2d6 per term vs 7+, EDU modifier (0)
+    attribute: EDU
+    target: 7
+    rolls:
+      - { term: 1, roll: 10, total: 10, result: promoted }  # rank 1
+      - { term: 2, roll: 8,  total: 8,  result: promoted }  # rank 2
+      - { term: 3, roll: 8,  total: 8,  result: promoted }  # rank 3
+    final_rank: 3
+    benefits:
+      - { rank: 1, benefit: Broker-4 }
+      - { rank: 2, benefit: Steward-4 }
+      - { rank: 3, benefit: "+1 EDU (6->7)" }
+
+  retirement:
+    cash:
+      roll: 10
+      modifier: +3  # rank
+      total: 13
+      result: 45000
+    material:
+      rolls: 6  # 3 terms + 3 ranks
+      results:
+        - { roll: 6, benefit: "Personal Vehicle" }
+        - { roll: 6, benefit: "Personal Vehicle" }
+        - { roll: 1, benefit: "High Passage" }
+        - { roll: 6, benefit: "Personal Vehicle" }
+        - { roll: 1, benefit: "High Passage" }
+        - { roll: 5, benefit: "Personal Vehicle" }
+
+  state_after:
+    attributes: { STR: 8, DEX: 10, END: 6, INT: 10, EDU: 7, SOC: 4 }
+    skills: [Broker-4, Carousing-4, Diplomacy-1, Steward-4, Streetwise-1]
+    cash: 75000
+    gear: [Personal Vehicle x5, High Passage x2]
+
+# =============================================================================
+# STEP 6: AGE & AGING
+# =============================================================================
+age:
+  calculation: "18 + (4 years x 5 terms)"
+  result: 38
+
+aging:
+  terms_requiring_roll: [4, 5]  # terms 4+ require aging
+  rolls:
+    - term: 4
+      roll: 3
+      effect: "-1 from one random (STR, DEX, END)"
+      attribute_roll: 6  # 5-6 = END
+      result: "END 6->5"
+    - term: 5
+      roll: 6
+      effect: "-1 from three random (STR, DEX, END, INT)"
+      attribute_roll: 1  # STR spared
+      result: "DEX 10->9, END 5->4, INT 10->9"
+
+  final_attributes: { STR: 8, DEX: 9, END: 4, INT: 9, EDU: 7, SOC: 4 }
+
+# =============================================================================
+# STEP 7: HIT PROTECTION
+# =============================================================================
+hit_protection:
+  formula: "STR + DEX + END"
+  calculation: "8 + 9 + 4"
+  total: 21
+  bloodied: 14  # 2/3 of total
+
+# =============================================================================
+# STEP 8: EQUIPMENT SELECTION
+# =============================================================================
+equipment:
+  vehicle_picks: 5
+  vehicle_choices:
+    - Shuttlecraft (3 picks)
+    - Ground Car (1 pick)
+    - Grav Bike (1 pick)
+
+  other:
+    - High Passage x2
+
+# =============================================================================
+# SABBATICAL
+# =============================================================================
+sabbatical:
+  taken: true
+  cost: 50000
+  duration: "2 years"
+  skill_gained: Carousing-5
+  age_after: 40
+  cash_after: 25000
+  story: |
+    William spent two years and 50,000 credits visiting every casino and
+    pleasure den he could reach. Adabicci's pleasure circuses. Stoyben's
+    orbital gambling dens. Underground games in Tivid's sealed cities.
+    High-end lounges on Ith. He won big, lost bigger, and broke roughly even.
+
+    What he gained was reputation. Half the bartenders in the sector know
+    his name. He can walk into almost any starport bar and find someone who
+    owes him a drink, or someone he owes one to.
+
+# =============================================================================
+# FINAL CHARACTER
+# =============================================================================
+final:
+  name: William Hung
+  age: 40
+  homeworld: Atsah (Agricultural)
+  schooling: The Streets
+
+  attributes:
+    STR: 8
+    DEX: 9
+    END: 4
+    INT: 9
+    EDU: 7
+    SOC: 4
+
+  careers:
+    - { name: Mercantile, terms: 2, rank: 1 }
+    - { name: Mercantile (Drafted), terms: 3, rank: 3 }
+
+  expertise:
+    - { skill: Broker, rank: 4 }
+    - { skill: Carousing, rank: 5 }
+    - { skill: Diplomacy, rank: 1 }
+    - { skill: Steward, rank: 4 }
+    - { skill: Streetwise, rank: 1 }
+
+  hit_protection:
+    total: 21
+    current: 21
+    bloodied: 14
+
+  equipment:
+    cash: 25000
+    vehicles: [Shuttlecraft, Ground Car, Grav Bike]
+    other: [High Passage x2]
+
+  contacts:
+    - name: Captain Mira Vasquez
+      relationship: Mentor/Former Employer
+      notes: |
+        The captain who found William stowed away in a cargo container and
+        gave him a chance instead of spacing him. Later recruited him into
+        her trade consortium. They parted as equals after his second career.
+        Runs a growing merchant operation with routes through the Mora cluster.
+
+  notes: |
+    William Hung grew up with nothing on Atsah. No family farm, no prospects,
+    just street smarts and a mouth that moved faster than his brain. At 18, he
+    stowed away on a freighter hidden in a cargo container of blue yak cheese.
+    Captain Mira Vasquez found him and gave him a chance instead of an airlock.
+
+    Eight years later, at 26, he mustered out as a junior purser with 30,000
+    credits and a ground car won in a card game. He tried to join the military,
+    looking for something different, but they rejected him. Vasquez found him
+    drinking away his savings on Stoyben and called in the favor he owed her.
+    She needed someone loyal for her expanding trade consortium.
+
+    The next twelve years were the best of his career. Vasquez put him in
+    positions to succeed, and he delivered. He rose to Rank 3, became one of
+    the best brokers and party hosts in the fleet, and finally repaid the debt
+    he owed her. They parted as equals.
+
+    At 38, he retired wealthy with 75,000 credits, a small fleet of vehicles,
+    and two high passages. Then he promptly blew half his fortune on a two-year
+    gambling binge across the sector. He lost big at the tables, but his
+    reputation only grew bigger. Now 40, with a shuttlecraft, a ground car,
+    a grav bike, and 25,000 credits to his name, William Hung is ready for
+    whatever adventure comes next.

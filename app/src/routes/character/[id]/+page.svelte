@@ -331,7 +331,6 @@
 									<input
 										type="number"
 										min="1"
-										max="3"
 										value={skill.rank}
 										onchange={(e) => updateExpertise(index, 'rank', parseInt(e.currentTarget.value, 10) || 1)}
 										class="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-white text-sm text-center"

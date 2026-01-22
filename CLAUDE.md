@@ -76,7 +76,7 @@ character:
       terms: number
       rank: number
 
-  expertise:             # Skills with ranks 1-3
+  expertise:             # Skills (no rank cap)
     - name: string
       rank: number
 

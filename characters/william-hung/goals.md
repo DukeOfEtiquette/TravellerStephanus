@@ -39,8 +39,7 @@
 ### Relationships to Track
 | NPC/Faction | Relationship | Notes |
 |-------------|--------------|-------|
-| Jade Front | Agent | Has secret ID chip |
-| Captain Mira Vasquez | Mentor/Former Employer | Gave William his start; they parted as equals |
+| Jade Front | Mariners | Monitoring our group's progress |
 
 ### Debts & Obligations
 - Jade Front operative - obligations unknown

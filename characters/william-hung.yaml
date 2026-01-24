@@ -281,18 +281,20 @@ sabbatical:
   taken: true
   cost: 50000
   duration: "2 years"
-  skill_gained: Carousing-5
+  skill_gained: Pilot-1
   age_after: 40
   cash_after: 25000
   story: |
-    William spent two years and 50,000 credits visiting every casino and
-    pleasure den he could reach. Adabicci's pleasure circuses. Stoyben's
-    orbital gambling dens. Underground games in Tivid's sealed cities.
-    High-end lounges on Ith. He won big, lost bigger, and broke roughly even.
+    William spent two years and 50,000 credits learning to fly his new
+    shuttlecraft. He hired instructors at every starport, logged thousands
+    of hours in the cockpit, and pushed the little ship through every kind
+    of weather and orbital approach the sector could throw at him.
 
-    What he gained was reputation. Half the bartenders in the sector know
-    his name. He can walk into almost any starport bar and find someone who
-    owes him a drink, or someone he owes one to.
+    The casinos and pleasure dens still saw plenty of him, but this time
+    he had a purpose beyond the parties. By the end, he could land that
+    shuttlecraft in a sandstorm or dock it in zero-g without breaking a sweat.
+    Half the bartenders in the sector still know his name, but now the
+    traffic controllers do too.
 
 # =============================================================================
 # FINAL CHARACTER
@@ -317,8 +319,9 @@ final:
 
   expertise:
     - { skill: Broker, rank: 4 }
-    - { skill: Carousing, rank: 5 }
+    - { skill: Carousing, rank: 4 }
     - { skill: Diplomacy, rank: 1 }
+    - { skill: Pilot, rank: 1 }
     - { skill: Steward, rank: 4 }
     - { skill: Streetwise, rank: 1 }
 
@@ -359,8 +362,9 @@ final:
     he owed her. They parted as equals.
 
     At 38, he retired wealthy with 75,000 credits, a small fleet of vehicles,
-    and two high passages. Then he promptly blew half his fortune on a two-year
-    gambling binge across the sector. He lost big at the tables, but his
-    reputation only grew bigger. Now 40, with a shuttlecraft, a ground car,
-    a grav bike, and 25,000 credits to his name, William Hung is ready for
-    whatever adventure comes next.
+    and two high passages. Then he spent half his fortune and two years learning
+    to fly his shuttlecraft properly. He hired instructors at every starport,
+    logged thousands of hours, and earned his pilot's certification the hard way.
+    Now 40, with a shuttlecraft he can actually fly, a ground car, a grav bike,
+    and 25,000 credits to his name, William Hung is ready for whatever adventure
+    comes next.

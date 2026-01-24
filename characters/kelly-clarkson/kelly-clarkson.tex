@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+
+% Font setup - use a clean serif font
+\setmainfont{TeX Gyre Termes}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom section command for use in multicols
+\newcommand{\sheetsection}[1]{%
+  \par\vspace{1em}\noindent{\large\bfseries\underline{#1}}\par\vspace{0.5em}%
+}
+
+% Custom commands for fillable fields
+\newcommand{\field}[1]{\underline{\hspace{0.5em}#1\hspace{0.5em}}}
+\newcommand{\longfield}[1]{\underline{\hspace{0.25em}#1\hspace{0.25em}}}
+\newcommand{\attrfield}[2]{#1 \underline{\makebox[1.5em][c]{#2}}}
+
+% Variables - these get replaced by the generation script
+\newcommand{\charname}{Kelly Clarkson}
+\newcommand{\charstr}{3}
+\newcommand{\chardex}{7}
+\newcommand{\charend}{8}
+\newcommand{\charint}{9}
+\newcommand{\charedu}{8}
+\newcommand{\charsoc}{6}
+\newcommand{\charpsi}{}
+\newcommand{\chararmor}{}
+\newcommand{\charbloodied}{12}
+\newcommand{\chardying}{18}
+\newcommand{\charage}{38}
+\newcommand{\charhomeworld}{Agricultural}
+\newcommand{\charschooling}{University}
+\newcommand{\charcareers}{Frontier — 4 terms (Rank 2)\\[0.3em]Military — 1 term}
+\newcommand{\charexpertise}{Athletics-2, Bushcraft-2, Electronics-3, Firearms-1, Mechanics-1, Pilot-1, Zero-G-1}
+\newcommand{\charweapons}{Rifle, Pistol, Shotgun, Survival Knife}
+\newcommand{\charequipment}{Cash: Cr37,000\\[0.3em]Vehicles: Grav Bike}
+\newcommand{\charnotes}{Birthplace: Atsah\\[0.3em]University: Ith\\[0.3em]Kelly Clarkson grew up raising blue yaks on an Atsahn ranch. Bright and\\restless, she won a scholarship to university on Ith — the cultural and\\technological center of the sector. She excelled academically but never\\fit in among trillions of urbanites. Too educated to return to the farm,\\too rural for Ith's crowds, she joined Frontier rescue services to stay\\mobile and useful.\\\\16 years as a rescue operator made her an expert in electronics — finding\\distress beacons, scanning for life signs, tr...}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\large\scshape Traveller Stephanus}\\[0.5em]
+{\LARGE\bfseries CHARACTER RECORD SHEET}\\[0.3em]
+{\large\itshape \charname}
+\end{center}
+
+\vspace{0.5em}
+
+% Two-column layout
+\begin{multicols}{2}
+
+%% LEFT COLUMN %%
+
+\sheetsection{Attributes}
+
+\begin{tabular}{@{}ll@{}}
+STR & \underline{\makebox[2em][c]{\charstr}} \\[0.5em]
+DEX & \underline{\makebox[2em][c]{\chardex}} \\[0.5em]
+END & \underline{\makebox[2em][c]{\charend}} \\[0.5em]
+INT & \underline{\makebox[2em][c]{\charint}} \\[0.5em]
+EDU & \underline{\makebox[2em][c]{\charedu}} \\[0.5em]
+SOC & \underline{\makebox[2em][c]{\charsoc}} \\[0.5em]
+\end{tabular}
+
+\sheetsection{Hit Protection}
+
+\begin{tabular}{@{}ll@{}}
+Armor & [ \chararmor\ ] \\[0.5em]
+Bloodied & \underline{\makebox[2em][c]{\charbloodied}} \\[0.5em]
+Dying & \underline{\makebox[2em][c]{\chardying}} \\[0.5em]
+\end{tabular}
+
+\sheetsection{Areas of Expertise}
+
+\charexpertise
+
+\sheetsection{Notes}
+
+\charnotes
+
+\columnbreak
+
+%% RIGHT COLUMN %%
+
+\sheetsection{Background}
+
+Age: \charage
+
+Homeworld: \charhomeworld
+
+Schooling: \charschooling
+
+\sheetsection{Career(s) and Leadership Rank}
+
+\charcareers
+
+\sheetsection{Weapons}
+
+\charweapons
+
+\sheetsection{Equipment}
+
+\charequipment
+
+\end{multicols}
+
+\end{document}

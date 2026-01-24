@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+
+% Font setup - use a clean serif font
+\setmainfont{TeX Gyre Termes}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom section command for use in multicols
+\newcommand{\sheetsection}[1]{%
+  \par\vspace{1em}\noindent{\large\bfseries\underline{#1}}\par\vspace{0.5em}%
+}
+
+% Custom commands for fillable fields
+\newcommand{\field}[1]{\underline{\hspace{0.5em}#1\hspace{0.5em}}}
+\newcommand{\longfield}[1]{\underline{\hspace{0.25em}#1\hspace{0.25em}}}
+\newcommand{\attrfield}[2]{#1 \underline{\makebox[1.5em][c]{#2}}}
+
+% Variables - these get replaced by the generation script
+\newcommand{\charname}{William Hung}
+\newcommand{\charstr}{8}
+\newcommand{\chardex}{9}
+\newcommand{\charend}{4}
+\newcommand{\charint}{9}
+\newcommand{\charedu}{7}
+\newcommand{\charsoc}{4}
+\newcommand{\charpsi}{}
+\newcommand{\chararmor}{}
+\newcommand{\charbloodied}{14}
+\newcommand{\chardying}{21}
+\newcommand{\charage}{40}
+\newcommand{\charhomeworld}{Atsah (Agricultural)}
+\newcommand{\charschooling}{The Streets}
+\newcommand{\charcareers}{Mercantile — 2 terms (Rank 1)\\[0.3em]Mercantile (Drafted) — 3 terms (Rank 3)}
+\newcommand{\charexpertise}{Broker-4, Carousing-5, Diplomacy-1, Steward-4, Streetwise-1}
+\newcommand{\charweapons}{}
+\newcommand{\charequipment}{Cash: Cr25,000\\[0.3em]Vehicles: Shuttlecraft, Ground Car, Grav Bike}
+\newcommand{\charnotes}{William Hung grew up with nothing on Atsah. No family farm, no prospects,\\just street smarts and a mouth that moved faster than his brain. At 18, he\\stowed away on a freighter hidden in a cargo container of blue yak cheese.\\Captain Mira Vasquez found him and gave him a chance instead of an airlock.\\\\Eight years later, at 26, he mustered out as a junior purser with 30,000\\credits and a ground car won in a card game. He tried to join the military,\\looking for something different, but they rejected...}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\large\scshape Traveller Stephanus}\\[0.5em]
+{\LARGE\bfseries CHARACTER RECORD SHEET}\\[0.3em]
+{\large\itshape \charname}
+\end{center}
+
+\vspace{0.5em}
+
+% Two-column layout
+\begin{multicols}{2}
+
+%% LEFT COLUMN %%
+
+\sheetsection{Attributes}
+
+\begin{tabular}{@{}ll@{}}
+STR & \underline{\makebox[2em][c]{\charstr}} \\[0.5em]
+DEX & \underline{\makebox[2em][c]{\chardex}} \\[0.5em]
+END & \underline{\makebox[2em][c]{\charend}} \\[0.5em]
+INT & \underline{\makebox[2em][c]{\charint}} \\[0.5em]
+EDU & \underline{\makebox[2em][c]{\charedu}} \\[0.5em]
+SOC & \underline{\makebox[2em][c]{\charsoc}} \\[0.5em]
+\end{tabular}
+
+\sheetsection{Hit Protection}
+
+\begin{tabular}{@{}ll@{}}
+Armor & [ \chararmor\ ] \\[0.5em]
+Bloodied & \underline{\makebox[2em][c]{\charbloodied}} \\[0.5em]
+Dying & \underline{\makebox[2em][c]{\chardying}} \\[0.5em]
+\end{tabular}
+
+\sheetsection{Areas of Expertise}
+
+\charexpertise
+
+\sheetsection{Notes}
+
+\charnotes
+
+\columnbreak
+
+%% RIGHT COLUMN %%
+
+\sheetsection{Background}
+
+Age: \charage
+
+Homeworld: \charhomeworld
+
+Schooling: \charschooling
+
+\sheetsection{Career(s) and Leadership Rank}
+
+\charcareers
+
+\sheetsection{Weapons}
+
+\charweapons
+
+\sheetsection{Equipment}
+
+\charequipment
+
+\end{multicols}
+
+\end{document}

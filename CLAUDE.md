@@ -4,10 +4,7 @@
 
 ## Project Overview
 
-This is a companion web app for a tabletop RPG campaign using **Traveller Stephanus**, a custom variant of Classic Traveller. The project serves two purposes:
-
-1. **Digital Character Sheet** - A web app for creating, editing, and managing characters
-2. **Campaign Knowledge Base** - Structured data for rules, worlds, and campaign information
+This is a companion project for a tabletop RPG campaign using **Traveller Stephanus**, a custom variant of Classic Traveller. The project provides structured data for rules, worlds, and campaign information.
 
 ## Source Material
 
@@ -154,7 +151,7 @@ career:
 | 9-11 | +1 |
 | 12 | +2 |
 
-## Directory Structure (Target)
+## Directory Structure
 
 ```
 /
@@ -170,7 +167,7 @@ career:
 │   ├── settings-fundamentals.md
 │   ├── world-profiles.md
 │   └── world-profiles-how-to.md
-├── data/                  # Structured game data (JSON/YAML)
+├── data/                  # Structured game data (YAML)
 │   ├── rules/
 │   │   ├── combat.yaml
 │   │   ├── character-creation.yaml
@@ -188,33 +185,10 @@ career:
 │       ├── weapons.yaml
 │       ├── armor.yaml
 │       └── vehicles.yaml
-└── src/                   # Web app source
-    ├── components/
-    ├── pages/
-    ├── stores/            # Character state management
-    └── utils/
+├── characters/            # Character records and analysis
+├── scripts/               # Utility scripts
+└── templates/             # Document templates
 ```
-
-## Development Guidelines
-
-### Tech Stack
-- **Styling**: Tailwind CSS
-- **Framework**: TBD (user has no preference)
-- **Storage**: localStorage for MVP
-
-### MVP Features
-1. Character sheet form with all fields from `charsheet.pdf`
-2. Manual data entry (no calculated fields initially)
-3. Save/load characters to localStorage
-4. Character list/selector for managing multiple characters
-5. Export character data (JSON)
-
-### Future Enhancements
-- Calculated fields (Hit Protection, Bloodied threshold, age from terms)
-- Rules reference/knowledge base searchable UI
-- Character creation wizard following `chargen.pdf` procedure
-- Campaign journal system
-- Party management
 
 ## Querying Campaign Data
 

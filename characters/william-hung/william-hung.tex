@@ -1,13 +1,11 @@
 \documentclass[11pt]{article}
 \usepackage[letterpaper, margin=1in]{geometry}
-\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}  % TeX Gyre Termes (Times-like font)
 \usepackage{multicol}
 \usepackage{enumitem}
 \usepackage{array}
 \usepackage{xcolor}
-
-% Font setup - use a clean serif font
-\setmainfont{TeX Gyre Termes}
 
 % Remove page numbers
 \pagestyle{empty}
@@ -38,10 +36,10 @@
 \newcommand{\charhomeworld}{Atsah (Agricultural)}
 \newcommand{\charschooling}{The Streets}
 \newcommand{\charcareers}{Mercantile — 2 terms (Rank 1)\\[0.3em]Mercantile (Drafted) — 3 terms (Rank 3)}
-\newcommand{\charexpertise}{Broker-4, Carousing-5, Diplomacy-1, Steward-4, Streetwise-1}
-\newcommand{\charweapons}{}
-\newcommand{\charequipment}{Cash: Cr25,000\\[0.3em]Vehicles: Shuttlecraft, Ground Car, Grav Bike}
-\newcommand{\charnotes}{William Hung grew up with nothing on Atsah. No family farm, no prospects,\\just street smarts and a mouth that moved faster than his brain. At 18, he\\stowed away on a freighter hidden in a cargo container of blue yak cheese.\\Captain Mira Vasquez found him and gave him a chance instead of an airlock.\\\\Eight years later, at 26, he mustered out as a junior purser with 30,000\\credits and a ground car won in a card game. He tried to join the military,\\looking for something different, but they rejected...}
+\newcommand{\charexpertise}{Broker-4, Carousing-4, Diplomacy-1, Pilot-1, Steward-4, Streetwise-1}
+\newcommand{\charweapons}{\{'name': 'Laser Pistol', 'ammo': \{'type': 'Laser', 'state': 'full', 'spares': 9\}\}, \{'name': 'Auto Pistol', 'ammo': \{'type': 'Auto', 'state': 'full', 'spares': 9\}\}}
+\newcommand{\charequipment}{Cash: Cr21,400\\[0.3em]Vehicles: Shuttlecraft, Ground Car, Grav Bike\\[0.3em]Gear: Communication Device, Medical Drugs (recreational) x100}
+\newcommand{\charnotes}{William Hung grew up with nothing on Atsah—a poor agricultural world where\\he had no family farm, no prospects, just street smarts and a mouth that\\moved faster than his brain. At 18, he stowed away on a freighter hidden\\in a cargo container of blue yak cheese. Captain Mira Vasquez found him\\and gave him a chance instead of an airlock.\\\\Over the next twenty years, William climbed from galley rat to Chief Broker\\on one of the most successful ship liners in the sector. His low Social\\Standing (SOC...}
 
 \begin{document}
 

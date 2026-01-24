@@ -104,6 +104,11 @@ career_procedure:
     method: "For each term, roll once on a chart of your choice"
     advanced_education: "Requires EDU 8+"
 
+  skill_cap:
+    during_creation: 4
+    during_play: null  # no cap
+    note: "Skills cannot exceed rank 4 during character creation. If a skill would increase beyond 4, it stays at 4 (the increase is lost). During play, skills may exceed rank 4 through experience and advancement."
+
   special_assignment:
     roll: 2d6
     target: 7+

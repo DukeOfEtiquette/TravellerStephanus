@@ -281,18 +281,20 @@ sabbatical:
   taken: true
   cost: 50000
   duration: "2 years"
-  skill_gained: Carousing-5
+  skill_gained: Pilot-1
   age_after: 40
   cash_after: 25000
   story: |
-    William spent two years and 50,000 credits visiting every casino and
-    pleasure den he could reach. Adabicci's pleasure circuses. Stoyben's
-    orbital gambling dens. Underground games in Tivid's sealed cities.
-    High-end lounges on Ith. He won big, lost bigger, and broke roughly even.
+    William spent two years and 50,000 credits at the Adabicci Flight Academy,
+    finally learning to pilot the shuttlecraft he'd inherited. He'd spent his
+    whole career as a passenger, watching pilots from the jump seat. Now he
+    wanted to understand what they did, to feel the controls in his own hands.
 
-    What he gained was reputation. Half the bartenders in the sector know
-    his name. He can walk into almost any starport bar and find someone who
-    owes him a drink, or someone he owes one to.
+    It wasn't easy. He crashed two simulators and dented the landing gear on
+    his practical exam. But by the end, he could take off, land, and navigate
+    between systems without killing anyone. Not graceful, but competent. For
+    the first time in his life, he didn't need to rely on someone else to get
+    where he was going.
 
 # =============================================================================
 # FINAL CHARACTER
@@ -317,8 +319,9 @@ final:
 
   expertise:
     - { skill: Broker, rank: 4 }
-    - { skill: Carousing, rank: 5 }
+    - { skill: Carousing, rank: 4 }
     - { skill: Diplomacy, rank: 1 }
+    - { skill: Pilot, rank: 1 }
     - { skill: Steward, rank: 4 }
     - { skill: Streetwise, rank: 1 }
 
@@ -328,7 +331,16 @@ final:
     bloodied: 14
 
   equipment:
-    cash: 25000
+    cash: 21400  # was 25000, spent 3600
+    weapons:
+      - name: Laser Pistol
+        ammo: { type: Laser, state: full, spares: 9 }
+      - name: Auto Pistol
+        ammo: { type: Auto, state: full, spares: 9 }
+    armor: Mesh
+    gear:
+      - Communication Device
+      - Medical Drugs (recreational) x100
     vehicles: [Shuttlecraft, Ground Car, Grav Bike]
     other: [High Passage x2]
 
@@ -342,25 +354,31 @@ final:
         Runs a growing merchant operation with routes through the Mora cluster.
 
   notes: |
-    William Hung grew up with nothing on Atsah. No family farm, no prospects,
-    just street smarts and a mouth that moved faster than his brain. At 18, he
-    stowed away on a freighter hidden in a cargo container of blue yak cheese.
-    Captain Mira Vasquez found him and gave him a chance instead of an airlock.
+    William Hung grew up with nothing on Atsah—a poor agricultural world where
+    he had no family farm, no prospects, just street smarts and a mouth that
+    moved faster than his brain. At 18, he stowed away on a freighter hidden
+    in a cargo container of blue yak cheese. Captain Mira Vasquez found him
+    and gave him a chance instead of an airlock.
 
-    Eight years later, at 26, he mustered out as a junior purser with 30,000
-    credits and a ground car won in a card game. He tried to join the military,
-    looking for something different, but they rejected him. Vasquez found him
-    drinking away his savings on Stoyben and called in the favor he owed her.
-    She needed someone loyal for her expanding trade consortium.
+    Over the next twenty years, William climbed from galley rat to Chief Broker
+    on one of the most successful ship liners in the sector. His low Social
+    Standing (SOC 4) meant the upper echelon—nobles, CEOs, politicians—never
+    fully accepted him as one of their own. But he was indispensable as a
+    second-in-command, the man who made deals happen. He brokered transactions
+    worth hundreds of millions of credits, served as the perfect steward to
+    VIPs who trusted him with their comfort and secrets, and threw legendary
+    parties that rallied the crew after tense business days. The common folk
+    and lower ranks loved him; he was one of them who made good.
 
-    The next twelve years were the best of his career. Vasquez put him in
-    positions to succeed, and he delivered. He rose to Rank 3, became one of
-    the best brokers and party hosts in the fleet, and finally repaid the debt
-    he owed her. They parted as equals.
+    But William hit a ceiling. In the business world, there's only so far a
+    man with his background can rise. The corner offices and board seats would
+    always go to someone with better breeding. He'd made his fortune, earned
+    his reputation, and found himself wanting something different. Something
+    with more danger, more uncertainty, more room to operate.
 
-    At 38, he retired wealthy with 75,000 credits, a small fleet of vehicles,
-    and two high passages. Then he promptly blew half his fortune on a two-year
-    gambling binge across the sector. He lost big at the tables, but his
-    reputation only grew bigger. Now 40, with a shuttlecraft, a ground car,
-    a grav bike, and 25,000 credits to his name, William Hung is ready for
-    whatever adventure comes next.
+    At 38, he retired wealthy and spent two years learning to pilot, finally
+    mastering the shuttlecraft he'd inherited. Now 40, with 21,400 credits,
+    a small fleet of vehicles, and a laser pistol on his hip, William has
+    joined a mercenary group that specializes in eccentric work—the kind of
+    jobs that don't fit neatly into any category. He's not sure what comes
+    next, but for the first time in years, that uncertainty feels like freedom.

@@ -43,92 +43,11 @@ The price guide includes:
 
 ## Data Model
 
-### Character Schema
+For schema examples, see these files:
 
-```yaml
-character:
-  name: string
-  attributes:
-    STR: number (2-12)
-    DEX: number (2-12)
-    END: number (2-12)
-    INT: number (2-12)
-    EDU: number (2-12)
-    SOC: number (2-12)
-    PSI: number (optional, for psions)
-
-  hitProtection:
-    total: number        # STR + DEX + END
-    current: number
-    bloodied: number     # 2/3 of total
-    armor: string
-
-  background:
-    age: number          # 18 + (4 * terms), 6 years for Drifter terms
-    homeworld: enum      # Agricultural, Fringe, Spacer, Industrial, High Culture
-    schooling: enum      # The Streets, Apprenticeship, Military Academy, University, Finishing School
-
-  careers:
-    - name: string       # Military, Mercantile, Frontier, Noble, Drifter, Psion
-      terms: number
-      rank: number
-
-  expertise:             # Skills (no rank cap)
-    - name: string
-      rank: number
-
-  equipment:
-    weapons: string[]
-    gear: string[]
-    vehicles: string[]
-    cash: number
-    stipend: number      # Weekly income, if any
-
-  notes: string
-```
-
-### World Profile (UWP) Schema
-
-Format: `[Starport]-[Size][Atmo][Hydro]-[Pop][Law][Tech]`
-
-```yaml
-world:
-  name: string
-  uwp: string            # e.g., "A-B75-77Q"
-  starport: enum         # A, B, C, D, X
-  physical:
-    size: hex            # 0-C, 7 = Earth-like
-    atmosphere: hex      # 0-C, 7 = Earth-like
-    hydrosphere: hex     # 0-A (percentage/10)
-  human:
-    population: hex      # Exponent (7 = tens of millions)
-    lawLevel: hex
-  techLevel: enum        # P (Primitive), I (Industrial), A (Atomic), Q (Quantum)
-  description: string
-```
-
-### Career Data Schema
-
-```yaml
-career:
-  name: string
-  qualification:
-    attribute: string
-    target: number
-  leadership:
-    attribute: string
-    target: number
-  skills:
-    service: string[]
-    personalDevelopment: string[]
-    advancedEducation: string[]
-  leadershipRanks:
-    - rank: number
-      benefit: string
-  retirement:
-    cash: object         # Roll ranges to amounts
-    material: string[]   # 1d6 table
-```
+- **Character schema**: `characters/active/william-hung/william-hung.yaml`
+- **World profile (UWP) schema**: `data/worlds/systems.yaml`
+- **Career data schema**: `data/careers/*.yaml`
 
 ## Key Game Mechanics
 
@@ -186,6 +105,11 @@ career:
 │       ├── armor.yaml
 │       └── vehicles.yaml
 ├── characters/            # Character records and analysis
+│   ├── _analysis_methodology/
+│   ├── active/
+│   │   └── william-hung/
+│   └── inactive/
+│       └── kelly-clarkson/
 ├── scripts/               # Utility scripts
 └── templates/             # Document templates
 ```

@@ -6,8 +6,8 @@ Usage:
     python generate_charsheet.py <character.yaml> [--output <output.tex>]
 
 Example:
-    python generate_charsheet.py characters/kelly-clarkson/kelly-clarkson.yaml
-    python generate_charsheet.py characters/kelly-clarkson/kelly-clarkson.yaml --output kelly.tex
+    python generate_charsheet.py characters/active/william-hung/william-hung.yaml
+    python generate_charsheet.py characters/inactive/kelly-clarkson/kelly-clarkson.yaml --output kelly.tex
 """
 
 import argparse
@@ -197,8 +197,6 @@ def main():
     parser.add_argument('--output', '-o', type=Path, help='Output LaTeX file path')
     parser.add_argument('--template', '-t', type=Path,
                         help='Path to LaTeX template (default: templates/charsheet.tex)')
-    parser.add_argument('--pdflatex', action='store_true',
-                        help='Use pdflatex-compatible template (no fontspec)')
 
     args = parser.parse_args()
 
@@ -208,8 +206,6 @@ def main():
 
     if args.template:
         template_path = args.template
-    elif args.pdflatex:
-        template_path = project_root / 'templates' / 'charsheet-pdflatex.tex'
     else:
         template_path = project_root / 'templates' / 'charsheet.tex'
 
@@ -241,11 +237,7 @@ def main():
         f.write(filled)
 
     print(f"\nDone! To compile to PDF, run:")
-    if args.pdflatex:
-        print(f"  pdflatex {output_path}")
-    else:
-        print(f"  lualatex {output_path}")
-        print(f"  (or use --pdflatex flag for pdflatex compatibility)")
+    print(f"  pdflatex {output_path}")
 
 
 if __name__ == '__main__':

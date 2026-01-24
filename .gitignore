@@ -1,0 +1,9 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Keep PDFs (they're intentional output)
+# !*.pdf

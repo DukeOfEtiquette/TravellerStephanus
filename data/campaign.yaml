@@ -1,0 +1,54 @@
+campaign:
+  name: Traveller Stephanus
+
+mcguffin:
+  name: The Death Mask
+  description: |
+    A sacred death mask believed by the culture that created it to prevent the
+    ruination of crops by vermin or disease. An extremely important cultural
+    artifact, looted from a museum on the main system two generations ago in
+    the Second Agretic War.
+  material: Transcorinatum
+  material_note: Extremely rare mineral with important uses in quantum-tech manufacturing
+
+factions:
+  - name: Cooper-Akachi Diversified Industries
+    type: Megacorporation
+    summary: A sprawling, sovereign megacorporation
+    mcguffin_interest: Wants it recycled for the transcorinatum
+    pros:
+      - Access to cybernetics/wetware and advanced technology, including starships
+      - Substantial material support
+    cons:
+      - Required to escort a company liaison on the expedition
+
+  - name: Bravida
+    type: Criminal Syndicate
+    summary: A powerful criminal syndicate
+    mcguffin_interest: Wants to seize and sell it to the highest bidder
+    pros:
+      - Many affiliates in populated systems
+      - System of safe houses and secret smuggling routes
+      - Easy access to the black market
+    cons:
+      - Few agents in the field for support
+
+  - name: The Institute for Interstellar Progress
+    type: Research Organization
+    summary: Elite financiers and researchers
+    mcguffin_interest: Believes it to be an ancient, forgotten technological device; wants to study it and learn from it
+    pros:
+      - Access to multiple space stations and remote research bases/supply depots
+      - Generous funding and material support
+    cons:
+      - Cannot be publicly linked with crime, corruption, or violence
+
+  - name: The Jade Front
+    type: Rebel Movement
+    summary: Principled rebels searching for an edge
+    mcguffin_interest: Wants it because it is an important looted cultural treasure
+    pros:
+      - Access to military weapons and ships
+      - Many agents in the field for support
+    cons:
+      - Relatively cash poor

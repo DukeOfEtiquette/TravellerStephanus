@@ -331,7 +331,7 @@ final:
     bloodied: 14
 
   equipment:
-    cash: 21400  # was 25000, spent 3600
+    cash: 21300  # was 25000, spent 3600 + 100 lifestyle (Session 3)
     weapons:
       - name: Laser Pistol
         ammo: { type: Laser, state: full, spares: 9 }
@@ -351,10 +351,9 @@ final:
         The captain who found William stowed away in a cargo container and
         gave him a chance instead of spacing him. Later recruited him into
         her trade consortium. They parted as equals after his second career.
-        Runs a growing merchant operation with routes through the Mora cluster.
 
   notes: |
-    William Hung grew up with nothing on Atsah—a poor agricultural world where
+    William Hung grew up with nothing on Atsah; a poor agricultural world where
     he had no family farm, no prospects, just street smarts and a mouth that
     moved faster than his brain. At 18, he stowed away on a freighter hidden
     in a cargo container of blue yak cheese. Captain Mira Vasquez found him

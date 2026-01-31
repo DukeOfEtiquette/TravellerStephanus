@@ -1,0 +1,119 @@
+# Party Members - Traveller Stephanus Campaign
+# Lightweight tracking for other PCs in the group
+# (William Hung has full treatment in characters/active/william-hung/)
+
+party_members:
+
+  - name: "Cpl. Bobby 'Birdshit' Bootman"
+    age: 38
+    upp: "8AA197"
+    # STR 8, DEX 10, END 10, INT 1, EDU 9, SOC 7
+    background:
+      homeworld: Agricultural
+      schooling: The Streets
+    careers:
+      - { name: Military, terms: 4, rank: 3 }
+      - { name: Noble, terms: 1, rank: 1 }
+    skills:
+      - Athletics-2
+      - Medicine-2
+      - Carousing-1
+      - Firearms-1
+      - Blades-1
+      - Brawling-1
+      - Heavy Weapons-1
+      - Tactics-1
+      - Gunnery-1
+      - Navigation-1
+    notes: |
+      Military veteran with combat experience. Nickname suggests colorful history.
+
+  - name: "Baron Aldric Harrow"
+    age: 44
+    upp: "8514EC"
+    # STR 8, DEX 5, END 1, INT 4, EDU 14, SOC 12
+    background:
+      homeworld: Spacer
+      schooling: University
+    careers:
+      - { name: Noble, terms: 5, rank: 4 }
+      - { name: Military, terms: 1, rank: 1 }
+    skills:
+      - Electronics-2
+      - Performer-2
+      - Bureaucracy-2
+      - Brawling-1
+      - Carousing-1
+      - Firearms-1
+    notes: |
+      Titled nobility (Baron). High education and social standing.
+      Career politician/courtier with some military service.
+
+  - name: "Capt. Willem van Leeuwen, Ph.D."
+    age: 38
+    upp: "999798"
+    # STR 9, DEX 9, END 9, INT 7, EDU 9, SOC 8
+    background:
+      homeworld: Fringe
+      schooling: Finishing School
+    careers:
+      - { name: Frontier, terms: 4, rank: 3 }
+      - { name: Military, terms: 1, rank: null }
+    skills:
+      - Mechanics-3
+      - Firearms-3
+      - Zero-G-2
+      - Bushcraft-1
+      - Athletics-1
+      - Medicine-1
+      - Drive-1
+    notes: |
+      Academic with frontier experience. Ship's mechanic and capable marksman.
+      Ph.D. suggests research background.
+
+  - name: "Finnegan"
+    age: null  # Not specified
+    upp: "71BA84"
+    # STR 7, DEX 1, END 11, INT 10, EDU 8, SOC 4
+    background:
+      homeworld: Industrial
+      schooling: University
+    careers:
+      - { name: Drifter, terms: 5, rank: null }
+    skills:
+      - Pilot-2
+      - Animals-2
+      - Broker-1
+      - Medicine-1
+      - Investigation-1
+      - Mechanics-1
+      - Electronics-1
+      - Bushcraft-1
+      - Streetwise-1
+      - Heavy Weapons-1
+    notes: |
+      Jack of all trades from a drifter background. Can pilot and has
+      surprisingly diverse skill set.
+
+  - name: "[Crispin's Character]"
+    age: null  # Not specified
+    upp: "75BB57-4"
+    # STR 7, DEX 5, END 11, INT 11, EDU 5, SOC 7 (the -4 may be PSI rating)
+    background:
+      homeworld: Agricultural
+      schooling: Apprenticeship
+    careers:
+      - { name: Frontier, terms: 4, rank: 3 }
+      - { name: Psion, terms: 1, rank: 1 }
+    skills:
+      - Translocation-2
+      - Hypercognition-1
+      - Firearms-1
+      - Zero-G-1
+      - Brawling-1
+      - Bushcraft-1
+      - Athletics-1
+      - Mechanics-1
+    notes: |
+      Psion with Translocation and Hypercognition talents. The party's only
+      psionic character. Name TBD.

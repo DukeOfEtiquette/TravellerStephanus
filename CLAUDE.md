@@ -98,12 +98,16 @@ For schema examples, see these files:
 │   │   ├── noble.yaml
 │   │   ├── drifter.yaml
 │   │   └── psion.yaml
+│   ├── sessions/          # GM session recaps
+│   │   └── session-*.yaml
 │   ├── worlds/
 │   │   └── systems.yaml
-│   └── equipment/
-│       ├── weapons.yaml
-│       ├── armor.yaml
-│       └── vehicles.yaml
+│   ├── equipment/
+│   │   ├── weapons.yaml
+│   │   ├── armor.yaml
+│   │   └── vehicles.yaml
+│   ├── party.yaml         # Other party members (lightweight tracking)
+│   └── assets.yaml        # Shared ships, party funds, equipment
 ├── characters/            # Character records and analysis
 │   ├── _analysis_methodology/
 │   ├── active/
@@ -124,6 +128,11 @@ When helping with rules questions, use the structured data files in `data/`:
 - **Career tables**: `data/careers/*.yaml` (military, mercantile, frontier, noble, drifter, psion)
 - **World info**: `data/worlds/systems.yaml`
 - **Prices/equipment**: `data/equipment/prices.yaml`
+- **GM session recaps**: `data/sessions/session-*.yaml`
+- **Party members**: `data/party.yaml` (other PCs in the group)
+- **Shared assets**: `data/assets.yaml` (ships, party funds, shared equipment)
+
+For character-specific session notes, see `characters/active/*/session-notes.md`.
 
 > Do NOT use `references/` - those are raw source files. All data has been extracted into `data/`.
 

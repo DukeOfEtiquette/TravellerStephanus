@@ -1,0 +1,110 @@
+# Shared Party Assets - Traveller Stephanus Campaign
+# Tracks ships, party funds, shared equipment, and cargo
+
+# =============================================================================
+# PARTY FUNDS
+# =============================================================================
+party_kitty:
+  balance: 147300  # Cr, as of Session 3
+  last_updated: "Session 3"
+  notes: |
+    Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
+    Spent 200 Cr on expenses during Session 2.
+    Spent 2,500 Cr bribing Customs Inspector Angus Graham during Session 3.
+
+# =============================================================================
+# SHIPS
+# =============================================================================
+ships:
+
+  - name: "Voice of Liberation II"
+    type: Smuggling Vessel
+    owner: Jade Front (on loan to party)
+    acquired: "Session 2"
+    status: operational
+    notes: |
+      Formerly captured by pirates and held at Kath starport. Party liberated
+      it through blackmail. Scrubbed of spy devices. Has a hidden smuggling
+      compartment the pirates missed.
+
+    frame:
+      tonnage: 200
+      hull_hp: 20
+      hull_current: 20
+      cargo_capacity: 25  # tons
+      hanger_capacity: 20  # tons
+
+    systems:
+      impulse: 1
+      jump: 1
+      shields: 1
+      pulse_lasers: 1
+      missiles:
+        rating: 1
+        loaded: 4
+
+    amenities:
+      staterooms:
+        rating: 4
+        capacity: 8  # persons
+      barracks:
+        rating: 1
+        capacity: 5  # marines
+      low_berths:
+        rating: 1
+        capacity: 6  # persons
+      smuggling_compartment:
+        rating: 1
+        notes: Hidden compartment, pirates didn't find it
+
+    crew:
+      # Crew positions and assignments TBD
+      captain: null
+      pilot: null
+      engineer: null
+      gunner: null
+      steward: null
+      medic: null
+      marines: []
+
+    passengers:
+      - name: Petra
+        role: Jade Front contact
+        boarded: "Session 3"
+        notes: Provided intel on Cooper-Akachi operatives
+      - name: Samir
+        role: Jade Front contact
+        boarded: "Session 3"
+        notes: null
+
+    cargo:
+      manifest: []
+      # Example entry:
+      # - item: "Ithian Credit Chips"
+      #   quantity: 1
+      #   notes: "Encrypted, from Kyle Newhouse"
+
+    damage_log: []
+    # Example entry:
+    # - session: 3
+    #   damage: "Hull took 5 HP from missile strike"
+    #   repaired: false
+
+# =============================================================================
+# SHARED EQUIPMENT
+# =============================================================================
+shared_equipment: []
+# Example entries:
+# - name: "Vacc Suits"
+#   quantity: 4
+#   location: "Voice of Liberation II"
+#   notes: "Ship's emergency suits"
+
+# =============================================================================
+# VEHICLES IN HANGER
+# =============================================================================
+hanger_contents: []
+# Note: William's personal shuttlecraft may be stored here
+# - name: "William's Shuttlecraft"
+#   owner: "William Hung"
+#   notes: "Personal vehicle, stored in ship hanger"

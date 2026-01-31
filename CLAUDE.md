@@ -26,9 +26,12 @@ Raw source files from the GM's Discord:
 
 ### External Resources
 
-| URL | Contents |
-|-----|----------|
-| https://smparkin.com/games/ctrav/prices | **Price Guide** - Comprehensive economics and equipment catalog |
+> ⚠️ **IMPORTANT**: External URLs are **referential only** and should NOT be treated as a source of truth. The GM is running a custom "hack" of Classic Traveller rules. When external rules conflict with local `data/` files or GM rulings, **the GM's version always takes precedence**.
+
+| URL | Contents | Notes |
+|-----|----------|-------|
+| https://smparkin.com/games/trav/rules | **Rules Reference** - Classic Traveller rules | Referential only; GM uses modified version |
+| https://smparkin.com/games/ctrav/prices | **Price Guide** - Economics and equipment catalog | Use as baseline; GM may override |
 
 The price guide includes:
 - **Economics**: Living expenses, starship operating costs
@@ -120,7 +123,7 @@ For schema examples, see these files:
 
 ## Querying Campaign Data
 
-When helping with rules questions, use the structured data files in `data/`:
+When helping with rules questions, use the structured data files in `data/`. These files represent the **authoritative rules for this campaign** as interpreted by the GM. External resources (smparkin.com, etc.) are for reference only and may differ from actual gameplay.
 
 - **Character creation**: `data/rules/character-creation.yaml`
 - **Combat rules**: `data/rules/combat.yaml`

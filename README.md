@@ -6,7 +6,7 @@ A companion project for the Traveller Stephanus tabletop RPG campaign.
 
 | Resource | Location |
 |----------|----------|
-| **Active Character** | [William Hung](characters/active/william-hung/william-hung.yaml) |
+| **Active Character** | [William Hung](characters/active/william-hung/) |
 | **Price Guide** | [smparkin.com/games/ctrav/prices](https://smparkin.com/games/ctrav/prices) |
 | **World Profiles** | [data/worlds/systems.yaml](data/worlds/systems.yaml) |
 | **Combat Rules** | [data/rules/combat.yaml](data/rules/combat.yaml) |

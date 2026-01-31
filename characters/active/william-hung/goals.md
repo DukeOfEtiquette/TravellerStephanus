@@ -2,7 +2,7 @@
 
 ## Character Info
 - **Name:** William Hung
-- **Last Updated:** 2026-01-24
+- **Last Updated:** 2026-01-30
 
 ---
 
@@ -23,14 +23,21 @@
 ## Meta Goals
 
 ### Character Decisions
-- [ ] Determine where William keeps his secret Jade Front ID chip hidden
-- [ ] Determine overall look and appearance for a standard lifestyle
-- [ ] Determine where William stores all of his belongings
+(none pending)
 
 ### Mechanical/Build
 - [ ] Flesh out career details with newly updated backstory
 
 ### Completed
+- [x] Determine overall look and appearance for a standard lifestyle
+  - "Cleaned-Up Spacer" look: charcoal grey shipsuit, worn brown leather jacket with multiple pockets, practical mag-boots. Short dark hair, clean-shaven or stubble. Respectable enough for business, practical enough for a cargo bay.
+  - Portrait saved: `william-hung-portrait.png`
+- [x] Determine where William stores all of his belongings
+  - Personal gear kept aboard the Voice of Liberation II (stateroom)
+  - Shuttlecraft, ground car, and grav bike stored in ship's hanger (20 ton capacity)
+- [x] Determine where William keeps his secret Jade Front ID chip hidden
+  - Concealed in a hidden compartment in his belt buckle
+  - Utilitarian buckle doesn't draw attention, always on his person, quick to access
 
 ---
 
@@ -50,6 +57,8 @@
   - Location of goods pickup at L3 in Ith system
 - Character doesn't know:
   - Full extent of Thane's involvement with The Mask
+- Hidden items:
+  - JF ID chip concealed in belt buckle
 
 ---
 

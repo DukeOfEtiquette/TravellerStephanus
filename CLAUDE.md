@@ -107,7 +107,9 @@ For schema examples, see these files:
 │   │   ├── armor.yaml
 │   │   └── vehicles.yaml
 │   ├── party.yaml         # Other party members (lightweight tracking)
-│   └── assets.yaml        # Shared ships, party funds, equipment
+│   ├── assets.yaml        # Shared ships, party funds, equipment
+│   ├── npcs.yaml          # Consolidated NPC registry
+│   └── investigation.yaml # Mission objectives, leads, dead ends, intel
 ├── characters/            # Character records and analysis
 │   ├── _analysis_methodology/
 │   ├── active/
@@ -131,10 +133,25 @@ When helping with rules questions, use the structured data files in `data/`:
 - **GM session recaps**: `data/sessions/session-*.yaml`
 - **Party members**: `data/party.yaml` (other PCs in the group)
 - **Shared assets**: `data/assets.yaml` (ships, party funds, shared equipment)
+- **NPCs**: `data/npcs.yaml` (consolidated NPC registry with affiliations, status, notes)
+- **Investigation**: `data/investigation.yaml` (mission objectives, leads, dead ends, open questions)
+- **Sector graph**: `data/worlds/sector-graph.json` (systems as nodes, jump-1 connections as edges, fuel availability)
+- **Travel calculator**: `scripts/travel.js` (pathfinding, travel time, fuel risk calculations)
 
 For character-specific session notes, see `characters/active/*/session-notes.md`.
 
 > Do NOT use `references/` - those are raw source files. All data has been extracted into `data/`.
+
+## Processing Session Notes
+
+When the user provides new session notes from the GM, update the following files:
+
+1. **`data/sessions/session-NN.yaml`** - Create new session file with recap, npcs_introduced, key_events
+2. **`data/npcs.yaml`** - Add any new NPCs to the consolidated registry; update status of existing NPCs (e.g., deceased, missing)
+3. **`data/investigation.yaml`** - Update leads (new, stalled, resolved), add dead ends, note new intel or open questions, update strategic plan/timeline
+4. **`data/assets.yaml`** - Update party kitty, cargo manifest, ship status, shared equipment
+5. **`characters/active/william-hung/session-notes.md`** - Add session entry (or note absence if William wasn't present)
+6. **`data/party.yaml`** - Update if new info about party members is revealed (names, skills used, etc.)
 
 ## Notes
 

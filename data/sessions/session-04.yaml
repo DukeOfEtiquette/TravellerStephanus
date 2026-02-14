@@ -1,0 +1,58 @@
+session:
+  number: 4
+  date: null  # Date not provided
+  recap: |
+    The party crafted an overarching plan:
+    - Dispatched a Jade Front operative to travel via middle passage from Ith to Mowebe to Thane,
+      then back to Mowebe after two months of listening on Thane for updates from Mora
+    - Party will take on supplies at Ith L3 point, travel to Stoyben for ship refit (fuel tanks)
+      and information gathering, then jump across open space to Mowebe
+    - Rendezvous with the agent planned for Campaign Week 20 (seventeen weeks out)
+
+    At the L3 point, the party made contact with Oa Danel, an Ithian with a polished demeanor.
+    She represented "Sint Motor Systems Tfd." (a JF cover R&D company) and offered:
+    - Pharmaceuticals as cover cargo
+    - Illicit arms to smuggle
+
+    However, she couldn't guarantee a clean departure due to surveillance by Dylan Connell,
+    an Ithian intelligence agent and true believer, along with his two deputies.
+
+    To ensure a clean getaway, the party orchestrated Dylan's assassination:
+    - Samir crafted a small bomb with limited impact
+    - Victor filed a false report implicating Les Wrownand (local Bravida affiliate from Kath)
+      with a plan to move on the station
+    - Used the security office visit as pretext while Capt. Leeuwen (on EVA outside the station)
+      teleported the bomb in via Victor's psionic ability
+
+    The plot worked flawlessly:
+    - Oa/Sint won a propaganda coup by distributing medicine to the wounded
+    - Jade Front secured freedom of operation in the area
+    - Party took on 16.5 tons of weapons and jumped to Stoyben
+
+    Time: 4.6
+    Location: Arriving to the Stoyben system
+    Kitty: 124,600 cr
+
+  npcs_introduced:
+    - name: Oa Danel
+      affiliation: Jade Front / Sint Motor Systems Tfd.
+      description: Ithian with polished demeanor, JF operative at L3 station
+      status: allied
+
+    - name: Dylan Connell
+      affiliation: Ithian Intelligence
+      description: Intelligence agent and true believer, surveilling JF operations
+      status: deceased (assassinated by party)
+
+    - name: Les Wrownand
+      affiliation: Bravida (Kath affiliate)
+      description: Local criminal element, used as scapegoat in bombing
+      status: framed for bombing
+
+  key_events:
+    - "Developed long-term intelligence plan with JF operative deployment"
+    - "Made contact with Oa Danel at L3 station"
+    - "Assassinated Dylan Connell and two deputies via bomb"
+    - "Sint Motor Systems gained propaganda victory"
+    - "Loaded 16.5 tons of weapons cargo"
+    - "Jumped to Stoyben system"

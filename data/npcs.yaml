@@ -1,0 +1,198 @@
+# NPC Registry - Traveller Stephanus Campaign
+# Consolidated dictionary of all NPCs encountered
+
+npcs:
+
+  # ===========================================================================
+  # JADE FRONT
+  # ===========================================================================
+
+  - name: Kyle Newhouse
+    affiliation: Jade Front
+    role: Recruiter / Party Contact
+    location: Ith
+    status: active
+    first_appearance: Session 2
+    description: |
+      The party's primary Jade Front contact. Provided initial mission briefing
+      about the Ithian death mask and 150k cr in encrypted credit chips.
+    notes: |
+      Established signal routines for arranging meetings with JF agents.
+
+  - name: Petra
+    affiliation: Jade Front
+    role: Operative / Contact
+    location: Aboard Voice of Liberation II
+    status: active
+    first_appearance: Session 3
+    description: |
+      JF contact who shared street-level intel about Cooper-Akachi dispatching
+      elite operatives to Mora. Suggested traveling to Ith L3 station.
+    notes: null
+
+  - name: Samir
+    affiliation: Jade Front
+    role: Operative / Demolitions
+    location: Aboard Voice of Liberation II
+    status: active
+    first_appearance: Session 3
+    description: |
+      JF contact traveling with the party. Crafted the bomb used in the
+      Dylan Connell assassination (Session 4).
+    notes: null
+
+  - name: Oa Danel
+    affiliation: Jade Front / Sint Motor Systems Tfd.
+    role: Station Operative
+    location: Ith L3 research station
+    status: active
+    first_appearance: Session 4
+    description: |
+      Ithian with polished demeanor. Operates through the cover R&D company
+      "Sint Motor Systems Tfd." Provided pharmaceuticals and illicit arms.
+    notes: |
+      Won propaganda coup for Sint by distributing medicine after the bombing.
+      Secured JF freedom of operation at L3 station.
+
+  - name: Isaiah Reed
+    affiliation: Jade Front (Stoyben station chief)
+    role: Station Chief
+    location: Stoyben
+    status: active
+    first_appearance: Session 5
+    description: |
+      JF leadership on Stoyben. Has no knowledge of the party's specific mission.
+      Will trade weapons for refined fuel.
+    notes: |
+      Expressed need for weapons on Ugrik if party travels that way.
+
+  - name: Antonio Jose Cuevas
+    affiliation: Jade Front (informant)
+    role: Marketing Account Manager
+    location: Stoyben Interstellar News Dispatch
+    status: active
+    first_appearance: Session 5
+    description: |
+      JF informant at the Dispatch. Has many contacts but proved unhelpful
+      when shaken down by the party.
+    notes: |
+      A real, entitled asshole.
+
+  # ===========================================================================
+  # STOYBEN INTERSTELLAR NEWS DISPATCH
+  # ===========================================================================
+
+  - name: Choophong Thanatkha
+    aliases: ["Choo"]
+    affiliation: Stoyben Interstellar News Dispatch
+    role: Investigative Journalist
+    location: Last known working on Mora
+    status: missing (3+ months)
+    first_appearance: Session 2 (mentioned)
+    description: |
+      Stoybeni investigative journalist who broke the story about the Ithian
+      death mask being stolen from Keith Sevont's estate before repatriation.
+    notes: |
+      Editor Doné Rivis is worried about Choo's 3-month disappearance.
+      Party attempted to find traces of Choo's filed story in Dispatch systems.
+
+  - name: Doné Rivis
+    affiliation: Stoyben Interstellar News Dispatch
+    role: Editor for Investigative Journalism
+    location: Stoyben
+    status: active
+    first_appearance: Session 5
+    description: |
+      Large, affable man. Has no knowledge of the mask or Choo's story.
+      Victor's hypnosis confirmed blackmail material exists on him.
+    notes: |
+      Worried that Choo hasn't surfaced in three months.
+      Party has blackmail material but declined to use it (for now).
+
+  - name: Kelly Fitzpatrick
+    affiliation: Stoyben Interstellar News Dispatch
+    role: Shift Supervisor (Production/Press)
+    location: Stoyben
+    status: deceased (recent)
+    first_appearance: Session 5
+    description: |
+      Recently deceased shift supervisor in the paper's production department.
+    notes: |
+      Soft ruled out as a lead by the party.
+
+  # ===========================================================================
+  # ITHIAN GOVERNMENT / INTELLIGENCE
+  # ===========================================================================
+
+  - name: Dylan Connell
+    affiliation: Ithian Intelligence
+    role: Intelligence Agent
+    location: Ith L3 research station
+    status: deceased
+    first_appearance: Session 4
+    description: |
+      Ithian intelligence agent and "true believer" who was surveilling
+      Jade Front operations at the L3 station.
+    notes: |
+      Assassinated by party along with two deputies via bomb.
+      False report implicated Les Wrownand/Bravida in the attack.
+
+  - name: Angus Graham
+    affiliation: Ithian Customs (corrupt)
+    role: Licensed Customs Inspector
+    location: I'ith
+    status: active
+    first_appearance: Session 3
+    description: |
+      Corrupt customs inspector who can be bribed to falsify documentation.
+      Was previously paid off by the Iron Commerce 18 crew.
+    notes: |
+      Bribed by party (2,500 cr) to falsify destination as Stoyben and
+      cargo as light construction vehicles.
+
+  # ===========================================================================
+  # CRIMINAL / BRAVIDA
+  # ===========================================================================
+
+  - name: Les Wrownand
+    affiliation: Bravida (Kath affiliate)
+    role: Local Criminal Contact
+    location: Kath / Ith L3 area
+    status: active (framed)
+    first_appearance: Session 4
+    description: |
+      Local Bravida affiliate from Kath used as scapegoat in the
+      Dylan Connell assassination.
+    notes: |
+      Victor filed false report implicating Wrownand in a plan to
+      "move on the station."
+
+  # ===========================================================================
+  # HISTORICAL / DECEASED
+  # ===========================================================================
+
+  - name: Keith Sevont
+    affiliation: None (soldier, retired)
+    role: Former Mask Owner
+    location: Newhall (deceased)
+    status: deceased (historical)
+    first_appearance: Session 2 (mentioned)
+    description: |
+      "Nobody soldier from Newhall" whose collection contained the Ithian
+      death mask. After his death, descendants attempted repatriation to Ith
+      but the mask disappeared again.
+    notes: |
+      Acquired mask ~71 years ago at end of 2nd Agretic War.
+
+  # ===========================================================================
+  # OTHER FACTIONS
+  # ===========================================================================
+
+  # Note: IIP associates approached the party discreetly (Session 2) but
+  # no specific NPCs were named.
+
+  # Note: Cooper-Akachi dispatched elite operatives to Mora (Session 3 intel)
+  # but no specific NPCs were named.
+
+  # Note: Iron Commerce 18 crew confirmed as al-Thani (Session 3) but
+  # no specific NPCs were named.

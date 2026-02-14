@@ -95,7 +95,8 @@ party_members:
       Jack of all trades from a drifter background. Can pilot and has
       surprisingly diverse skill set.
 
-  - name: "[Crispin's Character]"
+  - name: "Victor"
+    player: Crispin
     age: null  # Not specified
     upp: "75BB57-4"
     # STR 7, DEX 5, END 11, INT 11, EDU 5, SOC 7 (the -4 may be PSI rating)
@@ -116,4 +117,5 @@ party_members:
       - Mechanics-1
     notes: |
       Psion with Translocation and Hypercognition talents. The party's only
-      psionic character. Name TBD.
+      psionic character. Used hypnosis on Doné Rivis (Session 5) and teleported
+      bomb during Dylan Connell assassination (Session 4).

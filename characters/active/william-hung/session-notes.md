@@ -148,6 +148,91 @@ Good use of Carousing-4 this session. Birdshit and I make a solid team for socia
 
 ---
 
+## Session 4
+**Date:** 2026-01-30
+
+### Summary
+Strategic planning session at the Ith L3 point. Party developed long-term intelligence-gathering plan and orchestrated assassination of Ithian intelligence agent to secure freedom of operation.
+
+### Key Events
+- Participated in developing 17-week strategic plan (rendezvous Week 20)
+- Made contact with Oa Danel (JF/"Sint Motor Systems Tfd.") at L3 station
+- Party orchestrated assassination of Dylan Connell (Ithian intelligence) and two deputies
+- Samir crafted bomb, Victor filed false report, Capt. Leeuwen transported bomb via EVA
+- Victor teleported bomb into security office
+- Sint gained propaganda victory distributing medicine to wounded
+- Loaded 16.5 tons of weapons cargo
+- Jumped to Stoyben system
+
+### NPCs Encountered
+| Name | Description | Location | Notes |
+|------|-------------|----------|-------|
+| Oa Danel | JF operative, polished demeanor | Ith L3 station | Cover company: Sint Motor Systems Tfd. |
+| Dylan Connell | Ithian intelligence agent | Ith L3 station | Deceased - assassinated |
+| Les Wrownand | Bravida affiliate (Kath) | Mentioned | Framed for bombing |
+
+### Locations Visited
+- Ith L3 research station
+
+### Items Gained/Lost
+- (+) 16.5 tons weapons cargo (party)
+
+### Credits
+- Starting: 21,300 Cr
+- Ending: 21,300 Cr (no personal expenses noted)
+- Net: 0 Cr
+
+### Clues/Information Learned
+- Sint Motor Systems Tfd. is a JF cover R&D company
+- JF operative deployed: Ith → Mowebe → Thane → Mowebe (listening for Mora intel)
+- Rendezvous planned for Campaign Week 20 at Mowebe
+
+### Unresolved Threads
+- Will the bombing be traced back to the party?
+- What intel will the JF operative gather on Thane?
+
+### Notes
+William participated in the planning process but did not serve an outstanding part in the narrative this session. The assassination plot was primarily executed by Samir (bomb), Victor (false report + teleportation), and Capt. Leeuwen (EVA delivery).
+
+---
+
+## Session 5
+**Date:** 2026-02-06
+
+### Summary
+*William Hung was absent this session.*
+
+### Key Events (Party Summary)
+- Party legally declared cargo on Stoyben
+- Baron Harrow's influence secured immediate shipyard slot
+- Ship refit in progress (fuel tanks) - due Campaign Week 7
+- Met Isaiah Reed (JF Stoyben station chief) - will trade weapons for fuel
+- Reed noted JF needs weapons on Ugrik
+- Investigated Stoyben Interstellar News Dispatch:
+  - Antonio Jose Cuevas (JF informant) - unhelpful
+  - Doné Rivis (Editor) - no knowledge of mask/Choo, worried about Choo's 3-month absence
+  - Kelly Fitzpatrick (deceased shift supervisor) - ruled out as lead
+- Harrow's hack attempts failed, machine destroyed
+- Party purchased industrial belt sander
+
+### NPCs Encountered
+| Name | Description | Location | Notes |
+|------|-------------|----------|-------|
+| Isaiah Reed | JF station chief | Stoyben | Unaware of party mission specifics |
+| Antonio Jose Cuevas | JF informant, Marketing Acct Mgr | Dispatch | Entitled asshole, unhelpful |
+| Doné Rivis | Editor, Investigative Journalism | Dispatch | Has blackmail material (unused) |
+
+### Credits
+- Starting: 21,300 Cr
+- Ending: 21,300 Cr (absent)
+- Net: 0 Cr
+- Party Kitty: 21,100 Cr
+
+### Notes
+William was not present. The party made progress on the Dispatch investigation but hit dead ends. Choo has been missing for 3 months, which is concerning. Harrow's failed hack and machine destruction may have consequences.
+
+---
+
 <!-- Copy the session template below for each new session -->
 
 <!--

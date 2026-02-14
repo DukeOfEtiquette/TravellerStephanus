@@ -5,12 +5,14 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 147300  # Cr, as of Session 3
-  last_updated: "Session 3"
+  balance: 21100  # Cr, as of Session 5
+  last_updated: "Session 5"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
     Spent 2,500 Cr bribing Customs Inspector Angus Graham during Session 3.
+    Session 4: Kitty at 124,600 Cr after L3 operations.
+    Session 5: Ship refit (fuel tanks), Dispatch investigation costs. Kitty at 21,100 Cr.
 
 # =============================================================================
 # SHIPS
@@ -26,6 +28,9 @@ ships:
       Formerly captured by pirates and held at Kath starport. Party liberated
       it through blackmail. Scrubbed of spy devices. Has a hidden smuggling
       compartment the pirates missed.
+
+      Session 5: Refit in progress at Stoyben shipyard (fuel tanks). Due Week 7.
+      Baron Harrow used his influence to secure immediate slot.
 
     frame:
       tonnage: 200
@@ -78,11 +83,10 @@ ships:
         notes: null
 
     cargo:
-      manifest: []
-      # Example entry:
-      # - item: "Ithian Credit Chips"
-      #   quantity: 1
-      #   notes: "Encrypted, from Kyle Newhouse"
+      manifest:
+        - item: "Weapons (illicit)"
+          quantity: 16.5  # tons
+          notes: "Acquired at Ith L3 from Oa Danel/Sint Motor Systems Tfd. (Session 4). JF station chief Isaiah Reed will trade for refined fuel. JF also needs weapons on Ugrik."
 
     damage_log: []
     # Example entry:
@@ -93,12 +97,11 @@ ships:
 # =============================================================================
 # SHARED EQUIPMENT
 # =============================================================================
-shared_equipment: []
-# Example entries:
-# - name: "Vacc Suits"
-#   quantity: 4
-#   location: "Voice of Liberation II"
-#   notes: "Ship's emergency suits"
+shared_equipment:
+  - name: "Industrial Belt Sander"
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Purchased Session 5. Used for destroying compromised electronics."
 
 # =============================================================================
 # VEHICLES IN HANGER

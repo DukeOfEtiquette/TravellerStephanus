@@ -1,0 +1,69 @@
+session:
+  number: 5
+  date: null  # Date not provided
+  recap: |
+    The company made arrangements in Stoyben to legally declare their cargo for trade and used
+    Baron Harrow's influence to win an immediate slot in the shipyard for their retrofit
+    (completed Week 7).
+
+    The Jade Front station chief, Isaiah Reed, explained that he had no knowledge of the group's
+    mission, but confirmed he would trade them the weapons for refined fuel. He also expressed
+    a need for weapons on Ugrik, if the company ended up travelling that way.
+
+    The company followed up on leads at the Stoyben Interstellar News Dispatch:
+
+    1. Shook down JF informant Antonio Jose Cuevas (Marketing Account Manager) - fruitless.
+       Note: Cuevas has many contacts but is a real, entitled asshole.
+
+    2. Met with Doné Rivis (Editor for Investigative Journalism) - a large, affable man.
+       - Victor's hypnosis confirmed blackmail material on Rivis (group declined to use it for now)
+       - Rivis has no knowledge of the mask or Choophong Thanatkha's story
+       - Rivis worried that Choo hasn't surfaced in three months
+
+    3. Soft ruled out Kelly Fitzpatrick (shift supervisor, production/press) as a lead -
+       she recently died but doesn't appear connected.
+
+    Finally, Baron Harrow attempted to hack the Dispatch's mainframe twice to search for traces
+    of Choo's story (reasoning: if filed but suppressed, traces might exist in systems).
+    Both attempts failed, and when the firewall AI tried to reverse trace, Harrow was forced
+    to power down and destroy the machine.
+
+    Related: The party purchased an industrial belt sander for the ship.
+
+    Time: 5.3
+    Location: Stoyben Interstellar Spaceport
+    Kitty: 21,100 cr
+
+  npcs_introduced:
+    - name: Isaiah Reed
+      affiliation: Jade Front (Stoyben station chief)
+      description: JF leadership on Stoyben, unaware of party's specific mission
+      status: allied
+
+    - name: Antonio Jose Cuevas
+      affiliation: Jade Front (informant)
+      description: Marketing Account Manager at Dispatch, many contacts, entitled asshole
+      status: informant (unhelpful)
+
+    - name: Doné Rivis
+      affiliation: Stoyben Interstellar News Dispatch
+      description: Editor for Investigative Journalism, large and affable man
+      status: neutral (has blackmail material, unused)
+      notes: Worried about Choo's 3-month disappearance
+
+    - name: Kelly Fitzpatrick
+      affiliation: Stoyben Interstellar News Dispatch
+      description: Shift supervisor in production/press department
+      status: deceased (recently, ruled out as lead)
+
+  key_events:
+    - "Legally declared cargo for trade on Stoyben"
+    - "Used Baron Harrow's influence for immediate shipyard slot"
+    - "Ship retrofit in progress (fuel tanks) - due Week 7"
+    - "Met Isaiah Reed, learned JF wants weapons on Ugrik"
+    - "Investigated Dispatch - no leads on Choo's story"
+    - "Harrow's hack attempts failed, machine destroyed"
+    - "Purchased industrial belt sander"
+
+  absent_pcs:
+    - William Hung

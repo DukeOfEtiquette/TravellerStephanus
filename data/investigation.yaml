@@ -1,0 +1,234 @@
+# Investigation Tracker - Traveller Stephanus Campaign
+# Centralized tracking for mission objectives, leads, and intelligence
+
+# =============================================================================
+# PRIMARY MISSION
+# =============================================================================
+primary_mission:
+  name: "Recovery of the Ithian Death Mask"
+  client: Jade Front
+  contact: Kyle Newhouse
+  assigned: Session 2
+  status: active
+  objective: |
+    Recover the sacred Ithian death mask and return it to Ith. Success would
+    provide the Jade Front a massive propaganda coup against the Quiru-Newhall
+    alliance, potentially securing a political alliance with Ith.
+
+# =============================================================================
+# CHAIN OF CUSTODY (What we know about the mask's history)
+# =============================================================================
+chain_of_custody:
+  - period: "~71 years ago (end of 2nd Agretic War)"
+    event: "Mask found at—and subsequently stolen from—Mora antiquities market"
+    source: Kyle Newhouse briefing (Session 2)
+
+  - period: "Post-theft, unknown duration"
+    event: "Mask appears in collection of Keith Sevont, a soldier from Newhall"
+    source: Kyle Newhouse briefing (Session 2)
+
+  - period: "After Sevont's death"
+    event: "Descendants contact Ithian Cultural Ministry to arrange repatriation"
+    source: Kyle Newhouse briefing (Session 2)
+
+  - period: "Before transfer completed"
+    event: "Mask disappears again"
+    source: Kyle Newhouse briefing (Session 2)
+
+  - period: "Recent (before campaign start)"
+    event: "Journalist Choophong Thanatkha breaks story about the theft"
+    source: Kyle Newhouse briefing (Session 2)
+
+  - period: "Current"
+    event: "Location unknown. Multiple factions racing to recover it."
+    source: Party investigation
+
+# =============================================================================
+# ACTIVE LEADS
+# =============================================================================
+active_leads:
+
+  - name: "JF Intelligence Operative"
+    priority: high
+    status: in_progress
+    description: |
+      Jade Front operative dispatched on intelligence-gathering circuit:
+      Ith → Mowebe → Thane (2 months listening for Mora updates) → Mowebe
+    action_required: "Rendezvous at Mowebe, Campaign Week 20"
+    established: Session 4
+    notes: |
+      Traveling via middle passage tickets. Will gather intel filtering
+      back from Mora about the mask situation.
+
+  - name: "Choophong Thanatkha (Choo)"
+    priority: high
+    status: stalled
+    description: |
+      Stoybeni investigative journalist who broke the death mask story.
+      Was working on Mora. Missing for 3+ months.
+    action_required: "Find Choo or determine what happened to them"
+    established: Session 2
+    last_update: Session 5
+    notes: |
+      Editor Doné Rivis worried about disappearance. Rivis has no knowledge
+      of Choo's story or current whereabouts. Dispatch mainframe hack failed.
+      Unknown if Choo ever filed a story that was suppressed.
+
+  - name: "Iron Commerce 18 / al-Thani Connection"
+    priority: medium
+    status: stalled
+    description: |
+      300-ton tramp freighter with al-Thani crew (confirmed via psychic viewing).
+      Falsified cargo manifest (claimed pharmaceuticals and manufacturing drones).
+      Took on 20 tons fuel at Ith, did no trade, no one disembarked.
+    action_required: "Track destination; investigate al-Thani involvement"
+    established: Session 3
+    notes: |
+      Customs inspector Angus Graham (bribed by IC18 crew) said their "friends"
+      were bound for "home." Crew wore typical Thane garb: all black, faces covered.
+      Possible destination: al-Thani homeworld?
+
+  - name: "Cooper-Akachi Operatives"
+    priority: medium
+    status: monitoring
+    description: |
+      Street-level intel indicates Cooper-Akachi dispatched an elite team
+      of operatives to Mora in pursuit of the mask.
+    action_required: "Monitor; avoid or neutralize if encountered"
+    established: Session 3 (Petra's intel)
+    notes: |
+      Possible connection to al-Thani? Both headed toward Mora region.
+
+  - name: "Ugrik Weapons Delivery"
+    priority: low
+    status: optional
+    description: |
+      JF station chief Isaiah Reed noted the Front needs weapons on Ugrik.
+      Party currently has 16.5 tons of weapons cargo.
+    action_required: "Deliver weapons to Ugrik if traveling that direction"
+    established: Session 5
+    notes: |
+      Not directly related to mask mission but could build JF goodwill
+      and provide operational funds.
+
+# =============================================================================
+# DEAD ENDS (Leads ruled out)
+# =============================================================================
+dead_ends:
+
+  - name: "Kelly Fitzpatrick"
+    ruled_out: Session 5
+    description: "Shift supervisor in Dispatch production/press department"
+    reason: "Recently deceased but investigation found no connection to mask or Choo"
+
+  - name: "Antonio Jose Cuevas"
+    ruled_out: Session 5
+    description: "JF informant, Marketing Account Manager at Dispatch"
+    reason: "Has contacts but proved unhelpful when questioned. Entitled asshole."
+
+  - name: "Doné Rivis (direct knowledge)"
+    ruled_out: Session 5
+    description: "Editor for Investigative Journalism at Dispatch"
+    reason: |
+      Victor's hypnosis confirmed he has no knowledge of the mask or Choo's story.
+      Genuinely worried about Choo's disappearance.
+    notes: |
+      NOT fully ruled out as asset—party has unused blackmail material on him.
+      Could be leveraged for access/favors if needed.
+
+  - name: "Dispatch Mainframe (hack approach)"
+    ruled_out: Session 5
+    description: "Attempt to search for traces of Choo's filed/suppressed story"
+    reason: |
+      Baron Harrow failed both hack attempts. Firewall AI attempted reverse trace.
+      Machine destroyed to prevent identification.
+
+# =============================================================================
+# OPEN QUESTIONS
+# =============================================================================
+open_questions:
+
+  - question: "Who currently has the mask?"
+    priority: critical
+    notes: "Core mystery. No definitive intelligence yet."
+
+  - question: "Where is Choophong Thanatkha?"
+    priority: high
+    notes: "Missing 3+ months. Last known working on Mora. Editor worried."
+
+  - question: "Did Choo file a story that was suppressed?"
+    priority: high
+    notes: "If so, by whom? Hack attempt to find traces failed."
+
+  - question: "Where is the Iron Commerce 18 headed?"
+    priority: medium
+    notes: "Graham said 'home'—al-Thani space? Specific destination unknown."
+
+  - question: "What is the al-Thani interest in the mask?"
+    priority: medium
+    notes: "At least 2 confirmed al-Thani crew on IC18. Cultural? Political? Hired?"
+
+  - question: "What is the connection between Cooper-Akachi and al-Thani?"
+    priority: medium
+    notes: "Both seem to be moving toward Mora. Coordinated? Competing?"
+
+  - question: "What is IIP's interest in the party/mask?"
+    priority: low
+    notes: "IIP associates approached party discreetly (Session 2). No follow-up yet."
+
+  - question: "Will the L3 bombing be traced back to the party?"
+    priority: low
+    notes: "Les Wrownand/Bravida framed. Sint propaganda approach successful."
+
+# =============================================================================
+# KEY INTELLIGENCE
+# =============================================================================
+key_intel:
+
+  - fact: "Multiple factions are racing to recover the mask"
+    factions: ["Jade Front", "Cooper-Akachi", "al-Thani (suspected)", "IIP (interest unclear)"]
+    source: Various (Sessions 2-5)
+
+  - fact: "The mask has significant cultural/political value to Ith"
+    details: "Recovery would provide JF propaganda coup, potentially secure Ith alliance against Quiru-Newhall"
+    source: Kyle Newhouse (Session 2)
+
+  - fact: "Choo broke the story but has been missing 3+ months"
+    details: "Last known on Mora. Even their editor doesn't know their status."
+    source: Doné Rivis (Session 5)
+
+  - fact: "Iron Commerce 18 crew confirmed al-Thani"
+    details: "Psychic viewing confirmed at least 2 crew. Typical Thane garb: all black, faces covered."
+    source: Party investigation (Session 3)
+
+  - fact: "Cooper-Akachi has elite operatives en route to Mora"
+    details: "Street-level rumor confirmed by Petra"
+    source: Petra (Session 3)
+
+# =============================================================================
+# STRATEGIC PLAN
+# =============================================================================
+current_plan:
+  summary: |
+    Refit at Stoyben, then jump across open space to Mowebe.
+    Rendezvous with JF intelligence operative at Week 20.
+    Plan next move from Mowebe based on gathered intel.
+
+  timeline:
+    - week: 5.3
+      status: current
+      location: Stoyben Interstellar Spaceport
+      notes: "Ship refit complete. Dispatch investigation stalled."
+
+    - week: 7
+      status: scheduled
+      event: "Ship refit due (fuel tanks)"
+
+    - week: 20
+      status: planned
+      event: "Rendezvous with JF operative at Mowebe"
+
+  assets:
+    - "Voice of Liberation II (refitted with fuel tanks)"
+    - "16.5 tons weapons cargo (trade goods or Ugrik delivery)"
+    - "21,100 Cr party funds"

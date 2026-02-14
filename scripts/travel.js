@@ -278,29 +278,32 @@ function calculateTravelTime(jumps) {
 /**
  * Calculate travel time for a direct route through dead space.
  *
- * Dead space stops add 0 weeks (immediate re-jump, no services).
+ * Each dead space stop adds 1 week (for the jump into it).
+ * No additional transit time at dead space (no services/refueling needed).
  *
- * Example: Stoyben → (dead space) → Mowebe
- *   1 (origin) + 2 (jumps) + 0 (dead space stops) + 1 (destination) = 4 weeks
+ * Example: Stoyben → (dead space) → Mowebe (2 parsecs, Jump-1)
+ *   1 (origin) + 1 (jump to dead space) + 1 (dead space stop) + 1 (jump to dest) + 1 (destination) = 5 weeks
  *
  * @param {number} jumpsNeeded - Number of jumps required
- * @returns {{originWeek: number, jumpWeeks: number, destinationWeek: number, totalWeeks: number}}
+ * @returns {{originWeek: number, jumpWeeks: number, deadSpaceWeeks: number, destinationWeek: number, totalWeeks: number}}
  */
 function calculateDirectTravelTime(jumpsNeeded) {
   const rules = sectorData.travel_rules;
 
   const originWeek = rules.in_system_weeks;
   const jumpWeeks = jumpsNeeded * rules.jump_space_weeks;
+  const deadSpaceStops = jumpsNeeded - 1;
+  const deadSpaceWeeks = deadSpaceStops * rules.in_system_weeks; // Each dead space stop = 1 week
   const destinationWeek = rules.in_system_weeks;
-  // Dead space stops = 0 weeks (immediate re-jump)
 
   return {
     originWeek,
     jumpWeeks,
-    deadSpaceStops: jumpsNeeded - 1,
+    deadSpaceStops,
+    deadSpaceWeeks,
     destinationWeek,
-    totalWeeks: originWeek + jumpWeeks + destinationWeek,
-    breakdown: `${originWeek}w origin + ${jumpWeeks}w jumps + 0w dead space + ${destinationWeek}w destination`
+    totalWeeks: originWeek + jumpWeeks + deadSpaceWeeks + destinationWeek,
+    breakdown: `${originWeek}w origin + ${jumpWeeks}w jumps + ${deadSpaceWeeks}w dead space + ${destinationWeek}w destination`
   };
 }
 
@@ -391,19 +394,13 @@ function findDirectRoute(from, to, jumpRating = 1) {
  */
 function compareRoutes(from, to, jumpRating = 1) {
   const systems = sectorData.systems;
-  const rules = sectorData.travel_rules;
 
   if (!systems[from]) return { error: `Unknown system: ${from}` };
   if (!systems[to]) return { error: `Unknown system: ${to}` };
 
   // Direct route through dead space
   const direct = findDirectRoute(from, to, jumpRating);
-  const directTime = {
-    jumps: direct.jumpsNeeded,
-    jumpSpaceWeeks: direct.jumpsNeeded * rules.jump_space_weeks,
-    transitWeeks: 2 * rules.in_system_transit_weeks.typical, // Only origin and destination transit
-    totalWeeks: (direct.jumpsNeeded * rules.jump_space_weeks) + (2 * rules.in_system_transit_weeks.typical)
-  };
+  const directTime = calculateDirectTravelTime(direct.jumpsNeeded);
 
   // Safe route through inhabited systems only
   const safeRoute = findSafestPath(from, to, jumpRating, 'any');
@@ -419,6 +416,7 @@ function compareRoutes(from, to, jumpRating = 1) {
       jumps: safeRoute.jumps.length,
       parsecs: safeRoute.totalParsecs,
       weeks: safeTime.totalWeeks,
+      breakdown: safeTime.breakdown,
       unrefinedStops: safeFuelRisk.unrefinedJumps,
       fuelDamageRisk: safeFuelRisk.probabilityOfDamage
     };
@@ -439,6 +437,7 @@ function compareRoutes(from, to, jumpRating = 1) {
       jumps: direct.jumpsNeeded,
       deadSpaceStops: direct.deadSpaceStops,
       weeks: directWeeks,
+      breakdown: directTime.breakdown,
       risks: [
         'No rescue if misjump occurs',
         'No refueling in dead space (must carry all fuel)',
@@ -454,6 +453,7 @@ function compareRoutes(from, to, jumpRating = 1) {
       jumps: safe.jumps,
       parsecs: safe.parsecs,
       weeks: safe.weeks,
+      breakdown: safe.breakdown,
       unrefinedStops: safe.unrefinedStops,
       fuelDamageRisk: `${(safe.fuelDamageRisk * 100).toFixed(1)}%`,
       benefits: [

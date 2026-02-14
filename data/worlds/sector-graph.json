@@ -32,7 +32,7 @@
   "travel_rules": {
     "jump_space_weeks": 1,
     "in_system_weeks": 1,
-    "description": "Each jump = 1 week in jump space. Add 1 week at origin (to jump point) and 1 week at destination (from jump point). Stops at inhabited systems add 1 week for refueling/transit. Dead space stops add 0 weeks (immediate re-jump).",
+    "description": "Each jump = 1 week in jump space. Add 1 week at origin (to jump point) and 1 week at destination (from jump point). All stops (inhabited or dead space) add 1 week.",
     "unrefined_fuel_damage": {
       "chance_per_jump": 0.1,
       "description": "10% chance of jump drive damage per jump using unrefined fuel"

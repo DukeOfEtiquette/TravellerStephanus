@@ -1,0 +1,11 @@
+I need to codify the travel rules for this game in such a way I can build web tools with them. I had a previous agent make an attempt but I don't think I give enough context of the travel rules or examples of proper travel. As such, I think there are a lot of assumptions and broken rules within the implementation. I didn't even really give the agent much direction on what I wanted it to produce or my intent with it's output. I need your help!
+
+First let me describe my root problem...I am a player in a Traveller TTRPG campaign. The game master refers to the homebrew rules as "a deep hack of the first version of Traveller." After some sessions, I've learned a lot of these rules are just tribal knowledge being carried from one campaign to the next, but this is my first campaign with them so I'm trying to piece it all together.
+
+I've also quickly learned that the travel rules are not straightforward. I've decided what will help me is to build a web tool that can help research and plan routes of travel through the system. Before getting into the weeds of the web app UI, I figured I'd start by codifying the data structure of the hex map and all the travel rules to navigate the map. After, I can build a UI on top.
+
+The two files created by the previous agents first attempt are scripts/travel.js and data/worlds/sector-graph.json. For now, I'd like to focus on the building blocks of the map regardless of the specific type of data within. So for now, ignore the specific systems.yaml data within those files and just label each hex with a number.
+
+Next, read TRAVEL-EXPLAINED.md for a rich description of the travel rule system. This is what I should have provided to the first agent before setting out to work, but did not. Use this as the source-of-truth for rules and examples. This is your foundation.
+
+Create a plan to codify all of this so that I can provide the inputs (jump drive rating, units of refined fuel, source and destination hexes) and it will provide the path of travel, which type of fuel was used per jump, and total amount of time it'd take to travel. This will be the MVP and additional features will be added in the future like replacing the numbered naming of hexes with rich data describing the qualities of the hex.

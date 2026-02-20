@@ -1,48 +1,49 @@
 {
   "meta": {
-    "description": "Sector hex map using axial coordinates (q, r)",
-    "distance_formula": "(|Δq| + |Δr| + |Δq + Δr|) / 2",
-    "hex_neighbors": "[(+1,0), (-1,0), (0,+1), (0,-1), (+1,-1), (-1,+1)]",
-    "source": "references/hex-map.jpg"
+    "description": "Sector hex grid with lettered hexes",
+    "orientation": "flat-top",
+    "coordinate_system": "even-q offset (col, row)",
+    "columns": "5 columns: even cols (0,2,4) have 7 rows, odd cols (1,3) have 6 rows",
+    "axial_conversion": "q = col, r = row - floor(col / 2)",
+    "distance_formula": "Convert to axial, then (|dq| + |dr| + |dq + dr|) / 2"
   },
+  "hexes": [
+    { "id": "A",  "col": 0, "row": 0 },
+    { "id": "B",  "col": 0, "row": 1 },
+    { "id": "C",  "col": 0, "row": 2, "system": "Tivid" },
+    { "id": "D",  "col": 0, "row": 3 },
+    { "id": "E",  "col": 0, "row": 4, "system": "Jokotre" },
+    { "id": "F",  "col": 0, "row": 5 },
+    { "id": "G",  "col": 0, "row": 6 },
 
-  "systems": {
-    "spirelle":   { "name": "Spirelle",   "hex": [1, -4], "uwp": "X-A66-4AI", "starport": "X", "fuel": { "refined": false, "unrefined": false, "gas_giant": true } },
-    "quiru":      { "name": "Quiru",      "hex": [2, -4], "uwp": "A-796-6BQ", "starport": "A", "fuel": { "refined": true, "unrefined": false, "gas_giant": false } },
-    "newhall":    { "name": "Newhall",    "hex": [3, -4], "uwp": "A-B75-77Q", "starport": "A", "fuel": { "refined": true, "unrefined": false, "gas_giant": false } },
-    "adabicci":   { "name": "Adabicci",   "hex": [4, -4], "uwp": "C-647-86I", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } },
+    { "id": "H",  "col": 1, "row": 0, "system": "Spirelle" },
+    { "id": "I",  "col": 1, "row": 1 },
+    { "id": "J",  "col": 1, "row": 2 },
+    { "id": "K",  "col": 1, "row": 3, "system": "Maitz" },
+    { "id": "L",  "col": 1, "row": 4, "system": "Ith" },
+    { "id": "M",  "col": 1, "row": 5, "system": "Stoyben" },
 
-    "tivid":      { "name": "Tivid",      "hex": [-1, -3], "uwp": "C-4C1-73I", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": true } },
-    "thane":      { "name": "Thane",      "hex": [3, -3], "uwp": "C-886-5CA", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } },
-    "mora":       { "name": "Mora",       "hex": [4, -3], "uwp": "C-26A-9BQ", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } },
+    { "id": "N",  "col": 2, "row": 0 },
+    { "id": "O",  "col": 2, "row": 1, "system": "Quiru" },
+    { "id": "P",  "col": 2, "row": 2 },
+    { "id": "Q",  "col": 2, "row": 3, "system": "Karabeth" },
+    { "id": "R",  "col": 2, "row": 4 },
+    { "id": "S",  "col": 2, "row": 5 },
+    { "id": "T",  "col": 2, "row": 6, "system": "Ugrik" },
 
-    "maitz":      { "name": "Maitz",      "hex": [0, -2], "uwp": "D-563-36I", "starport": "D", "fuel": { "refined": false, "unrefined": true, "gas_giant": false } },
-    "karabeth":   { "name": "Karabeth",   "hex": [1, -2], "uwp": "X-4A3-A7P", "starport": "X", "fuel": { "refined": false, "unrefined": false, "gas_giant": true } },
-    "wal-ta-ka":  { "name": "Wal-ta-ka",  "hex": [4, -2], "uwp": "C-795-B5I", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } },
+    { "id": "U",  "col": 3, "row": 0, "system": "Newhall" },
+    { "id": "V",  "col": 3, "row": 1 },
+    { "id": "W",  "col": 3, "row": 2, "system": "Thane" },
+    { "id": "X",  "col": 3, "row": 3 },
+    { "id": "Y",  "col": 3, "row": 4, "system": "Mowebe" },
+    { "id": "Z",  "col": 3, "row": 5, "system": "Atsah" },
 
-    "jokotre":    { "name": "Jokotre",    "hex": [-2, -1], "uwp": "C-9B7-46I", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } },
-    "ith":        { "name": "Ith",        "hex": [1, -1], "uwp": "A-673-C9Q", "starport": "A", "fuel": { "refined": true, "unrefined": false, "gas_giant": false } },
-    "mowebe":     { "name": "Mowebe",     "hex": [3, -1], "uwp": "A-769-36A", "starport": "A", "fuel": { "refined": true, "unrefined": false, "gas_giant": false } },
-
-    "stoyben":    { "name": "Stoyben",    "hex": [1, 0], "uwp": "B-457-C5I", "starport": "B", "fuel": { "refined": true, "unrefined": false, "gas_giant": false } },
-    "ugrik":      { "name": "Ugrik",      "hex": [2, 0], "uwp": "D-466-4AI", "starport": "D", "fuel": { "refined": false, "unrefined": true, "gas_giant": false } },
-    "atsah":      { "name": "Atsah",      "hex": [3, 0], "uwp": "C-377-86I", "starport": "C", "fuel": { "refined": true, "unrefined": true, "gas_giant": false } }
-  },
-
-  "travel_rules": {
-    "jump_space_weeks": 1,
-    "in_system_weeks": 1,
-    "description": "Each jump = 1 week in jump space. Add 1 week at origin (to jump point) and 1 week at destination (from jump point). All stops (inhabited or dead space) add 1 week.",
-    "unrefined_fuel_damage": {
-      "chance_per_jump": 0.1,
-      "description": "10% chance of jump drive damage per jump using unrefined fuel"
-    },
-    "starport_fuel": {
-      "A": { "refined": true, "unrefined": false },
-      "B": { "refined": true, "unrefined": false },
-      "C": { "refined": true, "unrefined": true },
-      "D": { "refined": false, "unrefined": true },
-      "X": { "refined": false, "unrefined": false }
-    }
-  }
+    { "id": "AA", "col": 4, "row": 0, "system": "Adabicci" },
+    { "id": "AB", "col": 4, "row": 1, "system": "Mora" },
+    { "id": "AC", "col": 4, "row": 2 },
+    { "id": "AD", "col": 4, "row": 3, "system": "Wal-ta-ka" },
+    { "id": "AE", "col": 4, "row": 4 },
+    { "id": "AF", "col": 4, "row": 5 },
+    { "id": "AG", "col": 4, "row": 6 }
+  ]
 }

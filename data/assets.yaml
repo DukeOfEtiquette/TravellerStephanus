@@ -5,14 +5,15 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 21100  # Cr, as of Session 5
-  last_updated: "Session 5"
+  balance: 21000  # Cr, as of Session 6
+  last_updated: "Session 6"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
     Spent 2,500 Cr bribing Customs Inspector Angus Graham during Session 3.
     Session 4: Kitty at 124,600 Cr after L3 operations.
     Session 5: Ship refit (fuel tanks), Dispatch investigation costs. Kitty at 21,100 Cr.
+    Session 6: Kitty at 21,000 Cr. Weapons traded to Isaiah Reed for refined fuel.
 
 # =============================================================================
 # SHIPS
@@ -29,8 +30,9 @@ ships:
       it through blackmail. Scrubbed of spy devices. Has a hidden smuggling
       compartment the pirates missed.
 
-      Session 5: Refit in progress at Stoyben shipyard (fuel tanks). Due Week 7.
+      Session 5: Refit in progress at Stoyben shipyard (fuel tanks).
       Baron Harrow used his influence to secure immediate slot.
+      Session 6: Two middle passengers aboard. Trade goods available.
 
     frame:
       tonnage: 200
@@ -81,12 +83,23 @@ ships:
         role: Jade Front contact
         boarded: "Session 3"
         notes: null
+      - name: "Middle Passenger 1"
+        role: Paying passenger
+        boarded: "Session 6"
+        notes: null
+      - name: "Middle Passenger 2"
+        role: Paying passenger
+        boarded: "Session 6"
+        notes: null
 
     cargo:
       manifest:
-        - item: "Weapons (illicit)"
-          quantity: 16.5  # tons
-          notes: "Acquired at Ith L3 from Oa Danel/Sint Motor Systems Tfd. (Session 4). JF station chief Isaiah Reed will trade for refined fuel. JF also needs weapons on Ugrik."
+        - item: "Electronics Components (trade goods)"
+          quantity: 20  # tons
+          notes: "Available at Stoyben, Session 6"
+        - item: "Chemicals (trade goods)"
+          quantity: 30  # tons
+          notes: "Available at Stoyben, Session 6"
 
     damage_log: []
     # Example entry:

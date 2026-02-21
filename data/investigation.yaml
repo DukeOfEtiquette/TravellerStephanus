@@ -62,17 +62,19 @@ active_leads:
 
   - name: "Choophong Thanatkha (Choo)"
     priority: high
-    status: stalled
+    status: in_progress
     description: |
       Stoybeni investigative journalist who broke the death mask story.
       Was working on Mora. Missing for 3+ months.
-    action_required: "Find Choo or determine what happened to them"
+    action_required: "Find Choo or determine what happened to them. Investigate Pardeep Sarsar's disappearance."
     established: Session 2
-    last_update: Session 5
+    last_update: Session 6
     notes: |
-      Editor Doné Rivis worried about disappearance. Rivis has no knowledge
+      Session 5: Editor Doné Rivis worried about disappearance. Rivis has no knowledge
       of Choo's story or current whereabouts. Dispatch mainframe hack failed.
-      Unknown if Choo ever filed a story that was suppressed.
+      Session 6: Rivis revealed Pardeep Sarsar as Choo's trusted lieutenant and courier.
+      Sarsar is also missing — family has no sign or recent communication.
+      Two missing people connected to the same story is a pattern.
 
   - name: "Iron Commerce 18 / al-Thani Connection"
     priority: medium
@@ -101,15 +103,40 @@ active_leads:
 
   - name: "Ugrik Weapons Delivery"
     priority: low
-    status: optional
+    status: resolved
     description: |
       JF station chief Isaiah Reed noted the Front needs weapons on Ugrik.
       Party currently has 16.5 tons of weapons cargo.
-    action_required: "Deliver weapons to Ugrik if traveling that direction"
+    action_required: null
     established: Session 5
+    last_update: Session 6
     notes: |
-      Not directly related to mask mission but could build JF goodwill
-      and provide operational funds.
+      Weapons traded directly to Isaiah Reed on Stoyben (Session 6).
+
+  - name: "Rivis Job — Deliver Message to Kara Wiley on Thane"
+    priority: medium
+    status: available
+    description: |
+      Rivis offered 40k Cr up front, 80k Cr on completion to deliver an encrypted
+      message to Kara Wiley, an undercover reporter embedded in a political family
+      on Thane.
+    action_required: "Accept or decline. If accepted, travel to Thane and locate Wiley."
+    established: Session 6
+    notes: |
+      Thane is en route to Mowebe (the Week 20 rendezvous). Could combine with
+      travel plans. Total payout: 120k Cr.
+
+  - name: "Rivis Job — Check on Choo's Wellbeing on Mora"
+    priority: medium
+    status: available
+    description: |
+      Rivis offered 10k Cr up front, 25k Cr on completion to check on Choophong
+      Thanatkha's wellbeing on Mora.
+    action_required: "Accept or decline. If accepted, travel to Mora and investigate."
+    established: Session 6
+    notes: |
+      Aligns with party's existing Choo investigation lead. Total payout: 35k Cr.
+      Mora is further afield — would require significant travel beyond current plans.
 
 # =============================================================================
 # DEAD ENDS (Leads ruled out)
@@ -152,9 +179,12 @@ open_questions:
     priority: critical
     notes: "Core mystery. No definitive intelligence yet."
 
-  - question: "Where is Choophong Thanatkha?"
+  - question: "Where are Choophong Thanatkha and Pardeep Sarsar?"
     priority: high
-    notes: "Missing 3+ months. Last known working on Mora. Editor worried."
+    notes: |
+      Both missing. Choo: 3+ months, last known on Mora. Sarsar: Choo's trusted
+      lieutenant/courier, family has no sign or recent communication. Two connected
+      disappearances suggest foul play rather than coincidence.
 
   - question: "Did Choo file a story that was suppressed?"
     priority: high
@@ -197,6 +227,14 @@ key_intel:
     details: "Last known on Mora. Even their editor doesn't know their status."
     source: Doné Rivis (Session 5)
 
+  - fact: "Choo is always punctual — prolonged silence is very out of character"
+    details: "Makes the disappearance more alarming; not someone who would go silent voluntarily."
+    source: Doné Rivis (Session 6)
+
+  - fact: "Pardeep Sarsar (Choo's assistant/courier for filing stories) is also missing"
+    details: "Family has no sign or recent communication. Nobody at Stoyben spaceport has seen him. Two disappearances linked to same story."
+    source: Doné Rivis (Session 6)
+
   - fact: "Iron Commerce 18 crew confirmed al-Thani"
     details: "Psychic viewing confirmed at least 2 crew. Typical Thane garb: all black, faces covered."
     source: Party investigation (Session 3)
@@ -215,14 +253,10 @@ current_plan:
     Plan next move from Mowebe based on gathered intel.
 
   timeline:
-    - week: 5.3
+    - week: 6.3
       status: current
-      location: Stoyben Interstellar Spaceport
-      notes: "Ship refit complete. Dispatch investigation stalled."
-
-    - week: 7
-      status: scheduled
-      event: "Ship refit due (fuel tanks)"
+      location: Stoyben Spaceport
+      notes: "Weapons traded to Reed. Rivis trust gained. Two jobs offered. Passengers and trade goods aboard."
 
     - week: 20
       status: planned
@@ -230,5 +264,6 @@ current_plan:
 
   assets:
     - "Voice of Liberation II (refitted with fuel tanks)"
-    - "16.5 tons weapons cargo (trade goods or Ugrik delivery)"
-    - "21,100 Cr party funds"
+    - "Two middle passengers"
+    - "Trade goods available: 20 tons electronics components, 30 tons chemicals"
+    - "21,000 Cr party funds"

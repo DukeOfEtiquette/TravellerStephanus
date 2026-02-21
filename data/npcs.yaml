@@ -92,22 +92,62 @@ npcs:
     description: |
       Stoybeni investigative journalist who broke the story about the Ithian
       death mask being stolen from Keith Sevont's estate before repatriation.
+      Always punctual — the prolonged silence is very out of character.
     notes: |
       Editor Doné Rivis is worried about Choo's 3-month disappearance.
       Party attempted to find traces of Choo's filed story in Dispatch systems.
+      Session 6: Assistant Pardeep Sarsar also missing. Uses Sarsar as courier
+      for filing stories. Rivis knows nothing about story content or mask connection.
 
   - name: Doné Rivis
     affiliation: Stoyben Interstellar News Dispatch
-    role: Editor for Investigative Journalism
+    role: Managing Editor of Investigative Reporting
     location: Stoyben
-    status: active
+    status: allied (tentative)
     first_appearance: Session 5
     description: |
-      Large, affable man. Has no knowledge of the mask or Choo's story.
-      Victor's hypnosis confirmed blackmail material exists on him.
+      Managing editor of investigative reporting at the Stoyben Interstellar
+      News Dispatch. Slightly overweight, middle-aged family man (three children)
+      who is secretly in a long-term, committed same-sex relationship.
+      Choo's editor.
     notes: |
-      Worried that Choo hasn't surfaced in three months.
+      Session 5: Victor's hypnosis confirmed blackmail material (the relationship).
       Party has blackmail material but declined to use it (for now).
+      Worried that Choo hasn't surfaced in three months.
+      Session 6: Party returned, apologized, shared investigation details
+      (excluding JF connection). Amends made, slight levels of trust achieved.
+      Revealed Pardeep Sarsar as Choo's trusted assistant/courier. Explained
+      common document-intake process at the Dispatch. Checked in with Sarsar's
+      family at party's request — no sign or recent communication.
+      Offered two jobs:
+        1. 40k/80k — deliver encrypted message to undercover reporter Kara Wiley on Thane
+        2. 10k/25k — check on Choo's wellbeing on Mora
+
+  - name: Kara Wiley
+    affiliation: Stoyben Interstellar News Dispatch (undercover)
+    role: Undercover Reporter
+    location: Thane (embedded in a political family)
+    status: active
+    first_appearance: Session 6 (mentioned by Rivis)
+    description: |
+      Undercover reporter for the Dispatch, embedded in a political family on Thane.
+      Rivis needs an encrypted message delivered to her.
+    notes: |
+      Party offered 40k up front, 80k on completion to make the delivery.
+
+  - name: Pardeep Sarsar
+    affiliation: Stoyben Interstellar News Dispatch
+    role: Choo's trusted assistant and courier for filing stories
+    location: Unknown
+    status: missing
+    first_appearance: Session 6
+    description: |
+      Choophong Thanatkha's trusted assistant and frequent courier for
+      filing stories. Identified by Doné Rivis.
+    notes: |
+      Family reports no sign of Sarsar and no recent communication.
+      Nobody at Stoyben spaceport has seen him either.
+      Disappearance may be connected to Choo's disappearance.
 
   - name: Kelly Fitzpatrick
     affiliation: Stoyben Interstellar News Dispatch

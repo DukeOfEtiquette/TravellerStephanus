@@ -1,0 +1,55 @@
+session:
+  number: 6
+  date: 2026-02-13
+  recap: |
+    Capt. Leeuwen returned alone to Doné Rivis at the Stoyben Interstellar News Dispatch,
+    apologized for their earlier approach, and shared more information about courier routes
+    and the investigation—excluding the Jade Front connection. This won Rivis's tentative trust.
+
+    Rivis shared key intelligence:
+    - Choo is always punctual — the prolonged silence is very out of character
+    - Choo has an assistant who delivers his stories: Pardeep Sarsar
+    - The common document-intake process at the News Dispatch
+
+    Rivis called Sarsar's family, who reported no new information or knowledge of
+    his location. The company also canvassed the spaceport — nobody has seen Sarsar.
+
+    The company traded their weapons cargo to Isaiah Reed (JF station chief) for
+    refined fuel and
+    solicited Rivis for jobs. Rivis offered two:
+      1. 40k/80k Cr — deliver encrypted message to Kara Wiley, an undercover reporter
+         embedded in a political family on Thane
+      2. 10k/25k Cr — check on Choo's wellbeing on Mora
+
+    The company took on two middle passengers bound for Mowebe. William Hung
+    brokered a deal to transport electronics components to Mowebe. Trade goods
+    available: 20 tons electronics components and 30 tons chemicals.
+
+    Time: 6.3
+    Location: Stoyben Spaceport
+    Kitty: 21,000 cr
+
+  npcs_introduced:
+    - name: Pardeep Sarsar
+      affiliation: Stoyben Interstellar News Dispatch
+      description: Choo's trusted assistant and frequent courier for filing stories. Family has had no sign or recent communication.
+      status: missing
+
+    - name: Kara Wiley
+      affiliation: Stoyben Interstellar News Dispatch (undercover)
+      description: Undercover reporter embedded in a political family on Thane. Rivis needs encrypted message delivered to her.
+      status: active (mentioned)
+
+  key_events:
+    - "Leeuwen returned to Rivis alone, apologized, earned tentative trust"
+    - "Choo is always punctual — prolonged silence is out of character"
+    - "Learned about Pardeep Sarsar (Choo's assistant/courier for filing stories) — also missing"
+    - "Learned about News Dispatch document-intake process"
+    - "Sarsar's family has no sign or recent communication; nobody at spaceport has seen him"
+    - "Traded weapons cargo to Isaiah Reed for refined fuel"
+    - "Rivis offered two jobs: deliver message to Kara Wiley on Thane (40k/80k), check on Choo on Mora (10k/25k)"
+    - "Took on two middle passengers to Mowebe"
+    - "William brokered deal to transport electronics to Mowebe"
+    - "Available trade goods: 20 tons electronics components, 30 tons chemicals"
+
+  absent_pcs: []

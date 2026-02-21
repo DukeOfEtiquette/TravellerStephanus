@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traveller Stephanus — Travel Calculator</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 16px;
+    font-size: 1.3rem;
+    color: #b8c0ff;
+    letter-spacing: 0.05em;
+  }
+
+  /* Controls bar */
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 20px 16px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .control-group label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8888aa;
+  }
+
+  select, input[type="number"] {
+    background: #16213e;
+    color: #e0e0e0;
+    border: 1px solid #334;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    min-width: 160px;
+  }
+
+  input[type="number"] { min-width: 80px; width: 80px; }
+
+  select:focus, input:focus {
+    outline: none;
+    border-color: #5c7cfa;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0;
+  }
+
+  .checkbox-group label {
+    font-size: 0.9rem;
+    color: #b8c0ff;
+    cursor: pointer;
+  }
+
+  button {
+    background: #5c7cfa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  button:hover { background: #4263eb; }
+
+  /* Results panel */
+  .results {
+    margin: 0 20px 16px;
+    padding: 16px;
+    background: #16213e;
+    border-radius: 6px;
+    border: 1px solid #334;
+    display: none;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .results.visible { display: block; }
+
+  .results .route {
+    color: #b8c0ff;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .results .step { color: #ccc; }
+  .results .step .fuel-refined { color: #69db7c; }
+  .results .step .fuel-unrefined { color: #ffa94d; }
+  .results .step .refuel-stop { color: #ffd43b; }
+
+  .results .summary {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #334;
+    color: #aaa;
+  }
+
+  .results .error { color: #ff6b6b; }
+
+  /* Hex map */
+  .map-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 20px;
+    overflow-x: auto;
+  }
+
+  svg.hex-map {
+    background: #0f0f23;
+    border-radius: 6px;
+    border: 1px solid #334;
+  }
+
+  .hex-poly {
+    stroke: #445;
+    stroke-width: 1.5;
+    cursor: default;
+  }
+
+  .hex-poly.empty { fill: #1a1a2e; }
+  .hex-poly.starport-A { fill: #2b6e3f; }
+  .hex-poly.starport-B { fill: #1e5a8a; }
+  .hex-poly.starport-C { fill: #8a7a1e; }
+  .hex-poly.starport-D { fill: #8a4e1e; }
+  .hex-poly.starport-X { fill: #6e2b2b; }
+
+  .hex-poly.on-route {
+    stroke: #ff6b6b;
+    stroke-width: 3.5;
+    filter: drop-shadow(0 0 6px rgba(255, 107, 107, 0.8));
+  }
+
+  .hex-id {
+    font-size: 11px;
+    fill: #bbb;
+    text-anchor: middle;
+    pointer-events: none;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .hex-name {
+    font-size: 10px;
+    fill: #e0e0e0;
+    text-anchor: middle;
+    pointer-events: none;
+    font-weight: 600;
+  }
+
+  .hex-starport {
+    font-size: 9px;
+    fill: #ddd;
+    text-anchor: middle;
+    pointer-events: none;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .route-line {
+    stroke: #ff6b6b;
+    stroke-width: 2.5;
+    stroke-dasharray: 6 4;
+    fill: none;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px rgba(255, 107, 107, 0.6));
+  }
+
+  /* Clickable system hexes */
+  .hex-poly.has-system { cursor: pointer; }
+  .hex-poly.has-system:hover { stroke: #8888cc; stroke-width: 2.5; }
+</style>
+</head>
+<body>
+
+<h1>Traveller Stephanus — Travel Calculator</h1>
+
+<div class="controls">
+  <div class="control-group">
+    <label for="source">From</label>
+    <select id="source"></select>
+  </div>
+  <div class="control-group">
+    <label for="dest">To</label>
+    <select id="dest"></select>
+  </div>
+  <div class="control-group">
+    <label for="jump">Jump Rating</label>
+    <select id="jump">
+      <option value="1" selected>Jump-1</option>
+      <option value="2">Jump-2</option>
+      <option value="3">Jump-3</option>
+      <option value="4">Jump-4</option>
+      <option value="5">Jump-5</option>
+    </select>
+  </div>
+  <div class="control-group">
+    <label for="fuel">Refined Fuel</label>
+    <input type="number" id="fuel" value="0" min="0" max="20">
+  </div>
+  <div class="control-group">
+    <div class="checkbox-group">
+      <input type="checkbox" id="plan">
+      <label for="plan">Plan mode</label>
+    </div>
+  </div>
+  <div class="control-group">
+    <button id="calc-btn">Calculate</button>
+  </div>
+</div>
+
+<div class="results" id="results"></div>
+
+<div class="map-container">
+  <svg class="hex-map" id="hex-map"></svg>
+</div>
+
+<script>
+// --- Embedded hex grid data ---
+
+const gridData = {
+  hexes: [
+    { id: "A",  col: 0, row: 0 },
+    { id: "B",  col: 0, row: 1 },
+    { id: "C",  col: 0, row: 2, system: "Tivid",     starport: "C" },
+    { id: "D",  col: 0, row: 3 },
+    { id: "E",  col: 0, row: 4, system: "Jokotre",   starport: "C" },
+    { id: "F",  col: 0, row: 5 },
+    { id: "G",  col: 0, row: 6 },
+
+    { id: "H",  col: 1, row: 0, system: "Spirelle",  starport: "X" },
+    { id: "I",  col: 1, row: 1 },
+    { id: "J",  col: 1, row: 2 },
+    { id: "K",  col: 1, row: 3, system: "Maitz",     starport: "D" },
+    { id: "L",  col: 1, row: 4, system: "Ith",       starport: "A" },
+    { id: "M",  col: 1, row: 5, system: "Stoyben",   starport: "B" },
+
+    { id: "N",  col: 2, row: 0 },
+    { id: "O",  col: 2, row: 1, system: "Quiru",     starport: "A" },
+    { id: "P",  col: 2, row: 2 },
+    { id: "Q",  col: 2, row: 3, system: "Karabeth",  starport: "X" },
+    { id: "R",  col: 2, row: 4 },
+    { id: "S",  col: 2, row: 5 },
+    { id: "T",  col: 2, row: 6, system: "Ugrik",     starport: "D" },
+
+    { id: "U",  col: 3, row: 0, system: "Newhall",   starport: "A" },
+    { id: "V",  col: 3, row: 1 },
+    { id: "W",  col: 3, row: 2, system: "Thane",     starport: "C" },
+    { id: "X",  col: 3, row: 3 },
+    { id: "Y",  col: 3, row: 4, system: "Mowebe",    starport: "A" },
+    { id: "Z",  col: 3, row: 5, system: "Atsah",     starport: "C" },
+
+    { id: "AA", col: 4, row: 0, system: "Adabicci",  starport: "C" },
+    { id: "AB", col: 4, row: 1, system: "Mora",      starport: "C" },
+    { id: "AC", col: 4, row: 2 },
+    { id: "AD", col: 4, row: 3, system: "Wal-ta-ka", starport: "C" },
+    { id: "AE", col: 4, row: 4 },
+    { id: "AF", col: 4, row: 5 },
+    { id: "AG", col: 4, row: 6 }
+  ]
+};
+
+// --- Build lookup tables ---
+
+const hexById = {};
+const hexByColRow = {};
+for (const hex of gridData.hexes) {
+  hexById[hex.id] = hex;
+  hexByColRow[`${hex.col},${hex.row}`] = hex;
+}
+
+const systems = gridData.hexes.filter(h => h.system).sort((a, b) => a.system.localeCompare(b.system));
+
+// --- Populate dropdowns ---
+
+function populateDropdowns() {
+  const srcEl = document.getElementById('source');
+  const dstEl = document.getElementById('dest');
+  for (const sys of systems) {
+    const label = `${sys.id} — ${sys.system} (Starport ${sys.starport})`;
+    srcEl.add(new Option(label, sys.id));
+    dstEl.add(new Option(label, sys.id));
+  }
+  // Default: pick two different systems
+  if (systems.length >= 2) dstEl.selectedIndex = 1;
+}
+
+// --- Hex geometry (even-q offset) ---
+
+function toAxial(col, row) {
+  return { q: col, r: row - Math.floor(col / 2) };
+}
+
+function hexDistance(a, b) {
+  const ax = toAxial(a.col, a.row);
+  const bx = toAxial(b.col, b.row);
+  const dq = Math.abs(ax.q - bx.q);
+  const dr = Math.abs(ax.r - bx.r);
+  const ds = Math.abs((ax.q + ax.r) - (bx.q + bx.r));
+  return (dq + dr + ds) / 2;
+}
+
+// --- Basic pathfinding (BFS) ---
+
+function findPath(sourceId, destId, jumpRating) {
+  const source = hexById[sourceId];
+  const dest = hexById[destId];
+  if (!source || !dest) return null;
+
+  const visited = new Set([sourceId]);
+  const queue = [{ id: sourceId, path: [sourceId] }];
+
+  while (queue.length > 0) {
+    const { id: currentId, path: currentPath } = queue.shift();
+    const current = hexById[currentId];
+
+    if (currentId === destId) return currentPath;
+
+    for (const hex of gridData.hexes) {
+      if (visited.has(hex.id)) continue;
+      if (hexDistance(current, hex) <= jumpRating) {
+        visited.add(hex.id);
+        queue.push({ id: hex.id, path: [...currentPath, hex.id] });
+      }
+    }
+  }
+
+  return null;
+}
+
+// --- Basic travel calculator ---
+
+function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
+  const foundPath = findPath(sourceId, destId, jumpRating);
+  if (!foundPath) {
+    return { error: `No path from ${hexLabel(sourceId)} to ${hexLabel(destId)} with Jump-${jumpRating}` };
+  }
+
+  const jumps = [];
+  let refinedLeft = refinedFuel;
+
+  for (let i = 0; i < foundPath.length - 1; i++) {
+    const from = hexById[foundPath[i]];
+    const to = hexById[foundPath[i + 1]];
+    const dist = hexDistance(from, to);
+    let fuelType;
+
+    if (refinedLeft > 0) {
+      fuelType = 'Refined';
+      refinedLeft--;
+    } else {
+      fuelType = 'Unrefined';
+    }
+
+    jumps.push({ from: foundPath[i], to: foundPath[i + 1], parsecs: dist, fuelType });
+  }
+
+  const numJumps = jumps.length;
+  const totalWeeks = numJumps + 2;
+  const refinedUsed = refinedFuel - refinedLeft;
+  const unrefinedUsed = numJumps - refinedUsed;
+
+  return { mode: 'basic', path: foundPath, jumps, numJumps, totalWeeks, refinedUsed, unrefinedUsed };
+}
+
+// --- Smart pathfinding (plan mode) ---
+
+const MAX_FUEL = 20;
+
+function hasRefinedFuel(hex) {
+  return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
+}
+
+function planTravel(sourceId, destId, jumpRating, startingFuel) {
+  const source = hexById[sourceId];
+  const dest = hexById[destId];
+  if (!source || !dest) return { error: 'Unknown hex' };
+
+  const stateKey = (id, fuel) => `${id}:${fuel}`;
+  const dist = {};
+  const prev = {};
+
+  const startKey = stateKey(sourceId, startingFuel);
+  dist[startKey] = 0;
+
+  const pq = [[0, sourceId, startingFuel]];
+
+  while (pq.length > 0) {
+    pq.sort((a, b) => a[0] - b[0]);
+    const [cost, hexId, fuel] = pq.shift();
+    const key = stateKey(hexId, fuel);
+
+    if (cost > (dist[key] ?? Infinity)) continue;
+
+    if (hexId === destId) {
+      return buildPlanResult(prev, key, sourceId, startingFuel);
+    }
+
+    const hex = hexById[hexId];
+
+    if (fuel > 0) {
+      for (const candidate of gridData.hexes) {
+        if (candidate.id === hexId) continue;
+        if (!candidate.system && candidate.id !== destId) continue;
+        if (hexDistance(hex, candidate) > jumpRating) continue;
+
+        const newFuel = fuel - 1;
+        const newKey = stateKey(candidate.id, newFuel);
+        const newCost = cost + 1;
+        if (newCost < (dist[newKey] ?? Infinity)) {
+          dist[newKey] = newCost;
+          prev[newKey] = { prevKey: key, action: 'jump', from: hexId, to: candidate.id };
+          pq.push([newCost, candidate.id, newFuel]);
+        }
+      }
+    }
+
+    if (hasRefinedFuel(hex) && fuel < MAX_FUEL) {
+      const newKey = stateKey(hexId, MAX_FUEL);
+      const newCost = cost + 2;
+      if (newCost < (dist[newKey] ?? Infinity)) {
+        dist[newKey] = newCost;
+        prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
+        pq.push([newCost, hexId, MAX_FUEL]);
+      }
+    }
+  }
+
+  return { error: `No route from ${hexLabel(sourceId)} to ${hexLabel(destId)} through system hexes with Jump-${jumpRating} and refined fuel only` };
+}
+
+function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
+  const actions = [];
+  let key = goalKey;
+  while (prev[key]) {
+    actions.unshift(prev[key]);
+    key = prev[key].prevKey;
+  }
+
+  const steps = [];
+  const hexPath = [sourceId];
+
+  for (const action of actions) {
+    if (action.action === 'jump') {
+      const dist = hexDistance(hexById[action.from], hexById[action.to]);
+      steps.push({ type: 'jump', from: action.from, to: action.to, parsecs: dist });
+      hexPath.push(action.to);
+    } else {
+      steps.push({ type: 'refuel', at: action.at, fuelBefore: action.fuelBefore });
+    }
+  }
+
+  let fuel = startingFuel;
+  let totalPurchased = 0;
+  let refuelStops = 0;
+  let numJumps = 0;
+
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    if (step.type === 'jump') {
+      step.fuelType = 'Refined';
+      fuel -= 1;
+      numJumps++;
+      step.fuelAfter = fuel;
+    } else {
+      let jumpsAhead = 0;
+      for (let j = i + 1; j < steps.length; j++) {
+        if (steps[j].type === 'jump') jumpsAhead++;
+        if (steps[j].type === 'refuel') break;
+      }
+      const buy = Math.max(0, jumpsAhead - fuel);
+      step.purchased = buy;
+      fuel += buy;
+      totalPurchased += buy;
+      refuelStops++;
+      step.fuelAfter = fuel;
+    }
+  }
+
+  const refuelWeeks = refuelStops * 2;
+  const totalWeeks = numJumps + refuelWeeks + 2;
+
+  return {
+    mode: 'plan',
+    path: hexPath,
+    steps,
+    numJumps,
+    refuelStops,
+    refuelWeeks,
+    totalWeeks,
+    startingFuel,
+    totalPurchased,
+    totalRefined: startingFuel + totalPurchased
+  };
+}
+
+// --- Display helpers ---
+
+function hexLabel(id) {
+  const hex = hexById[id];
+  return hex.system ? `${id} (${hex.system})` : id;
+}
+
+function esc(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// --- Render results ---
+
+function renderResult(result) {
+  const el = document.getElementById('results');
+
+  if (result.error) {
+    el.innerHTML = `<div class="error">${esc(result.error)}</div>`;
+    el.classList.add('visible');
+    highlightRoute([]);
+    return;
+  }
+
+  if (result.mode === 'plan') {
+    renderPlanResult(result);
+    return;
+  }
+
+  let html = '';
+
+  // Route line
+  html += `<div class="route">Route: ${esc(result.path.map(hexLabel).join(' → '))}</div>`;
+
+  // Steps
+  for (let i = 0; i < result.jumps.length; i++) {
+    const j = result.jumps[i];
+    const fuelClass = j.fuelType === 'Refined' ? 'fuel-refined' : 'fuel-unrefined';
+    html += `<div class="step">Jump ${i + 1}: ${esc(hexLabel(j.from))} → ${esc(hexLabel(j.to))} (${j.parsecs} pc) — <span class="${fuelClass}">${j.fuelType}</span></div>`;
+  }
+
+  // Summary
+  html += `<div class="summary">`;
+  html += `Total time: ${result.totalWeeks} weeks (1w origin + ${result.numJumps}w jump${result.numJumps !== 1 ? 's' : ''} + 1w destination)<br>`;
+  const fuelParts = [];
+  if (result.refinedUsed > 0) fuelParts.push(`${result.refinedUsed} refined`);
+  if (result.unrefinedUsed > 0) fuelParts.push(`${result.unrefinedUsed} unrefined`);
+  html += `Fuel used: ${fuelParts.join(' + ')}`;
+  html += `</div>`;
+
+  el.innerHTML = html;
+  el.classList.add('visible');
+  highlightRoute(result.path);
+}
+
+function renderPlanResult(result) {
+  const el = document.getElementById('results');
+  let html = '';
+
+  // Route line
+  const routeParts = result.path.map(id => {
+    const refuelStep = result.steps.find(s => s.type === 'refuel' && s.at === id);
+    let label = hexLabel(id);
+    if (refuelStep) label += ` [+${refuelStep.purchased} refined]`;
+    return label;
+  });
+  html += `<div class="route">Route: ${esc(routeParts.join(' → '))}</div>`;
+
+  // Steps
+  let jumpNum = 0;
+  for (const step of result.steps) {
+    if (step.type === 'jump') {
+      jumpNum++;
+      html += `<div class="step">Jump ${jumpNum}: ${esc(hexLabel(step.from))} → ${esc(hexLabel(step.to))} (${step.parsecs} pc) — <span class="fuel-refined">Refined</span> [${step.fuelAfter} left]</div>`;
+    } else {
+      const hex = hexById[step.at];
+      html += `<div class="step"><span class="refuel-stop">Refuel at ${esc(hexLabel(step.at))}: buy ${step.purchased} refined (Starport ${hex.starport}) — 2 weeks</span></div>`;
+    }
+  }
+
+  // Summary
+  html += `<div class="summary">`;
+  const timeParts = [`1w origin`, `${result.numJumps}w jump${result.numJumps !== 1 ? 's' : ''}`];
+  if (result.refuelWeeks > 0) timeParts.push(`${result.refuelWeeks}w refueling`);
+  timeParts.push(`1w destination`);
+  html += `Total time: ${result.totalWeeks} weeks (${timeParts.join(' + ')})<br>`;
+  const fuelParts = [`${result.startingFuel} carried`];
+  if (result.totalPurchased > 0) fuelParts.push(`${result.totalPurchased} purchased`);
+  html += `Fuel: ${fuelParts.join(' + ')} = ${result.totalRefined} refined`;
+  html += `</div>`;
+
+  el.innerHTML = html;
+  el.classList.add('visible');
+  highlightRoute(result.path);
+}
+
+// --- SVG Hex Map ---
+
+const HEX_SIZE = 40;
+const SQRT3 = Math.sqrt(3);
+const PAD = 60;
+
+function hexCenter(col, row) {
+  const x = PAD + col * 1.5 * HEX_SIZE;
+  const y = PAD + row * SQRT3 * HEX_SIZE + (col % 2 === 1 ? SQRT3 / 2 * HEX_SIZE : 0);
+  return { x, y };
+}
+
+function hexPoints(cx, cy) {
+  const pts = [];
+  for (let i = 0; i < 6; i++) {
+    const angle = Math.PI / 180 * (60 * i);
+    pts.push(`${cx + HEX_SIZE * Math.cos(angle)},${cy + HEX_SIZE * Math.sin(angle)}`);
+  }
+  return pts.join(' ');
+}
+
+function starportClass(hex) {
+  if (!hex.system) return 'empty';
+  return `starport-${hex.starport}`;
+}
+
+let hexElements = {};
+let routeLineGroup = null;
+
+function renderMap() {
+  const svg = document.getElementById('hex-map');
+  const maxCol = 4;
+  const maxRowEven = 6;
+  const maxRowOdd = 5;
+
+  const width = PAD * 2 + maxCol * 1.5 * HEX_SIZE + HEX_SIZE;
+  const height = PAD * 2 + maxRowEven * SQRT3 * HEX_SIZE + SQRT3 / 2 * HEX_SIZE;
+
+  svg.setAttribute('width', width);
+  svg.setAttribute('height', height);
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+  // Route lines group (rendered below hexes)
+  routeLineGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  svg.appendChild(routeLineGroup);
+
+  for (const hex of gridData.hexes) {
+    const { x, y } = hexCenter(hex.col, hex.row);
+
+    // Hex polygon
+    const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    poly.setAttribute('points', hexPoints(x, y));
+    poly.setAttribute('class', `hex-poly ${starportClass(hex)}${hex.system ? ' has-system' : ''}`);
+    poly.dataset.id = hex.id;
+    svg.appendChild(poly);
+
+    hexElements[hex.id] = poly;
+
+    // Click to select as source/dest
+    if (hex.system) {
+      poly.addEventListener('click', () => onHexClick(hex.id));
+    }
+
+    // Hex ID label (top)
+    const idText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    idText.setAttribute('x', x);
+    idText.setAttribute('y', y - (hex.system ? 14 : 4));
+    idText.setAttribute('class', 'hex-id');
+    idText.textContent = hex.id;
+    svg.appendChild(idText);
+
+    if (hex.system) {
+      // System name (center)
+      const nameText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      nameText.setAttribute('x', x);
+      nameText.setAttribute('y', y + 2);
+      nameText.setAttribute('class', 'hex-name');
+      nameText.textContent = hex.system;
+      svg.appendChild(nameText);
+
+      // Starport badge (bottom)
+      const portText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      portText.setAttribute('x', x);
+      portText.setAttribute('y', y + 16);
+      portText.setAttribute('class', 'hex-starport');
+      portText.textContent = `★ ${hex.starport}`;
+      svg.appendChild(portText);
+    }
+  }
+}
+
+// Click hex to set source or destination
+let nextClickTarget = 'source';
+
+function onHexClick(hexId) {
+  const sel = document.getElementById(nextClickTarget);
+  // Find the option with this value
+  for (let i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value === hexId) {
+      sel.selectedIndex = i;
+      break;
+    }
+  }
+  nextClickTarget = nextClickTarget === 'source' ? 'dest' : 'source';
+}
+
+function highlightRoute(path) {
+  // Reset all hexes
+  for (const id in hexElements) {
+    hexElements[id].classList.remove('on-route');
+  }
+
+  // Clear route lines
+  while (routeLineGroup.firstChild) {
+    routeLineGroup.removeChild(routeLineGroup.firstChild);
+  }
+
+  if (!path || path.length === 0) return;
+
+  // Highlight hexes on route
+  for (const id of path) {
+    if (hexElements[id]) {
+      hexElements[id].classList.add('on-route');
+    }
+  }
+
+  // Draw route lines
+  for (let i = 0; i < path.length - 1; i++) {
+    const from = hexById[path[i]];
+    const to = hexById[path[i + 1]];
+    const p1 = hexCenter(from.col, from.row);
+    const p2 = hexCenter(to.col, to.row);
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', p1.x);
+    line.setAttribute('y1', p1.y);
+    line.setAttribute('x2', p2.x);
+    line.setAttribute('y2', p2.y);
+    line.setAttribute('class', 'route-line');
+    routeLineGroup.appendChild(line);
+  }
+}
+
+// --- Event handlers ---
+
+document.getElementById('calc-btn').addEventListener('click', () => {
+  const sourceId = document.getElementById('source').value;
+  const destId = document.getElementById('dest').value;
+  const jumpRating = parseInt(document.getElementById('jump').value, 10);
+  const fuel = parseInt(document.getElementById('fuel').value, 10) || 0;
+  const planMode = document.getElementById('plan').checked;
+
+  if (sourceId === destId) {
+    const el = document.getElementById('results');
+    el.innerHTML = '<div class="error">Source and destination are the same.</div>';
+    el.classList.add('visible');
+    highlightRoute([]);
+    return;
+  }
+
+  const result = planMode
+    ? planTravel(sourceId, destId, jumpRating, fuel)
+    : calculateTravel(sourceId, destId, jumpRating, fuel);
+
+  renderResult(result);
+});
+
+// Allow Enter key to trigger calculation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('calc-btn').click();
+});
+
+// --- Init ---
+populateDropdowns();
+renderMap();
+</script>
+</body>
+</html>

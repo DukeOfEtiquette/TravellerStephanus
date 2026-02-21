@@ -109,13 +109,13 @@ function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
 
 // --- Smart pathfinding (--plan mode) ---
 
-const MAX_FUEL = 20;
+const DEFAULT_MAX_FUEL = 2;
 
 function hasRefinedFuel(hex) {
   return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
 }
 
-function planTravel(sourceId, destId, jumpRating, startingFuel) {
+function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return { error: 'Unknown hex' };
@@ -162,14 +162,14 @@ function planTravel(sourceId, destId, jumpRating, startingFuel) {
       }
     }
 
-    // Transition: refuel at A/B/C starport (costs 2 weeks, fills to MAX_FUEL)
-    if (hasRefinedFuel(hex) && fuel < MAX_FUEL) {
-      const newKey = stateKey(hexId, MAX_FUEL);
+    // Transition: refuel at A/B/C starport (costs 2 weeks, fills to maxFuel)
+    if (hasRefinedFuel(hex) && fuel < maxFuel) {
+      const newKey = stateKey(hexId, maxFuel);
       const newCost = cost + 2;
       if (newCost < (dist[newKey] ?? Infinity)) {
         dist[newKey] = newCost;
         prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
-        pq.push([newCost, hexId, MAX_FUEL]);
+        pq.push([newCost, hexId, maxFuel]);
       }
     }
   }
@@ -368,6 +368,7 @@ if (require.main === module) {
     console.log('Options:');
     console.log('  --jump=N    Jump drive rating (default: 1)');
     console.log('  --fuel=N    Units of refined fuel carried (default: 0)');
+    console.log('  --max-fuel=N  Max refined fuel capacity (default: 2)');
     console.log('  --plan      Smart routing: systems only, refined fuel only,');
     console.log('              buys refined at A/B/C starports (+2w per stop)');
     console.log('  --map       Print ASCII hex map');
@@ -398,11 +399,13 @@ if (require.main === module) {
   const toId = args[1].toUpperCase();
   let jumpRating = 1;
   let fuel = 0;
+  let maxFuel = DEFAULT_MAX_FUEL;
   let planMode = false;
 
   for (const arg of args.slice(2)) {
     if (arg.startsWith('--jump=')) jumpRating = parseInt(arg.split('=')[1], 10);
     if (arg.startsWith('--fuel=')) fuel = parseInt(arg.split('=')[1], 10);
+    if (arg.startsWith('--max-fuel=')) maxFuel = parseInt(arg.split('=')[1], 10);
     if (arg === '--plan') planMode = true;
   }
 
@@ -410,7 +413,7 @@ if (require.main === module) {
   if (!hexById[toId]) { console.log(`Unknown hex: ${toId}`); process.exit(1); }
 
   const result = planMode
-    ? planTravel(fromId, toId, jumpRating, fuel)
+    ? planTravel(fromId, toId, jumpRating, fuel, maxFuel)
     : calculateTravel(fromId, toId, jumpRating, fuel);
   printResult(result);
 }

@@ -222,6 +222,10 @@
     <input type="number" id="fuel" value="0" min="0" max="20">
   </div>
   <div class="control-group">
+    <label for="max-fuel">Max Fuel</label>
+    <input type="number" id="max-fuel" value="2" min="1" max="20">
+  </div>
+  <div class="control-group">
     <div class="checkbox-group">
       <input type="checkbox" id="plan">
       <label for="plan">Plan mode</label>
@@ -388,13 +392,13 @@ function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
 
 // --- Smart pathfinding (plan mode) ---
 
-const MAX_FUEL = 20;
+const DEFAULT_MAX_FUEL = 2;
 
 function hasRefinedFuel(hex) {
   return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
 }
 
-function planTravel(sourceId, destId, jumpRating, startingFuel) {
+function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return { error: 'Unknown hex' };
@@ -438,13 +442,13 @@ function planTravel(sourceId, destId, jumpRating, startingFuel) {
       }
     }
 
-    if (hasRefinedFuel(hex) && fuel < MAX_FUEL) {
-      const newKey = stateKey(hexId, MAX_FUEL);
+    if (hasRefinedFuel(hex) && fuel < maxFuel) {
+      const newKey = stateKey(hexId, maxFuel);
       const newCost = cost + 2;
       if (newCost < (dist[newKey] ?? Infinity)) {
         dist[newKey] = newCost;
         prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
-        pq.push([newCost, hexId, MAX_FUEL]);
+        pq.push([newCost, hexId, maxFuel]);
       }
     }
   }
@@ -762,6 +766,7 @@ document.getElementById('calc-btn').addEventListener('click', () => {
   const destId = document.getElementById('dest').value;
   const jumpRating = parseInt(document.getElementById('jump').value, 10);
   const fuel = parseInt(document.getElementById('fuel').value, 10) || 0;
+  const maxFuel = parseInt(document.getElementById('max-fuel').value, 10) || DEFAULT_MAX_FUEL;
   const planMode = document.getElementById('plan').checked;
 
   if (sourceId === destId) {
@@ -773,7 +778,7 @@ document.getElementById('calc-btn').addEventListener('click', () => {
   }
 
   const result = planMode
-    ? planTravel(sourceId, destId, jumpRating, fuel)
+    ? planTravel(sourceId, destId, jumpRating, fuel, maxFuel)
     : calculateTravel(sourceId, destId, jumpRating, fuel);
 
   renderResult(result);

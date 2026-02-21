@@ -161,10 +161,11 @@ function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAUL
       }
     }
 
-    // Transition: refuel at A/B/C starport (costs 2 weeks, fills to maxFuel)
+    // Transition: refuel at A/B/C starport (free at origin, 2 weeks en-route)
     if (hasRefinedFuel(hex) && fuel < maxFuel) {
       const newKey = stateKey(hexId, maxFuel);
-      const newCost = cost + 2;
+      const refuelCost = hexId === sourceId ? 0 : 2;
+      const newCost = cost + refuelCost;
       if (newCost < (dist[newKey] ?? Infinity)) {
         dist[newKey] = newCost;
         prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
@@ -195,7 +196,7 @@ function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
       steps.push({ type: 'jump', from: action.from, to: action.to, parsecs: dist });
       hexPath.push(action.to);
     } else {
-      steps.push({ type: 'refuel', at: action.at, fuelBefore: action.fuelBefore });
+      steps.push({ type: 'refuel', at: action.at, fuelBefore: action.fuelBefore, atOrigin: action.at === sourceId });
     }
   }
 
@@ -203,6 +204,7 @@ function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
   let fuel = startingFuel;
   let totalPurchased = 0;
   let refuelStops = 0;
+  let enrouteRefuelStops = 0;
   let numJumps = 0;
 
   for (let i = 0; i < steps.length; i++) {
@@ -224,11 +226,12 @@ function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
       fuel += buy;
       totalPurchased += buy;
       refuelStops++;
+      if (!step.atOrigin) enrouteRefuelStops++;
       step.fuelAfter = fuel;
     }
   }
 
-  const refuelWeeks = refuelStops * 2;
+  const refuelWeeks = enrouteRefuelStops * 2;
   const totalWeeks = numJumps + refuelWeeks + 2;
 
   return {
@@ -298,7 +301,8 @@ function printPlanResult(result) {
       console.log(`  Jump ${jumpNum}: ${hexLabel(step.from)} \u2192 ${hexLabel(step.to)} (${step.parsecs} parsec${step.parsecs !== 1 ? 's' : ''}) \u2014 Refined [${step.fuelAfter} left]`);
     } else {
       const hex = hexById[step.at];
-      console.log(`  Refuel at ${hexLabel(step.at)}: buy ${step.purchased} refined (Starport ${hex.starport}) \u2014 2 weeks`);
+      const timeCost = step.atOrigin ? 'at origin' : '2 weeks';
+      console.log(`  Refuel at ${hexLabel(step.at)}: buy ${step.purchased} refined (Starport ${hex.starport}) \u2014 ${timeCost}`);
     }
   }
 

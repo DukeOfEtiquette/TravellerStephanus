@@ -46,7 +46,7 @@ function hexDistance(a, b) {
 
 // --- Basic pathfinding (BFS, minimizes jumps) ---
 
-function findPath(sourceId, destId, jumpRating) {
+function findPath(sourceId, destId, jumpRating, inhabitedOnly) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return null;
@@ -62,6 +62,7 @@ function findPath(sourceId, destId, jumpRating) {
 
     for (const hex of gridData.hexes) {
       if (visited.has(hex.id)) continue;
+      if (inhabitedOnly && !hex.system && hex.id !== destId) continue;
       if (hexDistance(current, hex) <= jumpRating) {
         visited.add(hex.id);
         queue.push({ id: hex.id, path: [...currentPath, hex.id] });
@@ -74,8 +75,8 @@ function findPath(sourceId, destId, jumpRating) {
 
 // --- Basic travel calculator ---
 
-function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
-  const foundPath = findPath(sourceId, destId, jumpRating);
+function calculateTravel(sourceId, destId, jumpRating, refinedFuel, inhabitedOnly) {
+  const foundPath = findPath(sourceId, destId, jumpRating, inhabitedOnly);
   if (!foundPath) {
     return { error: `No path from ${sourceId} to ${destId} with Jump-${jumpRating}` };
   }
@@ -115,7 +116,7 @@ function hasRefinedFuel(hex) {
   return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
 }
 
-function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL) {
+function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL, inhabitedOnly = true) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return { error: 'Unknown hex' };
@@ -144,10 +145,11 @@ function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAUL
 
     const hex = hexById[hexId];
 
-    // Transition: jump to any reachable hex (refueling only at starports)
+    // Transition: jump to reachable hex (inhabited only if constrained)
     if (fuel > 0) {
       for (const candidate of gridData.hexes) {
         if (candidate.id === hexId) continue;
+        if (inhabitedOnly && !candidate.system && candidate.id !== destId) continue;
         if (hexDistance(hex, candidate) > jumpRating) continue;
 
         const newFuel = fuel - 1;
@@ -372,7 +374,8 @@ if (require.main === module) {
     console.log('  --jump=N    Jump drive rating (default: 1)');
     console.log('  --fuel=N    Units of refined fuel carried (default: 0)');
     console.log('  --max-fuel=N  Max refined fuel capacity (default: 2)');
-    console.log('  --plan      Smart routing: systems only, refined fuel only,');
+    console.log('  --any-hex   Allow routing through uninhabited hexes (default: inhabited only)');
+    console.log('  --plan      Refuel mode: refined fuel only,');
     console.log('              buys refined at A/B/C starports (+2w per stop)');
     console.log('  --map       Print ASCII hex map');
     console.log();
@@ -404,20 +407,22 @@ if (require.main === module) {
   let fuel = 0;
   let maxFuel = DEFAULT_MAX_FUEL;
   let planMode = false;
+  let inhabitedOnly = true;
 
   for (const arg of args.slice(2)) {
     if (arg.startsWith('--jump=')) jumpRating = parseInt(arg.split('=')[1], 10);
     if (arg.startsWith('--fuel=')) fuel = parseInt(arg.split('=')[1], 10);
     if (arg.startsWith('--max-fuel=')) maxFuel = parseInt(arg.split('=')[1], 10);
     if (arg === '--plan') planMode = true;
+    if (arg === '--any-hex') inhabitedOnly = false;
   }
 
   if (!hexById[fromId]) { console.log(`Unknown hex: ${fromId}`); process.exit(1); }
   if (!hexById[toId]) { console.log(`Unknown hex: ${toId}`); process.exit(1); }
 
   const result = planMode
-    ? planTravel(fromId, toId, jumpRating, fuel, maxFuel)
-    : calculateTravel(fromId, toId, jumpRating, fuel);
+    ? planTravel(fromId, toId, jumpRating, fuel, maxFuel, inhabitedOnly)
+    : calculateTravel(fromId, toId, jumpRating, fuel, inhabitedOnly);
   printResult(result);
 }
 

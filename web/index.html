@@ -235,8 +235,14 @@
   </div>
   <div class="control-group">
     <div class="checkbox-group">
+      <input type="checkbox" id="inhabited-only" checked>
+      <label for="inhabited-only">Inhabited only</label>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="checkbox-group">
       <input type="checkbox" id="plan">
-      <label for="plan">Plan mode</label>
+      <label for="plan">Refuel mode</label>
     </div>
   </div>
   <div class="control-group">
@@ -317,8 +323,8 @@ function populateDropdowns() {
     srcEl.add(new Option(label, sys.id));
     dstEl.add(new Option(label, sys.id));
   }
-  // Default: pick two different systems
-  if (systems.length >= 2) dstEl.selectedIndex = 1;
+  srcEl.value = 'M';
+  dstEl.value = 'Y';
 }
 
 // --- Hex geometry (even-q offset) ---
@@ -338,7 +344,7 @@ function hexDistance(a, b) {
 
 // --- Basic pathfinding (BFS) ---
 
-function findPath(sourceId, destId, jumpRating) {
+function findPath(sourceId, destId, jumpRating, inhabitedOnly) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return null;
@@ -354,6 +360,7 @@ function findPath(sourceId, destId, jumpRating) {
 
     for (const hex of gridData.hexes) {
       if (visited.has(hex.id)) continue;
+      if (inhabitedOnly && !hex.system && hex.id !== destId) continue;
       if (hexDistance(current, hex) <= jumpRating) {
         visited.add(hex.id);
         queue.push({ id: hex.id, path: [...currentPath, hex.id] });
@@ -366,8 +373,8 @@ function findPath(sourceId, destId, jumpRating) {
 
 // --- Basic travel calculator ---
 
-function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
-  const foundPath = findPath(sourceId, destId, jumpRating);
+function calculateTravel(sourceId, destId, jumpRating, refinedFuel, inhabitedOnly) {
+  const foundPath = findPath(sourceId, destId, jumpRating, inhabitedOnly);
   if (!foundPath) {
     return { error: `No path from ${hexLabel(sourceId)} to ${hexLabel(destId)} with Jump-${jumpRating}` };
   }
@@ -407,7 +414,7 @@ function hasRefinedFuel(hex) {
   return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
 }
 
-function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL) {
+function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL, inhabitedOnly = true) {
   const source = hexById[sourceId];
   const dest = hexById[destId];
   if (!source || !dest) return { error: 'Unknown hex' };
@@ -437,6 +444,7 @@ function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAUL
     if (fuel > 0) {
       for (const candidate of gridData.hexes) {
         if (candidate.id === hexId) continue;
+        if (inhabitedOnly && !candidate.system && candidate.id !== destId) continue;
         if (hexDistance(hex, candidate) > jumpRating) continue;
 
         const newFuel = fuel - 1;
@@ -779,6 +787,7 @@ document.getElementById('calc-btn').addEventListener('click', () => {
   const jumpRating = parseInt(document.getElementById('jump').value, 10);
   const fuel = parseInt(document.getElementById('fuel').value, 10) || 0;
   const maxFuel = parseInt(document.getElementById('max-fuel').value, 10) || DEFAULT_MAX_FUEL;
+  const inhabitedOnly = document.getElementById('inhabited-only').checked;
   const planMode = document.getElementById('plan').checked;
 
   if (sourceId === destId) {
@@ -790,8 +799,8 @@ document.getElementById('calc-btn').addEventListener('click', () => {
   }
 
   const result = planMode
-    ? planTravel(sourceId, destId, jumpRating, fuel, maxFuel)
-    : calculateTravel(sourceId, destId, jumpRating, fuel);
+    ? planTravel(sourceId, destId, jumpRating, fuel, maxFuel, inhabitedOnly)
+    : calculateTravel(sourceId, destId, jumpRating, fuel, inhabitedOnly);
 
   renderResult(result);
 });

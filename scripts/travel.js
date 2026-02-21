@@ -144,11 +144,10 @@ function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAUL
 
     const hex = hexById[hexId];
 
-    // Transition: jump to a reachable system hex (or the destination)
+    // Transition: jump to any reachable hex (refueling only at starports)
     if (fuel > 0) {
       for (const candidate of gridData.hexes) {
         if (candidate.id === hexId) continue;
-        if (!candidate.system && candidate.id !== destId) continue;
         if (hexDistance(hex, candidate) > jumpRating) continue;
 
         const newFuel = fuel - 1;

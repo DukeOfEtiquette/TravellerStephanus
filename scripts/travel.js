@@ -1,19 +1,17 @@
 /**
  * Traveller Stephanus - Travel Calculator
  *
- * Implements travel rules from TRAVEL-EXPLAINED.md:
- * - 1 unit fuel per jump regardless of distance
- * - Refined fuel consumed first, then unrefined (always available)
- * - Travel time = 1w origin + 1w per jump + 1w destination (no intermediate stop penalty)
- * - BFS pathfinding minimizes number of jumps
+ * Two modes:
+ * 1. Basic: BFS shortest path, fuel consumed in order (refined first, then unrefined)
+ * 2. Plan (--plan): Dijkstra on (hex, fuel) state space. Routes through system hexes
+ *    only, uses refined fuel only, buys refined at A/B/C starports when needed.
+ *    Refueling at an intermediate stop costs 2 weeks (jump point → starport → jump point).
  *
  * Usage:
- *   node scripts/travel.js <from_hex> <to_hex> --jump=N --fuel=N
+ *   node scripts/travel.js <from> <to> --jump=N --fuel=N
+ *   node scripts/travel.js <from> <to> --jump=N --fuel=N --plan
  *   node scripts/travel.js --map
- *
- * Examples:
- *   node scripts/travel.js S AF --jump=1 --fuel=2
- *   node scripts/travel.js --map
+ *   node scripts/travel.js --distance <hex1> <hex2>
  */
 
 const fs = require('fs');
@@ -46,7 +44,7 @@ function hexDistance(a, b) {
   return (dq + dr + ds) / 2;
 }
 
-// --- Pathfinding ---
+// --- Basic pathfinding (BFS, minimizes jumps) ---
 
 function findPath(sourceId, destId, jumpRating) {
   const source = hexById[sourceId];
@@ -74,20 +72,20 @@ function findPath(sourceId, destId, jumpRating) {
   return null;
 }
 
-// --- Travel calculator ---
+// --- Basic travel calculator ---
 
 function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
-  const path = findPath(sourceId, destId, jumpRating);
-  if (!path) {
+  const foundPath = findPath(sourceId, destId, jumpRating);
+  if (!foundPath) {
     return { error: `No path from ${sourceId} to ${destId} with Jump-${jumpRating}` };
   }
 
   const jumps = [];
   let refinedLeft = refinedFuel;
 
-  for (let i = 0; i < path.length - 1; i++) {
-    const from = hexById[path[i]];
-    const to = hexById[path[i + 1]];
+  for (let i = 0; i < foundPath.length - 1; i++) {
+    const from = hexById[foundPath[i]];
+    const to = hexById[foundPath[i + 1]];
     const dist = hexDistance(from, to);
     let fuelType;
 
@@ -98,14 +96,7 @@ function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
       fuelType = 'Unrefined';
     }
 
-    jumps.push({
-      from: path[i],
-      to: path[i + 1],
-      parsecs: dist,
-      fuelType,
-      fromSystem: from.system || null,
-      toSystem: to.system || null
-    });
+    jumps.push({ from: foundPath[i], to: foundPath[i + 1], parsecs: dist, fuelType });
   }
 
   const numJumps = jumps.length;
@@ -113,7 +104,146 @@ function calculateTravel(sourceId, destId, jumpRating, refinedFuel) {
   const refinedUsed = refinedFuel - refinedLeft;
   const unrefinedUsed = numJumps - refinedUsed;
 
-  return { path, jumps, numJumps, totalWeeks, refinedUsed, unrefinedUsed };
+  return { mode: 'basic', path: foundPath, jumps, numJumps, totalWeeks, refinedUsed, unrefinedUsed };
+}
+
+// --- Smart pathfinding (--plan mode) ---
+
+const MAX_FUEL = 20;
+
+function hasRefinedFuel(hex) {
+  return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
+}
+
+function planTravel(sourceId, destId, jumpRating, startingFuel) {
+  const source = hexById[sourceId];
+  const dest = hexById[destId];
+  if (!source || !dest) return { error: 'Unknown hex' };
+
+  const stateKey = (id, fuel) => `${id}:${fuel}`;
+  const dist = {};
+  const prev = {};
+
+  const startKey = stateKey(sourceId, startingFuel);
+  dist[startKey] = 0;
+
+  // Priority queue: [cost, hexId, fuel]
+  const pq = [[0, sourceId, startingFuel]];
+
+  while (pq.length > 0) {
+    pq.sort((a, b) => a[0] - b[0]);
+    const [cost, hexId, fuel] = pq.shift();
+    const key = stateKey(hexId, fuel);
+
+    if (cost > (dist[key] ?? Infinity)) continue;
+
+    // Goal: reached destination at any fuel level
+    if (hexId === destId) {
+      return buildPlanResult(prev, key, sourceId, startingFuel);
+    }
+
+    const hex = hexById[hexId];
+
+    // Transition: jump to a reachable system hex (or the destination)
+    if (fuel > 0) {
+      for (const candidate of gridData.hexes) {
+        if (candidate.id === hexId) continue;
+        if (!candidate.system && candidate.id !== destId) continue;
+        if (hexDistance(hex, candidate) > jumpRating) continue;
+
+        const newFuel = fuel - 1;
+        const newKey = stateKey(candidate.id, newFuel);
+        const newCost = cost + 1;
+        if (newCost < (dist[newKey] ?? Infinity)) {
+          dist[newKey] = newCost;
+          prev[newKey] = { prevKey: key, action: 'jump', from: hexId, to: candidate.id };
+          pq.push([newCost, candidate.id, newFuel]);
+        }
+      }
+    }
+
+    // Transition: refuel at A/B/C starport (costs 2 weeks, fills to MAX_FUEL)
+    if (hasRefinedFuel(hex) && fuel < MAX_FUEL) {
+      const newKey = stateKey(hexId, MAX_FUEL);
+      const newCost = cost + 2;
+      if (newCost < (dist[newKey] ?? Infinity)) {
+        dist[newKey] = newCost;
+        prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
+        pq.push([newCost, hexId, MAX_FUEL]);
+      }
+    }
+  }
+
+  return { error: `No route from ${hexLabel(sourceId)} to ${hexLabel(destId)} through system hexes with Jump-${jumpRating} and refined fuel only` };
+}
+
+function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
+  // Reconstruct action sequence
+  const actions = [];
+  let key = goalKey;
+  while (prev[key]) {
+    actions.unshift(prev[key]);
+    key = prev[key].prevKey;
+  }
+
+  // Build steps and hex path
+  const steps = [];
+  const hexPath = [sourceId];
+
+  for (const action of actions) {
+    if (action.action === 'jump') {
+      const dist = hexDistance(hexById[action.from], hexById[action.to]);
+      steps.push({ type: 'jump', from: action.from, to: action.to, parsecs: dist });
+      hexPath.push(action.to);
+    } else {
+      steps.push({ type: 'refuel', at: action.at, fuelBefore: action.fuelBefore });
+    }
+  }
+
+  // Compute minimum fuel purchases at each refuel stop
+  let fuel = startingFuel;
+  let totalPurchased = 0;
+  let refuelStops = 0;
+  let numJumps = 0;
+
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    if (step.type === 'jump') {
+      step.fuelType = 'Refined';
+      fuel -= 1;
+      numJumps++;
+      step.fuelAfter = fuel;
+    } else {
+      // Count jumps until next refuel stop or end of path
+      let jumpsAhead = 0;
+      for (let j = i + 1; j < steps.length; j++) {
+        if (steps[j].type === 'jump') jumpsAhead++;
+        if (steps[j].type === 'refuel') break;
+      }
+      const buy = Math.max(0, jumpsAhead - fuel);
+      step.purchased = buy;
+      fuel += buy;
+      totalPurchased += buy;
+      refuelStops++;
+      step.fuelAfter = fuel;
+    }
+  }
+
+  const refuelWeeks = refuelStops * 2;
+  const totalWeeks = numJumps + refuelWeeks + 2;
+
+  return {
+    mode: 'plan',
+    path: hexPath,
+    steps,
+    numJumps,
+    refuelStops,
+    refuelWeeks,
+    totalWeeks,
+    startingFuel,
+    totalPurchased,
+    totalRefined: startingFuel + totalPurchased
+  };
 }
 
 // --- Display ---
@@ -129,11 +259,16 @@ function printResult(result) {
     return;
   }
 
-  console.log(`Route: ${result.path.map(hexLabel).join(' → ')}`);
+  if (result.mode === 'plan') {
+    printPlanResult(result);
+    return;
+  }
+
+  console.log(`Route: ${result.path.map(hexLabel).join(' \u2192 ')}`);
 
   for (let i = 0; i < result.jumps.length; i++) {
     const j = result.jumps[i];
-    console.log(`  Jump ${i + 1}: ${hexLabel(j.from)} → ${hexLabel(j.to)} (${j.parsecs} parsec${j.parsecs !== 1 ? 's' : ''}) — ${j.fuelType}`);
+    console.log(`  Jump ${i + 1}: ${hexLabel(j.from)} \u2192 ${hexLabel(j.to)} (${j.parsecs} parsec${j.parsecs !== 1 ? 's' : ''}) \u2014 ${j.fuelType}`);
   }
 
   console.log();
@@ -145,6 +280,42 @@ function printResult(result) {
   console.log(`Fuel used: ${fuelParts.join(' + ')}`);
 }
 
+function printPlanResult(result) {
+  // Route summary line
+  const routeParts = result.path.map(id => {
+    const hex = hexById[id];
+    const refuelStep = result.steps.find(s => s.type === 'refuel' && s.at === id);
+    let label = hexLabel(id);
+    if (refuelStep) label += ` [+${refuelStep.purchased} refined]`;
+    return label;
+  });
+  console.log(`Route: ${routeParts.join(' \u2192 ')}`);
+
+  // Step-by-step
+  let jumpNum = 0;
+  for (const step of result.steps) {
+    if (step.type === 'jump') {
+      jumpNum++;
+      console.log(`  Jump ${jumpNum}: ${hexLabel(step.from)} \u2192 ${hexLabel(step.to)} (${step.parsecs} parsec${step.parsecs !== 1 ? 's' : ''}) \u2014 Refined [${step.fuelAfter} left]`);
+    } else {
+      const hex = hexById[step.at];
+      console.log(`  Refuel at ${hexLabel(step.at)}: buy ${step.purchased} refined (Starport ${hex.starport}) \u2014 2 weeks`);
+    }
+  }
+
+  // Time breakdown
+  console.log();
+  const timeParts = [`1w origin`, `${result.numJumps}w jump${result.numJumps !== 1 ? 's' : ''}`];
+  if (result.refuelWeeks > 0) timeParts.push(`${result.refuelWeeks}w refueling`);
+  timeParts.push(`1w destination`);
+  console.log(`Total time: ${result.totalWeeks} weeks (${timeParts.join(' + ')})`);
+
+  // Fuel summary
+  const fuelParts = [`${result.startingFuel} carried`];
+  if (result.totalPurchased > 0) fuelParts.push(`${result.totalPurchased} purchased`);
+  console.log(`Fuel: ${fuelParts.join(' + ')} = ${result.totalRefined} refined`);
+}
+
 function printMap() {
   const maxCol = Math.max(...gridData.hexes.map(h => h.col));
   const maxRow = Math.max(...gridData.hexes.map(h => h.row));
@@ -152,7 +323,6 @@ function printMap() {
   const cellWidth = 12;
 
   for (let row = 0; row <= maxRow; row++) {
-    // Even columns at this row
     let evenLine = '';
     for (let col = 0; col <= maxCol; col += 2) {
       const hex = hexByColRow[`${col},${row}`];
@@ -164,7 +334,6 @@ function printMap() {
       }
     }
 
-    // Odd columns at this row (shifted right by half cell width)
     let oddLine = '';
     for (let col = 1; col <= maxCol; col += 2) {
       const hex = hexByColRow[`${col},${row}`];
@@ -192,12 +361,15 @@ if (require.main === module) {
     console.log();
     console.log('Usage:');
     console.log('  node scripts/travel.js <from> <to> --jump=N --fuel=N');
+    console.log('  node scripts/travel.js <from> <to> --jump=N --fuel=N --plan');
     console.log('  node scripts/travel.js --map');
     console.log('  node scripts/travel.js --distance <hex1> <hex2>');
     console.log();
     console.log('Options:');
     console.log('  --jump=N    Jump drive rating (default: 1)');
     console.log('  --fuel=N    Units of refined fuel carried (default: 0)');
+    console.log('  --plan      Smart routing: systems only, refined fuel only,');
+    console.log('              buys refined at A/B/C starports (+2w per stop)');
     console.log('  --map       Print ASCII hex map');
     console.log();
     console.log('Hex IDs:', gridData.hexes.map(h => h.system ? `${h.id}(${h.system})` : h.id).join(', '));
@@ -226,17 +398,21 @@ if (require.main === module) {
   const toId = args[1].toUpperCase();
   let jumpRating = 1;
   let fuel = 0;
+  let planMode = false;
 
   for (const arg of args.slice(2)) {
     if (arg.startsWith('--jump=')) jumpRating = parseInt(arg.split('=')[1], 10);
     if (arg.startsWith('--fuel=')) fuel = parseInt(arg.split('=')[1], 10);
+    if (arg === '--plan') planMode = true;
   }
 
   if (!hexById[fromId]) { console.log(`Unknown hex: ${fromId}`); process.exit(1); }
   if (!hexById[toId]) { console.log(`Unknown hex: ${toId}`); process.exit(1); }
 
-  const result = calculateTravel(fromId, toId, jumpRating, fuel);
+  const result = planMode
+    ? planTravel(fromId, toId, jumpRating, fuel)
+    : calculateTravel(fromId, toId, jumpRating, fuel);
   printResult(result);
 }
 
-module.exports = { hexById, hexByColRow, hexDistance, findPath, calculateTravel, gridData };
+module.exports = { hexById, hexByColRow, hexDistance, findPath, calculateTravel, planTravel, gridData };

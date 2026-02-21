@@ -1,0 +1,41 @@
+Sector Hex Map — Flat-top, even-q offset
+Odd columns (1, 3) shifted down by half a hex.
+Starport in parentheses: A/B/C = refined fuel, D = unrefined only, X = none.
+
+  Col 0              Col 1              Col 2              Col 3              Col 4
+  ─────              ─────              ─────              ─────              ─────
+  [A]                                   [N]                                   [AA] Adabicci (C)
+                [H]  Spirelle (X)                     [U]  Newhall (A)
+  [B]                                   [O]  Quiru (A)                        [AB] Mora (C)
+                [I]                                   [V]
+  [C]  Tivid (C)                        [P]                                   [AC]
+                [J]                                   [W]  Thane (C)
+  [D]                                   [Q]  Karabeth (X)                     [AD] Wal-ta-ka (C)
+                [K]  Maitz (D)                        [X]
+  [E]  Jokotre (C)                      [R]                                   [AE]
+                [L]  Ith (A)                          [Y]  Mowebe (A)
+  [F]                                   [S]                                   [AF]
+                [M]  Stoyben (B)                      [Z]  Atsah (C)
+  [G]                                   [T]  Ugrik (D)                        [AG]
+
+
+Quick Reference
+───────────────
+  Hex  System       Starport   Fuel
+  ───  ──────       ────────   ────
+  C    Tivid        C          Refined
+  E    Jokotre      C          Refined
+  H    Spirelle     X          Gas giants only
+  K    Maitz        D          Unrefined
+  L    Ith          A          Refined
+  M    Stoyben      B          Refined
+  O    Quiru        A          Refined
+  Q    Karabeth     X          Gas giants only
+  T    Ugrik        D          Unrefined
+  U    Newhall      A          Refined
+  W    Thane        C          Refined
+  Y    Mowebe       A          Refined
+  Z    Atsah        C          Refined
+  AA   Adabicci     C          Refined
+  AB   Mora         C          Refined
+  AD   Wal-ta-ka    C          Refined

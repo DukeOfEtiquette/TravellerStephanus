@@ -5,8 +5,8 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 21000  # Cr, as of Session 6
-  last_updated: "Session 6"
+  balance: 26200  # Cr, as of Session 7
+  last_updated: "Session 7"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
@@ -14,6 +14,7 @@ party_kitty:
     Session 4: Kitty at 124,600 Cr after L3 operations.
     Session 5: Ship refit (fuel tanks), Dispatch investigation costs. Kitty at 21,100 Cr.
     Session 6: Kitty at 21,000 Cr. Weapons traded to Isaiah Reed for refined fuel.
+    Session 7: Kitty at 26,200 Cr. Ship retrofit (jump fuel pods) completed.
 
 # =============================================================================
 # SHIPS
@@ -33,6 +34,7 @@ ships:
       Session 5: Refit in progress at Stoyben shipyard (fuel tanks).
       Baron Harrow used his influence to secure immediate slot.
       Session 6: Two middle passengers aboard. Trade goods available.
+      Session 7: Ship retrofit (jump fuel pods) completed.
 
     frame:
       tonnage: 200
@@ -95,11 +97,8 @@ ships:
     cargo:
       manifest:
         - item: "Electronics Components (trade goods)"
-          quantity: 20  # tons
-          notes: "Available at Stoyben, Session 6"
-        - item: "Chemicals (trade goods)"
-          quantity: 30  # tons
-          notes: "Available at Stoyben, Session 6"
+          quantity: 19  # tons
+          notes: "Loaded Session 7, bound for Mowebe (William brokered deal)"
 
     damage_log: []
     # Example entry:
@@ -119,8 +118,23 @@ shared_equipment:
 # =============================================================================
 # VEHICLES IN HANGER
 # =============================================================================
-hanger_contents: []
-# Note: William's personal shuttlecraft may be stored here
-# - name: "William's Shuttlecraft"
-#   owner: "William Hung"
-#   notes: "Personal vehicle, stored in ship hanger"
+hanger_contents:
+  - name: "William Hung's Shuttlecraft"
+    owner: "William Hung"
+    cargo_capacity: 8  # tons
+    current_cargo:
+      - item: "Grav bike"
+        tons: null
+        notes: "Loaded for cylinder operation (Session 7)"
+    notes: |
+      Session 7: Initially loaded Hung's unarmored car (2t) and Saviolo's armored car (4t).
+      Later unloaded all vehicles except grav bike for cylinder operation.
+
+  - name: "Victor's Shuttlecraft"
+    owner: "Victor"
+    cargo_capacity: 8  # tons
+    current_cargo:
+      - item: "Grav car"
+        tons: null
+        notes: "Loaded for cylinder operation (Session 7)"
+    notes: "Session 7: Grav car loaded for cylinder operation."

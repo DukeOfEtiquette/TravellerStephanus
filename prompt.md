@@ -1,11 +1,51 @@
-I need to codify the travel rules for this game in such a way I can build web tools with them. I had a previous agent make an attempt but I don't think I give enough context of the travel rules or examples of proper travel. As such, I think there are a lot of assumptions and broken rules within the implementation. I didn't even really give the agent much direction on what I wanted it to produce or my intent with it's output. I need your help!
+We just played Session 7 last night (2/20) and I have the notes I recorded personally. The game master has not posted the session notes yet. For these notes it is imporant to know a Shuttlecraft can have up to 8 tons of cargo put aboard it at any time.
 
-First let me describe my root problem...I am a player in a Traveller TTRPG campaign. The game master refers to the homebrew rules as "a deep hack of the first version of Traveller." After some sessions, I've learned a lot of these rules are just tribal knowledge being carried from one campaign to the next, but this is my first campaign with them so I'm trying to piece it all together.
+- Put Hung's unarmored car in Hung's Shuttlecraft (2 tons)
+- Put Saviolo's armored car in Hung's Shuttlecraft (4 tons)
+- Took on 19 tons of electronics
+- Took a job from Isiah Reed, official Jade Front work...
 
-I've also quickly learned that the travel rules are not straightforward. I've decided what will help me is to build a web tool that can help research and plan routes of travel through the system. Before getting into the weeds of the web app UI, I figured I'd start by codifying the data structure of the hex map and all the travel rules to navigate the map. After, I can build a UI on top.
+    - Orbiting Stoyben are thousands of O'neil cylinders
+    - Each has a top government official with the title Administrator, similar to a governor of a large metro city
+    - On a nearby cylinder, a Jade Front agent, "Alicia", befriended the Administrator's wife and convinced her to leave her husband
+    - The wife, Vondel, is reportedly unhappy in her marriage to Torin, the administrator, because he is distant and abusive
+    - "Alicia" had promised Vondel she had friend's in high places that would protect her, all she had to do was download the hard drive from her husband's work computer as payment
+    - Vondel was initially onboard, but when the agent attempted to exfiltrate her she got cold feet
+    - The agent reports that for the months of grooming Vondel always appeared scared and anxious, but when she got cold feet she no longer seemed scared or anxious, rather confident and determined
+    - Vondel knew nothing of "Alicia" connection to the Jade Front
 
-The two files created by the previous agents first attempt are scripts/travel.js and data/worlds/sector-graph.json. For now, I'd like to focus on the building blocks of the map regardless of the specific type of data within. So for now, ignore the specific systems.yaml data within those files and just label each hex with a number.
+- We decided to unload all vehicles from the Shuttlecraft's except one bike and one grav car
+- Some of the party takes Shuttlecraft's to the cylinder, others take commercial transport, so as to avoid traveling as a group and bringing attention to ourselves
 
-Next, read TRAVEL-EXPLAINED.md for a rich description of the travel rule system. This is what I should have provided to the first agent before setting out to work, but did not. Use this as the source-of-truth for rules and examples. This is your foundation.
+    - Grav bike in Hung's Shuttlecraft, and grav car in Victor's Shuttlecraft
 
-Create a plan to codify all of this so that I can provide the inputs (jump drive rating, units of refined fuel, source and destination hexes) and it will provide the path of travel, which type of fuel was used per jump, and total amount of time it'd take to travel. This will be the MVP and additional features will be added in the future like replacing the numbered naming of hexes with rich data describing the qualities of the hex.
+- Upon arriving the party made contact with the Stoyben Newpapers local gossip reporter, Tetzel, who Done Rivis got us in contact with
+
+    - Finnegan met under the guise of wanting a job investigating the high-society on the cylinder
+    -  Tetzel asked for any photos of Torin with a mistress
+
+- Harrow, Victor, and Saviolo all hit up a high-end fundraising banquet that Torin and Vondel were rumored to be attending
+
+    - Sure enough, they were there
+    - But Vondel had another man with her, and it was clear it was her lover, a man named Tevetz
+    - Through the gossip mill at the banquet, they learned that Tevetz family is very powerful but Tevetz himself is a bit of an idiot
+    - Harrow approached Torin, using his status as a noble to gain favor
+    - Torin shared he had a personal brewing operation on his premises, and invited Harrow when he showed interest
+    - More gossip milling revealed that Torin was sleeping with Avri, who is Vondel's sister
+
+- Hung and Bootman spent every night for a week hitting the local bars in hopes of running into a service worker for the Torin residence
+
+    - Best we found was the cousin of Tevetz car driver
+    - Revealed that Vondel and Tevetz are in a relationship, not much else
+
+- Leeuwen and Finnegan bribed some hotel workers to learn that Avri had a monthly rate for one of the hotels and visited frequently
+
+    - Finnegan further bribed his way into Avri's room and planting audio and video recording devices
+    - These devices were not found and caught Torin and Avri in the act, thus securely blackmail
+
+- Harrow, Victor, and Saviolo visit Torin's home residence to view his brewing operation
+
+    - Harrow is able to impress both Torin and the other guests with his nobility and business acumen
+
+
+This is where the session had to end...

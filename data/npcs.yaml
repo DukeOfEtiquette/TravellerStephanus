@@ -62,9 +62,96 @@ npcs:
     first_appearance: Session 5
     description: |
       JF leadership on Stoyben. Has no knowledge of the party's specific mission.
-      Will trade weapons for refined fuel.
+      Traded weapons for refined fuel (Session 6).
     notes: |
-      Expressed need for weapons on Ugrik if party travels that way.
+      Session 5: Expressed need for weapons on Ugrik if party travels that way.
+      Session 6: Traded weapons for refined fuel.
+      Session 7: Assigned official JF job — O'Neill cylinder operation involving
+      Administrator Torin and his wife Vondel.
+
+  - name: '"Alicia"'
+    affiliation: Jade Front
+    role: Operative (burned handler for Vondel)
+    location: O'Neill cylinder two days from Stoyben
+    status: active (burned)
+    first_appearance: Session 7
+    description: |
+      JF agent who spent months grooming Administrator Torin's wife Vondel.
+      Convinced Vondel to leave her abusive husband and download his work
+      computer's hard drive as payment for protection. Now burned as Vondel's handler.
+    notes: |
+      Vondel got cold feet during exfiltration. Suspicious behavioral shift:
+      months of being scared/anxious, then suddenly confident and determined
+      when she backed out. Vondel does not know about "Alicia's" JF connection.
+
+  # ===========================================================================
+  # O'NEILL CYLINDER TARGETS (SESSION 7)
+  # ===========================================================================
+
+  - name: Torin
+    affiliation: Government (O'Neill cylinder Civic Administrator)
+    role: Civic Administrator
+    location: O'Neill cylinder two days from Stoyben
+    status: active (target)
+    first_appearance: Session 7
+    description: |
+      Civic Administrator governing an O'Neill cylinder colony two days from Stoyben.
+      Similar to a governor of a large metro city. Distant and abusive to wife Vondel.
+      Openly sleeping with Kenna. Secretly sleeping with Arvi, Vondel's sister.
+    notes: |
+      Has a personal brewing operation at his residence. Invited Baron Harrow
+      to visit after being impressed by his noble status.
+      JF wants the hard drive from his work computer.
+
+  - name: Vondel
+    affiliation: None (Civic Administrator Torin's wife)
+    role: Torin's wife
+    location: O'Neill cylinder two days from Stoyben
+    status: active
+    first_appearance: Session 7
+    description: |
+      Wife of Civic Administrator Torin. Abused, but recently stopped acting afraid
+      and pulled out from plan to flee. Recently seems familiar with Tevetz.
+    notes: |
+      Was groomed by JF agent "Alicia" to leave Torin and download his work
+      computer hard drive. Initially agreed but got cold feet during exfiltration.
+      Suspicious behavioral shift: months of scared/anxious behavior, then suddenly
+      confident and determined when she backed out. Does not know about JF.
+
+  - name: Tevetz
+    affiliation: Wealthy business family
+    role: Recently familiar with Vondel
+    location: O'Neill cylinder two days from Stoyben
+    status: active
+    first_appearance: Session 7
+    description: |
+      Hot young scion of a wealthy business family. Recently seems familiar
+      with Vondel (Torin's wife). Appeared openly with her at a high-end
+      fundraising banquet.
+    notes: null
+
+  - name: Arvi
+    affiliation: None (Vondel's sister)
+    role: Torin's secret mistress
+    location: O'Neill cylinder two days from Stoyben
+    status: active
+    first_appearance: Session 7
+    description: |
+      Vondel's sister. Torin is secretly sleeping with her. Maintains a monthly
+      rate at a local hotel where she meets Torin.
+    notes: |
+      Finnegan planted audio/video recording devices in her hotel room.
+      Devices captured Torin and Arvi together — blackmail material secured.
+
+  - name: Kenna
+    affiliation: None
+    role: Torin's open mistress
+    location: O'Neill cylinder two days from Stoyben
+    status: active
+    first_appearance: Session 7
+    description: |
+      Torin is openly sleeping with her.
+    notes: null
 
   - name: Antonio Jose Cuevas
     affiliation: Jade Front (informant)
@@ -81,6 +168,19 @@ npcs:
   # ===========================================================================
   # STOYBEN INTERSTELLAR NEWS DISPATCH
   # ===========================================================================
+
+  - name: Tetzel
+    affiliation: Station media
+    role: Editor, Page 6 gossip rag
+    location: O'Neill cylinder two days from Stoyben
+    status: allied
+    first_appearance: Session 7
+    description: |
+      Editor of the station's Page 6 gossip rag on an O'Neill cylinder.
+      Contact arranged by Doné Rivis.
+    notes: |
+      Finnegan approached under guise of wanting a job investigating high society.
+      Tetzel wants photos of Torin with a mistress.
 
   - name: Choophong Thanatkha
     aliases: ["Choo"]

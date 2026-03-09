@@ -299,6 +299,75 @@ Active session. Personally brokered the electronics transport deal to Mowebe. Th
 
 ---
 
+## Session 7
+**Date:** 2026-02-20
+
+### Summary
+Official Jade Front job from Isaiah Reed — operation on an O'Neill cylinder two days from Stoyben involving Civic Administrator Torin and his wife Vondel. The company took a multi-pronged approach: PI dirt collection, socialite events, estate relationship building, and working staff nightlife. William and Bootman spent the week canvassing bars for intel on Torin's household. Session ended mid-operation.
+
+### Key Events
+- Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t) into Hung's shuttlecraft
+- Took on 19 tons of electronics cargo
+- Accepted official JF job from Reed — cylinder colony operation
+- Unloaded all vehicles except grav bike (Hung's shuttle) and grav car (Victor's shuttle)
+- Split party to travel to cylinder (shuttlecrafts + commercial transport)
+- Met Tetzel (gossip reporter, arranged by Rivis) — Finnegan posed as job seeker
+- Harrow/Victor/Saviolo attended high-end fundraiser; discovered Vondel's lover Tevetz and Torin's affair with Avri
+- Harrow gained Torin's trust using noble status, invited to residence for brewing tour
+- Hung and Bootman hit bars for a week seeking Torin residence service workers
+- Found cousin of Tevetz's car driver — confirmed Vondel/Tevetz relationship
+- Leeuwen/Finnegan bribed hotel workers, learned Avri's hotel arrangement
+- Finnegan planted recording devices in Avri's room — captured Torin/Avri blackmail
+- Harrow/Victor/Saviolo visited Torin's residence for brewing tour
+
+### NPCs Encountered
+| Name | Description | Location | Notes |
+|------|-------------|----------|-------|
+| Isaiah Reed | JF station chief | Stoyben | Assigned official JF cylinder job |
+| "Alicia" | JF operative (burned) | Cylinder | Groomed Vondel, exfil failed, now burned as handler |
+| Torin | Civic Administrator | Cylinder | Target. Openly sleeping with Kenna, secretly with Arvi. Invited Harrow to residence |
+| Vondel | Torin's wife | Cylinder | Abused, stopped acting afraid, pulled out from plan. Recently familiar with Tevetz |
+| Tevetz | Wealthy family scion | Cylinder | Hot young scion, recently seems familiar with Vondel |
+| Arvi | Vondel's sister | Cylinder | Torin's secret mistress. Blackmail secured |
+| Kenna | Torin's open mistress | Cylinder | Torin openly sleeping with her |
+| Tetzel | Editor, Page 6 gossip rag | Cylinder | Wants photos of Torin with mistress. Rivis contact |
+
+### Locations Visited
+- Stoyben Spaceport
+- O'Neill cylinder orbiting Stoyben
+- Local bars on the cylinder (week-long canvassing with Bootman)
+
+### Items Gained/Lost
+- (+) 19 tons electronics cargo
+- (+) Blackmail material on Torin (recordings of secret affair with Arvi)
+
+### Credits
+- Starting: 21,300 Cr (personal)
+- Ending: 21,300 Cr (personal)
+- Net: 0 Cr
+- Party Kitty: 26,200 Cr
+
+### Clues/Information Learned
+- O'Neill cylinders orbit Stoyben, each governed by a Civic Administrator
+- JF agent "Alicia" groomed Vondel for months — she was scared/anxious throughout; "Alicia" is now burned as handler
+- When Vondel backed out, she became confident and determined — suspicious shift
+- Vondel doesn't know about "Alicia's" JF connection
+- Torin is openly sleeping with Kenna and secretly sleeping with Arvi (Vondel's sister)
+- Tevetz is a hot young scion of a wealthy business family, recently seems familiar with Vondel
+- Tetzel is the editor of the station's Page 6 gossip rag — wants photos of Torin with a mistress
+- Ship retrofit (jump fuel pods) completed
+
+### Unresolved Threads
+- Why did Vondel's behavior shift so dramatically?
+- How to obtain Torin's hard drive data
+- Can the Torin/Arvi blackmail be leveraged for the hard drive?
+- What does Tetzel gain the party if they deliver the photos?
+
+### Notes
+Hung and Bootman did the grunt work this session — a week of bar-hopping to find service workers. Best lead was only the cousin of Tevetz's car driver. Meanwhile the noble contingent (Harrow, Victor, Saviolo) worked the high society angle much more effectively. Finnegan's hotel infiltration was the real score — blackmail on Torin is a powerful lever. Session ended mid-operation with Harrow inside Torin's residence. Ship retrofit (jump fuel pods) completed this session.
+
+---
+
 <!-- Copy the session template below for each new session -->
 
 <!--

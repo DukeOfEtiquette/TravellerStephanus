@@ -1,0 +1,92 @@
+session:
+  number: 7
+  date: 2026-02-20
+  recap: |
+    The company solicited a job from Isaiah Reed involving exfiltrating damaging political
+    information about the Civic Administrator (Torin) of an O'Neill cylinder two days from Stoyben.
+    Loaded vehicles into shuttlecrafts and took on 19 tons of electronics cargo.
+
+    JF Mission Briefing (from Reed):
+    - Thousands of O'Neill cylinders orbit Stoyben, each governed by a Civic Administrator
+    - A JF agent ("Alicia") befriended the Administrator's wife, Vondel, and convinced her
+      to leave her abusive, distant husband Torin
+    - The deal: Vondel downloads Torin's work computer hard drive, and "Alicia" would use
+      her connections to protect Vondel
+    - Vondel initially agreed, but got cold feet during exfiltration
+    - Notably: Vondel had been scared and anxious for months of grooming, but when she
+      backed out she appeared confident and determined — a suspicious behavioral shift
+    - Vondel doesn't know about "Alicia's" JF connection
+    - "Alicia" is now burned as Vondel's handler
+
+    The party split up to avoid drawing attention — some took shuttlecrafts, others took
+    commercial transport to the cylinder.
+
+    The company took a multi-pronged approach:
+    - Successfully collecting private investigation dirt on the target
+    - Engaging in philanthropic/socialite events to forge a personal relationship with Vondel
+    - Meeting and evaluating the target in his estate and developing a relationship
+    - Working the staff nightlife spots for actionable information about the upper classes
+
+    Key discoveries:
+    - Torin is openly sleeping with Kenna and secretly sleeping with Arvi (Vondel's sister)
+    - Vondel has stopped acting afraid and pulled out from the plan to flee
+    - Tevetz (hot young scion of a wealthy business family) recently seems familiar with Vondel
+    - Tetzel (editor of the station's Page 6 gossip rag) wants photos of Torin with a mistress
+
+    Ship retrofit (jump fuel pods) completed. Session ended mid-operation.
+
+    Time: 7.3
+    Location: O'Neill Cylinder two days from Stoyben
+    Kitty: 26,200 cr
+
+  npcs_introduced:
+    - name: '"Alicia"'
+      affiliation: Jade Front
+      description: JF operative and now-burned handler for Vondel
+      status: active (burned)
+
+    - name: Vondel
+      affiliation: Wife of Administrator Torin
+      description: Reportedly unhappy in marriage (abusive, distant husband). Got cold feet on JF exfil. Behavioral shift suspicious.
+      status: active
+
+    - name: Torin
+      affiliation: Civic Administrator of an O'Neill cylinder
+      description: Government official governing a cylinder colony two days from Stoyben. Openly sleeping with Kenna. Secretly sleeping with Arvi, his wife's sister.
+      status: active (target)
+
+    - name: Kenna
+      affiliation: None
+      description: Torin is openly sleeping with her.
+      status: active
+
+    - name: Tevetz
+      affiliation: Wealthy business family
+      description: Hot young scion of a wealthy business family. Recently seems familiar with Vondel.
+      status: active
+
+    - name: Arvi
+      affiliation: Vondel's sister
+      description: Torin's secret mistress. Has a monthly rate at a local hotel for their liaisons.
+      status: active
+
+    - name: Tetzel
+      affiliation: Station media
+      description: Editor of the station's Page 6 gossip rag. Contact arranged by Doné Rivis.
+      status: allied
+
+  key_events:
+    - "Loaded vehicles into shuttlecrafts (Hung's unarmored car + Saviolo's armored car into Hung's)"
+    - "Took on 19 tons of electronics cargo"
+    - "Accepted official JF job from Isaiah Reed — cylinder colony operation"
+    - "Traveled to O'Neill cylinder (split party to avoid attention)"
+    - "Met Tetzel (gossip reporter, Rivis contact) — wants photos of Torin with mistress"
+    - "Attended fundraiser: discovered Tevetz familiar with Vondel, Torin's affairs with Kenna (open) and Arvi (secret)"
+    - "Harrow gained Torin's trust, invited to brewing operation at residence"
+    - "Hung and Bootman canvassed bars for a week — found Tevetz driver's cousin"
+    - "Finnegan planted recording devices in Avri's hotel room — captured Torin/Avri blackmail"
+    - "Harrow visited Torin's residence, impressed with nobility and business acumen"
+
+    - "Ship retrofit (jump fuel pods) completed"
+
+  absent_pcs: []

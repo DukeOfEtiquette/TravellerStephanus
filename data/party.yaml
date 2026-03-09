@@ -95,6 +95,25 @@ party_members:
       Jack of all trades from a drifter background. Can pilot and has
       surprisingly diverse skill set.
 
+  - name: "Vincentio Saviolo"
+    age: 38
+    upp: "876578"
+    # STR 8, DEX 7, END 6, INT 5, EDU 7, SOC 8
+    background:
+      homeworld: High Culture
+      schooling: The Streets
+    careers:
+      - { name: Noble, terms: 5, rank: 3 }
+    skills:
+      - Blades-4
+      - Bureaucracy-3
+      - Diplomacy-2
+      - Carousing-2
+      - Performer-1
+    notes: |
+      Noble career veteran. Excellent swordsman (Blades-4) with strong social skills.
+      Owns an armored car (stored in Hung's shuttlecraft, Session 7).
+
   - name: "Victor"
     player: Crispin
     age: null  # Not specified

@@ -5,5 +5,7 @@
 *.toc
 *.synctex.gz
 
+prompt.md
+
 # Keep PDFs (they're intentional output)
 # !*.pdf

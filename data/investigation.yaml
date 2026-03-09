@@ -113,6 +113,24 @@ active_leads:
     notes: |
       Weapons traded directly to Isaiah Reed on Stoyben (Session 6).
 
+  - name: "JF Operation — O'Neill Cylinder (Torin's Hard Drive)"
+    priority: high
+    status: in_progress
+    description: |
+      Official Jade Front job from Isaiah Reed. JF agent "Alicia" (now burned) spent months
+      grooming Civic Administrator Torin's wife Vondel to download Torin's work computer hard drive.
+      Vondel got cold feet during exfiltration — suspicious behavioral shift from
+      scared/anxious to confident/determined.
+    action_required: "Complete the operation — obtain Torin's hard drive data"
+    established: Session 7
+    notes: |
+      Party has obtained blackmail on Torin (recorded secret affair with Arvi, Vondel's sister).
+      Torin also openly sleeping with Kenna. Harrow has been invited to Torin's residence
+      (brewing tour). Tevetz (hot young scion, recently familiar with Vondel) is from a wealthy
+      business family. Tetzel (editor of Page 6 gossip rag) wants photos of Torin with mistress.
+      Session ended mid-operation.
+      Key question: Why did Vondel's behavior shift so dramatically when she backed out?
+
   - name: "Rivis Job — Deliver Message to Kara Wiley on Thane"
     priority: medium
     status: available
@@ -206,6 +224,13 @@ open_questions:
     priority: low
     notes: "IIP associates approached party discreetly (Session 2). No follow-up yet."
 
+  - question: "Why did Vondel's behavior shift when she backed out of the exfiltration?"
+    priority: medium
+    notes: |
+      Months of scared/anxious behavior, then suddenly confident and determined.
+      Possibilities: someone got to her, Tevetz's family is involved, she's playing
+      a longer game, or she was turned against the JF agent.
+
   - question: "Will the L3 bombing be traced back to the party?"
     priority: low
     notes: "Les Wrownand/Bravida framed. Sint propaganda approach successful."
@@ -254,16 +279,24 @@ current_plan:
 
   timeline:
     - week: 6.3
-      status: current
+      status: past
       location: Stoyben Spaceport
       notes: "Weapons traded to Reed. Rivis trust gained. Two jobs offered. Passengers and trade goods aboard."
+
+    - week: 7.3
+      status: current
+      location: O'Neill cylinder two days from Stoyben
+      notes: |
+        Cylinder operation in progress. Blackmail on Torin secured. Torin openly sleeping
+        with Kenna, secretly with Arvi. Ship retrofit (jump fuel pods) completed.
+        Session ended mid-operation. Kitty: 26,200 Cr.
 
     - week: 20
       status: planned
       event: "Rendezvous with JF operative at Mowebe"
 
   assets:
-    - "Voice of Liberation II (refitted with fuel tanks)"
+    - "Voice of Liberation II (jump fuel pods retrofit completed)"
     - "Two middle passengers"
-    - "Trade goods available: 20 tons electronics components, 30 tons chemicals"
-    - "21,000 Cr party funds"
+    - "19 tons electronics cargo aboard"
+    - "26,200 Cr party funds"

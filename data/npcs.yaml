@@ -68,6 +68,101 @@ npcs:
       Session 6: Traded weapons for refined fuel.
       Session 7: Assigned official JF job — O'Neill cylinder operation involving
       Administrator Torin and his wife Vondel.
+      Session 8: Cut party's pay after Arvi murdered Torin and Vondel had to flee
+      the entire Stoyben system (more expensive than planned exfil). Still issued
+      party a positive letter of recommendation.
+
+  - name: Kikonye
+    affiliation: Jade Front (Mowebe station chief)
+    role: Station Chief
+    location: Mowebe
+    status: active
+    first_appearance: Session 9
+    description: |
+      JF Mowebe station chief. Tall, chiseled, handsome. Early 50s. Dresses extremely sharp.
+      Runs ops out of a luxury art gallery. Known to be extremely zealous and ruthless, even
+      callous — will sacrifice agents if the mission demands it.
+    notes: |
+      Session 9: Offered sabotage job or Solal kidnapping; party chose kidnapping.
+      Session 12: Rewarded party with 45k Cr, stealthsuit, 2 quantum weapons, and
+      "lie detector" cybernetic implants for Baron Harrow.
+
+  - name: '"Jake"'
+    affiliation: Jade Front
+    role: Operative (Solal op)
+    location: Mowebe
+    status: active
+    first_appearance: Session 9
+    description: |
+      JF agent who had been working the Solal kidnapping operation on Mowebe before
+      the party arrived. Provided timetables and satellite recon.
+    notes: |
+      Recruited Okomi as an asset (guard at Solal's estate).
+
+  - name: '"Iké"'
+    affiliation: Jade Front
+    role: Operative (Solal op)
+    location: Mowebe
+    status: active
+    first_appearance: Session 9
+    description: |
+      JF agent who had been working the Solal kidnapping operation alongside Jake.
+    notes: null
+
+  - name: Okomi
+    affiliation: Jade Front (asset)
+    role: Estate Guard / Asset
+    location: Mowebe (Solal estate)
+    status: active
+    first_appearance: Session 9
+    description: |
+      Local asset recruited by Jake and Iké. Works as a guard at Jassem Solal's estate.
+    notes: null
+
+  - name: Jassem Solal
+    affiliation: Thani nobility
+    role: Target (kidnapping victim)
+    location: Unknown (in JF custody, delivered to Ugrik rendezvous)
+    status: captured
+    first_appearance: Session 9
+    description: |
+      Wealthy Thani noble, mid-sixties. Owner of a large private estate on Mowebe.
+      Accompanied by three wives, multiple children, mistresses, and extensive household staff.
+      Secretly the father of his own majordomo, Hassan (illegitimate son).
+      Had a suspicious number of meetings with Cooper-Akachi Diversified Industries reps.
+    notes: |
+      Kidnapped and extracted by the party (Sessions 10–12). Delivered to Jade Front.
+      Jewelry and personal effects pocketed by party (105k Cr).
+      Nanos in Solal's system attempted to neutralize sleeping poison during extraction.
+
+  - name: Hassan
+    affiliation: Jassem Solal's household
+    role: Majordomo / Chief of Staff
+    location: Mowebe (Solal estate)
+    status: active
+    first_appearance: Session 10
+    description: |
+      Solal's majordomo and chief of staff. Runs the estate with considerable authority.
+      Secretly Jassem Solal's illegitimate son — Solal writes him tender personal letters
+      and cares deeply for him, though this appears to be a closely kept secret.
+    notes: |
+      Corinne Page found the letters from Solal to Hassan during a break-in (Session 10).
+
+  - name: Faisal al-Amin
+    affiliation: Jade Front
+    role: Intelligence Operative ("Agent #3")
+    location: Traveling (arrives back Campaign Week 16)
+    status: active
+    first_appearance: Session 12
+    description: |
+      Thani drunkard. White-collar thief and embezzler. Cover identity: helionite-processing
+      equipment salesman. Prone to violence — rumors he killed a former domestic partner.
+      Has connections to Thani intelligence.
+    notes: |
+      Was the "JF intelligence operative" dispatched at the end of Session 4 on the
+      Ith → Mowebe → Thane → Mowebe circuit. Designated "Agent #3" by JF.
+      Debriefed party at lunar JF depot (Session 12). Returns Campaign Week 16.
+      Key intel from debrief filed in investigation.yaml.
 
   - name: '"Alicia"'
     affiliation: Jade Front
@@ -92,7 +187,7 @@ npcs:
     affiliation: Government (O'Neill cylinder Civic Administrator)
     role: Civic Administrator
     location: O'Neill cylinder two days from Stoyben
-    status: active (target)
+    status: deceased
     first_appearance: Session 7
     description: |
       Civic Administrator governing an O'Neill cylinder colony two days from Stoyben.
@@ -101,47 +196,58 @@ npcs:
     notes: |
       Has a personal brewing operation at his residence. Invited Baron Harrow
       to visit after being impressed by his noble status.
-      JF wants the hard drive from his work computer.
+      JF wanted the hard drive from his work computer (never obtained).
+      DECEASED: Murdered by Arvi in Session 8 to help Vondel escape the abuse.
+      Murder caused a major political uproar on the cylinder.
 
   - name: Vondel
     affiliation: None (Civic Administrator Torin's wife)
-    role: Torin's wife
-    location: O'Neill cylinder two days from Stoyben
-    status: active
+    role: Torin's wife (widowed)
+    location: Unknown (fled Stoyben system)
+    status: exfiltrated
     first_appearance: Session 7
     description: |
-      Wife of Civic Administrator Torin. Abused, but recently stopped acting afraid
-      and pulled out from plan to flee. Recently seems familiar with Tevetz.
+      Wife of Civic Administrator Torin. Abused for years. Stopped acting afraid
+      and pulled out from the JF plan to flee — behavioral shift explained by Arvi's
+      own plan taking shape.
     notes: |
       Was groomed by JF agent "Alicia" to leave Torin and download his work
       computer hard drive. Initially agreed but got cold feet during exfiltration.
-      Suspicious behavioral shift: months of scared/anxious behavior, then suddenly
-      confident and determined when she backed out. Does not know about JF.
+      Session 8: Arvi murdered Torin to free Vondel. Vondel urgently requested
+      the party bundle her and flee on the ship. Forced to flee the entire Stoyben
+      system due to the political fallout. Isaiah Reed paid more than expected for
+      the exfiltration as a result.
+      Hard drive from Torin's work computer: never obtained.
 
   - name: Tevetz
     affiliation: Wealthy business family
-    role: Recently familiar with Vondel
+    role: Vondel's ally (confirmed)
     location: O'Neill cylinder two days from Stoyben
     status: active
     first_appearance: Session 7
     description: |
-      Hot young scion of a wealthy business family. Recently seems familiar
-      with Vondel (Torin's wife). Appeared openly with her at a high-end
-      fundraising banquet.
-    notes: null
+      Hot young scion of a wealthy business family. Was familiar with Vondel
+      (Torin's wife). Appeared openly with her at a high-end fundraising banquet.
+    notes: |
+      Session 8: Confirmed to have been helping Vondel in genuine good faith.
+      Was NOT working a family agenda as previously suspected. The behavioral
+      shift in Vondel was explained by her own (and Arvi's) plan taking shape.
 
   - name: Arvi
     affiliation: None (Vondel's sister)
-    role: Torin's secret mistress
-    location: O'Neill cylinder two days from Stoyben
-    status: active
+    role: Torin's former secret mistress; Vondel's protector
+    location: Unknown (fled with the party)
+    status: active (traveling with party)
     first_appearance: Session 7
     description: |
-      Vondel's sister. Torin is secretly sleeping with her. Maintains a monthly
-      rate at a local hotel where she meets Torin.
+      Vondel's sister. Was secretly sleeping with Torin. Maintained a monthly
+      rate at a local hotel where she met Torin.
     notes: |
       Finnegan planted audio/video recording devices in her hotel room.
       Devices captured Torin and Arvi together — blackmail material secured.
+      Session 8: Arvi murdered Torin to help Vondel escape his abuse. She then
+      urgently requested the party bundle Vondel and flee with them. Now traveling
+      with or alongside the party.
 
   - name: Kenna
     affiliation: None
@@ -310,6 +416,22 @@ npcs:
   # ===========================================================================
   # HISTORICAL / DECEASED
   # ===========================================================================
+
+  - name: "Vincentio Saviolo"
+    affiliation: Party (PC)
+    role: Noble Operative / Swordsman
+    location: Mowebe (KIA)
+    status: deceased
+    first_appearance: Session 1
+    description: |
+      Noble career veteran (5 terms, rank 3). Outstanding swordsman (Blades-4).
+      Party member throughout the campaign.
+    notes: |
+      KILLED Session 11: During the Solal extraction at Nbangu Dikila Nature Preserve,
+      Mowebe. A power-armor bodyguard with a jetpack smashed Vicentio from the air.
+      Vicentio's monomolecular unikatana broke open the guard's helmet. Vicentio charged
+      with broken ribs; the guard panic-fired all anti-personnel cluster rockets at point
+      blank range, killing both men instantly.
 
   - name: Keith Sevont
     affiliation: None (soldier, retired)

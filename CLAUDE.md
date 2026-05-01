@@ -144,14 +144,27 @@ For character-specific session notes, see `characters/active/*/session-notes.md`
 
 ## Processing Session Notes
 
-When the user provides new session notes from the GM, update the following files:
+There are two distinct, non-exclusive sources of session notes:
+- **GM notes** (`data/sessions/session-NN.yaml`) — official narrative recaps provided by the GM after each session. These are the source of truth for what happened.
+- **Player notes** (`characters/active/william-hung/session-notes.md`) — notes written by Adam (the player) from William's perspective. These are Adam's own record and are NOT updated from GM notes.
+
+When the user provides new **GM session notes**, update ONLY the following files:
 
 1. **`data/sessions/session-NN.yaml`** - Create new session file with recap, npcs_introduced, key_events
 2. **`data/npcs.yaml`** - Add any new NPCs to the consolidated registry; update status of existing NPCs (e.g., deceased, missing)
 3. **`data/investigation.yaml`** - Update leads (new, stalled, resolved), add dead ends, note new intel or open questions, update strategic plan/timeline
 4. **`data/assets.yaml`** - Update party kitty, cargo manifest, ship status, shared equipment
-5. **`characters/active/william-hung/session-notes.md`** - Add session entry (or note absence if William wasn't present)
-6. **`data/party.yaml`** - Update if new info about party members is revealed (names, skills used, etc.)
+5. **`data/party.yaml`** - Update if new info about party members is revealed (names, skills used, etc.)
+
+Do NOT update `characters/active/william-hung/session-notes.md` from GM notes. That file is written by Adam from his own memory and perspective.
+
+## Session Dates
+
+Sessions always occur on **Fridays**. The `date` field in both `data/sessions/` and `session-notes.md` must always be the actual Friday the session was played, never a Discord post timestamp.
+
+**Critical:** Discord timestamps on the GM's posts reflect when he uploaded the notes, which can be days or weeks after the session. Never use a Discord timestamp as a session date.
+
+**Deriving unknown dates:** When the actual session date is not recorded, calculate it by counting Fridays from a confirmed anchor — but note that scheduling gaps occur and sessions are not always strictly weekly. All dates for sessions 1–12 have been confirmed accurate.
 
 ## Notes
 

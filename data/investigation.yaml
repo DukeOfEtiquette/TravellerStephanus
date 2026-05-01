@@ -48,17 +48,19 @@ chain_of_custody:
 # =============================================================================
 active_leads:
 
-  - name: "JF Intelligence Operative"
+  - name: "JF Intelligence Operative (Faisal al-Amin)"
     priority: high
-    status: in_progress
+    status: resolved
     description: |
       Jade Front operative dispatched on intelligence-gathering circuit:
       Ith → Mowebe → Thane (2 months listening for Mora updates) → Mowebe
-    action_required: "Rendezvous at Mowebe, Campaign Week 20"
+    action_required: null
     established: Session 4
+    resolved: Session 12
     notes: |
-      Traveling via middle passage tickets. Will gather intel filtering
-      back from Mora about the mask situation.
+      Traveling via middle passage tickets. Gathered intel filtering back from Mora.
+      Session 12: Made contact at lunar JF depot. Identified as Faisal al-Amin.
+      Full debriefing of his intelligence recorded separately.
 
   - name: "Choophong Thanatkha (Choo)"
     priority: high
@@ -115,34 +117,61 @@ active_leads:
 
   - name: "JF Operation — O'Neill Cylinder (Torin's Hard Drive)"
     priority: high
-    status: in_progress
+    status: resolved_partial
     description: |
       Official Jade Front job from Isaiah Reed. JF agent "Alicia" (now burned) spent months
       grooming Civic Administrator Torin's wife Vondel to download Torin's work computer hard drive.
-      Vondel got cold feet during exfiltration — suspicious behavioral shift from
-      scared/anxious to confident/determined.
-    action_required: "Complete the operation — obtain Torin's hard drive data"
+    action_required: null
     established: Session 7
+    resolved: Session 8
     notes: |
-      Party has obtained blackmail on Torin (recorded secret affair with Arvi, Vondel's sister).
-      Torin also openly sleeping with Kenna. Harrow has been invited to Torin's residence
-      (brewing tour). Tevetz (hot young scion, recently familiar with Vondel) is from a wealthy
-      business family. Tetzel (editor of Page 6 gossip rag) wants photos of Torin with mistress.
-      Session ended mid-operation.
-      Key question: Why did Vondel's behavior shift so dramatically when she backed out?
+      Session 8: Arvi murdered Torin to free Vondel from abuse. Party extracted Vondel and fled.
+      Hard drive from Torin's work computer was NEVER obtained.
+      Vondel's behavioral shift explained: she and Arvi had their own plan forming.
+      Tevetz was genuinely helping Vondel in good faith (not scheming).
+      Political fallout from Torin's murder was significant. Isaiah Reed paid more for Vondel's
+      full-system exfiltration and cut the party's pay, but issued a positive letter of recommendation.
 
   - name: "Rivis Job — Deliver Message to Kara Wiley on Thane"
     priority: medium
-    status: available
+    status: deferred
     description: |
       Rivis offered 40k Cr up front, 80k Cr on completion to deliver an encrypted
       message to Kara Wiley, an undercover reporter embedded in a political family
       on Thane.
-    action_required: "Accept or decline. If accepted, travel to Thane and locate Wiley."
+    action_required: "Return to this job — party went directly to Mowebe without stopping at Thane."
     established: Session 6
     notes: |
-      Thane is en route to Mowebe (the Week 20 rendezvous). Could combine with
-      travel plans. Total payout: 120k Cr.
+      Party bypassed Thane en route to Mowebe (Sessions 8–9). Job not accepted or declined —
+      simply not pursued. Total payout: 120k Cr. Would need to revisit Thane to complete.
+
+  - name: "Maitz Space Battle Investigation"
+    priority: high
+    status: in_progress
+    description: |
+      Border skirmishes reported in the outer bounds of Maitz between Quiru and Newhall
+      (Campaign Week 12, per Faisal al-Amin's Thane debrief). The party decided to investigate.
+    action_required: "Travel to Maitz and investigate the Quiru-Newhall skirmish"
+    established: Session 12
+    notes: |
+      Intel from Faisal al-Amin (Wk 12 report). Ship counts from the engagement:
+      QUIRU — Big: 1, Medium: 3 (2 disabled), Small: 1 (1 disabled)
+      NEWHALL — Big: 2 (1 disabled), Medium: 1, Small: 6 (2 disabled)
+      Party currently en route to Maitz from Mowebe JF depot.
+
+  - name: "Cooper-Akachi / Solal Connection"
+    priority: medium
+    status: in_progress
+    description: |
+      Jassem Solal's schedule contained a suspicious number of meetings with
+      Cooper-Akachi Diversified Industries representatives.
+    action_required: "Investigate the nature of Solal's business with Cooper-Akachi"
+    established: Session 10
+    notes: |
+      Discovered via estate server hack (Session 10). Cooper-Akachi is already known
+      to have dispatched elite operatives to Mora (Session 3 intel). The Solal connection
+      may be relevant to the mask investigation — Cooper-Akachi's interest in Solal, a
+      wealthy Thani noble, is unexplained.
 
   - name: "Rivis Job — Check on Choo's Wellbeing on Mora"
     priority: medium
@@ -225,11 +254,31 @@ open_questions:
     notes: "IIP associates approached party discreetly (Session 2). No follow-up yet."
 
   - question: "Why did Vondel's behavior shift when she backed out of the exfiltration?"
+    priority: low
+    notes: |
+      RESOLVED (Session 8): She and Arvi had their own plan forming — Arvi murdered Torin
+      to free Vondel. Tevetz was genuinely helping her, not scheming. Behavioral shift was
+      because she knew action was imminent.
+
+  - question: "What intel did Faisal al-Amin bring back from Thane?"
+    priority: high
+    notes: |
+      JF operative completed Ith→Mowebe→Thane→Mowebe circuit. Debriefed party at lunar
+      JF depot (Session 12). Content of his intelligence not yet detailed in notes.
+
+  - question: "What happened at Maitz? (Quiru-Newhall border skirmish)"
+    priority: high
+    notes: |
+      Faisal al-Amin confirmed: Quiru and Newhall clashed in outer Maitz at Campaign Week 12.
+      Ship loss data recorded in key_intel. Why are Quiru and Newhall fighting? What does this
+      mean for the regional political situation? Party en route to investigate firsthand.
+
+  - question: "What is the Cooper-Akachi connection to Jassem Solal?"
     priority: medium
     notes: |
-      Months of scared/anxious behavior, then suddenly confident and determined.
-      Possibilities: someone got to her, Tevetz's family is involved, she's playing
-      a longer game, or she was turned against the JF agent.
+      Solal had a suspicious number of meetings with Cooper-Akachi Diversified Industries
+      reps (discovered via estate server hack, Session 10). Cooper-Akachi already known
+      to be pursuing the death mask. The Solal connection may be significant.
 
   - question: "Will the L3 bombing be traced back to the party?"
     priority: low
@@ -264,6 +313,21 @@ key_intel:
     details: "Psychic viewing confirmed at least 2 crew. Typical Thane garb: all black, faces covered."
     source: Party investigation (Session 3)
 
+  - fact: "Seven Coop-Ak commandos passed through Thane at Campaign Week 10 aboard the Star Home"
+    details: |
+      Traveled incognito on an old 400dt freighter called the Star Home, stopping to resupply
+      at Thane. Met Ta-ka-ti diplomatic staff on the grounds of Morqash University for 10+ hours.
+      Then visited the Coop-Ak orbital corporate station before departing. Filed flight plan for
+      Newhall but departed from the anti-spinward (left) jump point — destination mismatch is suspicious.
+    source: Faisal al-Amin debrief (Session 12)
+
+  - fact: "Quiru-Newhall border skirmish in outer Maitz at Campaign Week 12"
+    details: |
+      Ship counts — QUIRU: Big 1, Medium 3 (2 disabled), Small 1 (1 disabled).
+      NEWHALL: Big 2 (1 disabled), Medium 1, Small 6 (2 disabled).
+      Format: deployed (disabled). Newhall outnumbered in big ships but deployed far more smalls.
+    source: Faisal al-Amin debrief (Session 12)
+
   - fact: "Cooper-Akachi has elite operatives en route to Mora"
     details: "Street-level rumor confirmed by Petra"
     source: Petra (Session 3)
@@ -273,30 +337,57 @@ key_intel:
 # =============================================================================
 current_plan:
   summary: |
-    Refit at Stoyben, then jump across open space to Mowebe.
-    Rendezvous with JF intelligence operative at Week 20.
-    Plan next move from Mowebe based on gathered intel.
+    Completed Solal kidnapping op on Mowebe. Received intelligence from Faisal al-Amin
+    (Thane circuit). Currently jumping to Maitz to investigate rumors of a recent space battle.
+    The Rivis Thane job (Kara Wiley message delivery) remains deferred.
 
   timeline:
-    - week: 6.3
+    - day: 6.3
       status: past
       location: Stoyben Spaceport
       notes: "Weapons traded to Reed. Rivis trust gained. Two jobs offered. Passengers and trade goods aboard."
 
-    - week: 7.3
-      status: current
-      location: O'Neill cylinder two days from Stoyben
+    - day: 8.2
+      status: past
+      location: O'Neill cylinder (Stoyben system)
       notes: |
-        Cylinder operation in progress. Blackmail on Torin secured. Torin openly sleeping
-        with Kenna, secretly with Arvi. Ship retrofit (jump fuel pods) completed.
-        Session ended mid-operation. Kitty: 26,200 Cr.
+        Cylinder operation concluded. Arvi murdered Torin; Vondel extracted.
+        Isaiah Reed cut pay but issued letter of recommendation. Departed for Mowebe.
 
-    - week: 20
+    - day: 13.2
+      status: past
+      location: Mowebe
+      notes: |
+        Arrived Mowebe. Sold trade goods (broke even). Met Kikonye. Accepted Solal kidnapping op.
+        Received polygraph detector implants; gave away stealthsuits + Ugrik transport. Kitty: 97,010 Cr.
+
+    - day: 14.6
+      status: past
+      location: Mowebe (Nbangu Dikila Nature Preserve / Solal estate)
+      notes: |
+        Infiltrated estate. Hacked servers. Spiked hunting party food. Extraction attempt.
+        Vicentio Saviolo KIA. Fled with Solal. Interceptors engaged. Misjump. Kitty: 73,750 Cr.
+
+    - day: 19.2
+      status: current
+      location: En route to Maitz (from Mowebe JF lunar depot)
+      notes: |
+        Solal delivered. Rewarded: 45k Cr, stealthsuit, 2 quantum weapons, lie detector implants.
+        Powerplant repaired. Faisal al-Amin debriefed. Decided to investigate Maitz space battle.
+        Kitty: 109,950 Cr. Ship Fuel: 2/2.
+
+    - day: "TBD"
       status: planned
-      event: "Rendezvous with JF operative at Mowebe"
+      location: Maitz
+      event: "Investigate rumors of recent space battle"
 
   assets:
-    - "Voice of Liberation II (jump fuel pods retrofit completed)"
-    - "Two middle passengers"
-    - "19 tons electronics cargo aboard"
-    - "26,200 Cr party funds"
+    - "Voice of Liberation II (fully fueled, missiles restocked, powerplant repaired)"
+    - "109,950 Cr party kitty"
+    - "1 stealthsuit"
+    - "2 quantum weapons"
+    - "Polygraph detector cybernetic implants (full set, unassigned)"
+    - "Lie detector cybernetic implants (Baron Harrow)"
+    - "+2 anti-missiles (4d6)"
+    - "+2 standard missiles (4d6)"
+    - "Letter of recommendation from Isaiah Reed"

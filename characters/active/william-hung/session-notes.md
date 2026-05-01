@@ -8,7 +8,7 @@
 ---
 
 ## Session 1
-**Date:** 2026-01-10
+**Date:** 2026-01-09
 
 ### Summary
 Character creation and faction selection. The party chose to align with the Jade Front.
@@ -44,7 +44,7 @@ Session focused on character generation and initial faction selection.
 ---
 
 ## Session 2
-**Date:** 2026-01-17
+**Date:** 2026-01-16
 
 ### Summary
 Met Kyle Newhouse, our Jade Front contact. Received briefing on the death mask recovery mission. Traveled to Kath to liberate the Voice of Liberation II from pirates.
@@ -96,7 +96,7 @@ The blackmail approach to the pirates was elegant - no combat, minimal risk. But
 ---
 
 ## Session 3
-**Date:** 2026-01-24
+**Date:** 2026-01-23
 
 ### Summary
 Investigated the Iron Commerce 18 by carousing with dock workers. Used Carousing expertise to ply them with drinks and extract intel about the suspicious freighter and its al-Thani crew.
@@ -365,6 +365,57 @@ Official Jade Front job from Isaiah Reed — operation on an O'Neill cylinder tw
 
 ### Notes
 Hung and Bootman did the grunt work this session — a week of bar-hopping to find service workers. Best lead was only the cousin of Tevetz's car driver. Meanwhile the noble contingent (Harrow, Victor, Saviolo) worked the high society angle much more effectively. Finnegan's hotel infiltration was the real score — blackmail on Torin is a powerful lever. Session ended mid-operation with Harrow inside Torin's residence. Ship retrofit (jump fuel pods) completed this session.
+
+---
+
+---
+
+## Session 8
+**Date:** 2026-02-27
+
+*William was not present this session.*
+
+---
+
+## Session 9
+**Date:** 2026-03-06
+
+- Station chief is ruthless JF operative — Kikonye
+- Sell chemicals + electronics in Mowebe space station in orbit
+- Drop off Vondel planetside
+- Make contact w/ Kikonye at his art gallery
+  - Take a "snatch" job; will award 1 "polygraph" cyber implant + 2 stealthsuits
+  - Sets up meeting w/ two other JF agents
+- Meet them at resort bar
+  - Get more details on job
+
+---
+
+## Session 10
+**Date:** 2026-03-13
+
+- Get hired as event staff manager at compound
+  - Comes w/ pay
+  - Do amazing at reception + get tipped
+- Rest of group infiltrate before arrival
+  - Add fake workers to roster
+  - Plant delayed virus to go off on gap day in his schedule
+  - Download entire schedule for noble guy
+- Secure a bunch of poison to administer to everyone during hunting trip
+
+---
+
+## Session 11
+**Date:** 2026-04-03
+
+*William was not present this session.*
+
+---
+
+## Session 12
+**Date:** 2026-04-17
+
+*William was not present this session.*
 
 ---
 

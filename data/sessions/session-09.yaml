@@ -1,0 +1,82 @@
+session:
+  number: 9
+  date: 2026-03-06
+  recap: |
+    The company arrived at Mowebe, made the customary arrangements with authorities (no false
+    papers filed), and sold their electronics components and chemicals at one of the many orbital
+    manufactories — basically breaking even — before landing at the major spaceport (Day 13.1).
+
+    Being at least two weeks early for their planned rendezvous with the Jade Front's intelligence
+    operative, the company met the JF's Mowebe station chief: Kikonye, a zealous, ruthless man
+    whose cover is as a luxury art dealer.
+
+    He offered two jobs on behalf of the Jade Front:
+    1. A sabotage job with a higher likelihood of requiring a quick exit from the system.
+    2. A kidnapping and extraction of a high-value target to Ugrik — and obviously accessory to
+       murder soon after.
+
+    He offered cash for either job, or rewards from a weapons depot in system (including Quantum
+    tech). The company chose the latter (kidnapping), and negotiated away the transport to Ugrik
+    (giving away a pair of stealthsuits), but retained a full set of "polygraph detector"
+    cybernetic implants.
+
+    The target: Jassem Solal, a wealthy Thani noble in his mid-sixties, set to arrive imminently
+    (~Day 13.6) at his private estate, accompanied by three wives, multiple children, mistresses,
+    and a large household staff.
+
+    The party met the two JF agents who had been working the operation: "Jake" and "Iké." The
+    pair had recruited an asset, Okomi, who works as a guard at the estate. They also provided
+    estimated timetables and satellite reconnaissance imagery of the compound.
+
+    Day: 13.2
+    Kitty: 97,010 Cr
+
+  npcs_introduced:
+    - name: Kikonye
+      affiliation: Jade Front
+      role: Mowebe Station Chief
+      description: |
+        Zealous, ruthless JF station chief on Mowebe. Cover identity as a luxury art dealer.
+        Offered the party two operations; lavish reward-giver for successful work.
+      status: active
+
+    - name: '"Jake"'
+      affiliation: Jade Front
+      role: Operative (Solal op)
+      description: JF agent who had been working the Solal kidnapping operation on Mowebe.
+      status: active
+
+    - name: '"Iké"'
+      affiliation: Jade Front
+      role: Operative (Solal op)
+      description: JF agent who had been working the Solal kidnapping operation alongside Jake.
+      status: active
+
+    - name: Okomi
+      affiliation: Jade Front (asset)
+      role: Estate Guard
+      description: Asset recruited by Jake and Iké. Works as a guard at Jassem Solal's estate.
+      status: active
+
+    - name: Jassem Solal
+      affiliation: Thani nobility
+      role: Target (kidnapping)
+      description: |
+        Wealthy Thani noble, mid-sixties. Owner of a large private estate on Mowebe.
+        Travels with three wives, multiple children, mistresses, and extensive household staff.
+        Subject of a JF kidnapping and extraction operation (to be delivered to Ugrik).
+      status: target
+
+  key_events:
+    - "Arrived at Mowebe; customs arrangements made honestly (no false papers)"
+    - "Sold electronics components and chemicals at orbital manufactories (broke even)"
+    - "Landed at major spaceport (Day 13.1)"
+    - "Met Kikonye — JF Mowebe station chief, cover as luxury art dealer"
+    - "Offered two JF jobs: sabotage or kidnapping of high-value target"
+    - "Chose kidnapping of Jassem Solal; reward = weapons depot goods (Quantum tech available)"
+    - "Negotiated: gave up transport to Ugrik + stealthsuits; retained 'polygraph detector' cybernetic implants"
+    - "Target briefed: Jassem Solal, wealthy Thani noble, arriving ~Day 13.6 to private estate"
+    - "Met JF operatives 'Jake' and 'Iké'; introduced to estate asset Okomi (works as guard)"
+    - "Received estimated timetables and satellite reconnaissance of the estate"
+
+  absent_pcs: []

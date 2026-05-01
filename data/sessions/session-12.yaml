@@ -1,0 +1,67 @@
+session:
+  number: 12
+  date: 2026-04-17
+  recap: |
+    The company engaged two fighter-interceptors from the Mowebe Home Defense Forces. While the
+    second (uninvolved) shuttle stood down, the Voice of Liberation II sprang a trap: as the
+    interceptors passed, she fired all four missiles in an area denial airburst pattern and
+    opened up with her pulse laser. The interceptors tried to evade — one's wing was sheered off,
+    and the other was affected by the blast wave and lawn-darted into the ocean. (The players
+    rolled for the interceptors on 6+ to evade — they rolled 4 and 5. First time their poor
+    rolling paid off!)
+
+    The VoL2 made orbit and the new ship's doctor, a skilled mariner, laid in a jump for the
+    distant rendezvous on a lunar JF depot. This time, low rolls didn't help: snake eyes led to
+    a misjump into the Oort cloud and damage to the powerplant, so the ship slowly limped its
+    way to the rendezvous.
+
+    The company was lavishly rewarded by Kikonye for their success. In addition to arranging
+    the "lie detector" implants for Baron Harrow, he granted them 45k credits, a stealthsuit,
+    and two quantum weapons from their stocks to cover "incidentals" from the mission.
+
+    Van Leeuwen and Corinne Page repaired the damaged powerplant handily and without much
+    expense. The company restocked their capital missiles and refined fuel. They also pocketed
+    Solal's expensive jewelry and personal effects (to the tune of 105k credits).
+
+    Finally, the company made contact with the agent they'd previously dispatched to Thane to
+    gather information: Faisal al-Amin. (Debriefing of his information is tracked separately.)
+
+    After much debate, they decided to take on supplies and jump to Maitz to investigate rumors
+    of a recent space battle there.
+
+    Day: 19.2
+    Kitty: 109,950 Cr
+    Ship Fuel: 2/2
+
+  npcs_introduced:
+    - name: Faisal al-Amin
+      affiliation: Jade Front
+      role: Intelligence Operative
+      description: |
+        JF intelligence operative who completed the Ith → Mowebe → Thane → Mowebe circuit
+        gathering intelligence. Made contact with the party at the Mowebe JF depot to debrief
+        them on what he learned.
+      status: active
+
+  key_events:
+    - "Two Mowebe Home Defense Forces fighter-interceptors engaged the company"
+    - "VoL II fired all 4 missiles (area denial airburst) + pulse laser as trap"
+    - "Both interceptors neutralized: one wing sheered off, other lawn-darted into ocean (rolled 4 and 5 vs 6+ evade)"
+    - "VoL II made orbit; ship's doctor laid in jump to lunar JF depot"
+    - "Misjump: snake eyes → diverted into Oort cloud, powerplant damaged; ship limped to rendezvous"
+    - "Kikonye rewarded party: 'lie detector' cybernetic implants (Baron Harrow), 45,000 Cr, 1 stealthsuit, 2 quantum weapons"
+    - "Van Leeuwen and Corinne Page repaired damaged powerplant"
+    - "Restocked capital missiles and refined fuel; Ship Fuel: 2/2"
+    - "Pocketed Solal's jewelry and personal effects: 105,000 Cr"
+    - "Made contact with Faisal al-Amin — JF operative returning from Thane intelligence circuit"
+    - "Decided to jump to Maitz to investigate rumors of recent space battle"
+
+  ship_events:
+    - event: "Fired all 4 missiles (airburst) + pulse laser vs. 2 interceptors"
+      outcome: "Both interceptors destroyed"
+    - event: "Misjump on jump to JF lunar depot"
+      outcome: "Diverted to Oort cloud; powerplant damaged; limped to rendezvous; repaired"
+    - event: "Restocked capital missiles and refined fuel"
+      outcome: "4 missiles loaded; fuel 2/2"
+
+  absent_pcs: []

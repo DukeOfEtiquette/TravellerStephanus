@@ -96,6 +96,8 @@ party_members:
       surprisingly diverse skill set.
 
   - name: "Vincentio Saviolo"
+    status: DECEASED
+    died: "Session 11"
     age: 38
     upp: "876578"
     # STR 8, DEX 7, END 6, INT 5, EDU 7, SOC 8
@@ -113,6 +115,50 @@ party_members:
     notes: |
       Noble career veteran. Excellent swordsman (Blades-4) with strong social skills.
       Owns an armored car (stored in Hung's shuttlecraft, Session 7).
+      KILLED Session 11: Engaged a power-armor bodyguard with jetpack during the Solal
+      extraction on Mowebe. His monomolecular unikatana broke open the guard's helmet.
+      He charged with broken ribs; the panicking guard fired anti-personnel cluster rockets
+      at point blank range, killing both instantly.
+
+  - name: "Corinne Page"
+    age: 30
+    upp: "6A9975"
+    # STR 6, DEX 10, END 9, INT 9, EDU 7, SOC 5
+    background:
+      homeworld: Industrial
+      schooling: The Streets
+    careers:
+      - { name: Frontier, terms: 3, rank: 1 }
+    skills:
+      - Athletics-3
+      - Stealth-2
+      - Mechanics-2
+      - Firearms-1
+      - Bushcraft-1
+    notes: |
+      Active party operative from Session 10 onward. Broke into Hassan's office during
+      the Solal op, discovering Solal's secret letters to his illegitimate son Hassan.
+      Helped repair the VoL II's powerplant after the Session 12 misjump.
+      Assigned to Shuttle 2 during the Mowebe extraction.
+
+  - name: "Michaela"
+    age: null  # Not yet recorded
+    upp: null  # Not yet recorded
+    background:
+      homeworld: Spacer
+      schooling: null  # Not yet recorded
+    careers:
+      - { name: Mercantile, terms: 5, rank: null }  # Rank not yet recorded
+    skills:
+      - Steward-3
+      - Medicine-3
+      - Electronics-1
+      - Pilot-1
+      - Navigate-2
+      # Additional skills listed but not yet fully recorded
+    notes: |
+      Appears in crew assignment list for Session 12 extraction (Shuttle 2).
+      UPP, age, and career rank not yet posted by GM.
 
   - name: "Victor"
     player: Crispin

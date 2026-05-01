@@ -5,8 +5,8 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 26200  # Cr, as of Session 7
-  last_updated: "Session 7"
+  balance: 109950  # Cr, as of Session 12
+  last_updated: "Session 12"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
@@ -15,6 +15,11 @@ party_kitty:
     Session 5: Ship refit (fuel tanks), Dispatch investigation costs. Kitty at 21,100 Cr.
     Session 6: Kitty at 21,000 Cr. Weapons traded to Isaiah Reed for refined fuel.
     Session 7: Kitty at 26,200 Cr. Ship retrofit (jump fuel pods) completed.
+    Session 8: Cylinder op concluded. Isaiah Reed cut pay (Vondel forced to flee entire system).
+    Session 9: Electronics + chemicals sold at Mowebe manufactories (breaking even). Kitty 97,010 Cr.
+    Session 10: Op expenses (sleeping drugs, infiltration costs). Kitty 73,750 Cr.
+    Session 12: Kikonye reward +45,000 Cr. Solal jewelry/personal effects +105,000 Cr.
+               Missile resupply and other expenses deducted. Kitty 109,950 Cr.
 
 # =============================================================================
 # SHIPS
@@ -35,6 +40,10 @@ ships:
       Baron Harrow used his influence to secure immediate slot.
       Session 6: Two middle passengers aboard. Trade goods available.
       Session 7: Ship retrofit (jump fuel pods) completed.
+      Session 12: Fired all 4 missiles (area denial airburst) during Mowebe intercept.
+      Both fighter-interceptors destroyed. Misjump on departure — Oort cloud deviation,
+      powerplant damaged. Van Leeuwen and Corinne Page repaired powerplant at JF depot.
+      Missiles and fuel fully restocked. Currently en route to Maitz.
 
     frame:
       tonnage: 200
@@ -50,7 +59,10 @@ ships:
       pulse_lasers: 1
       missiles:
         rating: 1
-        loaded: 4
+        loaded: 4  # restocked Session 12
+      anti_missiles:
+        rating: 4d6
+        count: 2  # acquired Session 12 from Kikonye's weapons depot
 
     amenities:
       staterooms:
@@ -85,26 +97,17 @@ ships:
         role: Jade Front contact
         boarded: "Session 3"
         notes: null
-      - name: "Middle Passenger 1"
-        role: Paying passenger
-        boarded: "Session 6"
-        notes: null
-      - name: "Middle Passenger 2"
-        role: Paying passenger
-        boarded: "Session 6"
-        notes: null
+      # Middle passengers (Sessions 6–8) disembarked at Mowebe
 
     cargo:
-      manifest:
-        - item: "Electronics Components (trade goods)"
-          quantity: 19  # tons
-          notes: "Loaded Session 7, bound for Mowebe (William brokered deal)"
+      manifest: []
+      # Electronics components + chemicals sold at Mowebe manufactories (Session 9, broke even)
 
-    damage_log: []
-    # Example entry:
-    # - session: 3
-    #   damage: "Hull took 5 HP from missile strike"
-    #   repaired: false
+    damage_log:
+      - session: 12
+        damage: "Powerplant damaged during misjump into Oort cloud"
+        repaired: true
+        repaired_by: "Van Leeuwen and Corinne Page at lunar JF depot"
 
 # =============================================================================
 # SHARED EQUIPMENT
@@ -114,6 +117,31 @@ shared_equipment:
     quantity: 1
     location: "Voice of Liberation II"
     notes: "Purchased Session 5. Used for destroying compromised electronics."
+
+  - name: "Stealthsuit"
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Received Session 12 from Kikonye as part of op reward. (A pair was given away in Session 9 negotiations.)"
+
+  - name: "Quantum Weapons"
+    quantity: 2
+    location: "Voice of Liberation II"
+    notes: "Received Session 12 from Kikonye's weapons depot to cover op 'incidentals'."
+
+  - name: '"Polygraph Detector" Cybernetic Implants (full set)'
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Retained in Session 9 negotiation with Kikonye. Not yet distributed."
+
+  - name: '"Lie Detector" Cybernetic Implants'
+    quantity: 1
+    location: "Baron Harrow"
+    notes: "Arranged by Kikonye as part of Session 12 op reward. Implanted in Baron Harrow."
+
+  - name: "Letter of Recommendation (Isaiah Reed / Jade Front)"
+    quantity: 1
+    location: "Party records"
+    notes: "Provided by Isaiah Reed after Session 8 despite cutting pay. Positive character/op reference."
 
 # =============================================================================
 # VEHICLES IN HANGER
@@ -133,8 +161,5 @@ hanger_contents:
   - name: "Victor's Shuttlecraft"
     owner: "Victor"
     cargo_capacity: 8  # tons
-    current_cargo:
-      - item: "Grav car"
-        tons: null
-        notes: "Loaded for cylinder operation (Session 7)"
-    notes: "Session 7: Grav car loaded for cylinder operation."
+    current_cargo: []
+    notes: "Session 7: Grav car loaded for cylinder operation. Session 11: Used in Solal extraction."

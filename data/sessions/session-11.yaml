@@ -1,0 +1,49 @@
+session:
+  number: 11
+  date: 2026-04-03
+  recap: |
+    The hunting party was poisoned and quickly became incapacitated. Vicentio and Petra provided
+    overwatch from two anchored yachts, while van Leeuwen and Bobby dispatched guards on the
+    perimeter.
+
+    Nanos in Solal and his bodyguards quickly began to neutralize the poison. Vicentio secured
+    his yacht, then crashed it into the shore, while Petra secured hers and took up overwatch.
+    Bobby and van Leeuwen were injured in a firefight but dispatched the four bodyguards.
+
+    Then a bodyguard in power armor and a jetpack intervened. He smashed into Vicentio from the
+    air, but Vicentio's monomolecular unikatana broke open his helmet. When Vicentio charged him,
+    broken ribs and all, the guard panic-fired all his anti-personnel cluster rockets at point
+    blank range — killing both men instantly.
+
+    Vincentio Saviolo is dead.
+
+    Samir finally arrived with one of the shuttles. As the wounded survivors fled with Solal,
+    Samir announced that two radar clicks were closing fast…
+
+    Day: 14.6
+    Kitty: 73,750 Cr
+
+  npcs_introduced: []
+
+  key_events:
+    - "Hunting party incapacitated by poison; nanos in Solal and bodyguards began countering"
+    - "Vicentio and Petra on overwatch from two anchored yachts"
+    - "Van Leeuwen and Bobby dispatched four perimeter guards (both injured in firefight)"
+    - "Vicentio crashed his yacht into shore to neutralize it; Petra secured hers for overwatch"
+    - "Power armor bodyguard with jetpack smashed Vicentio from the air"
+    - "Vicentio's monomolecular unikatana broke open the bodyguard's helmet"
+    - "Vicentio charged the exposed guard (broken ribs) — guard panic-fired cluster rockets at point blank range"
+    - "VINCENTIO SAVIOLO KILLED — both Vicentio and the bodyguard killed instantly"
+    - "Samir arrived with a shuttle; wounded survivors fled the scene with Solal"
+    - "Two radar clicks detected closing fast as the party escaped"
+
+  npc_updates:
+    - name: Vincentio Saviolo
+      update: "DECEASED. Killed in Session 11. Charged a power-armor bodyguard with broken ribs; bodyguard panic-fired anti-personnel cluster rockets at point blank range, killing both instantly."
+
+  casualties:
+    - name: "Vincentio Saviolo"
+      cause: "Anti-personnel cluster rockets, point blank range. Power armor bodyguard on Mowebe."
+      session: 11
+
+  absent_pcs: []

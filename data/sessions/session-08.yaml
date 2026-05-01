@@ -1,0 +1,57 @@
+session:
+  number: 8
+  date: 2026-02-27
+  recap: |
+    The party surveilled Arvi as she seemed to be adopting Torin's role in some capacity.
+    When she approached the spaceport to board a fully booked but strangely passenger-less ship,
+    Finnegan made contact — but Arvi insisted he stay out of her way. The party instead asked
+    contacts on Stoyben to surveille the ship. They later learned the shuttle went to Stoyben,
+    took on fuel with no passengers embarking or disembarking, then returned to the station.
+
+    The party decided to pressure Vondel to flee. They took a video of Tevetz through a sniper
+    scope, doctored it to look like a threat from Torin, and sent it to Vondel. Little did they
+    know, this dramatically escalated the pace of her plan.
+
+    When Arvi returned, Finnegan et al. trailed her to a tryst with Torin. Meanwhile Baron Harrow
+    and Vincentio attended a fundraiser thrown by Vondel, who presented the keynote speech and
+    mingled afterward.
+
+    The party then received an urgent request from Arvi to bundle Vondel up and flee on the ship.
+    Arvi had murdered Torin to help Vondel escape the abuse. Tevetz, as it turned out, was not
+    working for his family's agenda — he had been helping Vondel in genuine good faith.
+
+    The murder caused a major political uproar and required Isaiah Reed to pay Vondel far more
+    than anticipated — she had to flee the entire system rather than merely disappear on another
+    station or among Stoyben's teeming masses. As a result, Isaiah cut the party's pay, though
+    he still provided a positive letter of recommendation.
+
+    The party returned to their ship and immediately departed on the four-week journey to Mowebe.
+
+    Departed: 8.2
+    Arrive at Mowebe: 12.2
+
+  npcs_introduced: []
+
+  key_events:
+    - "Surveilled Arvi approaching the spaceport; Finnegan made contact but she told him to stay back"
+    - "Passenger-less ship Arvi boarded went to Stoyben for fuel only, then returned — no passengers in or out"
+    - "Sent Vondel doctored sniper-scope video (framed as Torin threatening Tevetz) to pressure her to flee"
+    - "Doctored video accidentally accelerated Vondel's own plan"
+    - "Finnegan et al. trailed Arvi to tryst with Torin; Harrow and Vincentio attended Vondel's fundraiser"
+    - "Arvi urgently requested the party bundle Vondel and flee — Arvi had murdered Torin to free Vondel from abuse"
+    - "Tevetz confirmed as genuinely helping Vondel in good faith (not scheming)"
+    - "Political uproar from Torin's murder forced Vondel to flee the entire Stoyben system"
+    - "Isaiah Reed cut the party's pay but issued a positive letter of recommendation"
+    - "Party departed immediately on four-week journey to Mowebe"
+
+  npc_updates:
+    - name: Torin
+      update: "Deceased. Murdered by Arvi to free Vondel from abuse."
+    - name: Vondel
+      update: "Exfiltrated from the O'Neill cylinder; forced to flee the entire Stoyben system due to the political fallout. Paid by Isaiah Reed (at higher-than-expected cost)."
+    - name: Arvi
+      update: "Murdered Torin to help Vondel escape abuse. Departed the cylinder. Now traveling with or ahead of the party."
+    - name: Tevetz
+      update: "Confirmed as genuinely helping Vondel in good faith; not working a family agenda."
+
+  absent_pcs: []

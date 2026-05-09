@@ -3,816 +3,1396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Traveller Stephanus — Travel Calculator</title>
+<title>Traveller Stephanus — Campaign Viewer</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
+  :root {
+    --bg: #1a1a2e;
+    --bg-2: #16213e;
+    --bg-3: #0f0f23;
+    --border: #334;
+    --border-2: #445;
+    --text: #e0e0e0;
+    --text-dim: #aaa;
+    --text-faint: #8888aa;
+    --accent: #b8c0ff;
+    --accent-2: #5c7cfa;
+    --good: #69db7c;
+    --warn: #ffd43b;
+    --bad: #ff6b6b;
+    --orange: #ffa94d;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    line-height: 1.5;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: #fff; text-decoration: underline; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
     min-height: 100vh;
   }
 
-  h1 {
-    text-align: center;
-    padding: 16px;
-    font-size: 1.3rem;
-    color: #b8c0ff;
-    letter-spacing: 0.05em;
+  /* Sidebar */
+  aside.sidebar {
+    background: var(--bg-3);
+    border-right: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
   }
 
-  /* Controls bar */
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 0 0 16px;
-    align-items: flex-end;
-    justify-content: center;
+  .brand {
+    padding: 0 18px 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
   }
-
-  .control-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  .brand .title {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
   }
-
-  .control-group label {
-    font-size: 0.75rem;
+  .brand .subtitle {
+    color: var(--text-faint);
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #8888aa;
+    margin-top: 4px;
   }
 
-  select, input[type="number"] {
-    background: #16213e;
-    color: #e0e0e0;
-    border: 1px solid #334;
+  nav .group {
+    padding: 8px 18px 4px;
+    color: var(--text-faint);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 18px;
+    color: var(--text);
+    font-size: 0.88rem;
+    border-left: 3px solid transparent;
+  }
+  nav a:hover {
+    background: rgba(255,255,255,0.04);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  nav a.active {
+    border-left-color: var(--accent-2);
+    background: rgba(92,124,250,0.1);
+    color: var(--accent);
+  }
+
+  /* Main */
+  main.content {
+    padding: 28px 36px 60px;
+    max-width: 1100px;
+  }
+
+  .crumbs {
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+  }
+  .crumbs a { color: var(--text-faint); }
+  .crumbs a:hover { color: var(--accent); }
+
+  h1.page-title {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  h2 {
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin: 22px 0 10px;
+    letter-spacing: 0.02em;
+  }
+
+  h3 {
+    color: #d0d0e8;
+    font-size: 0.98rem;
+    margin: 14px 0 6px;
+    font-weight: 600;
+  }
+
+  p { margin-bottom: 8px; }
+
+  ul, ol { padding-left: 22px; margin-bottom: 8px; }
+  li { margin-bottom: 3px; }
+
+  pre, code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85em;
+  }
+  pre {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+  code {
+    background: rgba(255,255,255,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  pre code { background: none; padding: 0; }
+
+  /* Cards */
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .card h3 { margin-top: 0; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  /* Tags / chips */
+  .tag {
+    display: inline-block;
+    background: rgba(92,124,250,0.18);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    margin: 2px 4px 2px 0;
+    letter-spacing: 0.02em;
+  }
+  .tag.warn { background: rgba(255,212,59,0.18); color: var(--warn); }
+  .tag.bad  { background: rgba(255,107,107,0.18); color: var(--bad); }
+  .tag.good { background: rgba(105,219,124,0.18); color: var(--good); }
+  .tag.dim  { background: rgba(255,255,255,0.06); color: var(--text-dim); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 14px;
+    font-size: 0.88rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-faint);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* KV list */
+  .kv {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 16px;
+    row-gap: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .kv dt { color: var(--text-faint); font-size: 0.78rem; padding-top: 1px; }
+  .kv dd { color: var(--text); }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+    align-items: center;
+  }
+  .filter-bar input[type="text"], .filter-bar select {
+    background: var(--bg-2);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 4px;
     padding: 6px 10px;
-    font-size: 0.9rem;
-    min-width: 160px;
-  }
-
-  input[type="number"] { min-width: 80px; width: 80px; }
-
-  select:focus, input:focus {
-    outline: none;
-    border-color: #5c7cfa;
-  }
-
-  .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 0;
-  }
-
-  .checkbox-group label {
-    font-size: 0.9rem;
-    color: #b8c0ff;
-    cursor: pointer;
-  }
-
-  button {
-    background: #5c7cfa;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 7px 20px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: 600;
-  }
-
-  button:hover { background: #4263eb; }
-
-  /* Content channel — match map width */
-  .channel {
-    max-width: fit-content;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* Results panel */
-  .results {
-    margin: 0 0 16px;
-    padding: 16px;
-    background: #16213e;
-    border-radius: 6px;
-    border: 1px solid #334;
-    display: none;
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     font-size: 0.85rem;
-    line-height: 1.6;
+    min-width: 180px;
   }
-
-  .results.visible { display: block; }
-
-  .results .route {
-    color: #b8c0ff;
-    font-weight: 600;
-    margin-bottom: 8px;
+  .filter-bar input:focus, .filter-bar select:focus {
+    outline: none;
+    border-color: var(--accent-2);
   }
+  .filter-bar .count { color: var(--text-faint); font-size: 0.8rem; }
 
-  .results .step { color: #ccc; }
-  .results .step .fuel-refined { color: #69db7c; }
-  .results .step .fuel-unrefined { color: #ffa94d; }
-  .results .step .refuel-stop { color: #ffd43b; }
-
-  .results .summary {
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #334;
-    color: #aaa;
-  }
-
-  .results .error { color: #ff6b6b; }
-
-  /* Hex map */
-  .map-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 0 20px;
-    overflow-x: auto;
-  }
-
-  svg.hex-map {
-    background: #0f0f23;
+  .error {
+    background: rgba(255,107,107,0.1);
+    border: 1px solid rgba(255,107,107,0.3);
+    color: var(--bad);
+    padding: 14px 16px;
     border-radius: 6px;
-    border: 1px solid #334;
+    font-size: 0.9rem;
+  }
+  .error pre { background: rgba(0,0,0,0.2); margin-top: 8px; color: #ffb3b3; }
+
+  .loading { color: var(--text-faint); padding: 20px 0; font-size: 0.9rem; }
+
+  .pill-row { margin: 4px 0 10px; }
+
+  /* Starport color squares */
+  .starport-A { color: #69db7c; }
+  .starport-B { color: #74c0fc; }
+  .starport-C { color: #ffd43b; }
+  .starport-D { color: #ffa94d; }
+  .starport-X { color: #ff6b6b; }
+
+  .recap-block {
+    background: var(--bg-3);
+    border-left: 3px solid var(--accent-2);
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    white-space: pre-wrap;
+    font-size: 0.92rem;
   }
 
-  .hex-poly {
-    stroke: #445;
-    stroke-width: 1.5;
-    cursor: default;
+  /* Markdown content */
+  .md h1 { color: var(--accent); font-size: 1.4rem; margin: 18px 0 10px; }
+  .md h2 { color: var(--accent); font-size: 1.1rem; margin: 16px 0 8px; }
+  .md h3 { color: #d0d0e8; font-size: 0.98rem; margin: 12px 0 6px; }
+  .md table { font-size: 0.85rem; }
+  .md hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+  .md blockquote {
+    border-left: 3px solid var(--accent-2);
+    padding: 4px 12px;
+    color: var(--text-dim);
+    margin: 8px 0;
   }
 
-  .hex-poly.empty { fill: #1a1a2e; }
-  .hex-poly.starport-A { fill: #2b6e3f; }
-  .hex-poly.starport-B { fill: #1e5a8a; }
-  .hex-poly.starport-C { fill: #8a7a1e; }
-  .hex-poly.starport-D { fill: #8a4e1e; }
-  .hex-poly.starport-X { fill: #6e2b2b; }
-
-  .hex-poly.on-route {
-    stroke: #ff6b6b;
-    stroke-width: 3.5;
-    filter: drop-shadow(0 0 6px rgba(255, 107, 107, 0.8));
+  /* Mobile */
+  @media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; }
+    aside.sidebar {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    main.content { padding: 18px; }
   }
-
-  .hex-id {
-    font-size: 12px;
-    fill: #bbb;
-    text-anchor: middle;
-    pointer-events: none;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-  }
-
-  .hex-name {
-    font-size: 12px;
-    fill: #e0e0e0;
-    text-anchor: middle;
-    pointer-events: none;
-    font-weight: 600;
-  }
-
-  .hex-starport {
-    font-size: 11px;
-    fill: #ddd;
-    text-anchor: middle;
-    pointer-events: none;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-  }
-
-  .route-line {
-    stroke: #ff6b6b;
-    stroke-width: 2.5;
-    stroke-dasharray: 6 4;
-    fill: none;
-    opacity: 0.85;
-    filter: drop-shadow(0 0 4px rgba(255, 107, 107, 0.6));
-  }
-
-  /* Clickable system hexes */
-  .hex-poly.has-system { cursor: pointer; }
-  .hex-poly.has-system:hover { stroke: #8888cc; stroke-width: 2.5; }
 </style>
 </head>
 <body>
 
-<h1>Traveller Stephanus — Travel Calculator</h1>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="title">TRAVELLER STEPHANUS</div>
+      <div class="subtitle">Campaign Viewer</div>
+    </div>
+    <nav id="nav"></nav>
+  </aside>
 
-<div class="channel">
-<div class="controls">
-  <div class="control-group">
-    <label for="source">From</label>
-    <select id="source"></select>
-  </div>
-  <div class="control-group">
-    <label for="dest">To</label>
-    <select id="dest"></select>
-  </div>
-  <div class="control-group">
-    <label for="jump">Jump Rating</label>
-    <select id="jump">
-      <option value="1" selected>Jump-1</option>
-      <option value="2">Jump-2</option>
-      <option value="3">Jump-3</option>
-      <option value="4">Jump-4</option>
-      <option value="5">Jump-5</option>
-    </select>
-  </div>
-  <div class="control-group">
-    <label for="fuel">Refined Fuel</label>
-    <input type="number" id="fuel" value="0" min="0" max="20">
-  </div>
-  <div class="control-group">
-    <label for="max-fuel">Max Fuel</label>
-    <input type="number" id="max-fuel" value="2" min="1" max="20">
-  </div>
-  <div class="control-group">
-    <div class="checkbox-group">
-      <input type="checkbox" id="inhabited-only" checked>
-      <label for="inhabited-only">Inhabited only</label>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="checkbox-group">
-      <input type="checkbox" id="plan">
-      <label for="plan">Refuel mode</label>
-    </div>
-  </div>
-  <div class="control-group">
-    <button id="calc-btn">Calculate</button>
-  </div>
+  <main class="content">
+    <div id="view"><div class="loading">Loading…</div></div>
+  </main>
 </div>
 
-<div class="results" id="results"></div>
-
-<div class="map-container">
-  <svg class="hex-map" id="hex-map"></svg>
-</div>
-</div><!-- .channel -->
-
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script>
-// --- Embedded hex grid data ---
+'use strict';
 
-const gridData = {
-  hexes: [
-    { id: "A",  col: 0, row: 0 },
-    { id: "B",  col: 0, row: 1 },
-    { id: "C",  col: 0, row: 2, system: "Tivid",     starport: "C" },
-    { id: "D",  col: 0, row: 3 },
-    { id: "E",  col: 0, row: 4, system: "Jokotre",   starport: "C" },
-    { id: "F",  col: 0, row: 5 },
-    { id: "G",  col: 0, row: 6 },
+// =========================================================================
+// Manifests (hand-maintained — update when new files are added)
+// =========================================================================
 
-    { id: "H",  col: 1, row: 0, system: "Spirelle",  starport: "X" },
-    { id: "I",  col: 1, row: 1 },
-    { id: "J",  col: 1, row: 2 },
-    { id: "K",  col: 1, row: 3, system: "Maitz",     starport: "D" },
-    { id: "L",  col: 1, row: 4, system: "Ith",       starport: "A" },
-    { id: "M",  col: 1, row: 5, system: "Stoyben",   starport: "B" },
+const SESSION_NUMBERS = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
-    { id: "N",  col: 2, row: 0 },
-    { id: "O",  col: 2, row: 1, system: "Quiru",     starport: "A" },
-    { id: "P",  col: 2, row: 2 },
-    { id: "Q",  col: 2, row: 3, system: "Karabeth",  starport: "X" },
-    { id: "R",  col: 2, row: 4 },
-    { id: "S",  col: 2, row: 5 },
-    { id: "T",  col: 2, row: 6, system: "Ugrik",     starport: "D" },
+const RULES_FILES = [
+  { id: 'character-creation', label: 'Character Creation' },
+  { id: 'combat',             label: 'Combat' },
+  { id: 'skills',             label: 'Skills' }
+];
 
-    { id: "U",  col: 3, row: 0, system: "Newhall",   starport: "A" },
-    { id: "V",  col: 3, row: 1 },
-    { id: "W",  col: 3, row: 2, system: "Thane",     starport: "C" },
-    { id: "X",  col: 3, row: 3 },
-    { id: "Y",  col: 3, row: 4, system: "Mowebe",    starport: "A" },
-    { id: "Z",  col: 3, row: 5, system: "Atsah",     starport: "C" },
+const CAREER_FILES = [
+  { id: 'military',   label: 'Military' },
+  { id: 'mercantile', label: 'Mercantile' },
+  { id: 'frontier',   label: 'Frontier' },
+  { id: 'noble',      label: 'Noble' },
+  { id: 'drifter',    label: 'Drifter' },
+  { id: 'psion',      label: 'Psion' }
+];
 
-    { id: "AA", col: 4, row: 0, system: "Adabicci",  starport: "C" },
-    { id: "AB", col: 4, row: 1, system: "Mora",      starport: "C" },
-    { id: "AC", col: 4, row: 2 },
-    { id: "AD", col: 4, row: 3, system: "Wal-ta-ka", starport: "C" },
-    { id: "AE", col: 4, row: 4 },
-    { id: "AF", col: 4, row: 5 },
-    { id: "AG", col: 4, row: 6 }
-  ]
-};
+const CHARACTERS = [
+  { slug: 'william-hung',   group: 'active',   label: 'William Hung' },
+  { slug: 'kelly-clarkson', group: 'inactive', label: 'Kelly Clarkson' }
+];
 
-// --- Build lookup tables ---
+const REFERENCES = [
+  { id: 'system-fundamentals',   label: 'System Fundamentals' },
+  { id: 'settings-fundamentals', label: 'Settings Fundamentals' },
+  { id: 'world-profiles',        label: 'World Profiles (raw)' },
+  { id: 'world-profiles-how-to', label: 'UWP Format Guide' }
+];
 
-const hexById = {};
-const hexByColRow = {};
-for (const hex of gridData.hexes) {
-  hexById[hex.id] = hex;
-  hexByColRow[`${hex.col},${hex.row}`] = hex;
+const TOP_DOCS = [
+  { path: '../README.md',           label: 'README' },
+  { path: '../TRAVEL-EXPLAINED.md', label: 'Travel Rules' },
+  { path: '../GM-QUESTIONS.md',     label: 'GM Questions' }
+];
+
+// =========================================================================
+// Navigation menu
+// =========================================================================
+
+const NAV = [
+  { group: 'Campaign', items: [
+    { route: '#/',              label: 'Overview' },
+    { route: '#/sessions',      label: 'GM Session Recaps' },
+    { route: '#/investigation', label: 'Investigation' },
+    { route: '#/npcs',          label: 'NPCs' }
+  ]},
+  { group: 'Party', items: [
+    { route: '#/party',      label: 'Party Members' },
+    { route: '#/characters', label: 'Character Sheets' },
+    { route: '#/assets',     label: 'Ship & Assets' }
+  ]},
+  { group: 'Setting', items: [
+    { route: '#/worlds',     label: 'Worlds' },
+    { route: 'travel.html',  label: 'Travel Calculator', external: true }
+  ]},
+  { group: 'Rules', items: [
+    { route: '#/rules',     label: 'Core Rules' },
+    { route: '#/careers',   label: 'Careers' },
+    { route: '#/prices',    label: 'Prices & Equipment' },
+    { route: '#/refs',      label: 'Reference Docs' }
+  ]}
+];
+
+// =========================================================================
+// Data loader (caches parsed YAML / JSON / Markdown)
+// =========================================================================
+
+const cache = new Map();
+
+async function load(path, kind = 'yaml') {
+  const key = `${kind}:${path}`;
+  if (cache.has(key)) return cache.get(key);
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`HTTP ${res.status} loading ${path}`);
+  const text = await res.text();
+  let data;
+  if (kind === 'yaml') data = jsyaml.load(text);
+  else if (kind === 'json') data = JSON.parse(text);
+  else data = text;
+  cache.set(key, data);
+  return data;
 }
 
-const systems = gridData.hexes.filter(h => h.system).sort((a, b) => a.system.localeCompare(b.system));
+// =========================================================================
+// Helpers
+// =========================================================================
 
-// --- Populate dropdowns ---
-
-function populateDropdowns() {
-  const srcEl = document.getElementById('source');
-  const dstEl = document.getElementById('dest');
-  for (const sys of systems) {
-    const label = `${sys.id} — ${sys.system} (Starport ${sys.starport})`;
-    srcEl.add(new Option(label, sys.id));
-    dstEl.add(new Option(label, sys.id));
-  }
-  srcEl.value = 'M';
-  dstEl.value = 'Y';
-}
-
-// --- Hex geometry (even-q offset) ---
-
-function toAxial(col, row) {
-  return { q: col, r: row - Math.floor(col / 2) };
-}
-
-function hexDistance(a, b) {
-  const ax = toAxial(a.col, a.row);
-  const bx = toAxial(b.col, b.row);
-  const dq = Math.abs(ax.q - bx.q);
-  const dr = Math.abs(ax.r - bx.r);
-  const ds = Math.abs((ax.q + ax.r) - (bx.q + bx.r));
-  return (dq + dr + ds) / 2;
-}
-
-// --- Basic pathfinding (BFS) ---
-
-function findPath(sourceId, destId, jumpRating, inhabitedOnly) {
-  const source = hexById[sourceId];
-  const dest = hexById[destId];
-  if (!source || !dest) return null;
-
-  const visited = new Set([sourceId]);
-  const queue = [{ id: sourceId, path: [sourceId] }];
-
-  while (queue.length > 0) {
-    const { id: currentId, path: currentPath } = queue.shift();
-    const current = hexById[currentId];
-
-    if (currentId === destId) return currentPath;
-
-    for (const hex of gridData.hexes) {
-      if (visited.has(hex.id)) continue;
-      if (inhabitedOnly && !hex.system && hex.id !== destId) continue;
-      if (hexDistance(current, hex) <= jumpRating) {
-        visited.add(hex.id);
-        queue.push({ id: hex.id, path: [...currentPath, hex.id] });
-      }
-    }
-  }
-
-  return null;
-}
-
-// --- Basic travel calculator ---
-
-function calculateTravel(sourceId, destId, jumpRating, refinedFuel, inhabitedOnly) {
-  const foundPath = findPath(sourceId, destId, jumpRating, inhabitedOnly);
-  if (!foundPath) {
-    return { error: `No path from ${hexLabel(sourceId)} to ${hexLabel(destId)} with Jump-${jumpRating}` };
-  }
-
-  const jumps = [];
-  let refinedLeft = refinedFuel;
-
-  for (let i = 0; i < foundPath.length - 1; i++) {
-    const from = hexById[foundPath[i]];
-    const to = hexById[foundPath[i + 1]];
-    const dist = hexDistance(from, to);
-    let fuelType;
-
-    if (refinedLeft > 0) {
-      fuelType = 'Refined';
-      refinedLeft--;
-    } else {
-      fuelType = 'Unrefined';
-    }
-
-    jumps.push({ from: foundPath[i], to: foundPath[i + 1], parsecs: dist, fuelType });
-  }
-
-  const numJumps = jumps.length;
-  const totalWeeks = numJumps + 2;
-  const refinedUsed = refinedFuel - refinedLeft;
-  const unrefinedUsed = numJumps - refinedUsed;
-
-  return { mode: 'basic', path: foundPath, jumps, numJumps, totalWeeks, refinedUsed, unrefinedUsed };
-}
-
-// --- Smart pathfinding (plan mode) ---
-
-const DEFAULT_MAX_FUEL = 2;
-
-function hasRefinedFuel(hex) {
-  return hex.starport && ['A', 'B', 'C'].includes(hex.starport);
-}
-
-function planTravel(sourceId, destId, jumpRating, startingFuel, maxFuel = DEFAULT_MAX_FUEL, inhabitedOnly = true) {
-  const source = hexById[sourceId];
-  const dest = hexById[destId];
-  if (!source || !dest) return { error: 'Unknown hex' };
-
-  const stateKey = (id, fuel) => `${id}:${fuel}`;
-  const dist = {};
-  const prev = {};
-
-  const startKey = stateKey(sourceId, startingFuel);
-  dist[startKey] = 0;
-
-  const pq = [[0, sourceId, startingFuel]];
-
-  while (pq.length > 0) {
-    pq.sort((a, b) => a[0] - b[0]);
-    const [cost, hexId, fuel] = pq.shift();
-    const key = stateKey(hexId, fuel);
-
-    if (cost > (dist[key] ?? Infinity)) continue;
-
-    if (hexId === destId) {
-      return buildPlanResult(prev, key, sourceId, startingFuel);
-    }
-
-    const hex = hexById[hexId];
-
-    if (fuel > 0) {
-      for (const candidate of gridData.hexes) {
-        if (candidate.id === hexId) continue;
-        if (inhabitedOnly && !candidate.system && candidate.id !== destId) continue;
-        if (hexDistance(hex, candidate) > jumpRating) continue;
-
-        const newFuel = fuel - 1;
-        const newKey = stateKey(candidate.id, newFuel);
-        const newCost = cost + 1;
-        if (newCost < (dist[newKey] ?? Infinity)) {
-          dist[newKey] = newCost;
-          prev[newKey] = { prevKey: key, action: 'jump', from: hexId, to: candidate.id };
-          pq.push([newCost, candidate.id, newFuel]);
-        }
-      }
-    }
-
-    if (hasRefinedFuel(hex) && fuel < maxFuel) {
-      const newKey = stateKey(hexId, maxFuel);
-      const refuelCost = hexId === sourceId ? 0 : 2;
-      const newCost = cost + refuelCost;
-      if (newCost < (dist[newKey] ?? Infinity)) {
-        dist[newKey] = newCost;
-        prev[newKey] = { prevKey: key, action: 'refuel', at: hexId, fuelBefore: fuel };
-        pq.push([newCost, hexId, maxFuel]);
-      }
-    }
-  }
-
-  return { error: `No route from ${hexLabel(sourceId)} to ${hexLabel(destId)} through system hexes with Jump-${jumpRating} and refined fuel only` };
-}
-
-function buildPlanResult(prev, goalKey, sourceId, startingFuel) {
-  const actions = [];
-  let key = goalKey;
-  while (prev[key]) {
-    actions.unshift(prev[key]);
-    key = prev[key].prevKey;
-  }
-
-  const steps = [];
-  const hexPath = [sourceId];
-
-  for (const action of actions) {
-    if (action.action === 'jump') {
-      const dist = hexDistance(hexById[action.from], hexById[action.to]);
-      steps.push({ type: 'jump', from: action.from, to: action.to, parsecs: dist });
-      hexPath.push(action.to);
-    } else {
-      steps.push({ type: 'refuel', at: action.at, fuelBefore: action.fuelBefore, atOrigin: action.at === sourceId });
-    }
-  }
-
-  let fuel = startingFuel;
-  let totalPurchased = 0;
-  let refuelStops = 0;
-  let enrouteRefuelStops = 0;
-  let numJumps = 0;
-
-  for (let i = 0; i < steps.length; i++) {
-    const step = steps[i];
-    if (step.type === 'jump') {
-      step.fuelType = 'Refined';
-      fuel -= 1;
-      numJumps++;
-      step.fuelAfter = fuel;
-    } else {
-      let jumpsAhead = 0;
-      for (let j = i + 1; j < steps.length; j++) {
-        if (steps[j].type === 'jump') jumpsAhead++;
-        if (steps[j].type === 'refuel') break;
-      }
-      const buy = Math.max(0, jumpsAhead - fuel);
-      step.purchased = buy;
-      fuel += buy;
-      totalPurchased += buy;
-      refuelStops++;
-      if (!step.atOrigin) enrouteRefuelStops++;
-      step.fuelAfter = fuel;
-    }
-  }
-
-  const refuelWeeks = enrouteRefuelStops * 2;
-  const totalWeeks = numJumps + refuelWeeks + 2;
-
-  return {
-    mode: 'plan',
-    path: hexPath,
-    steps,
-    numJumps,
-    refuelStops,
-    refuelWeeks,
-    totalWeeks,
-    startingFuel,
-    totalPurchased,
-    totalRefined: startingFuel + totalPurchased
-  };
-}
-
-// --- Display helpers ---
-
-function hexLabel(id) {
-  const hex = hexById[id];
-  return hex.system ? `${id} (${hex.system})` : id;
+function el(html) {
+  const t = document.createElement('template');
+  t.innerHTML = html.trim();
+  return t.content;
 }
 
 function esc(str) {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-// --- Render results ---
-
-function renderResult(result) {
-  const el = document.getElementById('results');
-
-  if (result.error) {
-    el.innerHTML = `<div class="error">${esc(result.error)}</div>`;
-    el.classList.add('visible');
-    highlightRoute([]);
-    return;
-  }
-
-  if (result.mode === 'plan') {
-    renderPlanResult(result);
-    return;
-  }
-
-  let html = '';
-
-  // Route line
-  html += `<div class="route">Route: ${esc(result.path.map(hexLabel).join(' → '))}</div>`;
-
-  // Steps
-  for (let i = 0; i < result.jumps.length; i++) {
-    const j = result.jumps[i];
-    const fuelClass = j.fuelType === 'Refined' ? 'fuel-refined' : 'fuel-unrefined';
-    html += `<div class="step">Jump ${i + 1}: ${esc(hexLabel(j.from))} → ${esc(hexLabel(j.to))} (${j.parsecs} pc) — <span class="${fuelClass}">${j.fuelType}</span></div>`;
-  }
-
-  // Summary
-  html += `<div class="summary">`;
-  html += `Total time: ${result.totalWeeks} weeks (1w origin + ${result.numJumps}w jump${result.numJumps !== 1 ? 's' : ''} + 1w destination)<br>`;
-  const fuelParts = [];
-  if (result.refinedUsed > 0) fuelParts.push(`${result.refinedUsed} refined`);
-  if (result.unrefinedUsed > 0) fuelParts.push(`${result.unrefinedUsed} unrefined`);
-  html += `Fuel used: ${fuelParts.join(' + ')}`;
-  html += `</div>`;
-
-  el.innerHTML = html;
-  el.classList.add('visible');
-  highlightRoute(result.path);
+function nl2br(str) {
+  return esc(str).replace(/\n/g, '<br>');
 }
 
-function renderPlanResult(result) {
-  const el = document.getElementById('results');
-  let html = '';
+function md(str) {
+  if (!str) return '';
+  return marked.parse(str, { breaks: true, gfm: true });
+}
 
-  // Route line
-  const routeParts = result.path.map(id => {
-    const refuelStep = result.steps.find(s => s.type === 'refuel' && s.at === id);
-    let label = hexLabel(id);
-    if (refuelStep) label += ` [+${refuelStep.purchased} refined]`;
-    return label;
-  });
-  html += `<div class="route">Route: ${esc(routeParts.join(' → '))}</div>`;
+function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
-  // Steps
-  let jumpNum = 0;
-  for (const step of result.steps) {
-    if (step.type === 'jump') {
-      jumpNum++;
-      html += `<div class="step">Jump ${jumpNum}: ${esc(hexLabel(step.from))} → ${esc(hexLabel(step.to))} (${step.parsecs} pc) — <span class="fuel-refined">Refined</span> [${step.fuelAfter} left]</div>`;
+function slugify(s) {
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function setView(html) {
+  document.getElementById('view').innerHTML = html;
+}
+
+function showError(err, contextPath) {
+  const isLocalFile = location.protocol === 'file:';
+  const hint = isLocalFile ? `
+    <p style="margin-top: 10px;">
+      It looks like you opened <code>index.html</code> directly. Browsers block
+      <code>fetch()</code> from <code>file://</code>, so the campaign data can't
+      be loaded.
+    </p>
+    <p style="margin-top: 6px;">
+      Run a small static server from the project root, then visit
+      <code>http://localhost:8000/web/</code>:
+    </p>
+    <pre>python3 -m http.server 8000</pre>
+  ` : '';
+  setView(`
+    <div class="error">
+      <strong>Failed to load data</strong>
+      <pre>${esc(err.message || err)}${contextPath ? '\n\nFile: ' + esc(contextPath) : ''}</pre>
+      ${hint}
+    </div>
+  `);
+}
+
+function crumbs(parts) {
+  return `<div class="crumbs">${parts.map((p, i) =>
+    i === parts.length - 1
+      ? esc(p.label)
+      : (p.route ? `<a href="${p.route}">${esc(p.label)}</a>` : esc(p.label))
+  ).join(' / ')}</div>`;
+}
+
+// =========================================================================
+// Sidebar render
+// =========================================================================
+
+function renderNav() {
+  const nav = document.getElementById('nav');
+  const html = NAV.map(g => `
+    <div class="group">${esc(g.group)}</div>
+    ${g.items.map(it => it.external
+      ? `<a href="${esc(it.route)}" target="_blank" rel="noopener">${esc(it.label)} ↗</a>`
+      : `<a href="${esc(it.route)}" data-route="${esc(it.route)}">${esc(it.label)}</a>`
+    ).join('')}
+  `).join('');
+  nav.innerHTML = html;
+}
+
+function highlightNav() {
+  const route = location.hash || '#/';
+  for (const a of document.querySelectorAll('#nav a[data-route]')) {
+    const target = a.dataset.route;
+    let active = false;
+    if (target === '#/') {
+      active = (route === '' || route === '#/' || route === '#');
     } else {
-      const hex = hexById[step.at];
-      const timeCost = step.atOrigin ? 'at origin' : '2 weeks';
-      html += `<div class="step"><span class="refuel-stop">Refuel at ${esc(hexLabel(step.at))}: buy ${step.purchased} refined (Starport ${hex.starport}) — ${timeCost}</span></div>`;
+      active = route === target || route.startsWith(target + '/');
     }
+    a.classList.toggle('active', active);
   }
+}
 
-  // Summary
-  html += `<div class="summary">`;
-  const timeParts = [`1w origin`, `${result.numJumps}w jump${result.numJumps !== 1 ? 's' : ''}`];
-  if (result.refuelWeeks > 0) timeParts.push(`${result.refuelWeeks}w refueling`);
-  timeParts.push(`1w destination`);
-  html += `Total time: ${result.totalWeeks} weeks (${timeParts.join(' + ')})<br>`;
-  const fuelParts = [`${result.startingFuel} carried`];
-  if (result.totalPurchased > 0) fuelParts.push(`${result.totalPurchased} purchased`);
-  html += `Fuel: ${fuelParts.join(' + ')} = ${result.totalRefined} refined`;
+// =========================================================================
+// Views
+// =========================================================================
+
+async function viewHome() {
+  setView('<div class="loading">Loading campaign overview…</div>');
+  let camp;
+  try { camp = await load('../data/campaign.yaml'); }
+  catch (e) { return showError(e, '../data/campaign.yaml'); }
+
+  let html = `<h1 class="page-title">${esc(camp.campaign?.name || 'Campaign')}</h1>`;
+
+  html += `
+    <div class="card">
+      <h3>The Death Mask <span class="tag">McGuffin</span></h3>
+      <p>${nl2br(camp.mcguffin?.description || '')}</p>
+      <div class="kv" style="margin-top: 8px;">
+        <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '—')}</dd>
+        <dt>Note</dt><dd>${esc(camp.mcguffin?.material_note || '—')}</dd>
+      </div>
+    </div>
+  `;
+
+  html += `<h2>Factions</h2><div class="card-grid">`;
+  for (const f of (camp.factions || [])) {
+    html += `
+      <div class="card">
+        <h3>${esc(f.name)}</h3>
+        <div class="pill-row">
+          <span class="tag">${esc(f.type || 'Faction')}</span>
+        </div>
+        <p>${esc(f.summary || '')}</p>
+        ${f.mcguffin_interest ? `<div style="margin-top: 8px;"><span class="tag dim">Wants the mask</span> ${esc(f.mcguffin_interest)}</div>` : ''}
+        ${f.pros?.length ? `<h3 style="margin-top: 10px;">Pros</h3><ul>${f.pros.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+        ${f.cons?.length ? `<h3>Cons</h3><ul>${f.cons.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+      </div>
+    `;
+  }
   html += `</div>`;
 
-  el.innerHTML = html;
-  el.classList.add('visible');
-  highlightRoute(result.path);
+  html += `
+    <h2>Top-level Docs</h2>
+    <div class="card-grid">
+      ${TOP_DOCS.map(d => `<div class="card"><a href="#/doc/${encodeURIComponent(d.path)}">${esc(d.label)}</a></div>`).join('')}
+    </div>
+  `;
+
+  setView(html);
 }
 
-// --- SVG Hex Map ---
+async function viewSessions() {
+  setView('<div class="loading">Loading sessions…</div>');
+  let sessions;
+  try {
+    const all = await Promise.all(SESSION_NUMBERS.map(n =>
+      load(`../data/sessions/session-${pad2(n)}.yaml`).then(d => ({ n, data: d.session || d }))
+        .catch(() => null)
+    ));
+    sessions = all.filter(Boolean).sort((a, b) => b.n - a.n);
+  } catch (e) { return showError(e); }
 
-const HEX_SIZE = 52;
-const SQRT3 = Math.sqrt(3);
-const PAD = 60;
+  let html = `<h1 class="page-title">GM Session Recaps</h1>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 14px;">${sessions.length} session${sessions.length !== 1 ? 's' : ''} recorded. Newest first.</p>`;
 
-function hexCenter(col, row) {
-  const x = PAD + col * 1.5 * HEX_SIZE;
-  const y = PAD + row * SQRT3 * HEX_SIZE + (col % 2 === 1 ? SQRT3 / 2 * HEX_SIZE : 0);
-  return { x, y };
-}
-
-function hexPoints(cx, cy) {
-  const pts = [];
-  for (let i = 0; i < 6; i++) {
-    const angle = Math.PI / 180 * (60 * i);
-    pts.push(`${cx + HEX_SIZE * Math.cos(angle)},${cy + HEX_SIZE * Math.sin(angle)}`);
+  for (const s of sessions) {
+    const sd = s.data;
+    html += `
+      <div class="card">
+        <h3>
+          <a href="#/sessions/${s.n}">Session ${s.n}</a>
+          ${sd.date ? `<span class="tag dim" style="margin-left: 8px;">${esc(sd.date)}</span>` : ''}
+        </h3>
+        <div style="color: var(--text-dim); font-size: 0.88rem; margin-top: 6px; white-space: pre-wrap;">${esc(truncate(sd.recap || '', 280))}</div>
+      </div>
+    `;
   }
-  return pts.join(' ');
+
+  setView(html);
 }
 
-function starportClass(hex) {
-  if (!hex.system) return 'empty';
-  return `starport-${hex.starport}`;
+function truncate(s, max) {
+  if (!s) return '';
+  s = s.trim();
+  if (s.length <= max) return s;
+  return s.slice(0, max).replace(/\s+\S*$/, '') + '…';
 }
 
-let hexElements = {};
-let routeLineGroup = null;
+async function viewSession(num) {
+  setView('<div class="loading">Loading session…</div>');
+  const path = `../data/sessions/session-${pad2(num)}.yaml`;
+  let raw;
+  try { raw = await load(path); }
+  catch (e) { return showError(e, path); }
+  const s = raw.session || raw;
 
-function renderMap() {
-  const svg = document.getElementById('hex-map');
-  const maxCol = 4;
-  const maxRowEven = 6;
-  const maxRowOdd = 5;
+  let html = '';
+  html += crumbs([
+    { route: '#/sessions', label: 'Sessions' },
+    { label: `Session ${num}` }
+  ]);
+  html += `<h1 class="page-title">Session ${num}${s.date ? ` <span class="tag dim" style="font-size: 0.7rem; vertical-align: middle;">${esc(s.date)}</span>` : ''}</h1>`;
 
-  const width = PAD * 2 + maxCol * 1.5 * HEX_SIZE + HEX_SIZE;
-  const height = PAD * 2 + maxRowEven * SQRT3 * HEX_SIZE + SQRT3 / 2 * HEX_SIZE;
+  if (s.recap) {
+    html += `<h2>Recap</h2><div class="recap-block">${esc(s.recap)}</div>`;
+  }
 
-  svg.setAttribute('width', width);
-  svg.setAttribute('height', height);
-  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  if (s.key_events?.length) {
+    html += `<h2>Key Events</h2><ul>${s.key_events.map(e => `<li>${esc(e)}</li>`).join('')}</ul>`;
+  }
 
-  // Route lines group (rendered below hexes)
-  routeLineGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  svg.appendChild(routeLineGroup);
+  if (s.npcs_introduced?.length) {
+    html += `<h2>NPCs Introduced</h2><ul>${s.npcs_introduced.map(n =>
+      typeof n === 'string' ? `<li>${esc(n)}</li>`
+                            : `<li><strong>${esc(n.name)}</strong>${n.role ? ` — ${esc(n.role)}` : ''}${n.notes ? `: ${esc(n.notes)}` : ''}</li>`
+    ).join('')}</ul>`;
+  }
 
-  for (const hex of gridData.hexes) {
-    const { x, y } = hexCenter(hex.col, hex.row);
+  if (s.ship_events?.length) {
+    html += `<h2>Ship Events</h2><ul>${s.ship_events.map(e =>
+      typeof e === 'string' ? `<li>${esc(e)}</li>`
+                            : `<li><strong>${esc(e.event || '')}</strong>${e.outcome ? ` — ${esc(e.outcome)}` : ''}</li>`
+    ).join('')}</ul>`;
+  }
 
-    // Hex polygon
-    const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    poly.setAttribute('points', hexPoints(x, y));
-    poly.setAttribute('class', `hex-poly ${starportClass(hex)}${hex.system ? ' has-system' : ''}`);
-    poly.dataset.id = hex.id;
-    svg.appendChild(poly);
-
-    hexElements[hex.id] = poly;
-
-    // Click to select as source/dest
-    if (hex.system) {
-      poly.addEventListener('click', () => onHexClick(hex.id));
+  if (s.derelicts_surveyed?.length) {
+    html += `<h2>Derelicts Surveyed</h2><div class="card-grid">`;
+    for (const d of s.derelicts_surveyed) {
+      html += `<div class="card">
+        <h3>${esc(d.name)}</h3>
+        <div class="pill-row">
+          ${d.faction ? `<span class="tag">${esc(d.faction)}</span>` : ''}
+          ${d.size_marker ? `<span class="tag dim">size ${esc(d.size_marker)}</span>` : ''}
+        </div>
+        ${d.notes ? `<div style="white-space: pre-wrap; font-size: 0.88rem;">${esc(d.notes)}</div>` : ''}
+      </div>`;
     }
-
-    // Hex ID label (top)
-    const idText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    idText.setAttribute('x', x);
-    idText.setAttribute('y', y - (hex.system ? 18 : 4));
-    idText.setAttribute('class', 'hex-id');
-    idText.textContent = hex.id;
-    svg.appendChild(idText);
-
-    if (hex.system) {
-      // System name (center)
-      const nameText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      nameText.setAttribute('x', x);
-      nameText.setAttribute('y', y + 2);
-      nameText.setAttribute('class', 'hex-name');
-      nameText.textContent = hex.system;
-      svg.appendChild(nameText);
-
-      // Starport badge (bottom)
-      const portText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      portText.setAttribute('x', x);
-      portText.setAttribute('y', y + 20);
-      portText.setAttribute('class', 'hex-starport');
-      portText.textContent = `★ ${hex.starport}`;
-      svg.appendChild(portText);
-    }
-  }
-}
-
-// Click hex to set source or destination
-let nextClickTarget = 'source';
-
-function onHexClick(hexId) {
-  const sel = document.getElementById(nextClickTarget);
-  // Find the option with this value
-  for (let i = 0; i < sel.options.length; i++) {
-    if (sel.options[i].value === hexId) {
-      sel.selectedIndex = i;
-      break;
-    }
-  }
-  nextClickTarget = nextClickTarget === 'source' ? 'dest' : 'source';
-}
-
-function highlightRoute(path) {
-  // Reset all hexes
-  for (const id in hexElements) {
-    hexElements[id].classList.remove('on-route');
+    html += `</div>`;
   }
 
-  // Clear route lines
-  while (routeLineGroup.firstChild) {
-    routeLineGroup.removeChild(routeLineGroup.firstChild);
+  if (s.absent_pcs?.length) {
+    html += `<h2>Absent PCs</h2><ul>${s.absent_pcs.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
   }
 
-  if (!path || path.length === 0) return;
-
-  // Highlight hexes on route
-  for (const id of path) {
-    if (hexElements[id]) {
-      hexElements[id].classList.add('on-route');
+  // Render any other fields generically
+  const knownKeys = new Set(['number','date','recap','key_events','npcs_introduced','ship_events','derelicts_surveyed','absent_pcs']);
+  const extras = Object.entries(s).filter(([k]) => !knownKeys.has(k));
+  if (extras.length) {
+    html += `<h2>Additional Notes</h2>`;
+    for (const [k, v] of extras) {
+      html += `<h3>${esc(k.replace(/_/g, ' '))}</h3><pre>${esc(jsyaml.dump(v))}</pre>`;
     }
   }
 
-  // Draw route lines
-  for (let i = 0; i < path.length - 1; i++) {
-    const from = hexById[path[i]];
-    const to = hexById[path[i + 1]];
-    const p1 = hexCenter(from.col, from.row);
-    const p2 = hexCenter(to.col, to.row);
+  setView(html);
+}
 
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', p1.x);
-    line.setAttribute('y1', p1.y);
-    line.setAttribute('x2', p2.x);
-    line.setAttribute('y2', p2.y);
-    line.setAttribute('class', 'route-line');
-    routeLineGroup.appendChild(line);
+async function viewInvestigation() {
+  setView('<div class="loading">Loading investigation…</div>');
+  let inv;
+  try { inv = await load('../data/investigation.yaml'); }
+  catch (e) { return showError(e, '../data/investigation.yaml'); }
+
+  let html = `<h1 class="page-title">Investigation</h1>`;
+
+  if (inv.primary_mission) {
+    const pm = inv.primary_mission;
+    html += `<div class="card">
+      <h3>${esc(pm.name)}<span class="tag good" style="margin-left: 8px;">${esc(pm.status || '')}</span></h3>
+      <div class="kv">
+        ${pm.client ? `<dt>Client</dt><dd>${esc(pm.client)}</dd>` : ''}
+        ${pm.contact ? `<dt>Contact</dt><dd>${esc(pm.contact)}</dd>` : ''}
+        ${pm.assigned ? `<dt>Assigned</dt><dd>${esc(pm.assigned)}</dd>` : ''}
+      </div>
+      ${pm.objective ? `<div style="white-space: pre-wrap;">${esc(pm.objective)}</div>` : ''}
+    </div>`;
+  }
+
+  if (inv.chain_of_custody?.length) {
+    html += `<h2>Chain of Custody</h2>`;
+    html += `<table><thead><tr><th>Period</th><th>Event</th><th>Source</th></tr></thead><tbody>`;
+    for (const c of inv.chain_of_custody) {
+      html += `<tr><td>${esc(c.period || '')}</td><td>${esc(c.event || '')}</td><td>${esc(c.source || '')}</td></tr>`;
+    }
+    html += `</tbody></table>`;
+  }
+
+  const renderLeads = (leads, title) => {
+    if (!leads?.length) return '';
+    let h = `<h2>${esc(title)}</h2>`;
+    for (const lead of leads) {
+      const statusCls = lead.status === 'resolved' ? 'good'
+                      : lead.status === 'stalled'  ? 'warn'
+                      : lead.status === 'in_progress' ? '' : 'dim';
+      const prioCls = lead.priority === 'high' ? 'bad'
+                    : lead.priority === 'medium' ? 'warn' : 'dim';
+      h += `<div class="card">
+        <h3>${esc(lead.name)}</h3>
+        <div class="pill-row">
+          ${lead.priority ? `<span class="tag ${prioCls}">${esc(lead.priority)} priority</span>` : ''}
+          ${lead.status ? `<span class="tag ${statusCls}">${esc(lead.status)}</span>` : ''}
+          ${lead.established ? `<span class="tag dim">established ${esc(lead.established)}</span>` : ''}
+          ${lead.last_update ? `<span class="tag dim">updated ${esc(lead.last_update)}</span>` : ''}
+          ${lead.resolved ? `<span class="tag dim">resolved ${esc(lead.resolved)}</span>` : ''}
+        </div>
+        ${lead.description ? `<div style="white-space: pre-wrap; margin-bottom: 6px;">${esc(lead.description)}</div>` : ''}
+        ${lead.action_required ? `<div><strong>Action:</strong> ${esc(lead.action_required)}</div>` : ''}
+        ${lead.notes ? `<div style="white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem; margin-top: 6px;">${esc(lead.notes)}</div>` : ''}
+      </div>`;
+    }
+    return h;
+  };
+
+  html += renderLeads(inv.active_leads, 'Active Leads');
+  html += renderLeads(inv.resolved_leads, 'Resolved Leads');
+
+  if (inv.dead_ends?.length) {
+    html += `<h2>Dead Ends</h2>`;
+    for (const d of inv.dead_ends) {
+      html += `<div class="card">
+        <h3>${esc(d.name)}</h3>
+        <div class="pill-row">
+          ${d.ruled_out ? `<span class="tag dim">ruled out ${esc(d.ruled_out)}</span>` : ''}
+        </div>
+        ${d.description ? `<div style="margin-bottom: 4px;">${esc(d.description)}</div>` : ''}
+        ${d.reason ? `<div style="white-space: pre-wrap;"><strong>Why:</strong> ${esc(d.reason)}</div>` : ''}
+        ${d.notes ? `<div style="white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem; margin-top: 6px;">${esc(d.notes)}</div>` : ''}
+      </div>`;
+    }
+  }
+
+  if (inv.key_intel?.length) {
+    html += `<h2>Key Intel</h2>`;
+    for (const it of inv.key_intel) {
+      html += `<div class="card">
+        <h3>${esc(it.fact || it.topic || it.name || 'Intel')}</h3>
+        <div class="pill-row">
+          ${it.source ? `<span class="tag dim">source: ${esc(it.source)}</span>` : ''}
+          ${(it.factions || []).map(f => `<span class="tag">${esc(f)}</span>`).join('')}
+        </div>
+        ${it.details ? `<div style="white-space: pre-wrap;">${esc(it.details)}</div>` : ''}
+      </div>`;
+    }
+  }
+
+  if (inv.open_questions?.length) {
+    html += `<h2>Open Questions</h2><ul>${inv.open_questions.map(q =>
+      typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` — ${esc(q.notes)}` : ''}</li>`
+    ).join('')}</ul>`;
+  }
+
+  if (inv.current_plan) {
+    html += `<h2>Current Plan</h2>`;
+    const cp = inv.current_plan;
+    if (cp.summary) html += `<div class="recap-block">${esc(cp.summary)}</div>`;
+    if (cp.assets?.length) {
+      html += `<h3>Assets</h3><ul>${cp.assets.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`;
+    }
+    if (cp.timeline?.length) {
+      html += `<h3>Timeline</h3><table><thead><tr><th>Day</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
+      for (const t of cp.timeline) {
+        html += `<tr><td>${esc(t.day ?? '')}</td><td>${esc(t.location || '')}</td><td style="white-space: pre-wrap;">${esc(t.notes || '')}</td></tr>`;
+      }
+      html += `</tbody></table>`;
+    }
+    const planKnown = new Set(['summary','assets','timeline']);
+    const planExtras = Object.entries(cp).filter(([k]) => !planKnown.has(k));
+    for (const [k, v] of planExtras) {
+      html += `<h3>${esc(k.replace(/_/g, ' '))}</h3>${renderYaml(v, 1)}`;
+    }
+  }
+
+  // Catch-all for anything else
+  const known = new Set(['primary_mission','chain_of_custody','active_leads','dead_ends','resolved_leads','key_intel','open_questions','current_plan']);
+  const extras = Object.entries(inv).filter(([k]) => !known.has(k));
+  for (const [k, v] of extras) {
+    html += `<h2>${esc(k.replace(/_/g, ' '))}</h2>${renderYaml(v, 1)}`;
+  }
+
+  setView(html);
+}
+
+let _npcsState = { search: '', affiliation: '', status: '' };
+
+async function viewNPCs() {
+  setView('<div class="loading">Loading NPCs…</div>');
+  let raw;
+  try { raw = await load('../data/npcs.yaml'); }
+  catch (e) { return showError(e, '../data/npcs.yaml'); }
+  const npcs = raw.npcs || [];
+
+  const affiliations = Array.from(new Set(npcs.map(n => n.affiliation).filter(Boolean))).sort();
+  const statuses = Array.from(new Set(npcs.map(n => n.status).filter(Boolean))).sort();
+
+  const renderList = () => {
+    const q = _npcsState.search.toLowerCase();
+    const filt = npcs.filter(n => {
+      if (_npcsState.affiliation && n.affiliation !== _npcsState.affiliation) return false;
+      if (_npcsState.status && n.status !== _npcsState.status) return false;
+      if (q) {
+        const hay = [n.name, n.role, n.location, n.description, n.notes, n.affiliation].filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    let h = `<div class="filter-bar"><span class="count">${filt.length} of ${npcs.length}</span></div>`;
+    h += `<div class="card-grid">`;
+    for (const n of filt) {
+      const statusStr = (n.status || '').toLowerCase();
+      const statusCls = statusStr.includes('deceased') || statusStr.includes('hostile') ? 'bad'
+                      : statusStr.includes('missing') || statusStr.includes('captured') ? 'warn'
+                      : statusStr.includes('allied') || statusStr === 'active' ? 'good'
+                      : 'dim';
+      h += `<div class="card">
+        <h3>${esc(n.name)}</h3>
+        <div class="pill-row">
+          ${n.affiliation ? `<span class="tag">${esc(n.affiliation)}</span>` : ''}
+          ${n.role ? `<span class="tag dim">${esc(n.role)}</span>` : ''}
+          ${n.status ? `<span class="tag ${statusCls}">${esc(n.status)}</span>` : ''}
+          ${n.location ? `<span class="tag dim">${esc(n.location)}</span>` : ''}
+          ${n.first_appearance ? `<span class="tag dim">${esc(n.first_appearance)}</span>` : ''}
+        </div>
+        ${n.description ? `<div style="white-space: pre-wrap; font-size: 0.9rem;">${esc(n.description)}</div>` : ''}
+        ${n.notes ? `<div style="white-space: pre-wrap; color: var(--text-dim); font-size: 0.85rem; margin-top: 6px;"><em>${esc(n.notes)}</em></div>` : ''}
+      </div>`;
+    }
+    h += `</div>`;
+    document.getElementById('npc-list').innerHTML = h;
+  };
+
+  setView(`
+    <h1 class="page-title">NPCs</h1>
+    <div class="filter-bar">
+      <input type="text" id="npc-search" placeholder="Search…" value="${esc(_npcsState.search)}">
+      <select id="npc-aff">
+        <option value="">All affiliations</option>
+        ${affiliations.map(a => `<option value="${esc(a)}"${a === _npcsState.affiliation ? ' selected' : ''}>${esc(a)}</option>`).join('')}
+      </select>
+      <select id="npc-status">
+        <option value="">All statuses</option>
+        ${statuses.map(a => `<option value="${esc(a)}"${a === _npcsState.status ? ' selected' : ''}>${esc(a)}</option>`).join('')}
+      </select>
+    </div>
+    <div id="npc-list"></div>
+  `);
+  document.getElementById('npc-search').addEventListener('input', e => {
+    _npcsState.search = e.target.value; renderList();
+  });
+  document.getElementById('npc-aff').addEventListener('change', e => {
+    _npcsState.affiliation = e.target.value; renderList();
+  });
+  document.getElementById('npc-status').addEventListener('change', e => {
+    _npcsState.status = e.target.value; renderList();
+  });
+  renderList();
+}
+
+async function viewWorlds() {
+  setView('<div class="loading">Loading worlds…</div>');
+  let raw, graph;
+  try {
+    [raw, graph] = await Promise.all([
+      load('../data/worlds/systems.yaml'),
+      load('../data/worlds/sector-graph.json', 'json').catch(() => null)
+    ]);
+  } catch (e) { return showError(e); }
+  const systems = raw.systems || [];
+
+  // Find hex id per system from graph
+  const hexById = {};
+  if (graph?.hexes) {
+    for (const h of graph.hexes) if (h.system) hexById[h.system] = h;
+  }
+
+  let html = `<h1 class="page-title">Worlds</h1>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">${systems.length} inhabited systems. <a href="travel.html" target="_blank" rel="noopener">Open the travel calculator ↗</a></p>`;
+
+  html += `<div class="card-grid">`;
+  for (const s of systems) {
+    const sp = s.starport || '?';
+    const hex = hexById[s.name];
+    html += `<div class="card">
+      <h3>
+        <a href="#/worlds/${encodeURIComponent(slugify(s.name))}">${esc(s.name)}</a>
+        ${hex ? `<span class="tag dim" style="margin-left: 6px;">hex ${esc(hex.id)}</span>` : ''}
+      </h3>
+      <div class="pill-row">
+        <span class="tag starport-${esc(sp)}">Starport ${esc(sp)}</span>
+        ${s.uwp ? `<span class="tag dim">${esc(s.uwp)}</span>` : ''}
+        ${s.tech_level ? `<span class="tag">TL ${esc(s.tech_level)}</span>` : ''}
+        ${s.law_level ? `<span class="tag">Law ${esc(s.law_level)}</span>` : ''}
+      </div>
+      <div style="font-size: 0.88rem; color: var(--text-dim); white-space: pre-wrap;">${esc(truncate(s.description || '', 240))}</div>
+    </div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewWorld(slug) {
+  setView('<div class="loading">Loading world…</div>');
+  let raw, graph;
+  try {
+    [raw, graph] = await Promise.all([
+      load('../data/worlds/systems.yaml'),
+      load('../data/worlds/sector-graph.json', 'json').catch(() => null)
+    ]);
+  } catch (e) { return showError(e); }
+  const sys = (raw.systems || []).find(x => slugify(x.name) === slug);
+  if (!sys) return setView(`<div class="error">Unknown world: ${esc(slug)}</div>`);
+
+  let hex = null;
+  if (graph?.hexes) hex = graph.hexes.find(h => h.system === sys.name);
+
+  let html = '';
+  html += crumbs([{ route: '#/worlds', label: 'Worlds' }, { label: sys.name }]);
+  html += `<h1 class="page-title">${esc(sys.name)}</h1>`;
+  html += `<div class="pill-row">
+    <span class="tag starport-${esc(sys.starport)}">Starport ${esc(sys.starport)}</span>
+    ${sys.uwp ? `<span class="tag dim">${esc(sys.uwp)}</span>` : ''}
+    ${hex ? `<span class="tag">hex ${esc(hex.id)}</span>` : ''}
+  </div>`;
+  html += `<div class="kv">
+    ${sys.size != null ? `<dt>Size</dt><dd>${esc(sys.size)}</dd>` : ''}
+    ${sys.atmosphere != null ? `<dt>Atmosphere</dt><dd>${esc(sys.atmosphere)}</dd>` : ''}
+    ${sys.hydrosphere != null ? `<dt>Hydrosphere</dt><dd>${esc(sys.hydrosphere)}</dd>` : ''}
+    ${sys.population != null ? `<dt>Population</dt><dd>${esc(sys.population)}</dd>` : ''}
+    ${sys.law_level != null ? `<dt>Law Level</dt><dd>${esc(sys.law_level)}</dd>` : ''}
+    ${sys.tech_level != null ? `<dt>Tech Level</dt><dd>${esc(sys.tech_level)}</dd>` : ''}
+  </div>`;
+  if (sys.description) {
+    html += `<h2>Overview</h2><div class="recap-block">${esc(sys.description)}</div>`;
+  }
+  // Render any extra fields
+  const known = new Set(['name','uwp','starport','size','atmosphere','hydrosphere','population','law_level','tech_level','description']);
+  const extras = Object.entries(sys).filter(([k]) => !known.has(k));
+  for (const [k, v] of extras) {
+    html += `<h2>${esc(k.replace(/_/g, ' '))}</h2>`;
+    if (typeof v === 'string') html += `<div style="white-space: pre-wrap;">${esc(v)}</div>`;
+    else html += `<pre>${esc(jsyaml.dump(v))}</pre>`;
+  }
+  setView(html);
+}
+
+async function viewParty() {
+  setView('<div class="loading">Loading party…</div>');
+  let raw;
+  try { raw = await load('../data/party.yaml'); }
+  catch (e) { return showError(e, '../data/party.yaml'); }
+
+  const members = raw.party_members || [];
+  let html = `<h1 class="page-title">Party Members</h1>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">Other PCs in the group (William Hung has full sheet under <a href="#/characters">Characters</a>).</p>`;
+  html += `<div class="card-grid">`;
+  for (const m of members) {
+    const dead = m.status === 'DECEASED';
+    html += `<div class="card">
+      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED</span>` : ''}</h3>
+      <div class="pill-row">
+        ${m.upp ? `<span class="tag dim">UPP ${esc(m.upp)}</span>` : ''}
+        ${m.age ? `<span class="tag dim">age ${esc(m.age)}</span>` : ''}
+        ${m.player ? `<span class="tag">${esc(m.player)}</span>` : ''}
+      </div>
+      ${m.background ? `<div class="kv">
+        ${m.background.homeworld ? `<dt>Homeworld</dt><dd>${esc(m.background.homeworld)}</dd>` : ''}
+        ${m.background.schooling ? `<dt>Schooling</dt><dd>${esc(m.background.schooling)}</dd>` : ''}
+      </div>` : ''}
+      ${m.careers?.length ? `<h3 style="margin-top: 8px;">Careers</h3><ul>${m.careers.map(c => `<li>${esc(c.name)}${c.terms != null ? ` — ${esc(c.terms)} terms` : ''}${c.rank != null ? `, rank ${esc(c.rank)}` : ''}</li>`).join('')}</ul>` : ''}
+      ${m.skills?.length ? `<h3>Skills</h3><div>${m.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>` : ''}
+      ${m.notes ? `<div style="margin-top: 8px; white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem;">${esc(m.notes)}</div>` : ''}
+    </div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewAssets() {
+  setView('<div class="loading">Loading assets…</div>');
+  let raw;
+  try { raw = await load('../data/assets.yaml'); }
+  catch (e) { return showError(e, '../data/assets.yaml'); }
+
+  let html = `<h1 class="page-title">Ship & Assets</h1>`;
+
+  if (raw.party_kitty) {
+    const k = raw.party_kitty;
+    html += `<div class="card">
+      <h3>Party Kitty</h3>
+      <div class="pill-row">
+        <span class="tag">${esc((k.balance || 0).toLocaleString())} Cr</span>
+        ${k.last_updated ? `<span class="tag dim">as of ${esc(k.last_updated)}</span>` : ''}
+      </div>
+      ${k.notes ? `<div style="white-space: pre-wrap; font-size: 0.88rem; color: var(--text-dim);">${esc(k.notes)}</div>` : ''}
+    </div>`;
+  }
+
+  if (raw.ships?.length) {
+    html += `<h2>Ships</h2>`;
+    for (const ship of raw.ships) {
+      html += `<div class="card">
+        <h3>${esc(ship.name)}</h3>
+        <div class="pill-row">
+          ${ship.type ? `<span class="tag">${esc(ship.type)}</span>` : ''}
+          ${ship.status ? `<span class="tag ${ship.status === 'operational' ? 'good' : 'warn'}">${esc(ship.status)}</span>` : ''}
+          ${ship.owner ? `<span class="tag dim">owner: ${esc(ship.owner)}</span>` : ''}
+          ${ship.acquired ? `<span class="tag dim">${esc(ship.acquired)}</span>` : ''}
+        </div>
+        ${ship.notes ? `<div style="white-space: pre-wrap; font-size: 0.88rem; margin-bottom: 10px;">${esc(ship.notes)}</div>` : ''}
+
+        ${ship.frame ? `<h3>Frame</h3><div class="kv">
+          ${ship.frame.tonnage ? `<dt>Tonnage</dt><dd>${esc(ship.frame.tonnage)}</dd>` : ''}
+          ${ship.frame.hull_hp ? `<dt>Hull HP</dt><dd>${esc(ship.frame.hull_current ?? ship.frame.hull_hp)} / ${esc(ship.frame.hull_hp)}</dd>` : ''}
+          ${ship.frame.cargo_capacity ? `<dt>Cargo</dt><dd>${esc(ship.frame.cargo_capacity)} t</dd>` : ''}
+          ${ship.frame.hanger_capacity ? `<dt>Hanger</dt><dd>${esc(ship.frame.hanger_capacity)} t</dd>` : ''}
+        </div>` : ''}
+
+        ${ship.systems ? `<h3>Systems</h3><pre>${esc(jsyaml.dump(ship.systems))}</pre>` : ''}
+        ${ship.amenities ? `<h3>Amenities</h3><pre>${esc(jsyaml.dump(ship.amenities))}</pre>` : ''}
+        ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` — boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
+        ${ship.cargo?.manifest?.length ? `<h3>Cargo Manifest</h3><table><thead><tr><th>Item</th><th>Qty / Tons</th><th>Source</th><th>Notes</th></tr></thead><tbody>${ship.cargo.manifest.map(c => `<tr><td>${esc(c.item)}</td><td>${esc(c.quantity ?? c.tons ?? '')}</td><td>${esc(c.source || '')}</td><td>${esc(c.notes || '')}</td></tr>`).join('')}</tbody></table>` : ''}
+        ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` — ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
+      </div>`;
+    }
+  }
+
+  if (raw.recovered_data?.length) {
+    html += `<h2>Recovered Intelligence / Data</h2>`;
+    for (const r of raw.recovered_data) {
+      html += `<div class="card">
+        <h3>${esc(r.source || 'Unknown source')}</h3>
+        <ul>${(r.items || []).map(it => `<li><strong>${esc(it.description || '')}</strong> <span class="tag ${it.status === 'decoded' ? 'good' : it.status === 'pending' ? 'warn' : 'dim'}">${esc(it.status || '')}</span>${it.notes ? `<br><span style="color: var(--text-dim); font-size: 0.88rem;">${esc(it.notes)}</span>` : ''}</li>`).join('')}</ul>
+      </div>`;
+    }
+  }
+
+  if (raw.shared_equipment?.length) {
+    html += `<h2>Shared Equipment</h2><table><thead><tr><th>Item</th><th>Qty</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
+    for (const e of raw.shared_equipment) {
+      html += `<tr><td>${esc(e.name)}</td><td>${esc(e.quantity ?? '')}</td><td>${esc(e.location || '')}</td><td>${esc(e.notes || '')}</td></tr>`;
+    }
+    html += `</tbody></table>`;
+  }
+
+  if (raw.hanger_contents?.length) {
+    html += `<h2>Hanger Contents</h2><div class="card-grid">`;
+    for (const v of raw.hanger_contents) {
+      html += `<div class="card">
+        <h3>${esc(v.name)}</h3>
+        <div class="pill-row">
+          ${v.owner ? `<span class="tag">${esc(v.owner)}</span>` : ''}
+          ${v.cargo_capacity ? `<span class="tag dim">${esc(v.cargo_capacity)} t cargo</span>` : ''}
+        </div>
+        ${v.current_cargo?.length ? `<ul>${v.current_cargo.map(c => `<li>${esc(c.item)}${c.tons ? ` (${esc(c.tons)} t)` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>` : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
+        ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  setView(html);
+}
+
+async function viewCharacters() {
+  let html = `<h1 class="page-title">Character Sheets</h1>`;
+  html += `<h2>Active</h2><div class="card-grid">`;
+  for (const c of CHARACTERS.filter(x => x.group === 'active')) {
+    html += `<div class="card">
+      <h3><a href="#/characters/${c.group}/${c.slug}">${esc(c.label)}</a></h3>
+      <div class="pill-row"><span class="tag good">active</span></div>
+      <div style="font-size: 0.88rem;">
+        <a href="#/characters/${c.group}/${c.slug}">Sheet</a> ·
+        <a href="#/characters/${c.group}/${c.slug}/notes">Player notes</a> ·
+        <a href="#/characters/${c.group}/${c.slug}/goals">Goals</a>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+  html += `<h2>Inactive</h2><div class="card-grid">`;
+  for (const c of CHARACTERS.filter(x => x.group === 'inactive')) {
+    html += `<div class="card">
+      <h3><a href="#/characters/${c.group}/${c.slug}">${esc(c.label)}</a></h3>
+      <div class="pill-row"><span class="tag dim">inactive</span></div>
+    </div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewCharacter(group, slug, sub) {
+  const ch = CHARACTERS.find(c => c.group === group && c.slug === slug);
+  if (!ch) return setView(`<div class="error">Unknown character: ${esc(group)}/${esc(slug)}</div>`);
+
+  if (sub === 'notes') {
+    return viewMarkdown(`../characters/${group}/${slug}/session-notes.md`, ch.label, [
+      { route: '#/characters', label: 'Characters' },
+      { route: `#/characters/${group}/${slug}`, label: ch.label },
+      { label: 'Session Notes' }
+    ]);
+  }
+  if (sub === 'goals') {
+    return viewMarkdown(`../characters/${group}/${slug}/goals.md`, ch.label, [
+      { route: '#/characters', label: 'Characters' },
+      { route: `#/characters/${group}/${slug}`, label: ch.label },
+      { label: 'Goals' }
+    ]);
+  }
+
+  setView('<div class="loading">Loading character…</div>');
+  const path = `../characters/${group}/${slug}/${slug}.yaml`;
+  let raw;
+  try { raw = await load(path); }
+  catch (e) { return showError(e, path); }
+
+  let html = '';
+  html += crumbs([{ route: '#/characters', label: 'Characters' }, { label: ch.label }]);
+  html += `<h1 class="page-title">${esc(raw.name || ch.label)}</h1>`;
+
+  if (group === 'active') {
+    html += `<div class="pill-row">
+      <a class="tag" href="#/characters/${group}/${slug}/notes">Player notes</a>
+      <a class="tag" href="#/characters/${group}/${slug}/goals">Goals</a>
+    </div>`;
+  }
+
+  if (raw.attributes?.result) {
+    const attrs = raw.attributes.result;
+    html += `<h2>Attributes</h2><div class="kv">`;
+    for (const [k, v] of Object.entries(attrs)) {
+      html += `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`;
+    }
+    html += `</div>`;
+  }
+
+  if (raw.background) {
+    html += `<h2>Background</h2><div class="kv">
+      ${raw.background.homeworld?.result ? `<dt>Homeworld</dt><dd>${esc(raw.background.homeworld.result)}${raw.background.homeworld.world ? ` (${esc(raw.background.homeworld.world)})` : ''}</dd>` : ''}
+      ${raw.background.schooling?.result ? `<dt>Schooling</dt><dd>${esc(raw.background.schooling.result)}</dd>` : ''}
+      ${raw.background.psychic_talent ? `<dt>Psionic</dt><dd>${raw.background.psychic_talent.result ? 'Yes' : 'No'}</dd>` : ''}
+    </div>`;
+    if (raw.background.homeworld?.world_notes) {
+      html += `<div class="recap-block">${esc(raw.background.homeworld.world_notes)}</div>`;
+    }
+  }
+
+  // Render full YAML for completeness
+  html += `<h2>Full Sheet</h2><pre>${esc(jsyaml.dump(raw))}</pre>`;
+
+  setView(html);
+}
+
+async function viewMarkdown(path, title, crumbsArr) {
+  setView('<div class="loading">Loading…</div>');
+  let text;
+  try { text = await load(path, 'text'); }
+  catch (e) { return showError(e, path); }
+  let html = '';
+  if (crumbsArr) html += crumbs(crumbsArr);
+  if (title) html += `<h1 class="page-title">${esc(title)}</h1>`;
+  html += `<div class="md">${md(text)}</div>`;
+  setView(html);
+}
+
+async function viewRulesIndex() {
+  let html = `<h1 class="page-title">Core Rules</h1><div class="card-grid">`;
+  for (const r of RULES_FILES) {
+    html += `<div class="card"><h3><a href="#/rules/${r.id}">${esc(r.label)}</a></h3></div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewRule(id) {
+  const r = RULES_FILES.find(x => x.id === id);
+  if (!r) return setView(`<div class="error">Unknown rules file: ${esc(id)}</div>`);
+  setView('<div class="loading">Loading rules…</div>');
+  let raw;
+  try { raw = await load(`../data/rules/${id}.yaml`); }
+  catch (e) { return showError(e, `../data/rules/${id}.yaml`); }
+
+  let html = '';
+  html += crumbs([{ route: '#/rules', label: 'Rules' }, { label: r.label }]);
+  html += `<h1 class="page-title">${esc(r.label)}</h1>`;
+
+  if (id === 'skills' && raw.skills?.length) {
+    // Group skills by category
+    const groups = {};
+    for (const s of raw.skills) {
+      const cat = s.category || 'Other';
+      (groups[cat] = groups[cat] || []).push(s);
+    }
+    for (const [cat, list] of Object.entries(groups)) {
+      html += `<h2>${esc(cat)}</h2><table><thead><tr><th>Skill</th><th>Description</th><th>Bonus</th><th>Careers</th></tr></thead><tbody>`;
+      for (const s of list) {
+        html += `<tr>
+          <td><strong>${esc(s.name)}</strong></td>
+          <td>${esc(s.description || '')}</td>
+          <td>${esc(s.attribute_bonus || '')}</td>
+          <td>${(s.careers || []).map(c => `<span class="tag dim">${esc(c)}</span>`).join('')}</td>
+        </tr>`;
+      }
+      html += `</tbody></table>`;
+    }
+  } else {
+    // Generic YAML render
+    html += renderYaml(raw);
+  }
+
+  setView(html);
+}
+
+function renderYaml(obj, depth = 0) {
+  if (obj == null) return '<em>null</em>';
+  if (typeof obj === 'string') {
+    return `<div style="white-space: pre-wrap;">${esc(obj)}</div>`;
+  }
+  if (typeof obj !== 'object') return esc(String(obj));
+
+  if (Array.isArray(obj)) {
+    if (obj.every(x => typeof x !== 'object' || x === null)) {
+      return `<ul>${obj.map(x => `<li>${esc(String(x))}</li>`).join('')}</ul>`;
+    }
+    return obj.map(x => `<div class="card">${renderYaml(x, depth + 1)}</div>`).join('');
+  }
+
+  // Object
+  const entries = Object.entries(obj);
+  let html = '';
+  for (const [k, v] of entries) {
+    const heading = depth === 0 ? 'h2' : depth === 1 ? 'h3' : 'h3';
+    if (typeof v === 'object' && v !== null) {
+      html += `<${heading}>${esc(k.replace(/_/g, ' '))}</${heading}>${renderYaml(v, depth + 1)}`;
+    } else {
+      html += `<div class="kv"><dt>${esc(k.replace(/_/g, ' '))}</dt><dd>${esc(String(v))}</dd></div>`;
+    }
+  }
+  return html;
+}
+
+async function viewCareersIndex() {
+  let html = `<h1 class="page-title">Careers</h1><div class="card-grid">`;
+  for (const c of CAREER_FILES) {
+    html += `<div class="card"><h3><a href="#/careers/${c.id}">${esc(c.label)}</a></h3></div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewCareer(id) {
+  const c = CAREER_FILES.find(x => x.id === id);
+  if (!c) return setView(`<div class="error">Unknown career: ${esc(id)}</div>`);
+  setView('<div class="loading">Loading career…</div>');
+  let raw;
+  try { raw = await load(`../data/careers/${id}.yaml`); }
+  catch (e) { return showError(e, `../data/careers/${id}.yaml`); }
+
+  let html = '';
+  html += crumbs([{ route: '#/careers', label: 'Careers' }, { label: c.label }]);
+  html += `<h1 class="page-title">${esc(raw.name || c.label)}</h1>`;
+  if (raw.description) html += `<p style="color: var(--text-dim);">${esc(raw.description)}</p>`;
+
+  if (raw.qualification) html += `<h2>Qualification</h2><div class="kv"><dt>Attribute</dt><dd>${esc(raw.qualification.attribute)}</dd><dt>Target</dt><dd>${esc(raw.qualification.target)}+</dd></div>`;
+  if (raw.leadership) html += `<h2>Leadership</h2><div class="kv"><dt>Attribute</dt><dd>${esc(raw.leadership.attribute)}</dd><dt>Target</dt><dd>${esc(raw.leadership.target)}+</dd></div>`;
+
+  if (raw.skills) {
+    html += `<h2>Skill Tables</h2>`;
+    for (const [tableName, table] of Object.entries(raw.skills)) {
+      html += `<h3>${esc(tableName.replace(/_/g, ' '))}</h3><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody>`;
+      for (const [k, v] of Object.entries(table)) html += `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`;
+      html += `</tbody></table>`;
+    }
+  }
+
+  if (raw.leadership_ranks) {
+    html += `<h2>Leadership Ranks</h2><table><thead><tr><th>Rank</th><th>Benefit</th></tr></thead><tbody>`;
+    for (const [k, v] of Object.entries(raw.leadership_ranks)) {
+      html += `<tr><td>${esc(k)}</td><td>${esc(v.benefit ?? jsyaml.dump(v))}</td></tr>`;
+    }
+    html += `</tbody></table>`;
+  }
+
+  // Catch-all for additional fields
+  const known = new Set(['name','description','qualification','leadership','skills','leadership_ranks']);
+  const extras = Object.entries(raw).filter(([k]) => !known.has(k));
+  for (const [k, v] of extras) {
+    html += `<h2>${esc(k.replace(/_/g, ' '))}</h2>${renderYaml(v, 1)}`;
+  }
+
+  setView(html);
+}
+
+async function viewPrices() {
+  setView('<div class="loading">Loading prices…</div>');
+  let raw;
+  try { raw = await load('../data/equipment/prices.yaml'); }
+  catch (e) { return showError(e, '../data/equipment/prices.yaml'); }
+
+  let html = `<h1 class="page-title">Prices &amp; Equipment</h1>`;
+  html += renderYaml(raw);
+  setView(html);
+}
+
+async function viewRefsIndex() {
+  let html = `<h1 class="page-title">Reference Documents</h1>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">Original markdown source materials from the GM's Discord.</p>`;
+  html += `<div class="card-grid">`;
+  for (const r of REFERENCES) {
+    html += `<div class="card"><h3><a href="#/refs/${r.id}">${esc(r.label)}</a></h3></div>`;
+  }
+  html += `</div>`;
+  setView(html);
+}
+
+async function viewRef(id) {
+  const r = REFERENCES.find(x => x.id === id);
+  if (!r) return setView(`<div class="error">Unknown reference: ${esc(id)}</div>`);
+  return viewMarkdown(`../references/${id}.md`, r.label, [
+    { route: '#/refs', label: 'References' },
+    { label: r.label }
+  ]);
+}
+
+async function viewDoc(path) {
+  return viewMarkdown(path, path.split('/').pop(), [
+    { route: '#/', label: 'Home' },
+    { label: path.split('/').pop() }
+  ]);
+}
+
+// =========================================================================
+// Router
+// =========================================================================
+
+async function route() {
+  const hash = location.hash.replace(/^#/, '') || '/';
+  const parts = hash.split('/').filter(Boolean);
+  highlightNav();
+  window.scrollTo(0, 0);
+
+  try {
+    if (parts.length === 0) return await viewHome();
+
+    switch (parts[0]) {
+      case 'sessions':
+        if (parts.length === 1) return await viewSessions();
+        return await viewSession(parts[1]);
+      case 'investigation':
+        return await viewInvestigation();
+      case 'npcs':
+        return await viewNPCs();
+      case 'worlds':
+        if (parts.length === 1) return await viewWorlds();
+        return await viewWorld(parts[1]);
+      case 'party':
+        return await viewParty();
+      case 'assets':
+        return await viewAssets();
+      case 'characters':
+        if (parts.length === 1) return await viewCharacters();
+        return await viewCharacter(parts[1], parts[2], parts[3]);
+      case 'rules':
+        if (parts.length === 1) return await viewRulesIndex();
+        return await viewRule(parts[1]);
+      case 'careers':
+        if (parts.length === 1) return await viewCareersIndex();
+        return await viewCareer(parts[1]);
+      case 'prices':
+        return await viewPrices();
+      case 'refs':
+        if (parts.length === 1) return await viewRefsIndex();
+        return await viewRef(parts[1]);
+      case 'doc':
+        return await viewDoc(decodeURIComponent(parts.slice(1).join('/')));
+      default:
+        setView(`<div class="error">Unknown route: <code>${esc(hash)}</code></div>`);
+    }
+  } catch (e) {
+    showError(e);
   }
 }
 
-// --- Event handlers ---
+// =========================================================================
+// Init
+// =========================================================================
 
-document.getElementById('calc-btn').addEventListener('click', () => {
-  const sourceId = document.getElementById('source').value;
-  const destId = document.getElementById('dest').value;
-  const jumpRating = parseInt(document.getElementById('jump').value, 10);
-  const fuel = parseInt(document.getElementById('fuel').value, 10) || 0;
-  const maxFuel = parseInt(document.getElementById('max-fuel').value, 10) || DEFAULT_MAX_FUEL;
-  const inhabitedOnly = document.getElementById('inhabited-only').checked;
-  const planMode = document.getElementById('plan').checked;
-
-  if (sourceId === destId) {
-    const el = document.getElementById('results');
-    el.innerHTML = '<div class="error">Source and destination are the same.</div>';
-    el.classList.add('visible');
-    highlightRoute([]);
-    return;
-  }
-
-  const result = planMode
-    ? planTravel(sourceId, destId, jumpRating, fuel, maxFuel, inhabitedOnly)
-    : calculateTravel(sourceId, destId, jumpRating, fuel, inhabitedOnly);
-
-  renderResult(result);
-});
-
-// Allow Enter key to trigger calculation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') document.getElementById('calc-btn').click();
-});
-
-// --- Init ---
-populateDropdowns();
-renderMap();
+renderNav();
+window.addEventListener('hashchange', route);
+route();
 </script>
 </body>
 </html>

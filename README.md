@@ -11,6 +11,21 @@ A companion project for the Traveller Stephanus tabletop RPG campaign.
 | **World Profiles** | [data/worlds/systems.yaml](data/worlds/systems.yaml) |
 | **Combat Rules** | [data/rules/combat.yaml](data/rules/combat.yaml) |
 
+## Campaign Viewer
+
+A simple browser-based viewer for navigating all the campaign data lives in
+[`web/`](web/). Run a static server from the project root and open
+`http://localhost:8000/web/`:
+
+```sh
+python3 -m http.server 8000
+```
+
+The viewer covers GM session recaps, the investigation tracker, NPCs (with
+filters), worlds, party members, ship & assets, character sheets, rules,
+careers, prices, and the original reference docs. The travel calculator
+remains at [`web/travel.html`](web/travel.html).
+
 ## Setting Overview
 
 The campaign takes place in the Mora cluster, featuring:

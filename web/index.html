@@ -1101,13 +1101,35 @@ async function viewAssets() {
 
   if (raw.party_kitty) {
     const k = raw.party_kitty;
+    let notesBody = '';
+    if (k.notes) {
+      const lines = k.notes.replace(/\s+$/, '').split('\n');
+      let lastSessionIdx = -1;
+      for (let i = lines.length - 1; i >= 0; i--) {
+        if (/^Session \d+:/.test(lines[i])) {
+          lastSessionIdx = i;
+          break;
+        }
+      }
+      if (lastSessionIdx > 0) {
+        const earlier = lines.slice(0, lastSessionIdx).join('\n');
+        const latest = lines.slice(lastSessionIdx).join('\n');
+        notesBody = `<div style="white-space: pre-wrap; font-size: 0.88rem; color: var(--text-dim);">${esc(latest)}</div>
+        <details style="margin-top: 8px;">
+          <summary style="cursor: pointer; font-size: 0.85rem; color: var(--accent); list-style: none;">Show earlier history →</summary>
+          <div style="white-space: pre-wrap; font-size: 0.88rem; color: var(--text-dim); margin-top: 8px;">${esc(earlier)}</div>
+        </details>`;
+      } else {
+        notesBody = `<div style="white-space: pre-wrap; font-size: 0.88rem; color: var(--text-dim);">${esc(k.notes)}</div>`;
+      }
+    }
     html += `<div class="card">
       <h3>Party Kitty</h3>
       <div class="pill-row">
         <span class="tag">${esc((k.balance || 0).toLocaleString())} Cr</span>
         ${k.last_updated ? `<span class="tag dim">as of ${esc(k.last_updated)}</span>` : ''}
       </div>
-      ${k.notes ? `<div style="white-space: pre-wrap; font-size: 0.88rem; color: var(--text-dim);">${esc(k.notes)}</div>` : ''}
+      ${notesBody}
     </div>`;
   }
 

@@ -163,6 +163,12 @@
     border-bottom: 1px solid var(--border);
     margin-bottom: 12px;
   }
+  .brand .home {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand .home:hover .title { filter: brightness(1.15); }
   .brand .title {
     color: var(--accent);
     font-size: 0.95rem;
@@ -647,8 +653,10 @@
 <div class="layout">
   <aside class="sidebar">
     <div class="brand">
-      <div class="title">TRAVELLER STEPHANUS</div>
-      <div class="subtitle">Campaign Viewer</div>
+      <a class="home" href="./" aria-label="Return to campaign home">
+        <div class="title">TRAVELLER STEPHANUS</div>
+        <div class="subtitle">Campaign Viewer</div>
+      </a>
       <button class="palette-toggle" id="palette-toggle" type="button"
               aria-label="Cycle color palette" title="Cycle color palette">
         <span class="dot" data-p="phosphor"></span>

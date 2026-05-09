@@ -4,12 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Traveller Stephanus — Campaign Viewer</title>
+<script>
+  // Apply saved palette before stylesheets evaluate, to avoid flash-of-default.
+  try {
+    var p = localStorage.getItem('ts-palette');
+    if (p === 'phosphor' || p === 'starchart' || p === 'dossier') {
+      document.documentElement.dataset.palette = p;
+    }
+  } catch (e) {}
+</script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
+  /* Phosphor — amber CRT on warm coal (default) */
+  :root,
+  html[data-palette="phosphor"] {
     --bg: #0c0a07;
     --bg-2: #15110b;
     --bg-3: #1d1810;
@@ -20,10 +31,103 @@
     --text-faint: #76624a;
     --accent: #ffb347;
     --accent-2: #ff7a1a;
+    --accent-3: #f0d8a8;
     --good: #7ed957;
     --warn: #ffd86b;
     --bad: #ff7a7a;
     --orange: #ff9a4a;
+    --accent-tint: rgba(255,179,71,0.16);
+    --accent-tint-soft: rgba(255,179,71,0.06);
+    --accent-2-tint: rgba(255,122,26,0.10);
+    --accent-2-tint-soft: rgba(255,122,26,0.08);
+    --code-bg: rgba(232,200,150,0.08);
+    --row-stripe: rgba(232,200,150,0.03);
+    --good-tint: rgba(126,217,87,0.18);
+    --warn-tint: rgba(255,216,107,0.18);
+    --bad-tint: rgba(255,122,122,0.18);
+    --bad-bg: rgba(255,122,122,0.10);
+    --bad-border: rgba(255,122,122,0.30);
+    --error-pre-color: #ffb380;
+    --starport-A: #7ed957;
+    --starport-B: #7ec8ff;
+    --starport-C: #ffd86b;
+    --starport-D: #ff9a4a;
+    --starport-X: #ff7a7a;
+    --scrim: rgba(0,0,0,0.55);
+  }
+
+  /* Star Chart — cosmic black, atlas gold + signal cyan */
+  html[data-palette="starchart"] {
+    --bg: #07080d;
+    --bg-2: #0e1118;
+    --bg-3: #131722;
+    --border: #20283a;
+    --border-2: #2a334a;
+    --text: #ece6d6;
+    --text-dim: #a8a08c;
+    --text-faint: #6b6552;
+    --accent: #f0c262;
+    --accent-2: #6fb8ff;
+    --accent-3: #ece6d6;
+    --good: #4fd6a0;
+    --warn: #f0c262;
+    --bad: #ff6b81;
+    --orange: #f0c262;
+    --accent-tint: rgba(240,194,98,0.16);
+    --accent-tint-soft: rgba(240,194,98,0.06);
+    --accent-2-tint: rgba(111,184,255,0.12);
+    --accent-2-tint-soft: rgba(111,184,255,0.08);
+    --code-bg: rgba(236,230,214,0.08);
+    --row-stripe: rgba(236,230,214,0.03);
+    --good-tint: rgba(79,214,160,0.16);
+    --warn-tint: rgba(240,194,98,0.18);
+    --bad-tint: rgba(255,107,129,0.18);
+    --bad-bg: rgba(255,107,129,0.10);
+    --bad-border: rgba(255,107,129,0.30);
+    --error-pre-color: #ff9eaa;
+    --starport-A: #4fd6a0;
+    --starport-B: #6fb8ff;
+    --starport-C: #f0c262;
+    --starport-D: #ff9a4a;
+    --starport-X: #ff6b81;
+    --scrim: rgba(0,0,0,0.55);
+  }
+
+  /* Field Dossier — cream paper, oxblood ink, registry teal */
+  html[data-palette="dossier"] {
+    --bg: #efe6cf;
+    --bg-2: #e6dab9;
+    --bg-3: #ddcfa9;
+    --border: #beae84;
+    --border-2: #a89a72;
+    --text: #2a241c;
+    --text-dim: #5e5239;
+    --text-faint: #8a7c5c;
+    --accent: #8a2828;
+    --accent-2: #1f4a5e;
+    --accent-3: #3a2f24;
+    --good: #4f7a35;
+    --warn: #8c6512;
+    --bad: #8a2828;
+    --orange: #8c6512;
+    --accent-tint: rgba(138,40,40,0.10);
+    --accent-tint-soft: rgba(138,40,40,0.06);
+    --accent-2-tint: rgba(31,74,94,0.10);
+    --accent-2-tint-soft: rgba(31,74,94,0.08);
+    --code-bg: rgba(42,36,28,0.06);
+    --row-stripe: rgba(42,36,28,0.04);
+    --good-tint: rgba(79,122,53,0.16);
+    --warn-tint: rgba(140,101,18,0.16);
+    --bad-tint: rgba(138,40,40,0.12);
+    --bad-bg: rgba(138,40,40,0.08);
+    --bad-border: rgba(138,40,40,0.35);
+    --error-pre-color: #5e1818;
+    --starport-A: #2d6e2d;
+    --starport-B: #1f4a5e;
+    --starport-C: #8c6512;
+    --starport-D: #8a4e1e;
+    --starport-X: #6e2b2b;
+    --scrim: rgba(60,52,38,0.35);
   }
 
   html, body {
@@ -73,6 +177,46 @@
     margin-top: 4px;
   }
 
+  /* Palette cycle button — three swatch dots, current one ringed */
+  .palette-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 120ms ease, border-color 120ms ease;
+  }
+  .palette-toggle:hover {
+    background: var(--bg-2);
+    border-color: var(--border-2);
+  }
+  .palette-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .palette-toggle .dot {
+    display: inline-block;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+  }
+  .palette-toggle .dot[data-p="phosphor"]  { background: #ffb347; }
+  .palette-toggle .dot[data-p="starchart"] { background: #6fb8ff; }
+  .palette-toggle .dot[data-p="dossier"]   { background: #8a2828; }
+  .palette-toggle[data-active="phosphor"]  .dot[data-p="phosphor"],
+  .palette-toggle[data-active="starchart"] .dot[data-p="starchart"],
+  .palette-toggle[data-active="dossier"]   .dot[data-p="dossier"] {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 1px var(--text);
+  }
+
   nav .group {
     padding: 8px 18px 4px;
     color: var(--text-faint);
@@ -89,13 +233,13 @@
     border-left: 3px solid transparent;
   }
   nav a:hover {
-    background: rgba(255,179,71,0.06);
+    background: var(--accent-tint-soft);
     color: var(--accent);
     text-decoration: none;
   }
   nav a.active {
     border-left-color: var(--accent-2);
-    background: rgba(255,122,26,0.10);
+    background: var(--accent-2-tint);
     color: var(--accent);
   }
 
@@ -133,7 +277,7 @@
   }
 
   h3 {
-    color: #f0d8a8;
+    color: var(--accent-3);
     font-size: 0.98rem;
     margin: 14px 0 6px;
     font-weight: 600;
@@ -157,7 +301,7 @@
     white-space: pre-wrap;
   }
   code {
-    background: rgba(232,200,150,0.08);
+    background: var(--code-bg);
     padding: 1px 5px;
     border-radius: 3px;
   }
@@ -182,7 +326,7 @@
   /* Tags / chips */
   .tag {
     display: inline-block;
-    background: rgba(255,179,71,0.16);
+    background: var(--accent-tint);
     color: var(--accent);
     padding: 2px 8px;
     border-radius: 10px;
@@ -190,10 +334,10 @@
     margin: 2px 4px 2px 0;
     letter-spacing: 0.02em;
   }
-  .tag.warn { background: rgba(255,216,107,0.18); color: var(--warn); }
-  .tag.bad  { background: rgba(255,122,122,0.18); color: var(--bad); }
-  .tag.good { background: rgba(126,217,87,0.18); color: var(--good); }
-  .tag.dim  { background: rgba(232,200,150,0.08); color: var(--text-dim); }
+  .tag.warn { background: var(--warn-tint); color: var(--warn); }
+  .tag.bad  { background: var(--bad-tint);  color: var(--bad); }
+  .tag.good { background: var(--good-tint); color: var(--good); }
+  .tag.dim  { background: var(--code-bg);   color: var(--text-dim); }
 
   /* Tables */
   table {
@@ -221,8 +365,8 @@
     letter-spacing: 0.06em;
     font-weight: 600;
   }
-  tbody tr:nth-child(even) td { background: rgba(232,200,150,0.03); }
-  tbody tr:hover td { background: rgba(255,122,26,0.08); }
+  tbody tr:nth-child(even) td { background: var(--row-stripe); }
+  tbody tr:hover td { background: var(--accent-2-tint-soft); }
 
   /* Wrapper added by setView so wide tables scroll horizontally on small screens
      instead of forcing the whole page to scroll. */
@@ -283,25 +427,25 @@
   .filter-bar .count { color: var(--text-faint); font-size: 0.8rem; }
 
   .error {
-    background: rgba(255,122,122,0.10);
-    border: 1px solid rgba(255,122,122,0.30);
+    background: var(--bad-bg);
+    border: 1px solid var(--bad-border);
     color: var(--bad);
     padding: 14px 16px;
     border-radius: 6px;
     font-size: 0.9rem;
   }
-  .error pre { background: rgba(0,0,0,0.2); margin-top: 8px; color: #ffb380; }
+  .error pre { background: rgba(0,0,0,0.2); margin-top: 8px; color: var(--error-pre-color); }
 
   .loading { color: var(--text-faint); padding: 20px 0; font-size: 0.9rem; }
 
   .pill-row { margin: 4px 0 10px; }
 
   /* Starport color squares */
-  .starport-A { color: #7ed957; }
-  .starport-B { color: #7ec8ff; }
-  .starport-C { color: #ffd86b; }
-  .starport-D { color: #ff9a4a; }
-  .starport-X { color: #ff7a7a; }
+  .starport-A { color: var(--starport-A); }
+  .starport-B { color: var(--starport-B); }
+  .starport-C { color: var(--starport-C); }
+  .starport-D { color: var(--starport-D); }
+  .starport-X { color: var(--starport-X); }
 
   /* Prices tables — sized to content so columns stay tight */
   table.prices-table {
@@ -360,7 +504,7 @@
   /* Markdown content */
   .md h1 { color: var(--accent); font-size: 1.4rem; margin: 18px 0 10px; }
   .md h2 { color: var(--accent); font-size: 1.1rem; margin: 16px 0 8px; }
-  .md h3 { color: #f0d8a8; font-size: 0.98rem; margin: 12px 0 6px; }
+  .md h3 { color: var(--accent-3); font-size: 0.98rem; margin: 12px 0 6px; }
   .md table { font-size: 0.85rem; }
   .md hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
   .md blockquote {
@@ -395,7 +539,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: var(--scrim);
     z-index: 18;
   }
 
@@ -505,6 +649,12 @@
     <div class="brand">
       <div class="title">TRAVELLER STEPHANUS</div>
       <div class="subtitle">Campaign Viewer</div>
+      <button class="palette-toggle" id="palette-toggle" type="button"
+              aria-label="Cycle color palette" title="Cycle color palette">
+        <span class="dot" data-p="phosphor"></span>
+        <span class="dot" data-p="starchart"></span>
+        <span class="dot" data-p="dossier"></span>
+      </button>
     </div>
     <nav id="nav"></nav>
   </aside>
@@ -2271,6 +2421,24 @@ async function route() {
 // =========================================================================
 
 renderNav();
+
+// Palette cycle: phosphor → starchart → dossier → phosphor
+(function setupPaletteToggle() {
+  const PALETTES = ['phosphor', 'starchart', 'dossier'];
+  const btn = document.getElementById('palette-toggle');
+  if (!btn) return;
+  const current = () => document.documentElement.dataset.palette || 'phosphor';
+  const apply = (p) => {
+    document.documentElement.dataset.palette = p;
+    try { localStorage.setItem('ts-palette', p); } catch (e) {}
+    btn.dataset.active = p;
+  };
+  apply(current());
+  btn.addEventListener('click', () => {
+    const next = PALETTES[(PALETTES.indexOf(current()) + 1) % PALETTES.length];
+    apply(next);
+  });
+})();
 
 // Mobile sidebar toggle
 (function setupMobileNav() {

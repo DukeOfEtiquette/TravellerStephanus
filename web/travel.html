@@ -4,11 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Traveller Stephanus — Travel Calculator</title>
+<script>
+  // Apply saved palette before stylesheets evaluate, to avoid flash-of-default.
+  try {
+    var p = localStorage.getItem('ts-palette');
+    if (p === 'phosphor' || p === 'starchart' || p === 'dossier') {
+      document.documentElement.dataset.palette = p;
+    }
+  } catch (e) {}
+</script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
+  /* Phosphor — amber CRT on warm coal (default) */
+  :root,
+  html[data-palette="phosphor"] {
     --bg: #0c0a07;
     --bg-2: #15110b;
     --bg-3: #1d1810;
@@ -23,6 +34,66 @@
     --warn: #ffd86b;
     --bad: #ff7a7a;
     --orange: #ff9a4a;
+    --button-hover-bg: #ff5e00;
+    --hex-glow: rgba(255,122,26,0.8);
+    --hex-glow-soft: rgba(255,122,26,0.6);
+    --starport-A-fill: #2d6e3a;
+    --starport-B-fill: #1e5a7a;
+    --starport-C-fill: #8a7a1e;
+    --starport-D-fill: #8a4e1e;
+    --starport-X-fill: #6e2b2b;
+  }
+
+  /* Star Chart — cosmic black, atlas gold + signal cyan */
+  html[data-palette="starchart"] {
+    --bg: #07080d;
+    --bg-2: #0e1118;
+    --bg-3: #131722;
+    --border: #20283a;
+    --border-2: #2a334a;
+    --text: #ece6d6;
+    --text-dim: #a8a08c;
+    --text-faint: #6b6552;
+    --accent: #f0c262;
+    --accent-2: #6fb8ff;
+    --good: #4fd6a0;
+    --warn: #f0c262;
+    --bad: #ff6b81;
+    --orange: #f0c262;
+    --button-hover-bg: #4d9ce8;
+    --hex-glow: rgba(111,184,255,0.8);
+    --hex-glow-soft: rgba(111,184,255,0.6);
+    --starport-A-fill: #1e5a45;
+    --starport-B-fill: #1d3e6e;
+    --starport-C-fill: #6e591e;
+    --starport-D-fill: #6e3a1e;
+    --starport-X-fill: #5a2540;
+  }
+
+  /* Field Dossier — cream paper, oxblood ink, registry teal */
+  html[data-palette="dossier"] {
+    --bg: #efe6cf;
+    --bg-2: #e6dab9;
+    --bg-3: #ddcfa9;
+    --border: #beae84;
+    --border-2: #a89a72;
+    --text: #2a241c;
+    --text-dim: #5e5239;
+    --text-faint: #8a7c5c;
+    --accent: #8a2828;
+    --accent-2: #1f4a5e;
+    --good: #4f7a35;
+    --warn: #8c6512;
+    --bad: #8a2828;
+    --orange: #8c6512;
+    --button-hover-bg: #6e1f1f;
+    --hex-glow: rgba(31,74,94,0.55);
+    --hex-glow-soft: rgba(31,74,94,0.40);
+    --starport-A-fill: #c8d8ba;
+    --starport-B-fill: #b9c9d4;
+    --starport-C-fill: #dccfa6;
+    --starport-D-fill: #dcc3a6;
+    --starport-X-fill: #d8b8b8;
   }
 
   body {
@@ -54,6 +125,45 @@
   }
   .topbar a.back:hover { border-color: var(--accent-2); color: var(--accent); }
   .topbar .spacer { width: 1px; }
+
+  /* Palette cycle button — three swatch dots, current one ringed */
+  .palette-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 120ms ease, border-color 120ms ease;
+  }
+  .palette-toggle:hover {
+    background: var(--bg-2);
+    border-color: var(--border-2);
+  }
+  .palette-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .palette-toggle .dot {
+    display: inline-block;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+  }
+  .palette-toggle .dot[data-p="phosphor"]  { background: #ffb347; }
+  .palette-toggle .dot[data-p="starchart"] { background: #6fb8ff; }
+  .palette-toggle .dot[data-p="dossier"]   { background: #8a2828; }
+  .palette-toggle[data-active="phosphor"]  .dot[data-p="phosphor"],
+  .palette-toggle[data-active="starchart"] .dot[data-p="starchart"],
+  .palette-toggle[data-active="dossier"]   .dot[data-p="dossier"] {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 1px var(--text);
+  }
 
   h1 {
     text-align: center;
@@ -128,7 +238,7 @@
     font-weight: 600;
   }
 
-  button:hover { background: #ff5e00; }
+  button:hover { background: var(--button-hover-bg); }
 
   /* Content channel — match map width */
   .channel {
@@ -193,16 +303,16 @@
   }
 
   .hex-poly.empty { fill: var(--bg); }
-  .hex-poly.starport-A { fill: #2d6e3a; }
-  .hex-poly.starport-B { fill: #1e5a7a; }
-  .hex-poly.starport-C { fill: #8a7a1e; }
-  .hex-poly.starport-D { fill: #8a4e1e; }
-  .hex-poly.starport-X { fill: #6e2b2b; }
+  .hex-poly.starport-A { fill: var(--starport-A-fill); }
+  .hex-poly.starport-B { fill: var(--starport-B-fill); }
+  .hex-poly.starport-C { fill: var(--starport-C-fill); }
+  .hex-poly.starport-D { fill: var(--starport-D-fill); }
+  .hex-poly.starport-X { fill: var(--starport-X-fill); }
 
   .hex-poly.on-route {
     stroke: var(--accent-2);
     stroke-width: 3.5;
-    filter: drop-shadow(0 0 6px rgba(255, 122, 26, 0.8));
+    filter: drop-shadow(0 0 6px var(--hex-glow));
   }
 
   .hex-id {
@@ -235,7 +345,7 @@
     stroke-dasharray: 6 4;
     fill: none;
     opacity: 0.85;
-    filter: drop-shadow(0 0 4px rgba(255, 122, 26, 0.6));
+    filter: drop-shadow(0 0 4px var(--hex-glow-soft));
   }
 
   /* Clickable system hexes */
@@ -303,7 +413,12 @@
 
 <div class="topbar">
   <a class="back" href="index.html">← Campaign Viewer</a>
-  <span class="spacer"></span>
+  <button class="palette-toggle" id="palette-toggle" type="button"
+          aria-label="Cycle color palette" title="Cycle color palette">
+    <span class="dot" data-p="phosphor"></span>
+    <span class="dot" data-p="starchart"></span>
+    <span class="dot" data-p="dossier"></span>
+  </button>
 </div>
 <h1>Traveller Stephanus — Travel Calculator</h1>
 
@@ -911,6 +1026,24 @@ document.getElementById('calc-btn').addEventListener('click', () => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') document.getElementById('calc-btn').click();
 });
+
+// --- Palette toggle: phosphor → starchart → dossier → phosphor ---
+(function setupPaletteToggle() {
+  const PALETTES = ['phosphor', 'starchart', 'dossier'];
+  const btn = document.getElementById('palette-toggle');
+  if (!btn) return;
+  const current = () => document.documentElement.dataset.palette || 'phosphor';
+  const apply = (p) => {
+    document.documentElement.dataset.palette = p;
+    try { localStorage.setItem('ts-palette', p); } catch (e) {}
+    btn.dataset.active = p;
+  };
+  apply(current());
+  btn.addEventListener('click', () => {
+    const next = PALETTES[(PALETTES.indexOf(current()) + 1) % PALETTES.length];
+    apply(next);
+  });
+})();
 
 // --- Init ---
 populateDropdowns();

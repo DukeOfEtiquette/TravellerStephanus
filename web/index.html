@@ -1133,6 +1133,14 @@ async function viewAssets() {
     </div>`;
   }
 
+  if (raw.shared_equipment?.length) {
+    html += `<h2>Shared Equipment</h2><table><thead><tr><th>Item</th><th>Qty</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
+    for (const e of raw.shared_equipment) {
+      html += `<tr><td>${esc(e.name)}</td><td>${esc(e.quantity ?? '')}</td><td>${esc(e.location || '')}</td><td>${esc(e.notes || '')}</td></tr>`;
+    }
+    html += `</tbody></table>`;
+  }
+
   if (raw.ships?.length) {
     html += `<h2>Ships</h2>`;
     for (const ship of raw.ships) {
@@ -1214,14 +1222,6 @@ async function viewAssets() {
         <ul>${(r.items || []).map(it => `<li><strong>${esc(it.description || '')}</strong> <span class="tag ${it.status === 'decoded' ? 'good' : it.status === 'pending' ? 'warn' : 'dim'}">${esc(it.status || '')}</span>${it.notes ? `<br><span style="color: var(--text-dim); font-size: 0.88rem;">${esc(it.notes)}</span>` : ''}</li>`).join('')}</ul>
       </div>`;
     }
-  }
-
-  if (raw.shared_equipment?.length) {
-    html += `<h2>Shared Equipment</h2><table><thead><tr><th>Item</th><th>Qty</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
-    for (const e of raw.shared_equipment) {
-      html += `<tr><td>${esc(e.name)}</td><td>${esc(e.quantity ?? '')}</td><td>${esc(e.location || '')}</td><td>${esc(e.notes || '')}</td></tr>`;
-    }
-    html += `</tbody></table>`;
   }
 
   // Note: hanger contents now render inline under each ship's card above.

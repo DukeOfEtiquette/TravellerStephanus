@@ -24,6 +24,40 @@ party_kitty:
                Kitty 93,850 Cr (-16,100 Cr).
 
 # =============================================================================
+# SHARED EQUIPMENT
+# =============================================================================
+shared_equipment:
+  - name: "Industrial Belt Sander"
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Purchased Session 5. Used for destroying compromised electronics."
+
+  - name: "Stealthsuit"
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Received Session 12 from Kikonye as part of op reward. (A pair was given away in Session 9 negotiations.)"
+
+  - name: "Quantum Weapons"
+    quantity: 2
+    location: "Voice of Liberation II"
+    notes: "Received Session 12 from Kikonye's weapons depot to cover op 'incidentals'."
+
+  - name: '"Polygraph Detector" Cybernetic Implants (full set)'
+    quantity: 1
+    location: "Voice of Liberation II"
+    notes: "Retained in Session 9 negotiation with Kikonye. Not yet distributed."
+
+  - name: '"Lie Detector" Cybernetic Implants'
+    quantity: 1
+    location: "Baron Harrow"
+    notes: "Arranged by Kikonye as part of Session 12 op reward. Implanted in Baron Harrow."
+
+  - name: "Letter of Recommendation (Isaiah Reed / Jade Front)"
+    quantity: 1
+    location: "Party records"
+    notes: "Provided by Isaiah Reed after Session 8 despite cutting pay. Positive character/op reference."
+
+# =============================================================================
 # SHIPS
 # =============================================================================
 ships:
@@ -157,39 +191,5 @@ recovered_data:
       - description: "Captain's stateroom search — only anomaly was a missing book from a bookshelf"
         status: open
         notes: "Physical paper books are unusual. Missing one may be hidden, smuggled, or a hollowed cache."
-
-# =============================================================================
-# SHARED EQUIPMENT
-# =============================================================================
-shared_equipment:
-  - name: "Industrial Belt Sander"
-    quantity: 1
-    location: "Voice of Liberation II"
-    notes: "Purchased Session 5. Used for destroying compromised electronics."
-
-  - name: "Stealthsuit"
-    quantity: 1
-    location: "Voice of Liberation II"
-    notes: "Received Session 12 from Kikonye as part of op reward. (A pair was given away in Session 9 negotiations.)"
-
-  - name: "Quantum Weapons"
-    quantity: 2
-    location: "Voice of Liberation II"
-    notes: "Received Session 12 from Kikonye's weapons depot to cover op 'incidentals'."
-
-  - name: '"Polygraph Detector" Cybernetic Implants (full set)'
-    quantity: 1
-    location: "Voice of Liberation II"
-    notes: "Retained in Session 9 negotiation with Kikonye. Not yet distributed."
-
-  - name: '"Lie Detector" Cybernetic Implants'
-    quantity: 1
-    location: "Baron Harrow"
-    notes: "Arranged by Kikonye as part of Session 12 op reward. Implanted in Baron Harrow."
-
-  - name: "Letter of Recommendation (Isaiah Reed / Jade Front)"
-    quantity: 1
-    location: "Party records"
-    notes: "Provided by Isaiah Reed after Session 8 despite cutting pay. Positive character/op reference."
 
 # Note: hanger contents are now nested under each ship's `hanger:` field above.

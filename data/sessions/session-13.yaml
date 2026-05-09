@@ -1,0 +1,83 @@
+session:
+  number: 13
+  date: 2026-05-01
+  recap: |
+    The crew resupplied, rearranged their stocks, and finally jumped to Maitz.
+
+    On arrival, they decided to first investigate the debris and derelict vessels
+    around the sole gas giant. They found six wrecks, but two were little more
+    than debris fields.
+
+    The crew set an intention to explore the largest derelict, the Revenant's Echo,
+    but decided to first set a "cry baby cry" diversion on a smaller Newhall ship,
+    the Star of Carella.
+
+    Onboard, they looted the physical storage media from the bridge and computer
+    room, carefully searched the captain's stateroom (where they discovered only a
+    missing book from a bookshelf out of the ordinary), siphoned fuel to refill
+    their tanks, looted two full 10 dTon shuttlecraft, and set up their "cry baby
+    cry."
+
+    On the decrypted storage crystals, they found orders for the Star from Tivid
+    to Maitz to intercept a fleeing Newhall ship, a 100 dT scout ship called the
+    Deepest Light. Their unsigned orders — marked Priority 1 — ordered them to
+    capture or, if that was not feasible, destroy the Deepest Light.
+
+    The crystals also contained thousands of short, encrypted files that started
+    the minute that the Star of Carella arrived in Maitz, and ended abruptly
+    eight hours later. (The crew hasn't yet decoded any of these transmissions.)
+
+    Day: 24.2
+    Kitty: 93,850 Cr
+    Ship Fuel: 2/2
+
+  npcs_introduced: []
+
+  key_events:
+    - "Crew resupplied at Mowebe JF lunar depot and jumped to Maitz"
+    - "Surveyed wrecks around Maitz's sole gas giant — 6 total: Revenant's Echo (largest), Star of Carella (Newhall), Adamant, Savage Intent, Deepest Light, plus debris (two of the six were debris fields)"
+    - "Set 'cry baby cry' diversion aboard Star of Carella before exploring the larger Revenant's Echo"
+    - "Looted Star of Carella: physical storage media (bridge + computer room), captain's stateroom (only anomaly was a missing book from a bookshelf), 2 x 10 dTon shuttlecraft"
+    - "Siphoned fuel from Star of Carella to refill VoL II tanks (2/2)"
+    - "Decrypted Star of Carella storage crystals: orders from Tivid to Maitz to capture or destroy the Newhall scout Deepest Light (100 dT), unsigned, Priority 1"
+    - "Crystals also contained thousands of short, encrypted files spanning an 8-hour window starting from Star of Carella's arrival in Maitz — none yet decoded"
+
+  ship_events:
+    - event: "Jumped from Mowebe JF lunar depot to Maitz"
+      outcome: "Arrived without incident"
+    - event: "Refueled from Star of Carella"
+      outcome: "VoL II fuel restored to 2/2"
+    - event: "Acquired two 10 dTon shuttlecraft from Star of Carella"
+      outcome: "Vessels and contents loaded; details TBD"
+
+  derelicts_surveyed:
+    - name: "Revenant's Echo"
+      size_marker: 6
+      faction: unknown
+      notes: "Largest derelict in the field. Marked as primary target but not yet boarded."
+    - name: "Star of Carella"
+      size_marker: 5
+      faction: Newhall
+      notes: |
+        Boarded and looted. Storage crystals decrypted: hunter ordered (Tivid → Maitz)
+        to capture/destroy Newhall scout Deepest Light. "Cry baby cry" diversion staged
+        aboard. Captain's bookshelf had one book missing.
+    - name: "Adamant"
+      size_marker: 3
+      faction: unknown
+      notes: "Surveyed but not yet boarded."
+    - name: "Savage Intent"
+      size_marker: 3
+      faction: unknown
+      notes: "Surveyed but not yet boarded."
+    - name: "Deepest Light"
+      size_marker: 5
+      faction: Newhall
+      notes: |
+        100 dT scout ship. Was the target of Star of Carella's Priority 1 orders.
+        Surveyed but not yet boarded.
+    - name: "(unidentified debris field)"
+      faction: unknown
+      notes: "One of the two debris fields — too disintegrated to name."
+
+  absent_pcs: []

@@ -150,14 +150,74 @@ active_leads:
     status: in_progress
     description: |
       Border skirmishes reported in the outer bounds of Maitz between Quiru and Newhall
-      (Campaign Week 12, per Faisal al-Amin's Thane debrief). The party decided to investigate.
-    action_required: "Travel to Maitz and investigate the Quiru-Newhall skirmish"
+      (Campaign Week 12, per Faisal al-Amin's Thane debrief). The party arrived in Session 13.
+    action_required: "Continue surveying wrecks. Decode battle logs / encrypted files. Locate Deepest Light. Board Revenant's Echo."
     established: Session 12
+    last_update: Session 13
     notes: |
       Intel from Faisal al-Amin (Wk 12 report). Ship counts from the engagement:
       QUIRU — Big: 1, Medium: 3 (2 disabled), Small: 1 (1 disabled)
       NEWHALL — Big: 2 (1 disabled), Medium: 1, Small: 6 (2 disabled)
-      Party currently en route to Maitz from Mowebe JF depot.
+      Session 13: Arrived in Maitz. Surveyed 6 wrecks around the sole gas giant
+      (2 are debris fields). Named hulls: Revenant's Echo (largest), Star of Carella
+      (Newhall, looted), Adamant, Savage Intent, Deepest Light (Newhall scout, 100 dT).
+      Star of Carella stripped: data slabs + 2x 10 dT shuttlecraft + 16 tons Rx, plus
+      siphoned fuel. "Cry baby cry" diversion staged aboard. Revenant's Echo not yet boarded.
+
+  - name: "Decode Star of Carella Encrypted Files"
+    priority: high
+    status: in_progress
+    description: |
+      Thousands of short, encrypted files recovered from Star of Carella storage crystals.
+      Span an 8-hour window starting the minute Star of Carella arrived in Maitz, ending
+      abruptly. Believed to be battle logs / comms traffic. Higher-grade encryption used.
+    action_required: "Decrypt files. Identify content (battle logs? command traffic?)."
+    established: Session 13
+    notes: |
+      Already decrypted: orders dispatching Star of Carella from Tivid to Maitz ASAP to
+      "support operations" — capture or destroy the Newhall scout Deepest Light.
+      Orders unsigned, Priority 1. Higher-grade security suggests command-level traffic.
+
+  - name: "Locate the Deepest Light"
+    priority: high
+    status: in_progress
+    description: |
+      Newhall 100 dT scout ship that was the Priority 1 target of Star of Carella's
+      capture-or-destroy orders. Newhall was hunting one of its own — likely a defector,
+      whistleblower, or thief carrying high-value information.
+    action_required: |
+      Determine the Deepest Light's fate: did it escape Maitz, was it destroyed, or is
+      it among the wrecks? If among the wrecks, board it. If it escaped, track it.
+    established: Session 13
+    notes: |
+      A ship named Deepest Light is listed among the Maitz wrecks (size marker 5).
+      Confirm whether this is the same ship or a coincidence/decoy.
+      Whatever the Deepest Light was carrying is what Newhall command wanted silenced.
+
+  - name: "Board Other Maitz Wrecks"
+    priority: medium
+    status: pending
+    description: |
+      Four named wrecks remain unboarded: Revenant's Echo (largest, primary intent),
+      Adamant, Savage Intent, Deepest Light. Plus two debris fields too disintegrated to ID.
+    action_required: "Board Revenant's Echo (party's stated intent). Then sweep the rest."
+    established: Session 13
+    notes: |
+      "Cry baby cry" diversion left aboard Star of Carella — should buy time before any
+      response party arrives.
+
+  - name: "Missing Book from Star of Carella Captain's Bookshelf"
+    priority: low
+    status: open
+    description: |
+      Captain's stateroom search turned up only one anomaly: a missing book from the
+      bookshelf. Nothing else out of the ordinary.
+    action_required: "Note for follow-up. May indicate the captain (or someone) hid or removed something significant."
+    established: Session 13
+    notes: |
+      Physical paper books in a captain's stateroom are unusual enough to be personally
+      meaningful. The missing one could be: hidden, smuggled out, or used as a hollowed
+      cache. No way to know what title without external info.
 
   - name: "Cooper-Akachi / Solal Connection"
     priority: medium
@@ -271,7 +331,31 @@ open_questions:
     notes: |
       Faisal al-Amin confirmed: Quiru and Newhall clashed in outer Maitz at Campaign Week 12.
       Ship loss data recorded in key_intel. Why are Quiru and Newhall fighting? What does this
-      mean for the regional political situation? Party en route to investigate firsthand.
+      mean for the regional political situation? Party arrived Session 13 — surveying wrecks.
+
+  - question: "Who within Newhall issued the Priority 1 order to take down the Deepest Light?"
+    priority: high
+    notes: |
+      Orders were unsigned but Priority 1 — high-level command traffic, security buffered
+      by deniability. Tivid appears to be the dispatching authority's location.
+
+  - question: "What is the Deepest Light carrying — or who is aboard?"
+    priority: high
+    notes: |
+      Newhall command considered the Deepest Light a high-priority target worth a
+      capture-or-destroy order. The cargo or person aboard is the real prize.
+
+  - question: "Is Cooper-Akachi involved at Maitz?"
+    priority: medium
+    notes: |
+      William speculates Cooper-Akachi may have been here (consistent with the Coop-Ak
+      commandos passing through Thane Wk 10). Not yet confirmed by any wreckage or intel.
+
+  - question: "What was the missing book from Star of Carella's captain's bookshelf?"
+    priority: low
+    notes: |
+      Only anomaly in the captain's stateroom search. Could indicate hidden message,
+      smuggled item, or hollowed cache. Title unknown without more info.
 
   - question: "What is the Cooper-Akachi connection to Jassem Solal?"
     priority: medium
@@ -332,14 +416,45 @@ key_intel:
     details: "Street-level rumor confirmed by Petra"
     source: Petra (Session 3)
 
+  - fact: "Six wrecks at Maitz around the sole gas giant"
+    details: |
+      Named hulls: Revenant's Echo (largest), Star of Carella (Newhall),
+      Adamant, Savage Intent, Deepest Light (Newhall, 100 dT scout).
+      Two of the six wrecks are debris fields too disintegrated to identify.
+    source: Party survey (Session 13)
+
+  - fact: "Newhall was hunting one of its own ships at Maitz"
+    details: |
+      Star of Carella (Newhall) was dispatched from Tivid to Maitz ASAP under
+      unsigned Priority 1 orders to capture or destroy the Deepest Light, a
+      Newhall 100 dT scout ship. Internal Newhall hunt — likely a defector,
+      whistleblower, or thief carrying valuable cargo or intelligence.
+    source: Decrypted Star of Carella orders (Session 13)
+
+  - fact: "Star of Carella was based in Tivid"
+    details: |
+      Tivid appears to be a Newhall command/staging location. Star of Carella
+      was redirected from Tivid to Maitz ASAP "to support operations."
+    source: Decrypted Star of Carella data slabs (Session 13)
+
+  - fact: "Star of Carella storage crystals contain 8 hours of dense encrypted traffic"
+    details: |
+      Thousands of short, encrypted files starting the minute Star of Carella
+      arrived in Maitz and ending abruptly 8 hours later. Higher-grade
+      encryption than typical ship traffic. Believed to be battle logs and/or
+      command comms. Not yet decoded.
+    source: Star of Carella loot (Session 13)
+
 # =============================================================================
 # STRATEGIC PLAN
 # =============================================================================
 current_plan:
   summary: |
-    Completed Solal kidnapping op on Mowebe. Received intelligence from Faisal al-Amin
-    (Thane circuit). Currently jumping to Maitz to investigate rumors of a recent space battle.
-    The Rivis Thane job (Kara Wiley message delivery) remains deferred.
+    Arrived in Maitz and began surveying the post-battle wrecks around the gas giant.
+    Stripped Star of Carella (Newhall) of data, fuel, two shuttlecraft, and 16 tons of Rx;
+    decoded its capture-or-destroy orders against the Newhall scout Deepest Light.
+    Revenant's Echo is the next intended target. Encrypted battle logs / comms still
+    pending decryption. Rivis Thane job (Kara Wiley message delivery) remains deferred.
 
   timeline:
     - day: 6.3
@@ -369,21 +484,32 @@ current_plan:
         Vicentio Saviolo KIA. Fled with Solal. Interceptors engaged. Misjump. Kitty: 73,750 Cr.
 
     - day: 19.2
-      status: current
+      status: past
       location: En route to Maitz (from Mowebe JF lunar depot)
       notes: |
         Solal delivered. Rewarded: 45k Cr, stealthsuit, 2 quantum weapons, lie detector implants.
         Powerplant repaired. Faisal al-Amin debriefed. Decided to investigate Maitz space battle.
         Kitty: 109,950 Cr. Ship Fuel: 2/2.
 
+    - day: 24.2
+      status: current
+      location: Maitz (gas giant debris field)
+      notes: |
+        Arrived Maitz. Surveyed 6 wrecks around the gas giant — 4 named (Revenant's Echo,
+        Star of Carella, Adamant, Savage Intent, Deepest Light) plus 2 debris fields.
+        Stripped Star of Carella (Newhall): data slabs, 2 x 10 dT shuttlecraft, 16 tons Rx,
+        siphoned fuel. "Cry baby cry" diversion staged. Decrypted orders: Tivid → Maitz,
+        Priority 1, capture or destroy Deepest Light. Battle logs / encrypted comms pending.
+        Kitty: 93,850 Cr. Ship Fuel: 2/2.
+
     - day: "TBD"
       status: planned
-      location: Maitz
-      event: "Investigate rumors of recent space battle"
+      location: Maitz (Revenant's Echo)
+      event: "Board the largest derelict — Revenant's Echo"
 
   assets:
     - "Voice of Liberation II (fully fueled, missiles restocked, powerplant repaired)"
-    - "109,950 Cr party kitty"
+    - "93,850 Cr party kitty"
     - "1 stealthsuit"
     - "2 quantum weapons"
     - "Polygraph detector cybernetic implants (full set, unassigned)"
@@ -391,3 +517,6 @@ current_plan:
     - "+2 anti-missiles (4d6)"
     - "+2 standard missiles (4d6)"
     - "Letter of recommendation from Isaiah Reed"
+    - "2 x 10 dT shuttlecraft (looted from Star of Carella, in VoL II cargo)"
+    - "16 tons Rx (pharmaceuticals, split across the two looted shuttles in cargo)"
+    - "Star of Carella data slabs (orders decoded; thousands of encrypted files / battle logs pending)"

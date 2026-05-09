@@ -419,6 +419,93 @@ Hung and Bootman did the grunt work this session — a week of bar-hopping to fi
 
 ---
 
+## Session 13
+**Date:** 2026-05-01
+
+### Summary
+Kitted out at Mowebe and jumped to Maitz to investigate the recent space battle.
+Found six hulls floating around Maitz's gas giant. Headed straight in. Took the
+shuttle (everyone but Michaela) to the smaller Newhall ship Star of Carella to
+loot it before tackling the big derelict, Revenant's Echo. Stripped the ship —
+data slabs, two shuttlecraft, fuel — and decrypted the captain's data: orders
+from Tivid to capture or destroy a fleeing Newhall scout, the Deepest Light.
+Plus tons of battle logs from the engagement.
+
+### Key Events
+- Kitted out at Mowebe before departure
+- Jumped to Maitz — big recent space battle confirmed
+- Suspected Cooper-Akachi may have been involved here
+- Approached the battle site directly — 6 hulls around the gas giant
+- Flew shuttle (everyone but Michaela aboard) to Star of Carella
+- Searched captain's room — expensive Yak blue milk, physical paper books with one missing
+- Took all data slabs from the computer room
+- Took 2 shuttlecraft from the Star of Carella, loaded into VoL II cargo bay
+- Dumped manufactured goods to make room
+- Split 16 tons of Rx across the two shuttles in cargo
+- Hacked the data slabs: Star of Carella was based in Tivid, dispatched to Maitz ASAP under orders to support operations
+- Confirmed target was the Deepest Light — also from Newhall, a scout ship
+- Orders: capture or destroy
+- Higher-level security/encryption was used on the orders
+- Tons of battle logs recovered (not yet decrypted)
+
+### Wishlist
+- Decoy beacon for space (would be useful for our growing toolkit of "look elsewhere" tactics)
+
+### NPCs Encountered
+| Name | Description | Location | Notes |
+|------|-------------|----------|-------|
+| (none) | | | No living crew encountered — all wrecks |
+
+### Locations Visited
+- Maitz system (jump arrival)
+- Maitz gas giant (debris field around it)
+- Star of Carella (boarded and stripped)
+
+### Items Gained/Lost
+- (+) 2 x 10 dT shuttlecraft (from Star of Carella, stored in VoL II cargo)
+- (+) 16 tons Rx (split across the two shuttles in cargo)
+- (+) All data slabs from Star of Carella (encrypted; orders + battle logs decoded so far)
+- (+) Star of Carella's siphoned fuel (refilled VoL II tanks to 2/2)
+- (-) Manufactured trade goods (dumped to make cargo space)
+
+### Credits
+- Starting: 21,300 Cr (personal — unchanged)
+- Ending: 21,300 Cr (personal — unchanged)
+- Net: 0 Cr
+- Party Kitty: 93,850 Cr (down from 109,950 — pre-jump kit-out and resupply)
+
+### Clues/Information Learned
+- Maitz really did see a major recent engagement — 6 wrecks around the gas giant
+- Star of Carella was a Newhall ship out of Tivid, dispatched to Maitz ASAP
+- Star of Carella's stated mission: support broader Newhall operations
+- Specific tasking: capture or destroy the Deepest Light (Newhall scout)
+- Newhall was hunting one of its own ships — likely a defector or thief
+- Orders unsigned but Priority 1 — high-level command, deniability built in
+- Encryption on the orders was higher-grade than standard ship traffic
+- Battle logs span an 8-hour window from the moment Star of Carella arrived
+- Captain had physical paper books in his stateroom — one missing. Stolen? Hidden?
+- Cooper-Akachi presence at Maitz remains unconfirmed but suspected (per Faisal's intel)
+
+### Unresolved Threads
+- What was in the missing book from the captain's bookshelf?
+- What's on those thousands of battle logs / encrypted files?
+- Where is the Deepest Light? Did it escape, get destroyed, or is it among the wrecks?
+- Whose unsigned Priority 1 orders were these — who in Newhall command?
+- What are the "operations" Star of Carella was supporting?
+- Is Cooper-Akachi tied into this Newhall internal conflict?
+- Status of the four other wrecks (Revenant's Echo, Adamant, Savage Intent, Deepest Light) — unboarded
+
+### Notes
+A productive scavenge. Star of Carella gave us a free refuel, two shuttlecraft, a
+pharmaceutical haul, and — most importantly — a window into what Newhall was
+doing here. The fact that Newhall was hunting another Newhall ship is the
+headline. The Deepest Light has something or someone Newhall command badly wants
+silenced. Whoever they are, we may want to find them first. Revenant's Echo is
+still on deck for next session, and we've left our "cry baby cry" diversion to
+buy us time.
+
+---
+
 <!-- Copy the session template below for each new session -->
 
 <!--

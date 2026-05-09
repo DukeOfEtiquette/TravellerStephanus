@@ -5,8 +5,8 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 109950  # Cr, as of Session 12
-  last_updated: "Session 12"
+  balance: 93850  # Cr, as of Session 13
+  last_updated: "Session 13"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
@@ -20,6 +20,8 @@ party_kitty:
     Session 10: Op expenses (sleeping drugs, infiltration costs). Kitty 73,750 Cr.
     Session 12: Kikonye reward +45,000 Cr. Solal jewelry/personal effects +105,000 Cr.
                Missile resupply and other expenses deducted. Kitty 109,950 Cr.
+    Session 13: Pre-jump kit-out and resupply at Mowebe before jump to Maitz.
+               Kitty 93,850 Cr (-16,100 Cr).
 
 # =============================================================================
 # SHIPS
@@ -44,6 +46,9 @@ ships:
       Both fighter-interceptors destroyed. Misjump on departure — Oort cloud deviation,
       powerplant damaged. Van Leeuwen and Corinne Page repaired powerplant at JF depot.
       Missiles and fuel fully restocked. Currently en route to Maitz.
+      Session 13: Jumped to Maitz. Refueled by siphoning from the Star of Carella wreck
+      (fuel 2/2 maintained). Two looted 10 dT shuttlecraft and 16 tons of Rx loaded into
+      cargo bay (manufactured trade goods dumped to make room).
 
     frame:
       tonnage: 200
@@ -100,14 +105,39 @@ ships:
       # Middle passengers (Sessions 6–8) disembarked at Mowebe
 
     cargo:
-      manifest: []
+      manifest:
+        - item: "Looted shuttlecraft (10 dT)"
+          quantity: 2
+          source: "Star of Carella wreck (Session 13)"
+          notes: "Stowed in VoL II cargo bay. 16 tons Rx split across them as storage."
+        - item: "Pharmaceuticals (Rx)"
+          tons: 16
+          source: "Star of Carella wreck (Session 13)"
+          notes: "Split across the two looted shuttles in cargo. Origin/value TBD."
       # Electronics components + chemicals sold at Mowebe manufactories (Session 9, broke even)
+      # Manufactured trade goods (taken on at Mowebe pre-Maitz jump) dumped Session 13 to make room.
 
     damage_log:
       - session: 12
         damage: "Powerplant damaged during misjump into Oort cloud"
         repaired: true
         repaired_by: "Van Leeuwen and Corinne Page at lunar JF depot"
+
+# =============================================================================
+# RECOVERED INTELLIGENCE / DATA
+# =============================================================================
+recovered_data:
+  - source: "Star of Carella (Newhall) — Session 13"
+    items:
+      - description: "Decrypted orders: Tivid → Maitz, Priority 1, capture or destroy Newhall scout Deepest Light"
+        status: decoded
+        notes: "Unsigned. Higher-grade encryption used. Suggests command-level traffic with deniability."
+      - description: "Thousands of short, encrypted files spanning 8 hours from Star of Carella's Maitz arrival"
+        status: pending
+        notes: "Suspected to be battle logs and/or comms traffic. Higher-grade encryption."
+      - description: "Captain's stateroom search — only anomaly was a missing book from a bookshelf"
+        status: open
+        notes: "Physical paper books are unusual. Missing one may be hidden, smuggled, or a hollowed cache."
 
 # =============================================================================
 # SHARED EQUIPMENT

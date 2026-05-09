@@ -102,6 +102,11 @@
   main.content {
     padding: 28px 36px 60px;
     max-width: 1100px;
+    /* Without this, a wide child (e.g. a price table) would push the grid
+       track wider than the viewport and cause page-level horizontal scroll,
+       defeating the .table-scroll wrappers. min-width:0 lets the grid track
+       shrink so the scroll containers actually scroll. */
+    min-width: 0;
   }
 
   .crumbs {
@@ -217,6 +222,16 @@
   }
   tbody tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
   tbody tr:hover td { background: rgba(92,124,250,0.08); }
+
+  /* Wrapper added by setView so wide tables scroll horizontally on small screens
+     instead of forcing the whole page to scroll. */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 8px 0 14px;
+    border-radius: 4px;
+  }
+  .table-scroll > table { margin: 0; }
 
   /* KV list */
   .kv {
@@ -358,29 +373,32 @@
   .menu-toggle {
     display: none;
     position: fixed;
-    top: 12px;
-    left: 12px;
+    top: 10px;
+    left: 10px;
     z-index: 30;
     background: var(--bg-3);
     color: var(--accent);
     border: 1px solid var(--border-2);
     border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 1.1rem;
+    padding: 10px 14px;
+    font-size: 1.25rem;
     line-height: 1;
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
   }
   .menu-toggle:hover { background: var(--bg-2); }
+  .menu-toggle:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 
   .sidebar-backdrop {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.55);
     z-index: 18;
   }
 
-  /* Mobile */
+  /* Tablet / mobile */
   @media (max-width: 800px) {
     .layout { grid-template-columns: 1fr; }
     .menu-toggle { display: block; }
@@ -389,18 +407,62 @@
       top: 0;
       left: 0;
       height: 100vh;
-      width: 260px;
+      width: min(280px, 84vw);
       z-index: 20;
       border-right: 1px solid var(--border);
       border-bottom: none;
-      padding: 12px 0;
+      padding: 12px 0 24px;
       transform: translateX(-100%);
       transition: transform 0.2s ease;
       box-shadow: 2px 0 12px rgba(0,0,0,0.35);
+      overscroll-behavior: contain;
     }
     body.sidebar-open aside.sidebar { transform: translateX(0); }
     body.sidebar-open .sidebar-backdrop { display: block; }
-    main.content { padding: 18px 18px 60px; padding-top: 56px; }
+
+    /* Larger touch targets in the slide-out nav */
+    nav a { padding: 11px 18px; font-size: 0.95rem; }
+    nav .group { padding: 14px 18px 6px; }
+    .brand { padding: 4px 18px 14px; }
+
+    main.content {
+      padding: 18px 16px 60px;
+      padding-top: 60px;
+      max-width: 100%;
+    }
+
+    /* Card grid: a single column reads better than awkward 1.x columns */
+    .card-grid { grid-template-columns: 1fr; }
+
+    /* kv list: stack key over value to avoid horizontal overflow */
+    .kv {
+      grid-template-columns: 1fr;
+      row-gap: 2px;
+    }
+    .kv dt { padding-top: 8px; }
+    .kv dt:first-of-type { padding-top: 0; }
+
+    /* Filter bars: stack vertically and let inputs fill width */
+    .filter-bar { flex-direction: column; align-items: stretch; gap: 8px; }
+    .filter-bar input[type="text"],
+    .filter-bar select { min-width: 0; width: 100%; }
+    .filter-bar .count { align-self: flex-start; }
+
+    /* Slightly tighter typography */
+    h1.page-title { font-size: 1.3rem; margin-bottom: 14px; }
+    h2 { font-size: 1.05rem; }
+    h3 { font-size: 0.95rem; }
+  }
+
+  /* Small phones */
+  @media (max-width: 480px) {
+    main.content { padding: 16px 12px 60px; padding-top: 60px; }
+    h1.page-title { font-size: 1.2rem; }
+    .card { padding: 12px 14px; }
+    .recap-block { padding: 10px 12px; font-size: 0.88rem; }
+    pre { padding: 10px; font-size: 0.78rem; }
+    /* Tag chips can crowd in narrow rows — give them a little breathing room. */
+    .pill-row .tag { margin-bottom: 4px; }
   }
 </style>
 </head>
@@ -544,7 +606,20 @@ function slugify(s) {
 }
 
 function setView(html) {
-  document.getElementById('view').innerHTML = html;
+  const view = document.getElementById('view');
+  view.innerHTML = html;
+  // Wrap every table in a horizontally scrollable container so wide tables
+  // (prices, careers, retirement, etc.) don't blow out the viewport on phones.
+  for (const table of view.querySelectorAll('table')) {
+    if (table.parentElement && table.parentElement.classList.contains('table-scroll')) continue;
+    const wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    table.parentNode.insertBefore(wrap, table);
+    wrap.appendChild(table);
+  }
+  // Scroll the new view to the top so route changes don't strand the user mid-page.
+  view.scrollTop = 0;
+  window.scrollTo(0, 0);
 }
 
 function showError(err, contextPath) {

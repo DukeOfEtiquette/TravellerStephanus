@@ -14,12 +14,36 @@
     min-height: 100vh;
   }
 
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px 4px;
+  }
+  .topbar a.back {
+    color: #b8c0ff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid #334;
+    background: #16213e;
+    padding: 8px 12px;
+    border-radius: 4px;
+    line-height: 1;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .topbar a.back:hover { border-color: #5c7cfa; color: #fff; }
+  .topbar .spacer { width: 1px; }
+
   h1 {
     text-align: center;
-    padding: 16px;
+    padding: 4px 16px 12px;
     font-size: 1.3rem;
     color: #b8c0ff;
     letter-spacing: 0.05em;
+    margin: 0;
   }
 
   /* Controls bar */
@@ -199,10 +223,70 @@
   /* Clickable system hexes */
   .hex-poly.has-system { cursor: pointer; }
   .hex-poly.has-system:hover { stroke: #8888cc; stroke-width: 2.5; }
+
+  /* Tablet / mobile */
+  @media (max-width: 720px) {
+    h1 { font-size: 1.1rem; padding: 4px 12px 12px; }
+    .topbar { padding: 10px 12px 2px; }
+
+    /* Channel must allow shrink so the SVG can scale to viewport. */
+    .channel { max-width: 100%; padding: 0 12px; }
+
+    /* Stack controls vertically; full-width inputs are easier to tap. */
+    .controls {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      padding: 0 0 14px;
+    }
+    .control-group { width: 100%; }
+    .control-group label { font-size: 0.7rem; }
+    select, input[type="number"] {
+      min-width: 0;
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 1rem;
+    }
+    .checkbox-group { padding: 10px 0; }
+    .checkbox-group input[type="checkbox"] {
+      width: 20px; height: 20px;
+      accent-color: #5c7cfa;
+    }
+    .checkbox-group label { font-size: 1rem; }
+    button {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 1rem;
+      min-height: 44px;
+    }
+
+    .results {
+      padding: 12px;
+      font-size: 0.8rem;
+      overflow-x: auto;
+    }
+
+    /* Let the SVG scale to viewport width while preserving aspect ratio. */
+    .map-container { padding: 0 0 16px; }
+    svg.hex-map {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .channel { padding: 0 8px; }
+  }
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <a class="back" href="index.html">← Campaign Viewer</a>
+  <span class="spacer"></span>
+</div>
 <h1>Traveller Stephanus — Travel Calculator</h1>
 
 <div class="channel">

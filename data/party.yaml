@@ -1,8 +1,34 @@
 # Party Members - Traveller Stephanus Campaign
-# Lightweight tracking for other PCs in the group
-# (William Hung has full treatment in characters/active/william-hung/)
+# Lightweight tracking for PCs in the group
+# (William Hung has fuller treatment in characters/active/william-hung/;
+# his entry here mirrors the others so the Party page lists everyone.)
 
 party_members:
+
+  - name: "William Hung"
+    player: Adam
+    age: 40
+    upp: "894974"
+    # STR 8, DEX 9, END 4, INT 9, EDU 7, SOC 4
+    background:
+      homeworld: Agricultural
+      schooling: The Streets
+    careers:
+      - { name: Mercantile, terms: 2, rank: 1 }
+      - { name: "Mercantile (Drafted)", terms: 3, rank: 3 }
+    skills:
+      - Broker-4
+      - Carousing-4
+      - Steward-4
+      - Diplomacy-1
+      - Pilot-1
+      - Streetwise-1
+    notes: |
+      Stowaway-turned-purser turned Chief Broker. Retired wealthy at 38, spent
+      two years and 50,000 Cr at Adabicci Flight Academy learning to pilot the
+      shuttlecraft he'd inherited, then joined the mercenary group at 40.
+      Owns a Shuttlecraft, Ground Car, and Grav Bike. Full character record
+      in characters/active/william-hung/.
 
   - name: "Cpl. Bobby 'Birdshit' Bootman"
     age: 38

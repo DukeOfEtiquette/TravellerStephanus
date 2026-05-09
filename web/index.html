@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Traveller Stephanus — Campaign Viewer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -693,11 +694,8 @@ async function viewHome() {
   try { camp = await load('../data/campaign.yaml'); }
   catch (e) { return showError(e, '../data/campaign.yaml'); }
 
-  let html = `<h1 class="page-title">${esc(camp.campaign?.name || 'Campaign')}</h1>`;
-
-  html += `
+  let html = `<h2>The Death Mask</h2>
     <div class="card">
-      <h3>The Death Mask <span class="tag">McGuffin</span></h3>
       <p>${nl2br(camp.mcguffin?.description || '')}</p>
       <div class="kv" style="margin-top: 8px;">
         <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '—')}</dd>
@@ -1201,13 +1199,13 @@ async function viewParty() {
   catch (e) { return showError(e, '../data/party.yaml'); }
 
   const members = raw.party_members || [];
-  let html = `<h1 class="page-title">Party Members</h1>`;
-  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">Other PCs in the group.</p>`;
-  html += `<div class="card-grid">`;
-  for (const m of members) {
+  const active   = members.filter(m => m.status !== 'DECEASED');
+  const deceased = members.filter(m => m.status === 'DECEASED');
+
+  const renderCard = (m) => {
     const dead = m.status === 'DECEASED';
-    html += `<div class="card">
-      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED</span>` : ''}</h3>
+    return `<div class="card">
+      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED${m.died ? ` — ${esc(m.died)}` : ''}</span>` : ''}</h3>
       <div class="pill-row">
         ${m.upp ? `<span class="tag dim">UPP ${esc(m.upp)}</span>` : ''}
         ${m.age ? `<span class="tag dim">age ${esc(m.age)}</span>` : ''}
@@ -1221,8 +1219,18 @@ async function viewParty() {
       ${m.skills?.length ? `<h3>Skills</h3><div>${m.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>` : ''}
       ${m.notes ? `<div style="margin-top: 8px; white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem;">${esc(m.notes)}</div>` : ''}
     </div>`;
+  };
+
+  let html = `<h1 class="page-title">Party Members</h1>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">PCs in the group.</p>`;
+
+  html += `<div class="card-grid">${active.map(renderCard).join('')}</div>`;
+
+  if (deceased.length) {
+    html += `<h2 style="margin-top: 24px;">Deceased</h2>`;
+    html += `<div class="card-grid">${deceased.map(renderCard).join('')}</div>`;
   }
-  html += `</div>`;
+
   setView(html);
 }
 

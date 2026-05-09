@@ -23,7 +23,7 @@ Passengers may travel in staterooms ("high" and "middle" passage, or--more dange
 Interstellar Communication
 There is no faster than light communication.
 Information moves at the speed of transit, like letters sent via packet ship during the age of sail.
-.
+
 Starports
 Class A starports can build ships. Class A and B can make major repairs. Class C and D can make minor repairs. Class X starports have no maintenance capacity whatsoever.
 Refined fuel is available at class A, B, and C starports only. Unrefined fuel is available at class C and D starports, or may be skimmed from gas giants. No fuel is available at class X starports.

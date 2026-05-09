@@ -462,7 +462,8 @@ const NAV = [
   ]},
   { group: 'Party', items: [
     { route: '#/party',      label: 'Party Members' },
-    { route: '#/assets',     label: 'Ship & Assets' }
+    { route: '#/ships',      label: 'Ships' },
+    { route: '#/assets',     label: 'Assets' }
   ]},
   { group: 'Setting', items: [
     { route: '#/worlds',     label: 'Worlds' },
@@ -1097,7 +1098,7 @@ async function viewAssets() {
   try { raw = await load('../data/assets.yaml'); }
   catch (e) { return showError(e, '../data/assets.yaml'); }
 
-  let html = `<h1 class="page-title">Ship & Assets</h1>`;
+  let html = `<h1 class="page-title">Assets</h1>`;
 
   if (raw.party_kitty) {
     const k = raw.party_kitty;
@@ -1141,8 +1142,28 @@ async function viewAssets() {
     html += `</tbody></table>`;
   }
 
+  if (raw.recovered_data?.length) {
+    html += `<h2>Recovered Intelligence / Data</h2>`;
+    for (const r of raw.recovered_data) {
+      html += `<div class="card">
+        <h3>${esc(r.source || 'Unknown source')}</h3>
+        <ul>${(r.items || []).map(it => `<li><strong>${esc(it.description || '')}</strong> <span class="tag ${it.status === 'decoded' ? 'good' : it.status === 'pending' ? 'warn' : 'dim'}">${esc(it.status || '')}</span>${it.notes ? `<br><span style="color: var(--text-dim); font-size: 0.88rem;">${esc(it.notes)}</span>` : ''}</li>`).join('')}</ul>
+      </div>`;
+    }
+  }
+
+  setView(html);
+}
+
+async function viewShips() {
+  setView('<div class="loading">Loading ships…</div>');
+  let raw;
+  try { raw = await load('../data/assets.yaml'); }
+  catch (e) { return showError(e, '../data/assets.yaml'); }
+
+  let html = `<h1 class="page-title">Ships</h1>`;
+
   if (raw.ships?.length) {
-    html += `<h2>Ships</h2>`;
     for (const ship of raw.ships) {
       const cargoList = Array.isArray(ship.cargo) ? ship.cargo : (ship.cargo?.manifest || []);
       const cargoUsed = cargoList.reduce((s, c) => s + (Number(c.tons) || 0), 0);
@@ -1213,18 +1234,6 @@ async function viewAssets() {
       </div>`;
     }
   }
-
-  if (raw.recovered_data?.length) {
-    html += `<h2>Recovered Intelligence / Data</h2>`;
-    for (const r of raw.recovered_data) {
-      html += `<div class="card">
-        <h3>${esc(r.source || 'Unknown source')}</h3>
-        <ul>${(r.items || []).map(it => `<li><strong>${esc(it.description || '')}</strong> <span class="tag ${it.status === 'decoded' ? 'good' : it.status === 'pending' ? 'warn' : 'dim'}">${esc(it.status || '')}</span>${it.notes ? `<br><span style="color: var(--text-dim); font-size: 0.88rem;">${esc(it.notes)}</span>` : ''}</li>`).join('')}</ul>
-      </div>`;
-    }
-  }
-
-  // Note: hanger contents now render inline under each ship's card above.
 
   setView(html);
 }
@@ -1573,6 +1582,8 @@ async function route() {
         return await viewWorld(parts[1]);
       case 'party':
         return await viewParty();
+      case 'ships':
+        return await viewShips();
       case 'assets':
         return await viewAssets();
       case 'rules':

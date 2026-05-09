@@ -166,6 +166,14 @@ Sessions always occur on **Fridays**. The `date` field in both `data/sessions/` 
 
 **Deriving unknown dates:** When the actual session date is not recorded, calculate it by counting Fridays from a confirmed anchor — but note that scheduling gaps occur and sessions are not always strictly weekly. All dates for sessions 1–12 have been confirmed accurate.
 
+## Testing the Web Viewer
+
+The static site in `web/` (`index.html`, `travel.html`) can be tested end-to-end via the **Playwright MCP** — use `mcp__playwright__browser_*` tools to navigate, click, snapshot, and screenshot.
+
+To serve locally, start `python3 -m http.server` from the **repo root** (not `web/`), because the HTML fetches `../data/...`. Netlify handles this in production via the build step in `netlify.toml`, which copies `data/` into `web/data/`.
+
+Useful checks: console errors (`browser_console_messages`), accessibility tree (`browser_snapshot`), mobile layout (`browser_resize` to 390×844, then `browser_take_screenshot`).
+
 ## Notes
 
 - The markdown files were copy-pasted from Discord and may have formatting artifacts (e.g., emoji reactions, timestamps in `world-profiles-how-to.md`)

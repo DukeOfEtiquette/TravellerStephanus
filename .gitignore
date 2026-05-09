@@ -7,6 +7,7 @@
 
 prompt.md
 /tmp
+.venv
 
 # Netlify build artifacts (data/ and references/ get copied here at deploy time)
 web/data/

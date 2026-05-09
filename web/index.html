@@ -1136,6 +1136,23 @@ async function viewAssets() {
   if (raw.ships?.length) {
     html += `<h2>Ships</h2>`;
     for (const ship of raw.ships) {
+      const cargoList = Array.isArray(ship.cargo) ? ship.cargo : (ship.cargo?.manifest || []);
+      const cargoUsed = cargoList.reduce((s, c) => s + (Number(c.tons) || 0), 0);
+      const cargoCap  = Number(ship.frame?.cargo_capacity) || 0;
+      const cargoOver = cargoCap > 0 && cargoUsed > cargoCap;
+
+      const hangerList = ship.hanger || [];
+      const hangerUsed = hangerList.reduce((s, v) => s + (Number(v.tons) || 0), 0);
+      const hangerCap  = Number(ship.frame?.hanger_capacity) || 0;
+      const hangerOver = hangerCap > 0 && hangerUsed > hangerCap;
+
+      const fmtCap = (used, cap, over) => {
+        if (!cap) return '';
+        const cls = over ? 'bad' : (used >= cap * 0.9 ? 'warn' : 'good');
+        const usedStr = (used % 1 === 0) ? used : used.toFixed(1);
+        return `<span class="tag ${cls}">${usedStr} / ${cap} t</span>`;
+      };
+
       html += `<div class="card">
         <h3>${esc(ship.name)}</h3>
         <div class="pill-row">
@@ -1149,14 +1166,41 @@ async function viewAssets() {
         ${ship.frame ? `<h3>Frame</h3><div class="kv">
           ${ship.frame.tonnage ? `<dt>Tonnage</dt><dd>${esc(ship.frame.tonnage)}</dd>` : ''}
           ${ship.frame.hull_hp ? `<dt>Hull HP</dt><dd>${esc(ship.frame.hull_current ?? ship.frame.hull_hp)} / ${esc(ship.frame.hull_hp)}</dd>` : ''}
-          ${ship.frame.cargo_capacity ? `<dt>Cargo</dt><dd>${esc(ship.frame.cargo_capacity)} t</dd>` : ''}
-          ${ship.frame.hanger_capacity ? `<dt>Hanger</dt><dd>${esc(ship.frame.hanger_capacity)} t</dd>` : ''}
+          ${cargoCap ? `<dt>Cargo</dt><dd>${cargoUsed} / ${cargoCap} t</dd>` : ''}
+          ${hangerCap ? `<dt>Hanger</dt><dd>${hangerUsed || '—'} / ${hangerCap} t</dd>` : ''}
         </div>` : ''}
 
         ${ship.systems ? `<h3>Systems</h3><pre>${esc(jsyaml.dump(ship.systems))}</pre>` : ''}
         ${ship.amenities ? `<h3>Amenities</h3><pre>${esc(jsyaml.dump(ship.amenities))}</pre>` : ''}
         ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` — boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
-        ${ship.cargo?.manifest?.length ? `<h3>Cargo Manifest</h3><table><thead><tr><th>Item</th><th>Qty / Tons</th><th>Source</th><th>Notes</th></tr></thead><tbody>${ship.cargo.manifest.map(c => `<tr><td>${esc(c.item)}</td><td>${esc(c.quantity ?? c.tons ?? '')}</td><td>${esc(c.source || '')}</td><td>${esc(c.notes || '')}</td></tr>`).join('')}</tbody></table>` : ''}
+
+        ${cargoList.length ? `
+          <h3>Cargo Bay ${fmtCap(cargoUsed, cargoCap, cargoOver)}</h3>
+          <table><thead><tr><th>Item</th><th>Qty</th><th>Tons</th><th>Source</th><th>Notes</th></tr></thead><tbody>
+            ${cargoList.map(c => `<tr><td>${esc(c.item)}</td><td>${esc(c.count ?? c.quantity ?? '')}</td><td>${esc(c.tons ?? '')}</td><td>${esc(c.source || '')}</td><td>${esc(c.notes || '')}</td></tr>`).join('')}
+          </tbody></table>
+        ` : (cargoCap ? `<h3>Cargo Bay ${fmtCap(0, cargoCap, false)}</h3><div style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px;">empty</div>` : '')}
+
+        ${hangerList.length ? `
+          <h3>Hanger ${fmtCap(hangerUsed, hangerCap, hangerOver)}</h3>
+          <div class="card-grid">
+            ${hangerList.map(v => `
+              <div class="card" style="background: var(--bg-1);">
+                <h3>${esc(v.name)}</h3>
+                <div class="pill-row">
+                  ${v.owner ? `<span class="tag">${esc(v.owner)}</span>` : ''}
+                  ${v.tons ? `<span class="tag dim">${esc(v.tons)} t</span>` : ''}
+                  ${v.cargo_capacity ? `<span class="tag dim">${esc(v.cargo_capacity)} t cargo</span>` : ''}
+                </div>
+                ${v.current_cargo?.length
+                  ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.tons ? ` (${esc(c.tons)} t)` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
+                  : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
+                ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        ` : (hangerCap ? `<h3>Hanger ${fmtCap(0, hangerCap, false)}</h3><div style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px;">empty</div>` : '')}
+
         ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` — ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
       </div>`;
     }
@@ -1180,21 +1224,7 @@ async function viewAssets() {
     html += `</tbody></table>`;
   }
 
-  if (raw.hanger_contents?.length) {
-    html += `<h2>Hanger Contents</h2><div class="card-grid">`;
-    for (const v of raw.hanger_contents) {
-      html += `<div class="card">
-        <h3>${esc(v.name)}</h3>
-        <div class="pill-row">
-          ${v.owner ? `<span class="tag">${esc(v.owner)}</span>` : ''}
-          ${v.cargo_capacity ? `<span class="tag dim">${esc(v.cargo_capacity)} t cargo</span>` : ''}
-        </div>
-        ${v.current_cargo?.length ? `<ul>${v.current_cargo.map(c => `<li>${esc(c.item)}${c.tons ? ` (${esc(c.tons)} t)` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>` : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
-        ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
-      </div>`;
-    }
-    html += `</div>`;
-  }
+  // Note: hanger contents now render inline under each ship's card above.
 
   setView(html);
 }

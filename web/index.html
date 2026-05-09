@@ -192,16 +192,22 @@
   /* Tables */
   table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 8px 0 14px;
     font-size: 0.88rem;
+    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border-radius: 4px;
+    overflow: hidden;
   }
   th, td {
     text-align: left;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-bottom: 1px solid var(--border);
     vertical-align: top;
   }
+  tbody tr:last-child td { border-bottom: none; }
   th {
     color: var(--text-faint);
     font-size: 0.72rem;
@@ -209,6 +215,8 @@
     letter-spacing: 0.06em;
     font-weight: 600;
   }
+  tbody tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
+  tbody tr:hover td { background: rgba(92,124,250,0.08); }
 
   /* KV list */
   .kv {
@@ -265,6 +273,51 @@
   .starport-D { color: #ffa94d; }
   .starport-X { color: #ff6b6b; }
 
+  /* Prices tables — sized to content so columns stay tight */
+  table.prices-table {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+  table.prices-table th,
+  table.prices-table td {
+    padding: 5px 14px;
+    white-space: nowrap;
+  }
+  table.prices-table td:last-child,
+  table.prices-table th:last-child { padding-right: 16px; }
+
+  /* Collapsible sections */
+  details.collapsible {
+    margin: 22px 0 10px;
+  }
+  details.collapsible > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details.collapsible > summary::-webkit-details-marker { display: none; }
+  details.collapsible > summary::before {
+    content: '▸';
+    color: var(--accent);
+    font-size: 0.85rem;
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  details.collapsible[open] > summary::before {
+    transform: rotate(90deg);
+  }
+  details.collapsible > summary > h2 {
+    display: inline;
+    margin: 0;
+  }
+  details.collapsible > summary:hover > h2 {
+    color: #fff;
+  }
+
   .recap-block {
     background: var(--bg-3);
     border-left: 3px solid var(--accent-2);
@@ -287,21 +340,60 @@
     margin: 8px 0;
   }
 
+  /* Mobile menu button — hidden on desktop */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 30;
+    background: var(--bg-3);
+    color: var(--accent);
+    border: 1px solid var(--border-2);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .menu-toggle:hover { background: var(--bg-2); }
+
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 18;
+  }
+
   /* Mobile */
   @media (max-width: 800px) {
     .layout { grid-template-columns: 1fr; }
+    .menu-toggle { display: block; }
     aside.sidebar {
-      position: static;
-      height: auto;
-      border-right: none;
-      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 260px;
+      z-index: 20;
+      border-right: 1px solid var(--border);
+      border-bottom: none;
       padding: 12px 0;
+      transform: translateX(-100%);
+      transition: transform 0.2s ease;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.35);
     }
-    main.content { padding: 18px; }
+    body.sidebar-open aside.sidebar { transform: translateX(0); }
+    body.sidebar-open .sidebar-backdrop { display: block; }
+    main.content { padding: 18px 18px 60px; padding-top: 56px; }
   }
 </style>
 </head>
 <body>
+
+<button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
 <div class="layout">
   <aside class="sidebar">
@@ -343,11 +435,6 @@ const CAREER_FILES = [
   { id: 'psion',      label: 'Psion' }
 ];
 
-const CHARACTERS = [
-  { slug: 'william-hung',   group: 'active',   label: 'William Hung' },
-  { slug: 'kelly-clarkson', group: 'inactive', label: 'Kelly Clarkson' }
-];
-
 const REFERENCES = [
   { id: 'system-fundamentals',   label: 'System Fundamentals' },
   { id: 'settings-fundamentals', label: 'Settings Fundamentals' },
@@ -370,16 +457,16 @@ const NAV = [
     { route: '#/',              label: 'Overview' },
     { route: '#/sessions',      label: 'GM Session Recaps' },
     { route: '#/investigation', label: 'Investigation' },
+    { route: '#/timeline',      label: 'Timeline' },
     { route: '#/npcs',          label: 'NPCs' }
   ]},
   { group: 'Party', items: [
     { route: '#/party',      label: 'Party Members' },
-    { route: '#/characters', label: 'Character Sheets' },
     { route: '#/assets',     label: 'Ship & Assets' }
   ]},
   { group: 'Setting', items: [
     { route: '#/worlds',     label: 'Worlds' },
-    { route: 'travel.html',  label: 'Travel Calculator', external: true }
+    { route: 'travel.html',  label: 'Travel Calculator' }
   ]},
   { group: 'Rules', items: [
     { route: '#/rules',     label: 'Core Rules' },
@@ -546,13 +633,6 @@ async function viewHome() {
   }
   html += `</div>`;
 
-  html += `
-    <h2>Top-level Docs</h2>
-    <div class="card-grid">
-      ${TOP_DOCS.map(d => `<div class="card"><a href="#/doc/${encodeURIComponent(d.path)}">${esc(d.label)}</a></div>`).join('')}
-    </div>
-  `;
-
   setView(html);
 }
 
@@ -578,7 +658,8 @@ async function viewSessions() {
           <a href="#/sessions/${s.n}">Session ${s.n}</a>
           ${sd.date ? `<span class="tag dim" style="margin-left: 8px;">${esc(sd.date)}</span>` : ''}
         </h3>
-        <div style="color: var(--text-dim); font-size: 0.88rem; margin-top: 6px; white-space: pre-wrap;">${esc(truncate(sd.recap || '', 280))}</div>
+        <div style="color: var(--text-dim); font-size: 0.88rem; margin-top: 6px; white-space: pre-wrap;">${esc(sd.recap || '')}</div>
+        ${sd.recap ? `<div style="margin-top: 8px; font-size: 0.85rem;"><a href="#/sessions/${s.n}">Read full session →</a></div>` : ''}
       </div>
     `;
   }
@@ -692,16 +773,16 @@ async function viewInvestigation() {
     html += `</tbody></table>`;
   }
 
-  const renderLeads = (leads, title) => {
+  const renderLeads = (leads, title, opts = {}) => {
     if (!leads?.length) return '';
-    let h = `<h2>${esc(title)}</h2>`;
+    let body = '';
     for (const lead of leads) {
       const statusCls = lead.status === 'resolved' ? 'good'
                       : lead.status === 'stalled'  ? 'warn'
                       : lead.status === 'in_progress' ? '' : 'dim';
       const prioCls = lead.priority === 'high' ? 'bad'
                     : lead.priority === 'medium' ? 'warn' : 'dim';
-      h += `<div class="card">
+      body += `<div class="card">
         <h3>${esc(lead.name)}</h3>
         <div class="pill-row">
           ${lead.priority ? `<span class="tag ${prioCls}">${esc(lead.priority)} priority</span>` : ''}
@@ -715,16 +796,30 @@ async function viewInvestigation() {
         ${lead.notes ? `<div style="white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem; margin-top: 6px;">${esc(lead.notes)}</div>` : ''}
       </div>`;
     }
-    return h;
+    if (opts.collapsible) {
+      return `<details class="collapsible"><summary><h2>${esc(title)} <span class="tag dim">${leads.length}</span></h2></summary>${body}</details>`;
+    }
+    return `<h2>${esc(title)}</h2>${body}`;
   };
 
-  html += renderLeads(inv.active_leads, 'Active Leads');
+  if (inv.current_plan) {
+    html += `<h2>Current Plan</h2>`;
+    const cp = inv.current_plan;
+    if (cp.summary) html += `<div class="recap-block">${esc(cp.summary)}</div>`;
+    const planKnown = new Set(['summary','assets','timeline']);
+    const planExtras = Object.entries(cp).filter(([k]) => !planKnown.has(k));
+    for (const [k, v] of planExtras) {
+      html += `<h3>${esc(k.replace(/_/g, ' '))}</h3>${renderYaml(v, 1)}`;
+    }
+  }
+
+  html += renderLeads(inv.active_leads, 'Active Leads', { collapsible: true });
   html += renderLeads(inv.resolved_leads, 'Resolved Leads');
 
   if (inv.dead_ends?.length) {
-    html += `<h2>Dead Ends</h2>`;
+    let body = '';
     for (const d of inv.dead_ends) {
-      html += `<div class="card">
+      body += `<div class="card">
         <h3>${esc(d.name)}</h3>
         <div class="pill-row">
           ${d.ruled_out ? `<span class="tag dim">ruled out ${esc(d.ruled_out)}</span>` : ''}
@@ -734,12 +829,13 @@ async function viewInvestigation() {
         ${d.notes ? `<div style="white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem; margin-top: 6px;">${esc(d.notes)}</div>` : ''}
       </div>`;
     }
+    html += `<details class="collapsible"><summary><h2>Dead Ends <span class="tag dim">${inv.dead_ends.length}</span></h2></summary>${body}</details>`;
   }
 
   if (inv.key_intel?.length) {
-    html += `<h2>Key Intel</h2>`;
+    let body = '';
     for (const it of inv.key_intel) {
-      html += `<div class="card">
+      body += `<div class="card">
         <h3>${esc(it.fact || it.topic || it.name || 'Intel')}</h3>
         <div class="pill-row">
           ${it.source ? `<span class="tag dim">source: ${esc(it.source)}</span>` : ''}
@@ -748,33 +844,14 @@ async function viewInvestigation() {
         ${it.details ? `<div style="white-space: pre-wrap;">${esc(it.details)}</div>` : ''}
       </div>`;
     }
+    html += `<details class="collapsible"><summary><h2>Key Intel <span class="tag dim">${inv.key_intel.length}</span></h2></summary>${body}</details>`;
   }
 
   if (inv.open_questions?.length) {
-    html += `<h2>Open Questions</h2><ul>${inv.open_questions.map(q =>
+    const items = inv.open_questions.map(q =>
       typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` — ${esc(q.notes)}` : ''}</li>`
-    ).join('')}</ul>`;
-  }
-
-  if (inv.current_plan) {
-    html += `<h2>Current Plan</h2>`;
-    const cp = inv.current_plan;
-    if (cp.summary) html += `<div class="recap-block">${esc(cp.summary)}</div>`;
-    if (cp.assets?.length) {
-      html += `<h3>Assets</h3><ul>${cp.assets.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`;
-    }
-    if (cp.timeline?.length) {
-      html += `<h3>Timeline</h3><table><thead><tr><th>Day</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
-      for (const t of cp.timeline) {
-        html += `<tr><td>${esc(t.day ?? '')}</td><td>${esc(t.location || '')}</td><td style="white-space: pre-wrap;">${esc(t.notes || '')}</td></tr>`;
-      }
-      html += `</tbody></table>`;
-    }
-    const planKnown = new Set(['summary','assets','timeline']);
-    const planExtras = Object.entries(cp).filter(([k]) => !planKnown.has(k));
-    for (const [k, v] of planExtras) {
-      html += `<h3>${esc(k.replace(/_/g, ' '))}</h3>${renderYaml(v, 1)}`;
-    }
+    ).join('');
+    html += `<details class="collapsible"><summary><h2>Open Questions <span class="tag dim">${inv.open_questions.length}</span></h2></summary><ul>${items}</ul></details>`;
   }
 
   // Catch-all for anything else
@@ -783,6 +860,37 @@ async function viewInvestigation() {
   for (const [k, v] of extras) {
     html += `<h2>${esc(k.replace(/_/g, ' '))}</h2>${renderYaml(v, 1)}`;
   }
+
+  setView(html);
+}
+
+async function viewTimeline() {
+  setView('<div class="loading">Loading timeline…</div>');
+  let inv;
+  try { inv = await load('../data/investigation.yaml'); }
+  catch (e) { return showError(e, '../data/investigation.yaml'); }
+
+  let html = crumbs([
+    { route: '#/investigation', label: 'Investigation' },
+    { label: 'Timeline' }
+  ]);
+  html += `<h1 class="page-title">Timeline</h1>`;
+
+  const timeline = inv.current_plan?.timeline;
+  if (!timeline?.length) {
+    html += `<p style="color: var(--text-dim);">No timeline entries.</p>`;
+    return setView(html);
+  }
+
+  if (inv.current_plan?.summary) {
+    html += `<div class="recap-block">${esc(inv.current_plan.summary)}</div>`;
+  }
+
+  html += `<table><thead><tr><th>Day</th><th>Location</th><th>Notes</th></tr></thead><tbody>`;
+  for (const t of timeline) {
+    html += `<tr><td>${esc(t.day ?? '')}</td><td>${esc(t.location || '')}</td><td style="white-space: pre-wrap;">${esc(t.notes || '')}</td></tr>`;
+  }
+  html += `</tbody></table>`;
 
   setView(html);
 }
@@ -881,7 +989,7 @@ async function viewWorlds() {
   }
 
   let html = `<h1 class="page-title">Worlds</h1>`;
-  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">${systems.length} inhabited systems. <a href="travel.html" target="_blank" rel="noopener">Open the travel calculator ↗</a></p>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">${systems.length} inhabited systems. <a href="travel.html">Open the travel calculator</a></p>`;
 
   html += `<div class="card-grid">`;
   for (const s of systems) {
@@ -899,6 +1007,7 @@ async function viewWorlds() {
         ${s.law_level ? `<span class="tag">Law ${esc(s.law_level)}</span>` : ''}
       </div>
       <div style="font-size: 0.88rem; color: var(--text-dim); white-space: pre-wrap;">${esc(truncate(s.description || '', 240))}</div>
+      ${s.description ? `<div style="margin-top: 8px; font-size: 0.85rem;"><a href="#/worlds/${encodeURIComponent(slugify(s.name))}">Read full details →</a></div>` : ''}
     </div>`;
   }
   html += `</div>`;
@@ -958,7 +1067,7 @@ async function viewParty() {
 
   const members = raw.party_members || [];
   let html = `<h1 class="page-title">Party Members</h1>`;
-  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">Other PCs in the group (William Hung has full sheet under <a href="#/characters">Characters</a>).</p>`;
+  html += `<p style="color: var(--text-dim); margin-bottom: 12px;">Other PCs in the group.</p>`;
   html += `<div class="card-grid">`;
   for (const m of members) {
     const dead = m.status === 'DECEASED';
@@ -1068,99 +1177,12 @@ async function viewAssets() {
   setView(html);
 }
 
-async function viewCharacters() {
-  let html = `<h1 class="page-title">Character Sheets</h1>`;
-  html += `<h2>Active</h2><div class="card-grid">`;
-  for (const c of CHARACTERS.filter(x => x.group === 'active')) {
-    html += `<div class="card">
-      <h3><a href="#/characters/${c.group}/${c.slug}">${esc(c.label)}</a></h3>
-      <div class="pill-row"><span class="tag good">active</span></div>
-      <div style="font-size: 0.88rem;">
-        <a href="#/characters/${c.group}/${c.slug}">Sheet</a> ·
-        <a href="#/characters/${c.group}/${c.slug}/notes">Player notes</a> ·
-        <a href="#/characters/${c.group}/${c.slug}/goals">Goals</a>
-      </div>
-    </div>`;
-  }
-  html += `</div>`;
-  html += `<h2>Inactive</h2><div class="card-grid">`;
-  for (const c of CHARACTERS.filter(x => x.group === 'inactive')) {
-    html += `<div class="card">
-      <h3><a href="#/characters/${c.group}/${c.slug}">${esc(c.label)}</a></h3>
-      <div class="pill-row"><span class="tag dim">inactive</span></div>
-    </div>`;
-  }
-  html += `</div>`;
-  setView(html);
-}
-
-async function viewCharacter(group, slug, sub) {
-  const ch = CHARACTERS.find(c => c.group === group && c.slug === slug);
-  if (!ch) return setView(`<div class="error">Unknown character: ${esc(group)}/${esc(slug)}</div>`);
-
-  if (sub === 'notes') {
-    return viewMarkdown(`../characters/${group}/${slug}/session-notes.md`, ch.label, [
-      { route: '#/characters', label: 'Characters' },
-      { route: `#/characters/${group}/${slug}`, label: ch.label },
-      { label: 'Session Notes' }
-    ]);
-  }
-  if (sub === 'goals') {
-    return viewMarkdown(`../characters/${group}/${slug}/goals.md`, ch.label, [
-      { route: '#/characters', label: 'Characters' },
-      { route: `#/characters/${group}/${slug}`, label: ch.label },
-      { label: 'Goals' }
-    ]);
-  }
-
-  setView('<div class="loading">Loading character…</div>');
-  const path = `../characters/${group}/${slug}/${slug}.yaml`;
-  let raw;
-  try { raw = await load(path); }
-  catch (e) { return showError(e, path); }
-
-  let html = '';
-  html += crumbs([{ route: '#/characters', label: 'Characters' }, { label: ch.label }]);
-  html += `<h1 class="page-title">${esc(raw.name || ch.label)}</h1>`;
-
-  if (group === 'active') {
-    html += `<div class="pill-row">
-      <a class="tag" href="#/characters/${group}/${slug}/notes">Player notes</a>
-      <a class="tag" href="#/characters/${group}/${slug}/goals">Goals</a>
-    </div>`;
-  }
-
-  if (raw.attributes?.result) {
-    const attrs = raw.attributes.result;
-    html += `<h2>Attributes</h2><div class="kv">`;
-    for (const [k, v] of Object.entries(attrs)) {
-      html += `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`;
-    }
-    html += `</div>`;
-  }
-
-  if (raw.background) {
-    html += `<h2>Background</h2><div class="kv">
-      ${raw.background.homeworld?.result ? `<dt>Homeworld</dt><dd>${esc(raw.background.homeworld.result)}${raw.background.homeworld.world ? ` (${esc(raw.background.homeworld.world)})` : ''}</dd>` : ''}
-      ${raw.background.schooling?.result ? `<dt>Schooling</dt><dd>${esc(raw.background.schooling.result)}</dd>` : ''}
-      ${raw.background.psychic_talent ? `<dt>Psionic</dt><dd>${raw.background.psychic_talent.result ? 'Yes' : 'No'}</dd>` : ''}
-    </div>`;
-    if (raw.background.homeworld?.world_notes) {
-      html += `<div class="recap-block">${esc(raw.background.homeworld.world_notes)}</div>`;
-    }
-  }
-
-  // Render full YAML for completeness
-  html += `<h2>Full Sheet</h2><pre>${esc(jsyaml.dump(raw))}</pre>`;
-
-  setView(html);
-}
-
-async function viewMarkdown(path, title, crumbsArr) {
+async function viewMarkdown(path, title, crumbsArr, opts = {}) {
   setView('<div class="loading">Loading…</div>');
   let text;
   try { text = await load(path, 'text'); }
   catch (e) { return showError(e, path); }
+  if (opts.preprocess) text = opts.preprocess(text);
   let html = '';
   if (crumbsArr) html += crumbs(crumbsArr);
   if (title) html += `<h1 class="page-title">${esc(title)}</h1>`;
@@ -1303,8 +1325,95 @@ async function viewPrices() {
   catch (e) { return showError(e, '../data/equipment/prices.yaml'); }
 
   let html = `<h1 class="page-title">Prices &amp; Equipment</h1>`;
-  html += renderYaml(raw);
+  html += renderPriceCategory(raw, 0);
   setView(html);
+}
+
+function renderPriceCategory(obj, depth) {
+  if (obj == null) return '';
+  if (Array.isArray(obj)) return renderPriceTable(obj);
+  if (typeof obj !== 'object') return `<div>${esc(String(obj))}</div>`;
+
+  let html = '';
+  for (const [k, v] of Object.entries(obj)) {
+    const heading = depth === 0 ? 'h2' : depth === 1 ? 'h3' : 'h4';
+    const label = k.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    html += `<${heading}>${esc(label)}</${heading}>`;
+    html += renderPriceCategory(v, depth + 1);
+  }
+  return html;
+}
+
+const PRICE_COL_ORDER = ['name','skill_level','damage','value','cost','cost_min','cost_max','cost_ratio','ammo_cost','shell_cost','annual','unit','situational','note'];
+const PRICE_COL_LABELS = {
+  name: 'Item',
+  skill_level: 'Skill Level',
+  cost: 'Cost',
+  cost_min: 'Min',
+  cost_max: 'Max',
+  cost_ratio: 'Cost Ratio',
+  ammo_cost: 'Ammo Cost',
+  shell_cost: 'Shell Cost',
+  annual: 'Annual',
+  unit: 'Unit',
+  damage: 'Damage',
+  value: 'Value',
+  situational: 'Situational',
+  note: 'Note'
+};
+
+function renderPriceTable(rows) {
+  if (!rows.length) return '';
+  // Non-object rows (e.g. simple strings) — fall back to a list
+  if (rows.some(r => typeof r !== 'object' || r === null)) {
+    return `<ul>${rows.map(r => `<li>${esc(String(r))}</li>`).join('')}</ul>`;
+  }
+  // Union of keys present in any row
+  const keysPresent = new Set();
+  for (const r of rows) for (const k of Object.keys(r)) keysPresent.add(k);
+
+  // Build column list: known order first, then anything else.
+  // Collapse cost / cost_min / cost_max into a single virtual "Cost" column.
+  const hasCost = keysPresent.has('cost') || keysPresent.has('cost_min') || keysPresent.has('cost_max');
+  const skip = new Set(['cost', 'cost_min', 'cost_max']);
+  const cols = [];
+  for (const k of PRICE_COL_ORDER) {
+    if (skip.has(k)) continue;
+    if (k === 'name') {
+      if (keysPresent.has('name')) cols.push('name');
+      if (hasCost) cols.push('Cost');
+      continue;
+    }
+    if (keysPresent.has(k)) cols.push(k);
+  }
+  // Anything not yet covered
+  for (const k of keysPresent) {
+    if (!skip.has(k) && !cols.includes(k)) cols.push(k);
+  }
+  if (hasCost && !cols.includes('Cost')) cols.unshift('Cost');
+
+  const labelOf = k => PRICE_COL_LABELS[k] || k.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  const cellOf = (row, k) => {
+    if (k === 'Cost') {
+      if (row.cost != null) return esc(row.cost);
+      if (row.cost_min != null && row.cost_max != null) return `${esc(row.cost_min)}–${esc(row.cost_max)}`;
+      if (row.cost_min != null) return `${esc(row.cost_min)}+`;
+      if (row.cost_max != null) return `≤${esc(row.cost_max)}`;
+      return '';
+    }
+    const v = row[k];
+    if (v == null) return '';
+    if (typeof v === 'object') return esc(jsyaml.dump(v).trim());
+    return esc(String(v));
+  };
+
+  let html = `<table class="prices-table"><thead><tr>${cols.map(c => `<th>${esc(labelOf(c))}</th>`).join('')}</tr></thead><tbody>`;
+  for (const r of rows) {
+    html += `<tr>${cols.map(c => `<td>${cellOf(r, c)}</td>`).join('')}</tr>`;
+  }
+  html += `</tbody></table>`;
+  return html;
 }
 
 async function viewRefsIndex() {
@@ -1324,7 +1433,57 @@ async function viewRef(id) {
   return viewMarkdown(`../references/${id}.md`, r.label, [
     { route: '#/refs', label: 'References' },
     { label: r.label }
-  ]);
+  ], { preprocess: preprocessReferenceMd });
+}
+
+// References were copy-pasted from Discord and don't use markdown heading syntax.
+// Promote heading-like lines to ## and tag UWP codes as inline code.
+function preprocessReferenceMd(text) {
+  const isUWP = s => /^[A-EX]-?[A-Za-z0-9]{2,}(-[A-Za-z0-9]+)+$/.test(s)
+                  || /^\[[A-EX]+\][- ]/.test(s);
+  const lines = text.split('\n');
+  const out = [];
+  // Skip the first non-blank line — that's the document title and we render it
+  // separately as the page title.
+  let titleSkipped = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    const prev = i > 0 ? lines[i - 1].trim() : '';
+    const next = i < lines.length - 1 ? lines[i + 1].trim() : '';
+
+    if (!trimmed) { out.push(line); continue; }
+    if (/^#{1,6}\s/.test(trimmed)) { out.push(line); continue; }
+
+    if (!titleSkipped) {
+      titleSkipped = true;
+      // Drop it — page title already shows the document title
+      continue;
+    }
+
+    if (isUWP(trimmed)) {
+      out.push('`' + trimmed + '`');
+      continue;
+    }
+
+    const isShort = trimmed.length <= 60;
+    const noTrailingPunct = !/[.!?:;]$/.test(trimmed);
+    const noTrailingComma = !/,$/.test(trimmed);
+    const hasLetters = /[a-zA-Z]/.test(trimmed);
+    const prevBlank = prev === '';
+    const nextHasContent = next.length > 0;
+
+    if (isShort && noTrailingPunct && noTrailingComma && hasLetters && prevBlank && nextHasContent) {
+      out.push('## ' + trimmed);
+    } else if (isShort && /,$/.test(trimmed) && prevBlank && nextHasContent) {
+      // The "world-profiles-how-to.md" file uses "Heading," with a trailing comma
+      out.push('## ' + trimmed.replace(/,$/, ''));
+    } else {
+      out.push(line);
+    }
+  }
+  return out.join('\n');
 }
 
 async function viewDoc(path) {
@@ -1353,6 +1512,8 @@ async function route() {
         return await viewSession(parts[1]);
       case 'investigation':
         return await viewInvestigation();
+      case 'timeline':
+        return await viewTimeline();
       case 'npcs':
         return await viewNPCs();
       case 'worlds':
@@ -1362,9 +1523,6 @@ async function route() {
         return await viewParty();
       case 'assets':
         return await viewAssets();
-      case 'characters':
-        if (parts.length === 1) return await viewCharacters();
-        return await viewCharacter(parts[1], parts[2], parts[3]);
       case 'rules':
         if (parts.length === 1) return await viewRulesIndex();
         return await viewRule(parts[1]);
@@ -1391,6 +1549,26 @@ async function route() {
 // =========================================================================
 
 renderNav();
+
+// Mobile sidebar toggle
+(function setupMobileNav() {
+  const btn = document.getElementById('menu-toggle');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  const close = () => {
+    document.body.classList.remove('sidebar-open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+  btn.addEventListener('click', () => {
+    const open = document.body.classList.toggle('sidebar-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  backdrop.addEventListener('click', close);
+  // Close when a nav link is clicked
+  document.getElementById('nav').addEventListener('click', e => {
+    if (e.target.closest('a')) close();
+  });
+})();
+
 window.addEventListener('hashchange', route);
 route();
 </script>

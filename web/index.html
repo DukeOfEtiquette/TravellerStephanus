@@ -230,6 +230,20 @@
   .kv dt { color: var(--text-faint); font-size: 0.78rem; padding-top: 1px; }
   .kv dd { color: var(--text); }
 
+  /* Retirement (cash + material side-by-side) */
+  .retirement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 14px;
+  }
+  .retirement-grid h3 { margin: 0 0 6px; }
+  .retirement-grid table { margin: 0; }
+  .retirement-grid td.roll { color: var(--text-faint); width: 1%; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .retirement-grid td.cash { font-variant-numeric: tabular-nums; }
+  .retirement-grid td.cash .unit { color: var(--text-faint); margin-right: 4px; font-size: 0.78rem; }
+
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -1828,8 +1842,32 @@ async function viewCareer(id) {
     html += `</tbody></table>`;
   }
 
+  if (raw.retirement) {
+    html += `<h2>Retirement Benefits</h2>`;
+    html += `<p style="color: var(--text-dim); margin: 0 0 10px;">Roll once on each table per term completed. Cash uses 2d6 (modifiers may push the result above 12); material uses 1d6.</p>`;
+    html += `<div class="retirement-grid">`;
+    if (raw.retirement.cash) {
+      html += `<div><h3>Cash</h3><table><thead><tr><th>2d6</th><th>Credits</th></tr></thead><tbody>`;
+      for (const [k, v] of Object.entries(raw.retirement.cash)) {
+        const cell = typeof v === 'number'
+          ? `<span class="unit">Cr</span>${v.toLocaleString('en-US')}`
+          : esc(String(v));
+        html += `<tr><td class="roll">${esc(k)}</td><td class="cash">${cell}</td></tr>`;
+      }
+      html += `</tbody></table></div>`;
+    }
+    if (raw.retirement.material) {
+      html += `<div><h3>Material</h3><table><thead><tr><th>1d6</th><th>Benefit</th></tr></thead><tbody>`;
+      for (const [k, v] of Object.entries(raw.retirement.material)) {
+        html += `<tr><td class="roll">${esc(k)}</td><td>${esc(String(v))}</td></tr>`;
+      }
+      html += `</tbody></table></div>`;
+    }
+    html += `</div>`;
+  }
+
   // Catch-all for additional fields
-  const known = new Set(['name','description','qualification','leadership','skills','leadership_ranks']);
+  const known = new Set(['name','description','qualification','leadership','skills','leadership_ranks','retirement']);
   const extras = Object.entries(raw).filter(([k]) => !known.has(k));
   for (const [k, v] of extras) {
     html += `<h2>${esc(k.replace(/_/g, ' '))}</h2>${renderYaml(v, 1)}`;

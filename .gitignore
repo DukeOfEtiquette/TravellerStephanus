@@ -9,6 +9,9 @@ prompt.md
 /tmp
 .venv
 
+# Playwright MCP scratch output (snapshots, console logs)
+.playwright-mcp/
+
 # Netlify build artifacts (data/ and references/ get copied here at deploy time)
 web/data/
 web/references/

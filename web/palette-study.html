@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette Study Nº 1 — Traveller Stephanus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --paper: #f1ead8;
+    --paper-2: #e8dfc5;
+    --ink: #1f1a14;
+    --ink-soft: #4a4232;
+    --rule: #c9bd95;
+    --rule-soft: #d8cca8;
+    --hot: #a8331f;     /* editorial red */
+    --gold: #8a6a1f;
+    --teal: #1f4a5e;
+  }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+    font-optical-sizing: auto;
+    font-weight: 380;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle paper grain — keeps the document from feeling flat */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(rgba(74,66,50,0.05) 1px, transparent 1px),
+      radial-gradient(rgba(74,66,50,0.04) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 48px 100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─── Cover ─────────────────────────────────────────────────────────── */
+
+  .cover {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 0 26px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .meta span:first-child { color: var(--hot); font-weight: 500; }
+
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
+    font-weight: 380;
+    font-size: clamp(56px, 8vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin-top: 14px;
+    color: var(--ink);
+  }
+  h1.title em {
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+    color: var(--hot);
+  }
+
+  .cover-side {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: right;
+    line-height: 1.8;
+    padding-bottom: 6px;
+  }
+  .cover-side b { color: var(--ink); font-weight: 500; }
+
+  /* ─── Verdict ───────────────────────────────────────────────────────── */
+
+  .verdict {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+    padding: 36px 0 44px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 44px;
+  }
+
+  .rating {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
+    font-size: 140px;
+    line-height: 0.85;
+    color: var(--hot);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+  .rating sup {
+    font-size: 36px;
+    color: var(--ink-soft);
+    font-weight: 300;
+    vertical-align: top;
+    line-height: 1;
+    margin-left: 4px;
+  }
+  .rating-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+
+  .summary p {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 36, 'SOFT' 30;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.4;
+    font-weight: 320;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .summary p em {
+    font-style: italic;
+    background: linear-gradient(transparent 65%, rgba(168,51,31,0.18) 65%);
+    padding: 0 2px;
+  }
+
+  /* ─── Section heads ─────────────────────────────────────────────────── */
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hot);
+    margin-bottom: 10px;
+  }
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60, 'SOFT' 30, 'WONK' 1;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 320;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+  h2.section-title em {
+    font-style: italic;
+    font-variation-settings: 'opsz' 60, 'SOFT' 100, 'WONK' 1;
+    color: var(--hot);
+  }
+
+  /* ─── Critique ──────────────────────────────────────────────────────── */
+
+  .critique {
+    columns: 2;
+    column-gap: 56px;
+    column-rule: 1px solid var(--rule-soft);
+    margin-bottom: 80px;
+  }
+  .critique .obs {
+    break-inside: avoid;
+    margin-bottom: 26px;
+    padding-left: 38px;
+    position: relative;
+  }
+  .critique .obs::before {
+    content: counter(obs, decimal-leading-zero);
+    counter-increment: obs;
+    position: absolute;
+    left: 0; top: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--hot);
+    font-weight: 500;
+  }
+  .critique { counter-reset: obs; }
+  .critique h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 36, 'SOFT' 30;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .critique p {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .critique code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
+    background: rgba(168,51,31,0.08);
+    color: var(--hot);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  /* ─── Comparison grid ───────────────────────────────────────────────── */
+
+  .comparison {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 80px;
+  }
+
+  .swatch-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rule);
+    background: rgba(255,253,245,0.5);
+  }
+  .swatch-card.recommended {
+    border: 2px solid var(--hot);
+    background: rgba(255,253,245,0.85);
+    box-shadow: 0 8px 24px -10px rgba(168,51,31,0.25);
+  }
+  .swatch-card .head {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .swatch-card.recommended .head { border-bottom: 1px solid var(--hot); }
+  .swatch-card .tag-row {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .swatch-card.recommended .tag-row .pick { color: var(--hot); font-weight: 500; }
+  .swatch-card .name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 36, 'SOFT' 30, 'WONK' 1;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-top: 4px;
+    color: var(--ink);
+  }
+  .swatch-card .name em {
+    font-style: italic;
+    font-variation-settings: 'opsz' 36, 'SOFT' 100, 'WONK' 1;
+  }
+  .swatch-card .blurb {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  .swatch-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 36px;
+  }
+  .swatch-strip > div { position: relative; }
+  .swatch-strip > div::after {
+    content: attr(data-hex);
+    position: absolute;
+    bottom: -16px; left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Mini-UI preview (rendered in palette colors) ──────────────────── */
+
+  .preview {
+    margin-top: 28px;
+    border-top: 1px solid var(--rule);
+    background: var(--p-bg);
+    color: var(--p-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    flex: 1;
+    display: flex;
+  }
+  .preview .pv-side {
+    width: 70px;
+    background: var(--p-bg-3);
+    border-right: 1px solid var(--p-border);
+    padding: 10px 8px;
+    flex-shrink: 0;
+  }
+  .preview .pv-brand {
+    color: var(--p-accent);
+    font-weight: 700;
+    font-size: 7.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--p-border);
+  }
+  .preview .pv-nav-group {
+    color: var(--p-faint);
+    font-size: 6.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 6px 0 3px;
+  }
+  .preview .pv-nav a {
+    display: block;
+    color: var(--p-text);
+    padding: 2px 4px;
+    margin: 0 -8px;
+    padding-left: 8px;
+    text-decoration: none;
+    font-size: 9px;
+    border-left: 2px solid transparent;
+  }
+  .preview .pv-nav a.active {
+    color: var(--p-accent);
+    border-left-color: var(--p-accent-2);
+    background: var(--p-active-bg);
+  }
+
+  .preview .pv-main {
+    padding: 10px 12px 12px;
+    flex: 1;
+    min-width: 0;
+  }
+  .preview .pv-crumb {
+    color: var(--p-faint);
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+  .preview .pv-h1 {
+    color: var(--p-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .preview .pv-card {
+    background: var(--p-bg-2);
+    border: 1px solid var(--p-border);
+    border-radius: 3px;
+    padding: 7px 9px;
+    margin-bottom: 6px;
+  }
+  .preview .pv-card-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--p-text);
+    margin-bottom: 4px;
+  }
+  .preview .pv-card-body {
+    color: var(--p-dim);
+    font-size: 9px;
+  }
+  .preview .pv-tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 3px; }
+  .preview .pv-tag {
+    font-size: 8px;
+    padding: 1px 5px;
+    border-radius: 6px;
+    background: var(--p-tag-accent-bg);
+    color: var(--p-accent);
+    letter-spacing: 0.02em;
+  }
+  .preview .pv-tag.good { background: var(--p-tag-good-bg); color: var(--p-good); }
+  .preview .pv-tag.warn { background: var(--p-tag-warn-bg); color: var(--p-warn); }
+  .preview .pv-tag.bad  { background: var(--p-tag-bad-bg);  color: var(--p-bad); }
+
+  .preview .pv-table {
+    width: 100%;
+    border: 1px solid var(--p-border);
+    border-radius: 3px;
+    background: var(--p-bg-2);
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 9px;
+    overflow: hidden;
+  }
+  .preview .pv-table th {
+    text-align: left;
+    color: var(--p-faint);
+    font-size: 7.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--p-border);
+    font-weight: 600;
+  }
+  .preview .pv-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--p-border);
+    color: var(--p-text);
+  }
+  .preview .pv-table tr:last-child td { border-bottom: none; }
+
+  /* Palette A — current */
+  .palette-current {
+    --p-bg: #1a1a2e; --p-bg-2: #16213e; --p-bg-3: #0f0f23;
+    --p-border: #334;
+    --p-text: #e0e0e0; --p-dim: #aaa; --p-faint: #8888aa;
+    --p-accent: #b8c0ff; --p-accent-2: #5c7cfa;
+    --p-active-bg: rgba(92,124,250,0.1);
+    --p-tag-accent-bg: rgba(92,124,250,0.18);
+    --p-tag-good-bg: rgba(105,219,124,0.18); --p-good: #69db7c;
+    --p-tag-warn-bg: rgba(255,212,59,0.18); --p-warn: #ffd43b;
+    --p-tag-bad-bg: rgba(255,107,107,0.18); --p-bad: #ff6b6b;
+  }
+
+  /* Palette B — Phosphor / Imperial Computer */
+  .palette-phosphor {
+    --p-bg: #0c0a07; --p-bg-2: #15110b; --p-bg-3: #1d1810;
+    --p-border: #322a1e;
+    --p-text: #e8c896; --p-dim: #b3956a; --p-faint: #76624a;
+    --p-accent: #ffb347; --p-accent-2: #ff7a1a;
+    --p-active-bg: rgba(255,179,71,0.10);
+    --p-tag-accent-bg: rgba(255,179,71,0.14);
+    --p-tag-good-bg: rgba(126,217,87,0.16); --p-good: #7ed957;
+    --p-tag-warn-bg: rgba(255,212,59,0.18); --p-warn: #ffd86b;
+    --p-tag-bad-bg: rgba(255,87,87,0.18); --p-bad: #ff7a7a;
+  }
+
+  /* Palette C — Star-Chart */
+  .palette-starchart {
+    --p-bg: #07080d; --p-bg-2: #0e1118; --p-bg-3: #131722;
+    --p-border: #20283a;
+    --p-text: #ece6d6; --p-dim: #a8a08c; --p-faint: #6b6552;
+    --p-accent: #f0c262; --p-accent-2: #6fb8ff;
+    --p-active-bg: rgba(111,184,255,0.10);
+    --p-tag-accent-bg: rgba(111,184,255,0.14);
+    --p-tag-good-bg: rgba(79,214,160,0.16); --p-good: #4fd6a0;
+    --p-tag-warn-bg: rgba(240,194,98,0.18); --p-warn: #f0c262;
+    --p-tag-bad-bg: rgba(255,107,129,0.18); --p-bad: #ff6b81;
+  }
+
+  /* Palette D — Field Dossier */
+  .palette-dossier {
+    --p-bg: #efe6cf; --p-bg-2: #e6dab9; --p-bg-3: #ddcfa9;
+    --p-border: #beae84;
+    --p-text: #2a241c; --p-dim: #5e5239; --p-faint: #8a7c5c;
+    --p-accent: #8a2828; --p-accent-2: #1f4a5e;
+    --p-active-bg: rgba(31,74,94,0.10);
+    --p-tag-accent-bg: rgba(31,74,94,0.16);
+    --p-tag-good-bg: rgba(79,122,53,0.18); --p-good: #4f7a35;
+    --p-tag-warn-bg: rgba(179,133,26,0.20); --p-warn: #8c6512;
+    --p-tag-bad-bg: rgba(138,40,40,0.16); --p-bad: #8a2828;
+  }
+
+  /* ─── Recommendation block ──────────────────────────────────────────── */
+
+  .pick-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    padding: 40px 0 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .pick-block .why {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 36, 'SOFT' 30;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 320;
+    letter-spacing: -0.003em;
+  }
+  .pick-block .why p { margin-bottom: 16px; }
+  .pick-block .why em {
+    font-style: italic;
+    color: var(--hot);
+  }
+
+  pre.css {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    background: var(--ink);
+    color: #e8c896;
+    padding: 22px 24px;
+    border-radius: 2px;
+    overflow-x: auto;
+    box-shadow: 0 12px 28px -14px rgba(31,26,20,0.35);
+    position: relative;
+  }
+  pre.css::before {
+    content: '/* drop into :root in web/index.html */';
+    display: block;
+    color: #76624a;
+    margin-bottom: 10px;
+  }
+  pre.css .k { color: #ffb347; }
+  pre.css .v { color: #e8c896; }
+  pre.css .c { color: #76624a; font-style: italic; }
+
+  /* ─── Footer ────────────────────────────────────────────────────────── */
+
+  footer {
+    margin-top: 90px;
+    padding-top: 18px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ─── Responsive ────────────────────────────────────────────────────── */
+
+  @media (max-width: 1100px) {
+    .comparison { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .page { padding: 36px 22px 64px; }
+    .verdict { grid-template-columns: 1fr; gap: 20px; }
+    .rating { font-size: 96px; }
+    .critique { columns: 1; }
+    .comparison { grid-template-columns: 1fr; }
+    .pick-block { grid-template-columns: 1fr; gap: 28px; }
+    .cover { grid-template-columns: 1fr; }
+    .cover-side { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ─── Cover ──────────────────────────────────────────────────── -->
+  <header class="cover">
+    <div>
+      <div class="meta">
+        <span>Palette Study Nº 01</span>
+        <span>Subject — Campaign Viewer</span>
+        <span>2026 / 05 / 09</span>
+      </div>
+      <h1 class="title">A second<br>look at <em>indigo</em>.</h1>
+    </div>
+    <div class="cover-side">
+      Field<br>
+      <b>Frontend critique</b><br>
+      Method<br>
+      <b>Side-by-side swatch</b><br>
+      Disposition<br>
+      <b>Open &mdash; for review</b>
+    </div>
+  </header>
+
+  <!-- ─── Verdict ────────────────────────────────────────────────── -->
+  <section class="verdict">
+    <div>
+      <div class="rating">5.5<sup>/10</sup></div>
+      <div class="rating-label">Verdict</div>
+    </div>
+    <div class="summary">
+      <p>The current palette is <em>functional, readable, and entirely generic</em> &mdash; the default indigo-on-navy you've seen on a thousand SaaS dashboards since 2022.</p>
+      <p>Nothing about it whispers <em>Traveller</em>: no 1977 wargame heritage, no ship's-computer texture, no found-document feel. It works; it does not <em>belong</em>.</p>
+    </div>
+  </section>
+
+  <!-- ─── Critique ───────────────────────────────────────────────── -->
+  <section>
+    <div class="section-num">§ 01 &nbsp;·&nbsp; Findings</div>
+    <h2 class="section-title">Five <em>specific</em> problems.</h2>
+
+    <div class="critique">
+      <div class="obs">
+        <h3>The accent pair is the most over-used in modern web design.</h3>
+        <p><code>#b8c0ff</code> + <code>#5c7cfa</code> is essentially Tailwind <code>indigo-300</code> on <code>indigo-500</code>. It's the visual default of every AI-generated dark dashboard. The campaign deserves a signature, not a fallback.</p>
+      </div>
+      <div class="obs">
+        <h3>The three background tones are too compressed.</h3>
+        <p><code>#1a1a2e</code>, <code>#16213e</code>, <code>#0f0f23</code> sit within ~6 luminance points of each other. Sidebar, body, and cards all blur together; surface hierarchy collapses. Either widen the steps or lean into a single-surface aesthetic.</p>
+      </div>
+      <div class="obs">
+        <h3>Every chrome color lives in the same hue band.</h3>
+        <p>Backgrounds, borders, headings, links, faint text &mdash; all sit between 230° and 270° hue. The page is monochrome until a status tag forces in a green or red, which then reads as foreign. There's no harmonic counterweight.</p>
+      </div>
+      <div class="obs">
+        <h3>Headings, links, and brand all share one accent.</h3>
+        <p><code>--accent</code> is used for <code>h1</code>, <code>h2</code>, the brand mark, every link, code highlights, and active nav. Color carries no information &mdash; size is the only hierarchy signal.</p>
+      </div>
+      <div class="obs">
+        <h3>Status colors clash with the muted base.</h3>
+        <p>The Bootstrap-bright traffic-light set (<code>#69db7c</code>, <code>#ffd43b</code>, <code>#ff6b6b</code>) is louder than anything else on the page. They feel pasted in, not part of the same world.</p>
+      </div>
+      <div class="obs">
+        <h3>Zero atmosphere for a science-fiction subject.</h3>
+        <p>Solid navy + rectangular cards. No CRT phosphor, no star-chart bone-white, no faded-paper dossier. The biggest wasted opportunity isn't any single color &mdash; it's that the palette commits to nothing thematic at all.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Comparison ─────────────────────────────────────────────── -->
+  <section>
+    <div class="section-num">§ 02 &nbsp;·&nbsp; Comparison</div>
+    <h2 class="section-title">Same UI, four <em>palettes</em>.</h2>
+
+    <div class="comparison">
+
+      <!-- Current ─────────────────────────────────────── -->
+      <div class="swatch-card">
+        <div class="head">
+          <div class="tag-row">A &middot; Current</div>
+          <div class="name">Default <em>Indigo</em></div>
+          <div class="blurb">The shipped palette. Generic dark mode. Reads competent, lacks identity.</div>
+        </div>
+        <div class="swatch-strip">
+          <div style="background:#1a1a2e" data-hex="#1a1a2e"></div>
+          <div style="background:#16213e" data-hex="#16213e"></div>
+          <div style="background:#b8c0ff" data-hex="#b8c0ff"></div>
+          <div style="background:#5c7cfa" data-hex="#5c7cfa"></div>
+          <div style="background:#69db7c" data-hex="#69db7c"></div>
+          <div style="background:#ff6b6b" data-hex="#ff6b6b"></div>
+        </div>
+        <div class="preview palette-current">
+          <div class="pv-side">
+            <div class="pv-brand">Traveller<br>Stephanus</div>
+            <div class="pv-nav-group">Campaign</div>
+            <div class="pv-nav">
+              <a class="active">Overview</a>
+              <a>Sessions</a>
+              <a>NPCs</a>
+            </div>
+          </div>
+          <div class="pv-main">
+            <div class="pv-crumb">campaign / overview</div>
+            <div class="pv-h1">The Death Mask</div>
+            <div class="pv-card">
+              <div class="pv-card-title">Brendi</div>
+              <div class="pv-card-body">A powerful criminal syndicate.</div>
+              <div class="pv-tags">
+                <span class="pv-tag">Faction</span>
+                <span class="pv-tag good">Active</span>
+                <span class="pv-tag warn">Watch</span>
+              </div>
+            </div>
+            <table class="pv-table">
+              <tr><th>World</th><th>UWP</th></tr>
+              <tr><td>Spirelle</td><td>A 6 8</td></tr>
+              <tr><td>Quirx</td><td>B 7 5</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phosphor ────────────────────────────────────── -->
+      <div class="swatch-card recommended">
+        <div class="head">
+          <div class="tag-row"><span class="pick">B &middot; Recommended</span></div>
+          <div class="name">Phosphor <em>Computer</em></div>
+          <div class="blurb">Amber CRT on warm coal. The ship's onboard reference computer, c. 1977.</div>
+        </div>
+        <div class="swatch-strip">
+          <div style="background:#0c0a07" data-hex="#0c0a07"></div>
+          <div style="background:#15110b" data-hex="#15110b"></div>
+          <div style="background:#ffb347" data-hex="#ffb347"></div>
+          <div style="background:#ff7a1a" data-hex="#ff7a1a"></div>
+          <div style="background:#7ed957" data-hex="#7ed957"></div>
+          <div style="background:#ff7a7a" data-hex="#ff7a7a"></div>
+        </div>
+        <div class="preview palette-phosphor">
+          <div class="pv-side">
+            <div class="pv-brand">Traveller<br>Stephanus</div>
+            <div class="pv-nav-group">Campaign</div>
+            <div class="pv-nav">
+              <a class="active">Overview</a>
+              <a>Sessions</a>
+              <a>NPCs</a>
+            </div>
+          </div>
+          <div class="pv-main">
+            <div class="pv-crumb">campaign / overview</div>
+            <div class="pv-h1">The Death Mask</div>
+            <div class="pv-card">
+              <div class="pv-card-title">Brendi</div>
+              <div class="pv-card-body">A powerful criminal syndicate.</div>
+              <div class="pv-tags">
+                <span class="pv-tag">Faction</span>
+                <span class="pv-tag good">Active</span>
+                <span class="pv-tag warn">Watch</span>
+              </div>
+            </div>
+            <table class="pv-table">
+              <tr><th>World</th><th>UWP</th></tr>
+              <tr><td>Spirelle</td><td>A 6 8</td></tr>
+              <tr><td>Quirx</td><td>B 7 5</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Star-Chart ─────────────────────────────────── -->
+      <div class="swatch-card">
+        <div class="head">
+          <div class="tag-row">C &middot; Alternative</div>
+          <div class="name">Star <em>Chart</em></div>
+          <div class="blurb">Cosmic black + atlas gold + signal cyan. Modern, polychromatic, polished.</div>
+        </div>
+        <div class="swatch-strip">
+          <div style="background:#07080d" data-hex="#07080d"></div>
+          <div style="background:#0e1118" data-hex="#0e1118"></div>
+          <div style="background:#f0c262" data-hex="#f0c262"></div>
+          <div style="background:#6fb8ff" data-hex="#6fb8ff"></div>
+          <div style="background:#4fd6a0" data-hex="#4fd6a0"></div>
+          <div style="background:#ff6b81" data-hex="#ff6b81"></div>
+        </div>
+        <div class="preview palette-starchart">
+          <div class="pv-side">
+            <div class="pv-brand">Traveller<br>Stephanus</div>
+            <div class="pv-nav-group">Campaign</div>
+            <div class="pv-nav">
+              <a class="active">Overview</a>
+              <a>Sessions</a>
+              <a>NPCs</a>
+            </div>
+          </div>
+          <div class="pv-main">
+            <div class="pv-crumb">campaign / overview</div>
+            <div class="pv-h1">The Death Mask</div>
+            <div class="pv-card">
+              <div class="pv-card-title">Brendi</div>
+              <div class="pv-card-body">A powerful criminal syndicate.</div>
+              <div class="pv-tags">
+                <span class="pv-tag">Faction</span>
+                <span class="pv-tag good">Active</span>
+                <span class="pv-tag warn">Watch</span>
+              </div>
+            </div>
+            <table class="pv-table">
+              <tr><th>World</th><th>UWP</th></tr>
+              <tr><td>Spirelle</td><td>A 6 8</td></tr>
+              <tr><td>Quirx</td><td>B 7 5</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dossier ────────────────────────────────────── -->
+      <div class="swatch-card">
+        <div class="head">
+          <div class="tag-row">D &middot; Wildcard</div>
+          <div class="name">Field <em>Dossier</em></div>
+          <div class="blurb">Inverted to light. Cream paper, oxblood ink, registry teal. A hand-charted sub-sector report.</div>
+        </div>
+        <div class="swatch-strip">
+          <div style="background:#efe6cf" data-hex="#efe6cf"></div>
+          <div style="background:#e6dab9" data-hex="#e6dab9"></div>
+          <div style="background:#8a2828" data-hex="#8a2828"></div>
+          <div style="background:#1f4a5e" data-hex="#1f4a5e"></div>
+          <div style="background:#4f7a35" data-hex="#4f7a35"></div>
+          <div style="background:#8c6512" data-hex="#8c6512"></div>
+        </div>
+        <div class="preview palette-dossier">
+          <div class="pv-side">
+            <div class="pv-brand">Traveller<br>Stephanus</div>
+            <div class="pv-nav-group">Campaign</div>
+            <div class="pv-nav">
+              <a class="active">Overview</a>
+              <a>Sessions</a>
+              <a>NPCs</a>
+            </div>
+          </div>
+          <div class="pv-main">
+            <div class="pv-crumb">campaign / overview</div>
+            <div class="pv-h1">The Death Mask</div>
+            <div class="pv-card">
+              <div class="pv-card-title">Brendi</div>
+              <div class="pv-card-body">A powerful criminal syndicate.</div>
+              <div class="pv-tags">
+                <span class="pv-tag">Faction</span>
+                <span class="pv-tag good">Active</span>
+                <span class="pv-tag warn">Watch</span>
+              </div>
+            </div>
+            <table class="pv-table">
+              <tr><th>World</th><th>UWP</th></tr>
+              <tr><td>Spirelle</td><td>A 6 8</td></tr>
+              <tr><td>Quirx</td><td>B 7 5</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Recommendation ─────────────────────────────────────────── -->
+  <section>
+    <div class="section-num">§ 03 &nbsp;·&nbsp; Recommendation</div>
+    <h2 class="section-title">Pick <em>Phosphor</em>.</h2>
+
+    <div class="pick-block">
+      <div class="why">
+        <p>It does the one thing the current palette doesn't: <em>it commits to a place</em>. A campaign viewer for a 1977-rooted sci-fi RPG should look like a ship's reference terminal, not a Notion clone.</p>
+        <p>Amber-on-coal solves all five findings at once &mdash; it's specific, the surface steps widen, the hue pivots out of indigo monoculture, and the warn/good greens stop reading as imports because the whole base is warm.</p>
+        <p>Star-Chart is the safe modern choice if Phosphor feels too costumed. Dossier is the bold inversion play.</p>
+      </div>
+      <pre class="css"><span class="k">--bg</span>:        <span class="v">#0c0a07</span>;   <span class="c">/* coal, warm */</span>
+<span class="k">--bg-2</span>:      <span class="v">#15110b</span>;   <span class="c">/* card */</span>
+<span class="k">--bg-3</span>:      <span class="v">#1d1810</span>;   <span class="c">/* sidebar / recap */</span>
+<span class="k">--border</span>:    <span class="v">#322a1e</span>;
+<span class="k">--border-2</span>:  <span class="v">#46392a</span>;
+<span class="k">--text</span>:      <span class="v">#e8c896</span>;   <span class="c">/* phosphor amber */</span>
+<span class="k">--text-dim</span>:  <span class="v">#b3956a</span>;
+<span class="k">--text-faint</span>: <span class="v">#76624a</span>;
+<span class="k">--accent</span>:    <span class="v">#ffb347</span>;   <span class="c">/* signal */</span>
+<span class="k">--accent-2</span>:  <span class="v">#ff7a1a</span>;   <span class="c">/* alert */</span>
+<span class="k">--good</span>:      <span class="v">#7ed957</span>;
+<span class="k">--warn</span>:      <span class="v">#ffd86b</span>;
+<span class="k">--bad</span>:       <span class="v">#ff7a7a</span>;
+<span class="k">--orange</span>:    <span class="v">#ff9a4a</span>;</pre>
+    </div>
+  </section>
+
+  <footer>
+    <span>Traveller Stephanus</span>
+    <span>Campaign Viewer / web/palette-study.html</span>
+    <span>End &mdash; Nº 01</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

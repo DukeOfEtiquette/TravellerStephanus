@@ -1,0 +1,3 @@
+[build]
+  publish = "web"
+  command = "rm -rf web/data && cp -r data web/data"

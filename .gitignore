@@ -8,5 +8,8 @@
 prompt.md
 /tmp
 
+# Netlify build artifact (data/ gets copied here at deploy time)
+web/data/
+
 # Keep PDFs (they're intentional output)
 # !*.pdf

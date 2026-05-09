@@ -1,3 +1,3 @@
 [build]
   publish = "web"
-  command = "rm -rf web/data && cp -r data web/data"
+  command = "rm -rf web/data web/references && cp -r data web/data && mkdir -p web/references && cp references/*.md web/references/"

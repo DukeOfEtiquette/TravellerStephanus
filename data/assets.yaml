@@ -95,6 +95,25 @@ ships:
         source: "Star of Carella wreck (Session 13)"
         notes: "Stowed inside the two looted shuttles. Origin/value TBD."
 
+    hanger:
+      - name: "William Hung's Shuttlecraft"
+        owner: "William Hung"
+        cargo_capacity: 8  # tons
+        current_cargo:
+          - item: "Grav bike"
+        history:
+          - session: 7
+            event: "Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t); cleared all but the grav bike for the cylinder op."
+      - name: "Victor's Shuttlecraft"
+        owner: "Victor"
+        cargo_capacity: 8  # tons
+        current_cargo: []
+        history:
+          - session: 7
+            event: "Grav car loaded for cylinder operation."
+          - session: 11
+            event: "Used in Solal extraction."
+
     history:
       - session: 5
         event: "Refit at Stoyben shipyard (fuel tanks); Baron Harrow secured an immediate slot."
@@ -173,25 +192,4 @@ shared_equipment:
     location: "Party records"
     notes: "Provided by Isaiah Reed after Session 8 despite cutting pay. Positive character/op reference."
 
-# =============================================================================
-# VEHICLES IN HANGER
-# =============================================================================
-hanger_contents:
-  - name: "William Hung's Shuttlecraft"
-    owner: "William Hung"
-    cargo_capacity: 8  # tons
-    current_cargo:
-      - item: "Grav bike"
-    history:
-      - session: 7
-        event: "Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t); cleared all but the grav bike for the cylinder op."
-
-  - name: "Victor's Shuttlecraft"
-    owner: "Victor"
-    cargo_capacity: 8  # tons
-    current_cargo: []
-    history:
-      - session: 7
-        event: "Grav car loaded for cylinder operation."
-      - session: 11
-        event: "Used in Solal extraction."
+# Note: hanger contents are now nested under each ship's `hanger:` field above.

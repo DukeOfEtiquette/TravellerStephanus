@@ -33,28 +33,17 @@ ships:
     owner: Jade Front (on loan to party)
     acquired: "Session 2"
     status: operational
-    notes: |
+
+    description: |
       Formerly captured by pirates and held at Kath starport. Party liberated
       it through blackmail. Scrubbed of spy devices. Has a hidden smuggling
       compartment the pirates missed.
-
-      Session 5: Refit in progress at Stoyben shipyard (fuel tanks).
-      Baron Harrow used his influence to secure immediate slot.
-      Session 6: Two middle passengers aboard. Trade goods available.
-      Session 7: Ship retrofit (jump fuel pods) completed.
-      Session 12: Fired all 4 missiles (area denial airburst) during Mowebe intercept.
-      Both fighter-interceptors destroyed. Misjump on departure — Oort cloud deviation,
-      powerplant damaged. Van Leeuwen and Corinne Page repaired powerplant at JF depot.
-      Missiles and fuel fully restocked. Currently en route to Maitz.
-      Session 13: Jumped to Maitz. Refueled by siphoning from the Star of Carella wreck
-      (fuel 2/2 maintained). Two looted 10 dT shuttlecraft and 16 tons of Rx loaded into
-      cargo bay (manufactured trade goods dumped to make room).
 
     frame:
       tonnage: 200
       hull_hp: 20
       hull_current: 20
-      cargo_capacity: 25  # tons
+      cargo_capacity: 25   # tons
       hanger_capacity: 20  # tons
 
     systems:
@@ -64,27 +53,20 @@ ships:
       pulse_lasers: 1
       missiles:
         rating: 1
-        loaded: 4  # restocked Session 12
+        loaded: 4
       anti_missiles:
         rating: 4d6
-        count: 2  # acquired Session 12 from Kikonye's weapons depot
+        count: 2
 
     amenities:
-      staterooms:
-        rating: 4
-        capacity: 8  # persons
-      barracks:
-        rating: 1
-        capacity: 5  # marines
-      low_berths:
-        rating: 1
-        capacity: 6  # persons
+      staterooms:    { rating: 4, capacity: 8 }  # persons
+      barracks:      { rating: 1, capacity: 5 }  # marines
+      low_berths:    { rating: 1, capacity: 6 }  # persons
       smuggling_compartment:
         rating: 1
         notes: Hidden compartment, pirates didn't find it
 
     crew:
-      # Crew positions and assignments TBD
       captain: null
       pilot: null
       engineer: null
@@ -101,21 +83,39 @@ ships:
       - name: Samir
         role: Jade Front contact
         boarded: "Session 3"
-        notes: null
-      # Middle passengers (Sessions 6–8) disembarked at Mowebe
 
     cargo:
-      manifest:
-        - item: "Looted shuttlecraft (10 dT)"
-          quantity: 2
-          source: "Star of Carella wreck (Session 13)"
-          notes: "Stowed in VoL II cargo bay. 16 tons Rx split across them as storage."
-        - item: "Pharmaceuticals (Rx)"
-          tons: 16
-          source: "Star of Carella wreck (Session 13)"
-          notes: "Split across the two looted shuttles in cargo. Origin/value TBD."
-      # Electronics components + chemicals sold at Mowebe manufactories (Session 9, broke even)
-      # Manufactured trade goods (taken on at Mowebe pre-Maitz jump) dumped Session 13 to make room.
+      - item: "Looted 10 dT shuttlecraft"
+        count: 2
+        tons: 20
+        source: "Star of Carella wreck (Session 13)"
+        notes: "Holding the 16 tons of Rx below as internal storage."
+      - item: "Pharmaceuticals (Rx)"
+        tons: 16
+        source: "Star of Carella wreck (Session 13)"
+        notes: "Stowed inside the two looted shuttles. Origin/value TBD."
+
+    history:
+      - session: 5
+        event: "Refit at Stoyben shipyard (fuel tanks); Baron Harrow secured an immediate slot."
+      - session: 6
+        event: "Took on two middle passengers and trade goods."
+      - session: 7
+        event: "Jump fuel pod retrofit completed."
+      - session: 9
+        event: "Electronics + chemicals sold at Mowebe manufactories (broke even)."
+      - session: 12
+        event: |
+          Mowebe intercept: fired all 4 missiles (area-denial airburst); both
+          fighter-interceptors destroyed. Misjump on departure caused Oort cloud
+          deviation and powerplant damage. Van Leeuwen and Corinne Page repaired
+          at the JF lunar depot. Missiles and fuel fully restocked. Acquired 2
+          anti-missile launchers from Kikonye's weapons depot.
+      - session: 13
+        event: |
+          Jumped to Maitz; refueled by siphoning the Star of Carella wreck
+          (fuel 2/2 maintained). Loaded 2× 10 dT looted shuttlecraft and 16 tons
+          of Rx; manufactured trade goods dumped to make room.
 
     damage_log:
       - session: 12
@@ -182,14 +182,16 @@ hanger_contents:
     cargo_capacity: 8  # tons
     current_cargo:
       - item: "Grav bike"
-        tons: null
-        notes: "Loaded for cylinder operation (Session 7)"
-    notes: |
-      Session 7: Initially loaded Hung's unarmored car (2t) and Saviolo's armored car (4t).
-      Later unloaded all vehicles except grav bike for cylinder operation.
+    history:
+      - session: 7
+        event: "Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t); cleared all but the grav bike for the cylinder op."
 
   - name: "Victor's Shuttlecraft"
     owner: "Victor"
     cargo_capacity: 8  # tons
     current_cargo: []
-    notes: "Session 7: Grav car loaded for cylinder operation. Session 11: Used in Solal extraction."
+    history:
+      - session: 7
+        event: "Grav car loaded for cylinder operation."
+      - session: 11
+        event: "Used in Solal extraction."

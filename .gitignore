@@ -6,6 +6,7 @@
 *.synctex.gz
 
 prompt.md
+/tmp
 
 # Keep PDFs (they're intentional output)
 # !*.pdf

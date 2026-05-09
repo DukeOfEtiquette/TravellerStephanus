@@ -1418,7 +1418,7 @@ function renderCharacterCreation(raw) {
 
   // Step 2: Background
   if (raw.background) {
-    html += `<details class="collapsible" open><summary><h2>Step 2 · Background</h2></summary>`;
+    html += `<details class="collapsible"><summary><h2>Step 2 · Background</h2></summary>`;
     for (const [key, b] of Object.entries(raw.background)) {
       html += `<h3>${esc(titleCase(key))}</h3>`;
       if (b && typeof b === 'object') {
@@ -1437,7 +1437,7 @@ function renderCharacterCreation(raw) {
   // Step 3: Terms
   if (raw.terms) {
     const t = raw.terms;
-    html += `<details class="collapsible" open><summary><h2>Step 3 · Terms</h2></summary>`;
+    html += `<details class="collapsible"><summary><h2>Step 3 · Terms</h2></summary>`;
     if (t.total_terms) {
       html += `<h3>Total Terms</h3>`;
       html += rollMeta(t.total_terms);

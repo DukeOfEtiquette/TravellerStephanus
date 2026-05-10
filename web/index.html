@@ -929,7 +929,6 @@ async function viewSessions() {
   } catch (e) { return showError(e); }
 
   let html = `<h1 class="page-title">GM Session Recaps</h1>`;
-  html += `<p style="color: var(--text-dim); margin-bottom: 14px;">${sessions.length} session${sessions.length !== 1 ? 's' : ''} recorded. Newest first.</p>`;
 
   for (const s of sessions) {
     const sd = s.data;

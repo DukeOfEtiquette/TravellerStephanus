@@ -886,7 +886,8 @@ async function viewHome() {
   try { camp = await load('../data/campaign.yaml'); }
   catch (e) { return showError(e, '../data/campaign.yaml'); }
 
-  let html = `<h2>The Death Mask</h2>
+  let html = `<h1 class="page-title">Overview</h1>
+    <h2>The Death Mask</h2>
     <div class="card">
       <p>${nl2br(camp.mcguffin?.description || '')}</p>
       <div class="kv" style="margin-top: 8px;">

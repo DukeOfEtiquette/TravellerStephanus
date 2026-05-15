@@ -236,8 +236,8 @@ npcs:
   - name: Arvi
     affiliation: None (Vondel's sister)
     role: Torin's former secret mistress; Vondel's protector
-    location: Unknown (fled with the party)
-    status: active (traveling with party)
+    location: Voice of Liberation II
+    status: active (passenger)
     first_appearance: Session 7
     description: |
       Vondel's sister. Was secretly sleeping with Torin. Maintained a monthly
@@ -245,9 +245,9 @@ npcs:
     notes: |
       Finnegan planted audio/video recording devices in her hotel room.
       Devices captured Torin and Arvi together — blackmail material secured.
-      Session 8: Arvi murdered Torin to help Vondel escape his abuse. She then
-      urgently requested the party bundle Vondel and flee with them. Now traveling
-      with or alongside the party.
+      Session 8: Arvi murdered Torin to help Vondel escape his abuse, then
+      urgently requested the party bundle Vondel and flee with them. Boarded
+      Voice of Liberation II during the exfiltration and remains aboard.
 
   - name: Kenna
     affiliation: None

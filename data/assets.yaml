@@ -117,31 +117,67 @@ ships:
       - name: Samir
         role: Jade Front contact
         boarded: "Session 3"
+      - name: Arvi
+        role: Refugee / Vondel's sister
+        boarded: "Session 8"
+        notes: |
+          Boarded during the Stoyben cylinder exfiltration after murdering Torin
+          to free Vondel from his abuse. Traveling with the party onward.
 
     cargo:
-      - item: "Looted 10 dT shuttlecraft"
-        count: 2
-        tons: 20
-        source: "Star of Carella wreck (Session 13)"
-        notes: "Holding the 16 tons of Rx below as internal storage."
       - item: "Pharmaceuticals (Rx)"
-        tons: 16
+        tons: 4
+        value: 14000   # Cr — covers all 20 t (this 4 t + 8 t in each shuttle)
+        notes: |
+          Loose stowage. 16 additional tons are stored inside the two shuttles
+          below — those tons don't count against bay capacity because 'tonnage'
+          is volume and the shuttles enclose their own internal volume.
+          Total 20 t of Rx valued at 14,000 Cr.
+      - name: "Shuttlecraft (Cosmic)"
+        owner: "Crew"
+        tons: 10
         source: "Star of Carella wreck (Session 13)"
-        notes: "Stowed inside the two looted shuttles. Origin/value TBD."
+        cargo_capacity: 8  # tons internal
+        current_cargo:
+          - item: "Pharmaceuticals (Rx)"
+            tons: 8
+      - name: "Shuttlecraft (Dawn)"
+        owner: "Crew"
+        tons: 10
+        source: "Star of Carella wreck (Session 13)"
+        cargo_capacity: 8  # tons internal
+        current_cargo:
+          - item: "Pharmaceuticals (Rx)"
+            tons: 8
 
     hanger:
-      - name: "William Hung's Shuttlecraft"
+      - name: "Shuttlecraft (Blackbetty)"
         owner: "William Hung"
-        cargo_capacity: 8  # tons
+        tons: 10               # external tonnage in VoL II hangar
+        cargo_capacity: 8      # tons internal
         current_cargo:
-          - item: "Grav bike"
+          - item: "Ground car"
+            tons: 2
+          - item: "Grav car"
+            tons: 2
+          - item: "Speeder bike"
+            tons: 1
+            count: 2
         history:
           - session: 7
             event: "Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t); cleared all but the grav bike for the cylinder op."
-      - name: "Victor's Shuttlecraft"
+      - name: "Shuttlecraft (The Psicho)"
         owner: "Victor"
-        cargo_capacity: 8  # tons
-        current_cargo: []
+        tons: 10               # external tonnage in VoL II hangar
+        cargo_capacity: 8      # tons internal
+        current_cargo:
+          - item: "Armored car"
+            tons: 4
+          - item: "Grav car"
+            tons: 2
+          - item: "Speeder bike"
+            tons: 1
+            count: 1
         history:
           - session: 7
             event: "Grav car loaded for cylinder operation."
@@ -167,8 +203,10 @@ ships:
       - session: 13
         event: |
           Jumped to Maitz; refueled by siphoning the Star of Carella wreck
-          (fuel 2/2 maintained). Loaded 2× 10 dT looted shuttlecraft and 16 tons
-          of Rx; manufactured trade goods dumped to make room.
+          (fuel 2/2 maintained). Looted two 10 dT shuttlecraft from the wreck
+          and dumped manufactured trade goods to make room. Reorganized the
+          pre-existing 20 t of Rx — 8 t loaded into each looted shuttle as
+          internal storage, 4 t left loose in the bay.
 
     damage_log:
       - session: 12

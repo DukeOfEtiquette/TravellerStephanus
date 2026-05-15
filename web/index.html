@@ -1516,6 +1516,48 @@ async function viewShips() {
         return `<span class="tag ${cls}">${usedStr} / ${cap} t</span>`;
       };
 
+      // A bay (cargo or hangar) renders a loose-cargo table + a vessel card grid.
+      // Items keyed by `item:` are loose; items keyed by `name:` are vessels.
+      const renderBay = (label, list, cap) => {
+        if (!list.length && !cap) return '';
+        const loose   = list.filter(c => c.item);
+        const vessels = list.filter(c => c.name);
+        const used = list.reduce((s, c) => s + (Number(c.tons) || 0), 0);
+        const over = cap > 0 && used > cap;
+
+        let h = `<h3>${esc(label)} ${fmtCap(used, cap, over)}</h3>`;
+
+        h += `<table><thead><tr><th>Item</th><th>Qty</th><th>Tons</th><th>Source</th><th>Notes</th></tr></thead><tbody>`;
+        if (loose.length) {
+          h += loose.map(c => `<tr><td>${esc(c.item)}${c.value != null ? ` <span class="tag dim">${esc(Number(c.value).toLocaleString())} Cr</span>` : ''}</td><td>${esc(c.count ?? c.quantity ?? '')}</td><td>${esc(c.tons ?? '')}</td><td>${esc(c.source || '')}</td><td style="white-space: pre-wrap;">${esc(c.notes || '')}</td></tr>`).join('');
+        } else {
+          h += `<tr><td colspan="5" style="color: var(--text-dim); text-align: center; font-style: italic;">no loose cargo</td></tr>`;
+        }
+        h += `</tbody></table>`;
+
+        if (vessels.length) {
+          h += `<div class="card-grid" style="margin-top: 12px;">`;
+          h += vessels.map(v => `
+            <div class="card" style="background: var(--bg-1);">
+              <h3>${esc(v.name)}</h3>
+              <div class="pill-row">
+                ${v.owner ? `<span class="tag">${esc(v.owner)}</span>` : ''}
+                ${v.tons ? `<span class="tag dim">${esc(v.tons)} t</span>` : ''}
+                ${v.cargo_capacity ? `<span class="tag dim">${esc(v.cargo_capacity)} t cargo</span>` : ''}
+                ${v.source ? `<span class="tag dim">${esc(v.source)}</span>` : ''}
+              </div>
+              ${v.current_cargo?.length
+                ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.count ? ` ×${esc(c.count)}` : ''}${c.tons ? ` (${esc(c.tons)} t${c.count ? ` each` : ''})` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
+                : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
+              ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
+            </div>
+          `).join('');
+          h += `</div>`;
+        }
+
+        return h;
+      };
+
       html += `<div class="card">
         <h3>${esc(ship.name)}</h3>
         <div class="pill-row">
@@ -1537,32 +1579,9 @@ async function viewShips() {
         ${ship.amenities ? `<h3>Amenities</h3><pre>${esc(jsyaml.dump(ship.amenities))}</pre>` : ''}
         ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` — boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
 
-        ${cargoList.length ? `
-          <h3>Cargo Bay ${fmtCap(cargoUsed, cargoCap, cargoOver)}</h3>
-          <table><thead><tr><th>Item</th><th>Qty</th><th>Tons</th><th>Source</th><th>Notes</th></tr></thead><tbody>
-            ${cargoList.map(c => `<tr><td>${esc(c.item)}</td><td>${esc(c.count ?? c.quantity ?? '')}</td><td>${esc(c.tons ?? '')}</td><td>${esc(c.source || '')}</td><td>${esc(c.notes || '')}</td></tr>`).join('')}
-          </tbody></table>
-        ` : (cargoCap ? `<h3>Cargo Bay ${fmtCap(0, cargoCap, false)}</h3><div style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px;">empty</div>` : '')}
+        ${renderBay('Cargo Bay', cargoList, cargoCap)}
 
-        ${hangerList.length ? `
-          <h3>Hanger ${fmtCap(hangerUsed, hangerCap, hangerOver)}</h3>
-          <div class="card-grid">
-            ${hangerList.map(v => `
-              <div class="card" style="background: var(--bg-1);">
-                <h3>${esc(v.name)}</h3>
-                <div class="pill-row">
-                  ${v.owner ? `<span class="tag">${esc(v.owner)}</span>` : ''}
-                  ${v.tons ? `<span class="tag dim">${esc(v.tons)} t</span>` : ''}
-                  ${v.cargo_capacity ? `<span class="tag dim">${esc(v.cargo_capacity)} t cargo</span>` : ''}
-                </div>
-                ${v.current_cargo?.length
-                  ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.tons ? ` (${esc(c.tons)} t)` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
-                  : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
-                ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
-              </div>
-            `).join('')}
-          </div>
-        ` : (hangerCap ? `<h3>Hanger ${fmtCap(0, hangerCap, false)}</h3><div style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 10px;">empty</div>` : '')}
+        ${renderBay('Hanger', hangerList, hangerCap)}
 
         ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` — ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
       </div>`;

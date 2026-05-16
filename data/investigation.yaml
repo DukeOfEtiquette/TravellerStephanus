@@ -48,20 +48,6 @@ chain_of_custody:
 # =============================================================================
 active_leads:
 
-  - name: "JF Intelligence Operative (Faisal al-Amin)"
-    priority: high
-    status: resolved
-    description: |
-      Jade Front operative dispatched on intelligence-gathering circuit:
-      Ith → Mowebe → Thane (2 months listening for Mora updates) → Mowebe
-    action_required: null
-    established: Session 4
-    resolved: Session 12
-    notes: |
-      Traveling via middle passage tickets. Gathered intel filtering back from Mora.
-      Session 12: Made contact at lunar JF depot. Identified as Faisal al-Amin.
-      Full debriefing of his intelligence recorded separately.
-
   - name: "Choophong Thanatkha (Choo)"
     priority: high
     status: in_progress
@@ -102,35 +88,6 @@ active_leads:
     established: Session 3 (Petra's intel)
     notes: |
       Possible connection to al-Thani? Both headed toward Mora region.
-
-  - name: "Ugrik Weapons Delivery"
-    priority: low
-    status: resolved
-    description: |
-      JF station chief Isaiah Reed noted the Front needs weapons on Ugrik.
-      Party currently has 16.5 tons of weapons cargo.
-    action_required: null
-    established: Session 5
-    last_update: Session 6
-    notes: |
-      Weapons traded directly to Isaiah Reed on Stoyben (Session 6).
-
-  - name: "JF Operation — O'Neill Cylinder (Torin's Hard Drive)"
-    priority: high
-    status: resolved_partial
-    description: |
-      Official Jade Front job from Isaiah Reed. JF agent "Alicia" (now burned) spent months
-      grooming Civic Administrator Torin's wife Vondel to download Torin's work computer hard drive.
-    action_required: null
-    established: Session 7
-    resolved: Session 8
-    notes: |
-      Session 8: Arvi murdered Torin to free Vondel from abuse. Party extracted Vondel and fled.
-      Hard drive from Torin's work computer was NEVER obtained.
-      Vondel's behavioral shift explained: she and Arvi had their own plan forming.
-      Tevetz was genuinely helping Vondel in good faith (not scheming).
-      Political fallout from Torin's murder was significant. Isaiah Reed paid more for Vondel's
-      full-system exfiltration and cut the party's pay, but issued a positive letter of recommendation.
 
   - name: "Rivis Job — Deliver Message to Kara Wiley on Thane"
     priority: medium
@@ -244,6 +201,55 @@ active_leads:
     notes: |
       Aligns with party's existing Choo investigation lead. Total payout: 35k Cr.
       Mora is further afield — would require significant travel beyond current plans.
+
+# =============================================================================
+# RESOLVED LEADS
+# =============================================================================
+resolved_leads:
+
+  - name: "JF Intelligence Operative (Faisal al-Amin)"
+    priority: high
+    status: resolved
+    description: |
+      Jade Front operative dispatched on intelligence-gathering circuit:
+      Ith → Mowebe → Thane (2 months listening for Mora updates) → Mowebe
+    action_required: null
+    established: Session 4
+    resolved: Session 12
+    notes: |
+      Traveling via middle passage tickets. Gathered intel filtering back from Mora.
+      Session 12: Made contact at lunar JF depot. Identified as Faisal al-Amin.
+      Full debriefing recorded under Key Intel — see "Coop-Ak commandos through Thane (Wk 10)"
+      and "Quiru-Newhall border skirmish at Maitz (Wk 12)".
+
+  - name: "Ugrik Weapons Delivery"
+    priority: low
+    status: resolved
+    description: |
+      JF station chief Isaiah Reed noted the Front needs weapons on Ugrik.
+      Party currently has 16.5 tons of weapons cargo.
+    action_required: null
+    established: Session 5
+    last_update: Session 6
+    notes: |
+      Weapons traded directly to Isaiah Reed on Stoyben (Session 6).
+
+  - name: "JF Operation — O'Neill Cylinder (Torin's Hard Drive)"
+    priority: high
+    status: resolved_partial
+    description: |
+      Official Jade Front job from Isaiah Reed. JF agent "Alicia" (now burned) spent months
+      grooming Civic Administrator Torin's wife Vondel to download Torin's work computer hard drive.
+    action_required: null
+    established: Session 7
+    resolved: Session 8
+    notes: |
+      Session 8: Arvi murdered Torin to free Vondel from abuse. Party extracted Vondel and fled.
+      Hard drive from Torin's work computer was NEVER obtained.
+      Vondel's behavioral shift explained: she and Arvi had their own plan forming.
+      Tevetz was genuinely helping Vondel in good faith (not scheming).
+      Political fallout from Torin's murder was significant. Isaiah Reed paid more for Vondel's
+      full-system exfiltration and cut the party's pay, but issued a positive letter of recommendation.
 
 # =============================================================================
 # DEAD ENDS (Leads ruled out)
@@ -370,34 +376,62 @@ open_questions:
 
 # =============================================================================
 # KEY INTELLIGENCE
+#
+# Each entry has a stable `id` so that other entries (lead notes, session
+# recaps, NPC notes) can reference the specific intel by name. `category`
+# groups related facts on the Investigation page render.
 # =============================================================================
 key_intel:
 
-  - fact: "Multiple factions are racing to recover the mask"
+  # --- The Mask ---------------------------------------------------------------
+  - id: factions-racing
+    category: The Mask
+    fact: "Multiple factions are racing to recover the mask"
     factions: ["Jade Front", "Cooper-Akachi", "al-Thani (suspected)", "IIP (interest unclear)"]
     source: Various (Sessions 2-5)
 
-  - fact: "The mask has significant cultural/political value to Ith"
+  - id: mask-value-to-ith
+    category: The Mask
+    fact: "The mask has significant cultural/political value to Ith"
     details: "Recovery would provide JF propaganda coup, potentially secure Ith alliance against Quiru-Newhall"
     source: Kyle Newhouse (Session 2)
 
-  - fact: "Choo broke the story but has been missing 3+ months"
+  # --- Choo Investigation -----------------------------------------------------
+  - id: choo-missing
+    category: Choo Investigation
+    fact: "Choo broke the story but has been missing 3+ months"
     details: "Last known on Mora. Even their editor doesn't know their status."
     source: Doné Rivis (Session 5)
 
-  - fact: "Choo is always punctual — prolonged silence is very out of character"
+  - id: choo-punctual
+    category: Choo Investigation
+    fact: "Choo is always punctual — prolonged silence is very out of character"
     details: "Makes the disappearance more alarming; not someone who would go silent voluntarily."
     source: Doné Rivis (Session 6)
 
-  - fact: "Pardeep Sarsar (Choo's assistant/courier for filing stories) is also missing"
+  - id: sarsar-missing
+    category: Choo Investigation
+    fact: "Pardeep Sarsar (Choo's assistant/courier for filing stories) is also missing"
     details: "Family has no sign or recent communication. Nobody at Stoyben spaceport has seen him. Two disappearances linked to same story."
     source: Doné Rivis (Session 6)
 
-  - fact: "Iron Commerce 18 crew confirmed al-Thani"
+  # --- al-Thani Movements -----------------------------------------------------
+  - id: ic18-thani-crew
+    category: al-Thani Movements
+    fact: "Iron Commerce 18 crew confirmed al-Thani"
     details: "Psychic viewing confirmed at least 2 crew. Typical Thane garb: all black, faces covered."
     source: Party investigation (Session 3)
 
-  - fact: "Seven Coop-Ak commandos passed through Thane at Campaign Week 10 aboard the Star Home"
+  # --- Cooper-Akachi Movements ------------------------------------------------
+  - id: coop-ak-mora-operatives
+    category: Cooper-Akachi Movements
+    fact: "Cooper-Akachi has elite operatives en route to Mora"
+    details: "Street-level rumor confirmed by Petra"
+    source: Petra (Session 3)
+
+  - id: coop-ak-thane-wk10
+    category: Cooper-Akachi Movements
+    fact: "Seven Coop-Ak commandos passed through Thane at Campaign Week 10 aboard the Star Home"
     details: |
       Traveled incognito on an old 400dt freighter called the Star Home, stopping to resupply
       at Thane. Met Ta-ka-ti diplomatic staff on the grounds of Morqash University for 10+ hours.
@@ -405,25 +439,28 @@ key_intel:
       Newhall but departed from the anti-spinward (left) jump point — destination mismatch is suspicious.
     source: Faisal al-Amin debrief (Session 12)
 
-  - fact: "Quiru-Newhall border skirmish in outer Maitz at Campaign Week 12"
+  # --- Maitz Battle -----------------------------------------------------------
+  - id: maitz-skirmish-wk12
+    category: Maitz Battle
+    fact: "Quiru-Newhall border skirmish in outer Maitz at Campaign Week 12"
     details: |
       Ship counts — QUIRU: Big 1, Medium 3 (2 disabled), Small 1 (1 disabled).
       NEWHALL: Big 2 (1 disabled), Medium 1, Small 6 (2 disabled).
       Format: deployed (disabled). Newhall outnumbered in big ships but deployed far more smalls.
     source: Faisal al-Amin debrief (Session 12)
 
-  - fact: "Cooper-Akachi has elite operatives en route to Mora"
-    details: "Street-level rumor confirmed by Petra"
-    source: Petra (Session 3)
-
-  - fact: "Six wrecks at Maitz around the sole gas giant"
+  - id: maitz-wrecks
+    category: Maitz Battle
+    fact: "Six wrecks at Maitz around the sole gas giant"
     details: |
       Named hulls: Revenant's Echo (largest), Star of Carella (Newhall),
       Adamant, Savage Intent, Deepest Light (Newhall, 100 dT scout).
       Two of the six wrecks are debris fields too disintegrated to identify.
     source: Party survey (Session 13)
 
-  - fact: "Newhall was hunting one of its own ships at Maitz"
+  - id: newhall-hunting-own
+    category: Maitz Battle
+    fact: "Newhall was hunting one of its own ships at Maitz"
     details: |
       Star of Carella (Newhall) was dispatched from Tivid to Maitz ASAP under
       unsigned Priority 1 orders to capture or destroy the Deepest Light, a
@@ -431,13 +468,17 @@ key_intel:
       whistleblower, or thief carrying valuable cargo or intelligence.
     source: Decrypted Star of Carella orders (Session 13)
 
-  - fact: "Star of Carella was based in Tivid"
+  - id: tivid-newhall-base
+    category: Maitz Battle
+    fact: "Star of Carella was based in Tivid"
     details: |
       Tivid appears to be a Newhall command/staging location. Star of Carella
       was redirected from Tivid to Maitz ASAP "to support operations."
     source: Decrypted Star of Carella data slabs (Session 13)
 
-  - fact: "Star of Carella storage crystals contain 8 hours of dense encrypted traffic"
+  - id: star-carella-encrypted-traffic
+    category: Maitz Battle
+    fact: "Star of Carella storage crystals contain 8 hours of dense encrypted traffic"
     details: |
       Thousands of short, encrypted files starting the minute Star of Carella
       arrived in Maitz and ending abruptly 8 hours later. Higher-grade

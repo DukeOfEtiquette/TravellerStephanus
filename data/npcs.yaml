@@ -162,7 +162,8 @@ npcs:
       Was the "JF intelligence operative" dispatched at the end of Session 4 on the
       Ith → Mowebe → Thane → Mowebe circuit. Designated "Agent #3" by JF.
       Debriefed party at lunar JF depot (Session 12). Returns Campaign Week 16.
-      Key intel from debrief filed in investigation.yaml.
+      Key intel from debrief: see Investigation > Key Intel — "Coop-Ak commandos through
+      Thane (Wk 10)" and "Quiru-Newhall border skirmish at Maitz (Wk 12)".
 
   - name: '"Alicia"'
     affiliation: Jade Front

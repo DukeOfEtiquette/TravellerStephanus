@@ -724,10 +724,10 @@ const TOP_DOCS = [
 const NAV = [
   { group: 'Campaign', items: [
     { route: '#/',              label: 'Overview' },
-    { route: '#/sessions',      label: 'GM Session Recaps' },
     { route: '#/investigation', label: 'Investigation' },
     { route: '#/timeline',      label: 'Timeline' },
-    { route: '#/npcs',          label: 'NPCs' }
+    { route: '#/npcs',          label: 'NPCs' },
+    { route: '#/sessions',      label: 'GM Session Recaps' }
   ]},
   { group: 'Party', items: [
     { route: '#/party',      label: 'Party Members' },
@@ -793,6 +793,12 @@ function md(str) {
 }
 
 function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+function fmtDate(d) {
+  if (!d) return '';
+  if (d instanceof Date) return d.toISOString().slice(0, 10);
+  return String(d).slice(0, 10);
+}
 
 function slugify(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -906,7 +912,6 @@ async function viewHome() {
           <span class="tag">${esc(f.type || 'Faction')}</span>
         </div>
         <p>${esc(f.summary || '')}</p>
-        ${f.mcguffin_interest ? `<div style="margin-top: 8px;"><span class="tag dim">Wants the mask</span> ${esc(f.mcguffin_interest)}</div>` : ''}
         ${f.pros?.length ? `<h3 style="margin-top: 10px;">Pros</h3><ul>${f.pros.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
         ${f.cons?.length ? `<h3>Cons</h3><ul>${f.cons.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
       </div>
@@ -936,7 +941,7 @@ async function viewSessions() {
       <div class="card">
         <h3>
           <a href="#/sessions/${s.n}">Session ${s.n}</a>
-          ${sd.date ? `<span class="tag dim" style="margin-left: 8px;">${esc(sd.date)}</span>` : ''}
+          ${sd.date ? `<span class="tag dim" style="margin-left: 8px;">${esc(fmtDate(sd.date))}</span>` : ''}
         </h3>
         <div style="color: var(--text-dim); font-size: 0.88rem; margin-top: 6px; white-space: pre-wrap;">${esc(sd.recap || '')}</div>
         ${sd.recap ? `<div style="margin-top: 8px; font-size: 0.85rem;"><a href="#/sessions/${s.n}">Read full session →</a></div>` : ''}
@@ -967,7 +972,7 @@ async function viewSession(num) {
     { route: '#/sessions', label: 'Sessions' },
     { label: `Session ${num}` }
   ]);
-  html += `<h1 class="page-title">Session ${num}${s.date ? ` <span class="tag dim" style="font-size: 0.7rem; vertical-align: middle;">${esc(s.date)}</span>` : ''}</h1>`;
+  html += `<h1 class="page-title">Session ${num}${s.date ? ` <span class="tag dim" style="font-size: 0.7rem; vertical-align: middle;">${esc(fmtDate(s.date))}</span>` : ''}</h1>`;
 
   if (s.recap) {
     html += `<h2>Recap</h2><div class="recap-block">${esc(s.recap)}</div>`;
@@ -1077,7 +1082,8 @@ async function viewInvestigation() {
       </div>`;
     }
     if (opts.collapsible) {
-      return `<details class="collapsible"><summary><h2>${esc(title)} <span class="tag dim">${leads.length}</span></h2></summary>${body}</details>`;
+      const open = opts.defaultOpen ? ' open' : '';
+      return `<details class="collapsible"${open}><summary><h2>${esc(title)} <span class="tag dim">${leads.length}</span></h2></summary>${body}</details>`;
     }
     return `<h2>${esc(title)}</h2>${body}`;
   };
@@ -1093,8 +1099,32 @@ async function viewInvestigation() {
     }
   }
 
-  html += renderLeads(inv.active_leads, 'Active Leads', { collapsible: true });
-  html += renderLeads(inv.resolved_leads, 'Resolved Leads');
+  if (inv.key_intel?.length) {
+    const groups = new Map();
+    for (const it of inv.key_intel) {
+      const cat = it.category || 'Other';
+      if (!groups.has(cat)) groups.set(cat, []);
+      groups.get(cat).push(it);
+    }
+    const renderCard = (it) => `<div class="card">
+      <h3>${esc(it.fact || it.topic || it.name || 'Intel')}</h3>
+      <div class="pill-row">
+        ${it.id ? `<span class="tag">${esc(it.id)}</span>` : ''}
+        ${it.source ? `<span class="tag dim">source: ${esc(it.source)}</span>` : ''}
+        ${(it.factions || []).map(f => `<span class="tag">${esc(f)}</span>`).join('')}
+      </div>
+      ${it.details ? `<div style="white-space: pre-wrap;">${esc(it.details)}</div>` : ''}
+    </div>`;
+    let body = '';
+    for (const [cat, items] of groups) {
+      body += `<h3 class="key-intel-group">${esc(cat)} <span class="tag dim">${items.length}</span></h3>`;
+      body += items.map(renderCard).join('');
+    }
+    html += `<details class="collapsible"><summary><h2>Key Intel <span class="tag dim">${inv.key_intel.length}</span></h2></summary>${body}</details>`;
+  }
+
+  html += renderLeads(inv.active_leads, 'Active Leads', { collapsible: true, defaultOpen: true });
+  html += renderLeads(inv.resolved_leads, 'Resolved Leads', { collapsible: true });
 
   if (inv.dead_ends?.length) {
     let body = '';
@@ -1110,21 +1140,6 @@ async function viewInvestigation() {
       </div>`;
     }
     html += `<details class="collapsible"><summary><h2>Dead Ends <span class="tag dim">${inv.dead_ends.length}</span></h2></summary>${body}</details>`;
-  }
-
-  if (inv.key_intel?.length) {
-    let body = '';
-    for (const it of inv.key_intel) {
-      body += `<div class="card">
-        <h3>${esc(it.fact || it.topic || it.name || 'Intel')}</h3>
-        <div class="pill-row">
-          ${it.source ? `<span class="tag dim">source: ${esc(it.source)}</span>` : ''}
-          ${(it.factions || []).map(f => `<span class="tag">${esc(f)}</span>`).join('')}
-        </div>
-        ${it.details ? `<div style="white-space: pre-wrap;">${esc(it.details)}</div>` : ''}
-      </div>`;
-    }
-    html += `<details class="collapsible"><summary><h2>Key Intel <span class="tag dim">${inv.key_intel.length}</span></h2></summary>${body}</details>`;
   }
 
   if (inv.open_questions?.length) {

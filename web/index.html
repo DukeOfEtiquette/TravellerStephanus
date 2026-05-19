@@ -228,8 +228,9 @@
   }
 
   /* Font-size cycle: scales all rem-based sizes via root font-size. */
-  html[data-font="lrg"]  { font-size: 115%; }
-  html[data-font="xlrg"] { font-size: 130%; }
+  html                   { font-size: 130%; }
+  html[data-font="lrg"]  { font-size: 145%; }
+  html[data-font="xlrg"] { font-size: 160%; }
 
   .font-toggle {
     display: inline-flex;
@@ -705,7 +706,7 @@
       <br>
       <button class="font-toggle" id="font-toggle" type="button"
               aria-label="Cycle font size" title="Cycle font size">
-        Font: <span class="font-label">Reg</span>
+        Font: <span class="font-label">Default</span>
       </button>
     </div>
     <nav id="nav"></nav>
@@ -2529,7 +2530,7 @@ renderNav();
 // Font-size cycle: reg → lrg → xlrg → reg
 (function setupFontToggle() {
   const SIZES = ['reg', 'lrg', 'xlrg'];
-  const LABELS = { reg: 'Reg', lrg: 'Lrg', xlrg: 'XLrg' };
+  const LABELS = { reg: 'Default', lrg: 'Large', xlrg: 'XLarge' };
   const btn = document.getElementById('font-toggle');
   if (!btn) return;
   const label = btn.querySelector('.font-label');

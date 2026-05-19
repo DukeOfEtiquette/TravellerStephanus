@@ -19,301 +19,10 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="site.css">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  /* Phosphor — amber CRT on warm coal (default) */
-  :root,
-  html[data-palette="phosphor"] {
-    --bg: #0c0a07;
-    --bg-2: #15110b;
-    --bg-3: #1d1810;
-    --border: #322a1e;
-    --border-2: #46392a;
-    --text: #e8c896;
-    --text-dim: #b3956a;
-    --text-faint: #76624a;
-    --accent: #ffb347;
-    --accent-2: #ff7a1a;
-    --accent-3: #f0d8a8;
-    --good: #7ed957;
-    --warn: #ffd86b;
-    --bad: #ff7a7a;
-    --orange: #ff9a4a;
-    --accent-tint: rgba(255,179,71,0.16);
-    --accent-tint-soft: rgba(255,179,71,0.06);
-    --accent-2-tint: rgba(255,122,26,0.10);
-    --accent-2-tint-soft: rgba(255,122,26,0.08);
-    --code-bg: rgba(232,200,150,0.08);
-    --row-stripe: rgba(232,200,150,0.03);
-    --good-tint: rgba(126,217,87,0.18);
-    --warn-tint: rgba(255,216,107,0.18);
-    --bad-tint: rgba(255,122,122,0.18);
-    --bad-bg: rgba(255,122,122,0.10);
-    --bad-border: rgba(255,122,122,0.30);
-    --error-pre-color: #ffb380;
-    --starport-A: #7ed957;
-    --starport-B: #7ec8ff;
-    --starport-C: #ffd86b;
-    --starport-D: #ff9a4a;
-    --starport-X: #ff7a7a;
-    --scrim: rgba(0,0,0,0.55);
-  }
-
-  /* Star Chart — cosmic black, atlas gold + signal cyan */
-  html[data-palette="starchart"] {
-    --bg: #07080d;
-    --bg-2: #0e1118;
-    --bg-3: #131722;
-    --border: #20283a;
-    --border-2: #2a334a;
-    --text: #ece6d6;
-    --text-dim: #a8a08c;
-    --text-faint: #6b6552;
-    --accent: #f0c262;
-    --accent-2: #6fb8ff;
-    --accent-3: #ece6d6;
-    --good: #4fd6a0;
-    --warn: #f0c262;
-    --bad: #ff6b81;
-    --orange: #f0c262;
-    --accent-tint: rgba(240,194,98,0.16);
-    --accent-tint-soft: rgba(240,194,98,0.06);
-    --accent-2-tint: rgba(111,184,255,0.12);
-    --accent-2-tint-soft: rgba(111,184,255,0.08);
-    --code-bg: rgba(236,230,214,0.08);
-    --row-stripe: rgba(236,230,214,0.03);
-    --good-tint: rgba(79,214,160,0.16);
-    --warn-tint: rgba(240,194,98,0.18);
-    --bad-tint: rgba(255,107,129,0.18);
-    --bad-bg: rgba(255,107,129,0.10);
-    --bad-border: rgba(255,107,129,0.30);
-    --error-pre-color: #ff9eaa;
-    --starport-A: #4fd6a0;
-    --starport-B: #6fb8ff;
-    --starport-C: #f0c262;
-    --starport-D: #ff9a4a;
-    --starport-X: #ff6b81;
-    --scrim: rgba(0,0,0,0.55);
-  }
-
-  /* Field Dossier — cream paper, oxblood ink, registry teal */
-  html[data-palette="dossier"] {
-    --bg: #efe6cf;
-    --bg-2: #e6dab9;
-    --bg-3: #ddcfa9;
-    --border: #beae84;
-    --border-2: #a89a72;
-    --text: #2a241c;
-    --text-dim: #5e5239;
-    --text-faint: #8a7c5c;
-    --accent: #8a2828;
-    --accent-2: #1f4a5e;
-    --accent-3: #3a2f24;
-    --good: #4f7a35;
-    --warn: #8c6512;
-    --bad: #8a2828;
-    --orange: #8c6512;
-    --accent-tint: rgba(138,40,40,0.10);
-    --accent-tint-soft: rgba(138,40,40,0.06);
-    --accent-2-tint: rgba(31,74,94,0.10);
-    --accent-2-tint-soft: rgba(31,74,94,0.08);
-    --code-bg: rgba(42,36,28,0.06);
-    --row-stripe: rgba(42,36,28,0.04);
-    --good-tint: rgba(79,122,53,0.16);
-    --warn-tint: rgba(140,101,18,0.16);
-    --bad-tint: rgba(138,40,40,0.12);
-    --bad-bg: rgba(138,40,40,0.08);
-    --bad-border: rgba(138,40,40,0.35);
-    --error-pre-color: #5e1818;
-    --starport-A: #2d6e2d;
-    --starport-B: #1f4a5e;
-    --starport-C: #8c6512;
-    --starport-D: #8a4e1e;
-    --starport-X: #6e2b2b;
-    --scrim: rgba(60,52,38,0.35);
-  }
-
-  html, body {
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    line-height: 1.5;
-  }
-
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { color: var(--accent); text-decoration: underline; }
-
-  .layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    min-height: 100vh;
-  }
-
-  /* Sidebar */
-  aside.sidebar {
-    background: var(--bg-3);
-    border-right: 1px solid var(--border);
-    padding: 16px 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
-
-  .brand {
-    padding: 0 18px 14px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
-  }
-  .brand .home {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-  .brand .home:hover .title { filter: brightness(1.15); }
-  .brand .title {
-    color: var(--accent);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-  .brand .subtitle {
-    color: var(--text-faint);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 4px;
-  }
-
-  /* Palette cycle button — three swatch dots, current one ringed */
-  .palette-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    cursor: pointer;
-    line-height: 1;
-    transition: background 120ms ease, border-color 120ms ease;
-  }
-  .palette-toggle:hover {
-    background: var(--bg-2);
-    border-color: var(--border-2);
-  }
-  .palette-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  .palette-toggle .dot {
-    display: inline-block;
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    opacity: 0.5;
-    transition: opacity 120ms ease, transform 120ms ease, box-shadow 120ms ease;
-  }
-  .palette-toggle .dot[data-p="phosphor"]  { background: #ffb347; }
-  .palette-toggle .dot[data-p="starchart"] { background: #6fb8ff; }
-  .palette-toggle .dot[data-p="dossier"]   { background: #8a2828; }
-  .palette-toggle[data-active="phosphor"]  .dot[data-p="phosphor"],
-  .palette-toggle[data-active="starchart"] .dot[data-p="starchart"],
-  .palette-toggle[data-active="dossier"]   .dot[data-p="dossier"] {
-    opacity: 1;
-    transform: scale(1.2);
-    box-shadow: 0 0 0 1px var(--text);
-  }
-
-  /* Font-size cycle: scales all rem-based sizes via root font-size. */
-  html                   { font-size: 130%; }
-  html[data-font="lrg"]  { font-size: 145%; }
-  html[data-font="xlrg"] { font-size: 160%; }
-
-  .font-toggle {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 8px;
-    padding: 5px 10px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    cursor: pointer;
-    line-height: 1;
-    color: var(--text-dim);
-    font-family: inherit;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
-  }
-  .font-toggle:hover {
-    background: var(--bg-2);
-    border-color: var(--border-2);
-    color: var(--text);
-  }
-  .font-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  .font-toggle .font-label {
-    margin-left: 6px;
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  nav .group {
-    padding: 8px 18px 4px;
-    color: var(--text-faint);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  nav a {
-    display: block;
-    padding: 6px 18px;
-    color: var(--text);
-    font-size: 0.88rem;
-    border-left: 3px solid transparent;
-  }
-  nav a:hover {
-    background: var(--accent-tint-soft);
-    color: var(--accent);
-    text-decoration: none;
-  }
-  nav a.active {
-    border-left-color: var(--accent-2);
-    background: var(--accent-2-tint);
-    color: var(--accent);
-  }
-
-  /* Main */
-  main.content {
-    padding: 28px 36px 60px;
-    max-width: 1100px;
-    /* Without this, a wide child (e.g. a price table) would push the grid
-       track wider than the viewport and cause page-level horizontal scroll,
-       defeating the .table-scroll wrappers. min-width:0 lets the grid track
-       shrink so the scroll containers actually scroll. */
-    min-width: 0;
-  }
-
-  .crumbs {
-    color: var(--text-faint);
-    font-size: 0.78rem;
-    margin-bottom: 4px;
-  }
-  .crumbs a { color: var(--text-faint); }
-  .crumbs a:hover { color: var(--accent); }
-
-  h1.page-title {
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin-bottom: 18px;
-    letter-spacing: 0.02em;
-  }
+  /* Chrome styles (palettes, layout, sidebar, nav, page-title, mobile menu,
+     scroll-top) live in web/site.css and are shared with travel.html. */
 
   h2 {
     color: var(--accent);
@@ -560,68 +269,8 @@
     margin: 8px 0;
   }
 
-  /* Mobile menu button — hidden on desktop */
-  .menu-toggle {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 30;
-    background: var(--bg-3);
-    color: var(--accent);
-    border: 1px solid var(--border-2);
-    border-radius: 6px;
-    padding: 10px 14px;
-    font-size: 1.25rem;
-    line-height: 1;
-    cursor: pointer;
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .menu-toggle:hover { background: var(--bg-2); }
-  .menu-toggle:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
-
-  .sidebar-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--scrim);
-    z-index: 18;
-  }
-
   /* Tablet / mobile */
   @media (max-width: 800px) {
-    .layout { grid-template-columns: 1fr; }
-    .menu-toggle { display: block; }
-    aside.sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: min(280px, 84vw);
-      z-index: 20;
-      border-right: 1px solid var(--border);
-      border-bottom: none;
-      padding: 12px 0 24px;
-      transform: translateX(-100%);
-      transition: transform 0.2s ease;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.35);
-      overscroll-behavior: contain;
-    }
-    body.sidebar-open aside.sidebar { transform: translateX(0); }
-    body.sidebar-open .sidebar-backdrop { display: block; }
-
-    /* Larger touch targets in the slide-out nav */
-    nav a { padding: 11px 18px; font-size: 0.95rem; }
-    nav .group { padding: 14px 18px 6px; }
-    .brand { padding: 4px 18px 14px; }
-
-    main.content {
-      padding: 18px 16px 60px;
-      padding-top: 60px;
-      max-width: 100%;
-    }
-
     /* Card grid: a single column reads better than awkward 1.x columns */
     .card-grid { grid-template-columns: 1fr; }
 
@@ -640,15 +289,12 @@
     .filter-bar .count { align-self: flex-start; }
 
     /* Slightly tighter typography */
-    h1.page-title { font-size: 1.3rem; margin-bottom: 14px; }
     h2 { font-size: 1.05rem; }
     h3 { font-size: 0.95rem; }
   }
 
   /* Small phones */
   @media (max-width: 480px) {
-    main.content { padding: 16px 12px 60px; padding-top: 60px; }
-    h1.page-title { font-size: 1.2rem; }
     .card { padding: 12px 14px; }
     .recap-block { padding: 10px 12px; font-size: 0.88rem; }
     pre { padding: 10px; font-size: 0.78rem; }
@@ -656,33 +302,6 @@
     .pill-row .tag { margin-bottom: 4px; }
   }
 
-  .scroll-top {
-    position: fixed;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--bg-2);
-    border: 1px solid var(--border-2);
-    color: var(--accent);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    opacity: 0;
-    transform: translateY(8px);
-    pointer-events: none;
-    transition: opacity 200ms ease, transform 200ms ease, background 120ms ease, border-color 120ms ease;
-    z-index: 25;
-  }
-  .scroll-top.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  .scroll-top:hover { background: var(--bg-3); border-color: var(--accent); }
-  .scroll-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .scroll-top svg { width: 20px; height: 20px; }
 </style>
 </head>
 <body>
@@ -725,6 +344,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="site.js"></script>
 <script>
 'use strict';
 
@@ -761,36 +381,6 @@ const TOP_DOCS = [
   { path: '../TRAVEL-EXPLAINED.md', label: 'Travel Rules' },
   { path: '../GM-QUESTIONS.md',     label: 'GM Questions' }
 ];
-
-// =========================================================================
-// Navigation menu
-// =========================================================================
-
-const NAV = [
-  { group: 'Campaign', items: [
-    { route: '#/',              label: 'Overview' },
-    { route: '#/investigation', label: 'Investigation' },
-    { route: '#/timeline',      label: 'Timeline' },
-    { route: '#/npcs',          label: 'NPCs' },
-    { route: '#/sessions',      label: 'GM Session Recaps' }
-  ]},
-  { group: 'Party', items: [
-    { route: '#/party',      label: 'Party Members' },
-    { route: '#/ships',      label: 'Ships' },
-    { route: '#/assets',     label: 'Assets' }
-  ]},
-  { group: 'Setting', items: [
-    { route: '#/worlds',     label: 'Worlds' },
-    { route: 'travel.html',  label: 'Travel Calculator' }
-  ]},
-  { group: 'Rules', items: [
-    { route: '#/rules',     label: 'Core Rules' },
-    { route: '#/careers',   label: 'Careers' },
-    { route: '#/prices',    label: 'Prices & Equipment' },
-    { route: '#/refs',      label: 'Reference Docs' }
-  ]}
-];
-
 // =========================================================================
 // Data loader (caches parsed YAML / JSON / Markdown)
 // =========================================================================
@@ -895,36 +485,6 @@ function crumbs(parts) {
       ? esc(p.label)
       : (p.route ? `<a href="${p.route}">${esc(p.label)}</a>` : esc(p.label))
   ).join(' / ')}</div>`;
-}
-
-// =========================================================================
-// Sidebar render
-// =========================================================================
-
-function renderNav() {
-  const nav = document.getElementById('nav');
-  const html = NAV.map(g => `
-    <div class="group">${esc(g.group)}</div>
-    ${g.items.map(it => it.external
-      ? `<a href="${esc(it.route)}" target="_blank" rel="noopener">${esc(it.label)} ↗</a>`
-      : `<a href="${esc(it.route)}" data-route="${esc(it.route)}">${esc(it.label)}</a>`
-    ).join('')}
-  `).join('');
-  nav.innerHTML = html;
-}
-
-function highlightNav() {
-  const route = location.hash || '#/';
-  for (const a of document.querySelectorAll('#nav a[data-route]')) {
-    const target = a.dataset.route;
-    let active = false;
-    if (target === '#/') {
-      active = (route === '' || route === '#/' || route === '#');
-    } else {
-      active = route === target || route.startsWith(target + '/');
-    }
-    a.classList.toggle('active', active);
-  }
 }
 
 // =========================================================================
@@ -2507,83 +2067,9 @@ async function route() {
 // Init
 // =========================================================================
 
-renderNav();
-
-// Palette cycle: phosphor → starchart → dossier → phosphor
-(function setupPaletteToggle() {
-  const PALETTES = ['phosphor', 'starchart', 'dossier'];
-  const btn = document.getElementById('palette-toggle');
-  if (!btn) return;
-  const current = () => document.documentElement.dataset.palette || 'phosphor';
-  const apply = (p) => {
-    document.documentElement.dataset.palette = p;
-    try { localStorage.setItem('ts-palette', p); } catch (e) {}
-    btn.dataset.active = p;
-  };
-  apply(current());
-  btn.addEventListener('click', () => {
-    const next = PALETTES[(PALETTES.indexOf(current()) + 1) % PALETTES.length];
-    apply(next);
-  });
-})();
-
-// Font-size cycle: reg → lrg → xlrg → reg
-(function setupFontToggle() {
-  const SIZES = ['reg', 'lrg', 'xlrg'];
-  const LABELS = { reg: 'Default', lrg: 'Large', xlrg: 'XLarge' };
-  const btn = document.getElementById('font-toggle');
-  if (!btn) return;
-  const label = btn.querySelector('.font-label');
-  const current = () => document.documentElement.dataset.font || 'reg';
-  const apply = (size) => {
-    document.documentElement.dataset.font = size;
-    try { localStorage.setItem('ts-font', size); } catch (e) {}
-    if (label) label.textContent = LABELS[size];
-  };
-  apply(current());
-  btn.addEventListener('click', () => {
-    const next = SIZES[(SIZES.indexOf(current()) + 1) % SIZES.length];
-    apply(next);
-  });
-})();
-
-// Mobile sidebar toggle
-(function setupMobileNav() {
-  const btn = document.getElementById('menu-toggle');
-  const backdrop = document.getElementById('sidebar-backdrop');
-  const close = () => {
-    document.body.classList.remove('sidebar-open');
-    btn.setAttribute('aria-expanded', 'false');
-  };
-  btn.addEventListener('click', () => {
-    const open = document.body.classList.toggle('sidebar-open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  backdrop.addEventListener('click', close);
-  // Close when a nav link is clicked
-  document.getElementById('nav').addEventListener('click', e => {
-    if (e.target.closest('a')) close();
-  });
-})();
-
 window.addEventListener('hashchange', route);
 route();
 
-(function setupScrollTop() {
-  const btn = document.getElementById('scroll-top');
-  if (!btn) return;
-  const THRESHOLD = 400;
-  let ticking = false;
-  function update() {
-    btn.classList.toggle('visible', window.scrollY > THRESHOLD);
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  update();
-})();
 </script>
 </body>
 </html>

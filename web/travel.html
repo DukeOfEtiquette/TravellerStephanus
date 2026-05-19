@@ -11,6 +11,10 @@
     if (p === 'phosphor' || p === 'starchart' || p === 'dossier') {
       document.documentElement.dataset.palette = p;
     }
+    var f = localStorage.getItem('ts-font');
+    if (f === 'reg' || f === 'lrg' || f === 'xlrg') {
+      document.documentElement.dataset.font = f;
+    }
   } catch (e) {}
 </script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -163,6 +167,48 @@
     opacity: 1;
     transform: scale(1.2);
     box-shadow: 0 0 0 1px var(--text);
+  }
+
+  /* Font-size cycle: scales all rem-based sizes via root font-size. */
+  html                   { font-size: 130%; }
+  html[data-font="lrg"]  { font-size: 145%; }
+  html[data-font="xlrg"] { font-size: 160%; }
+
+  .toolbar-toggles {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .font-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+  .font-toggle:hover {
+    background: var(--bg-2);
+    border-color: var(--border-2);
+    color: var(--text);
+  }
+  .font-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .font-toggle .font-label {
+    margin-left: 6px;
+    color: var(--accent);
+    font-weight: 600;
   }
 
   h1 {
@@ -413,12 +459,18 @@
 
 <div class="topbar">
   <a class="back" href="index.html">← Campaign Viewer</a>
-  <button class="palette-toggle" id="palette-toggle" type="button"
-          aria-label="Cycle color palette" title="Cycle color palette">
-    <span class="dot" data-p="phosphor"></span>
-    <span class="dot" data-p="starchart"></span>
-    <span class="dot" data-p="dossier"></span>
-  </button>
+  <div class="toolbar-toggles">
+    <button class="palette-toggle" id="palette-toggle" type="button"
+            aria-label="Cycle color palette" title="Cycle color palette">
+      <span class="dot" data-p="phosphor"></span>
+      <span class="dot" data-p="starchart"></span>
+      <span class="dot" data-p="dossier"></span>
+    </button>
+    <button class="font-toggle" id="font-toggle" type="button"
+            aria-label="Cycle font size" title="Cycle font size">
+      Font: <span class="font-label">Default</span>
+    </button>
+  </div>
 </div>
 <h1>Traveller Stephanus — Travel Calculator</h1>
 
@@ -1041,6 +1093,26 @@ document.addEventListener('keydown', (e) => {
   apply(current());
   btn.addEventListener('click', () => {
     const next = PALETTES[(PALETTES.indexOf(current()) + 1) % PALETTES.length];
+    apply(next);
+  });
+})();
+
+// --- Font-size toggle: reg → lrg → xlrg → reg ---
+(function setupFontToggle() {
+  const SIZES = ['reg', 'lrg', 'xlrg'];
+  const LABELS = { reg: 'Default', lrg: 'Large', xlrg: 'XLarge' };
+  const btn = document.getElementById('font-toggle');
+  if (!btn) return;
+  const label = btn.querySelector('.font-label');
+  const current = () => document.documentElement.dataset.font || 'reg';
+  const apply = (size) => {
+    document.documentElement.dataset.font = size;
+    try { localStorage.setItem('ts-font', size); } catch (e) {}
+    if (label) label.textContent = LABELS[size];
+  };
+  apply(current());
+  btn.addEventListener('click', () => {
+    const next = SIZES[(SIZES.indexOf(current()) + 1) % SIZES.length];
     apply(next);
   });
 })();

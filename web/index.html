@@ -305,55 +305,74 @@
 
   .campaign-timeline {
     position: relative;
-    padding: 10px 0 30px;
+    padding: 0 0 30px;
   }
-  /* Central vertical axis */
+  /* Faint central axis — a quiet through-line, not a heavy spine. */
   .campaign-timeline::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 30px;
+    bottom: 10px;
     left: 50%;
-    width: 2px;
-    background: linear-gradient(
-      to bottom,
-      var(--accent-tint) 0,
-      var(--border-2) 24px,
-      var(--border-2) calc(100% - 24px),
-      var(--accent-tint) 100%
-    );
+    width: 1px;
+    background: var(--border-2);
     transform: translateX(-50%);
     pointer-events: none;
+    opacity: 0.55;
   }
 
   .timeline-row {
     display: grid;
-    grid-template-columns: 1fr 110px 1fr;
-    column-gap: 18px;
+    grid-template-columns: 1fr 132px 1fr;
+    column-gap: 22px;
     align-items: start;
-    padding: 14px 0;
+    padding: 30px 0 16px;
     position: relative;
   }
-  .timeline-row + .timeline-row { border-top: 1px dashed transparent; }
+
+  /* Day chapter break: a thin rule slices across the full row width and
+     is visually interrupted by the day pill straddling the central axis. */
+  .timeline-row::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0,
+      var(--border-2) 6%,
+      var(--border-2) 42%,
+      transparent 46%,
+      transparent 54%,
+      var(--border-2) 58%,
+      var(--border-2) 94%,
+      transparent 100%
+    );
+    pointer-events: none;
+    opacity: 0.55;
+  }
 
   .day-marker {
     grid-column: 2;
     text-align: center;
     position: relative;
     z-index: 2;
+    margin-top: -8px;
   }
   .day-marker .day-pill {
     display: inline-block;
     background: var(--bg);
     border: 1px solid var(--accent);
     color: var(--accent);
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     letter-spacing: 0.04em;
     font-weight: 600;
     white-space: nowrap;
-    box-shadow: 0 0 0 4px var(--bg);
+    box-shadow: 0 0 0 5px var(--bg);
   }
   .day-marker .day-sublabel {
     display: block;
@@ -361,71 +380,39 @@
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
   .timeline-col {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     min-width: 0;
   }
-  .timeline-col.narrative {
-    grid-column: 1;
-    align-items: stretch;
-  }
-  .timeline-col.crew {
-    grid-column: 3;
-    align-items: stretch;
-  }
-  .timeline-col.empty {
-    /* keep the column slot so the day pill remains centered */
-  }
+  .timeline-col.narrative { grid-column: 1; }
+  .timeline-col.crew { grid-column: 3; }
+  .timeline-col.empty { /* preserve grid slot when only one side has events */ }
 
+  /* Cards: no full outline. Background tint + a colored stripe on the
+     edge facing the axis carries the narrative/crew distinction. */
   .timeline-card {
     background: var(--bg-2);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 10px 13px 11px;
+    border-radius: 4px;
+    padding: 11px 14px 12px;
     position: relative;
     font-size: 0.9rem;
   }
   .timeline-card.narrative {
     border-right: 3px solid var(--accent-2);
+    background:
+      linear-gradient(to left,  var(--accent-2-tint-soft), transparent 65%),
+      var(--bg-2);
   }
   .timeline-card.crew {
     border-left: 3px solid var(--accent);
-  }
-
-  /* Connector from card edge to the axis */
-  .timeline-card::after {
-    content: "";
-    position: absolute;
-    top: 18px;
-    height: 1px;
-    width: 16px;
-    background: var(--border-2);
-  }
-  .timeline-card.narrative::after { right: -18px; }
-  .timeline-card.crew::after { left: -18px; }
-  /* Dot where the connector meets the axis */
-  .timeline-card::before {
-    content: "";
-    position: absolute;
-    top: 14px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-  .timeline-card.narrative::before {
-    right: -24px;
-    background: var(--accent-2);
-    box-shadow: 0 0 0 2px var(--bg);
-  }
-  .timeline-card.crew::before {
-    left: -24px;
-    background: var(--accent);
-    box-shadow: 0 0 0 2px var(--bg);
+    background:
+      linear-gradient(to right, var(--accent-tint-soft),  transparent 65%),
+      var(--bg-2);
   }
 
   .timeline-card .card-head {
@@ -471,67 +458,62 @@
   .campaign-timeline.hide-narrative .timeline-col.narrative { display: none; }
   .campaign-timeline.hide-crew .timeline-card.crew,
   .campaign-timeline.hide-crew .timeline-col.crew { display: none; }
-  .campaign-timeline.hide-narrative .timeline-row,
-  .campaign-timeline.hide-crew .timeline-row {
-    /* one column gone — let the visible one fill that slot */
-  }
 
-  /* Mobile: axis sits on the left; the day pill and both columns stack
-     to its right. Drop grid for a simpler block flow so empty columns
-     don't leave grid gaps. */
+  /* Mobile: day marker becomes a section-header band above its stack of
+     cards. Single-column flow, no central axis, no fixed left gutter
+     (the previous fixed 44px gutter overflowed for "Day 24.1"). */
   @media (max-width: 760px) {
-    .campaign-timeline::before {
-      left: 18px;
-      transform: none;
-    }
+    .campaign-timeline::before { display: none; }
+
     .timeline-row {
       display: block;
-      padding: 12px 0 12px 44px;
-      position: relative;
+      padding: 0;
+      margin-top: 22px;
     }
+    .timeline-row::before { display: none; }
+    .timeline-row:first-child { margin-top: 6px; }
+
     .day-marker {
-      position: absolute;
-      top: 14px;
-      left: 0;
-      width: 44px;
+      grid-column: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 10px;
       text-align: left;
     }
     .day-marker .day-pill {
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      box-shadow: 0 0 0 3px var(--bg);
+      font-size: 0.78rem;
+      padding: 4px 11px;
+      box-shadow: none;
+      flex: 0 0 auto;
     }
-    .day-marker .day-sublabel { display: none; }
-    .timeline-col {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .day-marker .day-sublabel { margin: 0; }
+    .day-marker::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: var(--border-2);
+      opacity: 0.55;
     }
+
     .timeline-col.narrative + .timeline-col.crew { margin-top: 8px; }
     .timeline-col.empty { display: none; }
+
+    /* Mobile cards: colored stripe on the LEFT for both types (no axis to
+       face); tint stays on the left so it reads consistently. */
     .timeline-card.narrative {
+      border-right: none;
       border-left: 3px solid var(--accent-2);
-      border-right: 1px solid var(--border);
+      background:
+        linear-gradient(to right, var(--accent-2-tint-soft), transparent 65%),
+        var(--bg-2);
     }
     .timeline-card.crew {
       border-left: 3px solid var(--accent);
+      background:
+        linear-gradient(to right, var(--accent-tint-soft),  transparent 65%),
+        var(--bg-2);
     }
-    /* No left/right connectors on mobile — only a small dot tying each
-       card back to the axis line. */
-    .timeline-card::after { display: none; }
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      top: 16px;
-      left: -27px;
-      right: auto;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--bg);
-    }
-    .timeline-card.narrative::before { background: var(--accent-2); }
-    .timeline-card.crew::before { background: var(--accent); }
   }
 
   /* Markdown content */

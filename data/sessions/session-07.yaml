@@ -39,6 +39,59 @@ session:
     Location: O'Neill Cylinder two days from Stoyben
     Kitty: 26,200 cr
 
+  narrative_events:
+    - day: 6.5
+      title: "JF cylinder colony briefing from Isaiah Reed"
+      description: |
+        Thousands of O'Neill cylinders orbit Stoyben; each is run by a Civic
+        Administrator. JF agent "Alicia" befriended Administrator Torin's
+        wife Vondel and convinced her to leave her abusive, distant husband
+        — in exchange for downloading his work hard drive and using
+        "Alicia's" connections to protect her. Vondel agreed, then got cold
+        feet during exfiltration. Suspiciously, her behavior shifted from
+        anxious to confident the moment she backed out. Vondel doesn't know
+        of "Alicia's" JF tie; "Alicia" is burned as her handler.
+      location: "Stoyben Spaceport"
+    - day: 7.0
+      title: "Torin's affairs: Kenna openly, Arvi secretly"
+      description: |
+        Investigation reveals Torin is openly sleeping with Kenna, and
+        secretly sleeping with Arvi — Vondel's sister. Tetzel (editor of
+        the station's Page 6 gossip rag) wants photos of Torin with a
+        mistress.
+      location: "O'Neill cylinder"
+    - day: 7.0
+      title: "Tevetz newly familiar with Vondel"
+      description: |
+        Tevetz — a hot young scion of a wealthy business family — has
+        recently seemed familiar with Vondel. His motives are unclear.
+
+  crew_events:
+    - day: 6.4
+      title: "Loaded vehicles and 19 tons of electronics; accepted Reed's job"
+      description: |
+        Hung's unarmored car and Saviolo's armored car loaded into Hung's
+        shuttle. 19 tons electronics cargo aboard.
+    - day: 6.6
+      title: "Split party to enter the cylinder discreetly"
+      description: |
+        Some on shuttlecraft, others on commercial transport, to avoid
+        drawing attention to the operation.
+      location: "O'Neill cylinder"
+    - day: 7.0
+      title: "Met Tetzel; canvassed bars; planted bugs"
+      description: |
+        Met gossip editor Tetzel (arranged via Doné Rivis). Hung and
+        Bootman canvassed bars for a week — found Tevetz's driver's cousin.
+        Finnegan planted recording devices in Arvi's hotel room and
+        captured Torin/Arvi blackmail. Harrow gained Torin's trust at a
+        fundraiser and was invited to the brewing operation at his
+        residence.
+      location: "O'Neill cylinder"
+    - day: 7.3
+      title: "Ship retrofit (jump fuel pods) completed"
+      description: "VoL II's fuel-tank refit finished back at Stoyben."
+
   npcs_introduced:
     - name: '"Alicia"'
       affiliation: Jade Front

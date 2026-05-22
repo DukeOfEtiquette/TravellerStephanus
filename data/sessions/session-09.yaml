@@ -31,6 +31,49 @@ session:
     Day: 13.2
     Kitty: 97,010 Cr
 
+  narrative_events:
+    - day: 13.0
+      title: "Kikonye, JF Mowebe station chief, makes two offers"
+      description: |
+        Kikonye — zealous, ruthless, cover identity as a luxury art dealer
+        — offers two operations: a sabotage job (likely forces a quick
+        system exit), or a kidnap-and-extract of a high-value target
+        (followed by accessory to murder soon after). Cash payment or
+        in-system weapons-depot rewards (including Quantum tech).
+      location: "Mowebe spaceport"
+    - day: 13.1
+      title: "Jassem Solal targeted; estate and timetable shared"
+      description: |
+        Target: Jassem Solal, wealthy Thani noble in his mid-sixties,
+        arriving ~Day 13.6 at his private estate with three wives, multiple
+        children, mistresses, and a large household staff. Met JF
+        operatives "Jake" and "Iké", who had already recruited Okomi (an
+        estate guard) as asset and supplied timetables and satellite
+        reconnaissance.
+      location: "Mowebe spaceport"
+
+  crew_events:
+    - day: 12.5
+      title: "Arrived Mowebe; customs handled honestly"
+      description: "No false papers filed at the port of entry."
+    - day: 13.0
+      title: "Sold cargo at orbital manufactories"
+      description: |
+        Sold electronics components and chemicals at one of Mowebe's many
+        orbital manufactories — basically broke even on the freight job.
+    - day: 13.1
+      title: "Landed at the major spaceport"
+      description: ""
+      location: "Mowebe"
+    - day: 13.2
+      title: "Accepted Solal kidnapping; negotiated rewards"
+      description: |
+        Chose the kidnapping op and took the weapons-depot reward in lieu
+        of cash. Negotiated away transport to Ugrik (giving up two
+        stealthsuits) but retained a full set of "polygraph detector"
+        cybernetic implants.
+      location: "Mowebe spaceport"
+
   npcs_introduced:
     - name: Kikonye
       affiliation: Jade Front

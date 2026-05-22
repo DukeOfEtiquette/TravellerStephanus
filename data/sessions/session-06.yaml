@@ -29,6 +29,41 @@ session:
     Location: Stoyben Spaceport
     Kitty: 21,000 cr
 
+  narrative_events:
+    - day: 6.0
+      title: "Choo's assistant Pardeep Sarsar identified — also missing"
+      description: |
+        Rivis grants Capt. Leeuwen tentative trust and reveals key context:
+        Choo is always punctual, so the long silence is severely out of
+        character. Choo's assistant Pardeep Sarsar handles courier filings
+        — and is also missing. Sarsar's family has no recent contact;
+        nobody at the spaceport has seen him.
+      location: "Stoyben Interstellar News Dispatch"
+    - day: 6.2
+      title: "Rivis offers two jobs"
+      description: |
+        1) Deliver an encrypted message to Kara Wiley (undercover Dispatch
+        reporter embedded in a political family on Thane) — 40k/80k Cr.
+        2) Check on Choo's wellbeing on Mora — 10k/25k Cr.
+
+  crew_events:
+    - day: 6.0
+      title: "Leeuwen's apology repairs Rivis relationship"
+      description: |
+        Capt. Leeuwen returned alone to Rivis, apologized for the earlier
+        approach, and shared more on courier routes and the investigation
+        (excluding the JF connection).
+    - day: 6.2
+      title: "Traded weapons cargo to Reed for refined fuel"
+      description: "Closed the cargo-for-fuel deal with the JF station chief."
+    - day: 6.3
+      title: "Took on Mowebe passengers and electronics cargo"
+      description: |
+        Two middle passengers bound for Mowebe; William Hung brokered
+        20 tons of electronics components for transport. 30 tons of
+        chemicals also available.
+      location: "Stoyben Spaceport"
+
   npcs_introduced:
     - name: Pardeep Sarsar
       affiliation: Stoyben Interstellar News Dispatch

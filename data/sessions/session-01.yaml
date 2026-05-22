@@ -27,3 +27,27 @@ session:
     - Staterooms-1
     - Staterooms-1
     - Barracks-1 (5 marines)
+
+  narrative_events:
+    - day: 0
+      title: "Jade Front faction alignment available"
+      description: |
+        The campaign opens with faction options on the table. The party
+        considered the alternatives and aligned with the Jade Front, which
+        provided 150k Cr cash support and 60k Cr in material support.
+      location: "Ith"
+
+  crew_events:
+    - day: 0
+      title: "Characters created; faction joined"
+      description: |
+        Players made at least two characters each and chose one to play.
+        Selected three ship NPC slots based on faction allegiance: Marine,
+        Marine, Deckhand.
+    - day: 0
+      title: "Ship-upgrade options received"
+      description: |
+        Faction-based starting ship upgrade menu presented (combat: beam
+        lasers, missiles, shields-1, armor-1; assets: armory-1, two
+        staterooms-1, barracks-1 for five marines) — pick three. Decision
+        deferred to Session 2.

@@ -45,7 +45,7 @@ session:
     Kitty: 149,800 cr
 
   narrative_events:
-    - day: 0.5
+    - week: 0.5
       title: "The Ithian death mask: mission backstory revealed"
       description: |
         Kyle Newhouse, JF recruiter on Ith, briefs the party. An ancient
@@ -58,7 +58,7 @@ session:
         major propaganda coup against the Quiru-Newhall alliance and shore
         up a political alliance with Ith.
       location: "I'ith, Ith"
-    - day: 0.5
+    - week: 0.5
       title: "Voice of Liberation II being held by 'pirates'"
       description: |
         The Jade Front smuggling vessel Voice of Liberation II was captured
@@ -67,14 +67,14 @@ session:
       location: "Kath, Ith"
 
   crew_events:
-    - day: 0.5
+    - week: 0.5
       title: "Met JF contact Kyle Newhouse"
       description: |
         Received 150k Cr starting funds in encrypted Ithian credit chips.
         Also discreetly approached by associates of the IIP. Established
         meet signals with JF agents.
       location: "I'ith, Ith"
-    - day: 1.0
+    - week: 1.0
       title: "Blackmailed pirates for the Voice of Liberation II"
       description: |
         Hatched a plan at Kath to blackmail the pirates into returning
@@ -83,7 +83,7 @@ session:
         signaling to the local Bravida affiliate that the party was open to
         parlay.
       location: "Kath, Ith"
-    - day: 1.4
+    - week: 1.4
       title: "Scrubbed VoL II; found hidden compartment"
       description: |
         Cleared the ship of spy devices and discovered a well-hidden

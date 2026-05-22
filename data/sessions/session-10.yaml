@@ -39,7 +39,7 @@ session:
     Kitty: 73,750 Cr
 
   narrative_events:
-    - day: 13.6
+    - week: 13.6
       title: "Solal arrived late, burned in at 9 G — suspicious"
       description: |
         Solal arrived in the system late, then burned at 9 Gs to make
@@ -47,14 +47,14 @@ session:
         notable — the speed and timing imply he was urgent or expecting
         something.
       location: "Mowebe"
-    - day: 14.0
+    - week: 14.0
       title: "Cooper-Akachi over-represented in Solal's calendar"
       description: |
         Manipulated schedule data revealed a suspicious number of
         Cooper-Akachi Diversified Industries meetings booked with Solal —
         plus several hunting expeditions and a "black hole" gap day.
       location: "Solal estate, Mowebe"
-    - day: 14.4
+    - week: 14.4
       title: "Hassan revealed as Solal's illegitimate son"
       description: |
         Corinne Page broke into Hassan's (majordomo) office hoping for a
@@ -64,11 +64,11 @@ session:
       location: "Solal estate, Mowebe"
 
   crew_events:
-    - day: 13.5
+    - week: 13.5
       title: "Hung hired as estate catering manager"
       description: "Cover role placing William Hung inside the household."
       location: "Solal estate, Mowebe"
-    - day: 13.7
+    - week: 13.7
       title: "Harrow's team hacked the estate servers to root admin"
       description: |
         Posing as computer technicians. Manipulated all schedules
@@ -77,12 +77,12 @@ session:
         sleeping areas) for re-entry on the gap day, and created four
         false security staff profiles using crew biometrics.
       location: "Solal estate, Mowebe"
-    - day: 14.5
+    - week: 14.5
       title: "Bought sleeping drugs that evade anti-poison countermeasures"
       description: |
         Dr. van Leeuwen sourced very powerful sleeping drugs designed to
         evade the automated anti-poison countermeasures the household uses.
-    - day: 14.6
+    - week: 14.6
       title: "Spiked the hunting party's food at Nbangu Dikila"
       description: |
         Catering Manager Hung arranged to spike the entire hunting

@@ -32,7 +32,7 @@ session:
     Ship Fuel: 2/2
 
   narrative_events:
-    - day: 23.0
+    - week: 23.0
       title: "Six wrecks identified around the Maitz gas giant"
       description: |
         Six wrecks surveyed (two are little more than debris fields):
@@ -40,18 +40,18 @@ session:
         Savage Intent, Deepest Light (Newhall, 100 dT scout), plus an
         unidentified debris field.
       location: "Maitz, gas giant debris field"
-    - day: 24.0
+    - week: 24.0
       title: "Captain's bookshelf: a single book missing"
       description: |
         Sole anomaly in the captain's stateroom on the Star of Carella —
         out-of-the-ordinary in an otherwise undisturbed space.
       location: "Star of Carella, Maitz"
-    - day: 24.1
+    - week: 24.1
       title: "Star of Carella's Priority 1 orders decrypted"
       description: |
         Unsigned orders from Tivid to Maitz: capture — or if not feasible,
         destroy — the Newhall scout Deepest Light. Marked Priority 1.
-    - day: 24.1
+    - week: 24.1
       title: "Eight hours of encrypted comm traffic on storage crystals"
       description: |
         Thousands of short, high-grade encrypted files spanning the
@@ -60,16 +60,16 @@ session:
         decoded.
 
   crew_events:
-    - day: 19.5
+    - week: 19.5
       title: "Resupplied and jumped to Maitz"
       description: "Resupplied at Mowebe JF lunar depot; rearranged stocks; jumped."
-    - day: 23.0
+    - week: 23.0
       title: "Surveyed the gas-giant debris field"
       description: |
         Settled on the Revenant's Echo (largest) as the primary target —
         but staged a diversion first.
       location: "Maitz, gas giant"
-    - day: 24.0
+    - week: 24.0
       title: "Looted the Star of Carella"
       description: |
         Took physical storage media from the bridge and computer room,
@@ -77,12 +77,12 @@ session:
         VoL II (2/2), and seized two 10 dTon shuttlecraft and 16 tons of
         Rx.
       location: "Star of Carella, Maitz"
-    - day: 24.0
+    - week: 24.0
       title: "Staged 'cry baby cry' diversion on Star of Carella"
       description: |
         Set up a draw to pull attention to Star of Carella before exploring
         the Revenant's Echo.
-    - day: 24.2
+    - week: 24.2
       title: "Decrypted Star of Carella storage crystals"
       description: |
         Cracked the bridge/comp-room storage media — orders + battle

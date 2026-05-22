@@ -34,13 +34,13 @@ session:
     Kitty: 124,600 cr
 
   narrative_events:
-    - day: 3.0
+    - week: 3.0
       title: "Long-term JF intel circuit dispatched"
       description: |
         JF operative tasked with the Ith → Mowebe → Thane → Mowebe circuit,
         listening on Thane for two months for updates from Mora. Rendezvous
         set for Campaign Week 20 (seventeen weeks out).
-    - day: 3.5
+    - week: 3.5
       title: "Sint Motor Systems (JF cover) offers cargo and arms"
       description: |
         Oa Danel, an Ithian with a polished demeanor, introduces herself at
@@ -48,7 +48,7 @@ session:
         company. Offers pharmaceutical cover cargo and illicit arms to
         smuggle.
       location: "Ith L3 station"
-    - day: 3.5
+    - week: 3.5
       title: "Dylan Connell surveilling JF operations"
       description: |
         Ithian intelligence agent Dylan Connell — a true-believer — and
@@ -57,7 +57,7 @@ session:
       location: "Ith L3 station"
 
   crew_events:
-    - day: 4.0
+    - week: 4.0
       title: "Assassinated Dylan Connell"
       description: |
         Orchestrated a hit: Samir crafted a small bomb, Victor filed a
@@ -67,7 +67,7 @@ session:
         flawlessly. Oa/Sint won a propaganda coup by distributing medicine
         to the wounded.
       location: "Ith L3 station"
-    - day: 4.6
+    - week: 4.6
       title: "Loaded 16.5 tons of weapons; jumped to Stoyben"
       description: "Took on illicit arms from Sint and departed for Stoyben."
 

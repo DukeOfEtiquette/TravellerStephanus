@@ -29,7 +29,7 @@ session:
     - Barracks-1 (5 marines)
 
   narrative_events:
-    - day: 0
+    - week: 0
       title: "Jade Front faction alignment available"
       description: |
         The campaign opens with faction options on the table. The party
@@ -38,13 +38,13 @@ session:
       location: "Ith"
 
   crew_events:
-    - day: 0
+    - week: 0
       title: "Characters created; faction joined"
       description: |
         Players made at least two characters each and chose one to play.
         Selected three ship NPC slots based on faction allegiance: Marine,
         Marine, Deckhand.
-    - day: 0
+    - week: 0
       title: "Ship-upgrade options received"
       description: |
         Faction-based starting ship upgrade menu presented (combat: beam

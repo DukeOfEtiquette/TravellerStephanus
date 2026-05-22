@@ -24,35 +24,35 @@ session:
     Kitty: 73,750 Cr
 
   narrative_events:
-    - day: 14.6
+    - week: 14.6
       title: "Solal's nanos counter the poison"
       description: |
         Nano-augmentation in Solal and his bodyguards began neutralizing
         the toxin moments after ingestion — the entire poisoning approach
         immediately bled time.
       location: "Nbangu Dikila Nature Preserve, Mowebe"
-    - day: 14.6
+    - week: 14.6
       title: "Power-armor bodyguard intervenes from the sky"
       description: |
         A jetpack-equipped bodyguard in power armor smashed into Vicentio
         from the air — a contingency the party had not modeled for.
 
   crew_events:
-    - day: 14.6
+    - week: 14.6
       title: "Overwatch from anchored yachts; perimeter cleared"
       description: |
         Vicentio and Petra on yacht overwatch. Van Leeuwen and Bobby
         dispatched four perimeter guards (both injured in the firefight).
         Vicentio crashed his yacht into the shore to neutralize it; Petra
         secured hers for overwatch.
-    - day: 14.6
+    - week: 14.6
       title: "Vicentio Saviolo killed"
       description: |
         Vicentio's monomolecular unikatana cracked the power-armor
         bodyguard's helmet. When he charged with broken ribs, the guard
         panic-fired all his anti-personnel cluster rockets at point-blank
         range — killing both men instantly.
-    - day: 14.6
+    - week: 14.6
       title: "Fled the scene with Solal"
       description: |
         Samir arrived with a shuttle; wounded survivors extracted Solal.

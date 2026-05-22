@@ -36,19 +36,19 @@ session:
     Ship Fuel: 2/2
 
   narrative_events:
-    - day: 14.6
+    - week: 14.6
       title: "Mowebe Home Defense Forces engage"
       description: |
         Two fighter-interceptors from the Mowebe Home Defense Forces
         closed on the fleeing VoL II as a second (uninvolved) shuttle
         stood down.
       location: "Mowebe orbit"
-    - day: 17.0
+    - week: 17.0
       title: "Misjump diverts VoL II to the Oort cloud"
       description: |
         Snake eyes on the jump — VoL II was diverted into the Oort cloud
         with powerplant damage. The ship limped to the rendezvous.
-    - day: 19.0
+    - week: 19.0
       title: "Faisal al-Amin debriefs the party"
       description: |
         JF intelligence operative Faisal al-Amin, returning from the
@@ -59,7 +59,7 @@ session:
       location: "JF lunar depot, Mowebe"
 
   crew_events:
-    - day: 14.6
+    - week: 14.6
       title: "Trap fired all 4 missiles + pulse laser"
       description: |
         Area-denial airburst pattern caught both interceptors — one had
@@ -67,17 +67,17 @@ session:
         (interceptors rolled 4 and 5 against 6+ to evade — first time the
         crew's poor rolling paid off).
       location: "Mowebe orbit"
-    - day: 15.0
+    - week: 15.0
       title: "Made orbit; jumped to JF lunar depot"
       description: |
         The new ship's doctor — a skilled mariner — laid in the jump for
         the distant rendezvous.
-    - day: 17.5
+    - week: 17.5
       title: "Powerplant repaired in transit"
       description: |
         Van Leeuwen and Corinne Page repaired the misjump damage handily
         and without much expense.
-    - day: 19.0
+    - week: 19.0
       title: "Kikonye's reward delivered"
       description: |
         Polygraph-detector cybernetic implants arranged for Baron Harrow,
@@ -85,7 +85,7 @@ session:
         jewelry and personal effects added 105,000 Cr. Restocked capital
         missiles and refined fuel (Ship Fuel 2/2).
       location: "JF lunar depot, Mowebe"
-    - day: 19.2
+    - week: 19.2
       title: "Decided to jump to Maitz"
       description: |
         After much debate the party took on supplies and resolved to

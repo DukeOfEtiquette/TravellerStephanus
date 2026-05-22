@@ -448,6 +448,32 @@ npcs:
       Acquired mask ~71 years ago at end of 2nd Agretic War.
 
   # ===========================================================================
+  # MAITZ BATTLE — PERSONS OF INTEREST
+  # ===========================================================================
+
+  - name: Bunny
+    aliases: []
+    affiliation: Unknown (carried aboard the Newhall scout Deepest Light)
+    role: Mission objective — high-value person
+    location: Unknown (presumed Quiru custody as of the Maitz engagement)
+    status: captured (by Quiru)
+    first_appearance: Session 14
+    description: |
+      A person — not a ship or cargo — extracted from the Newhall scout
+      Deepest Light by Quiru space marines off the Savage Intent during
+      the Maitz engagement. Appeared human in the sensor record reviewed
+      via Victor's hindsight. "Bunny" is consistently in scare-quotes in
+      the Newhall logs — almost certainly a codename, not a real name.
+    notes: |
+      Newhall and Quiru (publicly allies) fought a fleet-scale engagement
+      over Bunny at Maitz. Newhall ordered first capture, then destroy,
+      then full retreat once Bunny was extracted ("taken and lost"). The
+      Star of Carella's Session 13 Priority 1 capture-or-destroy orders
+      against the Deepest Light are now understood as part of the same
+      operation: Bunny was the Deepest Light's payload. True identity,
+      origin, and reason for the manhunt remain unknown.
+
+  # ===========================================================================
   # OTHER FACTIONS
   # ===========================================================================
 

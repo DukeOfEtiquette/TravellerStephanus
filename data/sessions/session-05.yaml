@@ -35,14 +35,14 @@ session:
     Kitty: 21,100 cr
 
   narrative_events:
-    - day: 5.0
+    - week: 5.0
       title: "Isaiah Reed (JF Stoyben chief) sets terms"
       description: |
         Reed has no knowledge of the party's specific mission but agrees
         to trade weapons for refined fuel. Notes JF needs weapons on
         Ugrik if the party is heading that way.
       location: "Stoyben Spaceport"
-    - day: 5.2
+    - week: 5.2
       title: "Choo missing three months; Rivis worried"
       description: |
         Doné Rivis (Investigative Editor at Stoyben Interstellar News
@@ -50,36 +50,36 @@ session:
         specific story, but is alarmed that Choo hasn't surfaced in three
         months.
       location: "Stoyben Interstellar News Dispatch"
-    - day: 5.2
+    - week: 5.2
       title: "Cuevas: many contacts, no help"
       description: |
         JF informant Antonio Jose Cuevas (Dispatch Marketing Account
         Manager) — entitled, fruitless — produced nothing useful.
-    - day: 5.2
+    - week: 5.2
       title: "Kelly Fitzpatrick (deceased) ruled out"
       description: |
         Recently deceased press shift supervisor — soft-ruled out as
         connected to the mask story.
 
   crew_events:
-    - day: 5.0
+    - week: 5.0
       title: "Legally declared cargo; jumped the shipyard queue"
       description: |
         Used Baron Harrow's influence to win an immediate shipyard slot for
         the fuel-tank retrofit (due Week 7).
       location: "Stoyben Interstellar Spaceport"
-    - day: 5.2
+    - week: 5.2
       title: "Hypnotized Rivis to check for blackmail material"
       description: |
         Victor's hypnosis confirmed Rivis had material the party could
         exploit. The group declined to use it for now.
-    - day: 5.2
+    - week: 5.2
       title: "Hacked the Dispatch mainframe (failed twice)"
       description: |
         Baron Harrow tried twice to search for traces of Choo's suppressed
         story. Both attempts failed; the firewall AI tried to reverse-trace;
         Harrow powered down and destroyed the machine.
-    - day: 5.3
+    - week: 5.3
       title: "Purchased industrial belt sander"
       description: "For the ship."
 

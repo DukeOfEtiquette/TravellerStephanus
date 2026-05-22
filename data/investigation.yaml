@@ -108,18 +108,41 @@ active_leads:
     description: |
       Border skirmishes reported in the outer bounds of Maitz between Quiru and Newhall
       (Campaign Week 12, per Faisal al-Amin's Thane debrief). The party arrived in Session 13.
-    action_required: "Continue surveying wrecks. Decode battle logs / encrypted files. Locate Deepest Light. Board Revenant's Echo."
+    action_required: "Wind down on-site work at Maitz; continue threads (Bunny, Deepest Light, Cooper-Akachi) from elsewhere."
     established: Session 12
-    last_update: Session 13
+    last_update: Session 15
     notes: |
       Intel from Faisal al-Amin (Wk 12 report). Ship counts from the engagement:
       QUIRU — Big: 1, Medium: 3 (2 disabled), Small: 1 (1 disabled)
       NEWHALL — Big: 2 (1 disabled), Medium: 1, Small: 6 (2 disabled)
       Session 13: Arrived in Maitz. Surveyed 6 wrecks around the sole gas giant
       (2 are debris fields). Named hulls: Revenant's Echo (largest), Star of Carella
-      (Newhall, looted), Adamant, Savage Intent, Deepest Light (Newhall scout, 100 dT).
-      Star of Carella stripped: data slabs + 2x 10 dT shuttlecraft + 16 tons Rx, plus
-      siphoned fuel. "Cry baby cry" diversion staged aboard. Revenant's Echo not yet boarded.
+      (Newhall, looted), Adamant, Savage Intent. (S13 also listed Deepest Light here;
+      Session 14 corrected this — see below.) Star of Carella stripped: data slabs
+      + 2x 10 dT shuttlecraft + 16 tons Rx, plus siphoned fuel. "Cry baby cry"
+      diversion staged aboard.
+      Session 14: Boarded Savage Intent (Quiru, 400 t, mostly intact) and Revenant's
+      Echo (largest Newhall casualty). Savage Intent sabotage pattern: bridge-door
+      grenade, computer destruction, Cooper-Akachi-parts bomb on the jump drive
+      (disarmed by Samir). Black box decoded: Savage Intent laid in wait behind a
+      moon, intercepted a gas-skimming target — used to launch the extraction of
+      a person codenamed Bunny from the Newhall scout Deepest Light. Revenant's
+      Echo captain's combat logs partially spliced: full Newhall battle roster
+      recovered; Deepest Light never named; multiple references to Bunny; retreat
+      ordered after Bunny was "taken" and "lost." Confirmed via two of Victor's
+      hindsight viewings that Quiru marines extracted Bunny from the Deepest Light
+      and that the Deepest Light itself was never at the gas-giant field on the
+      party's arrival (presumed Quiru-captured along with Bunny). Newhall and
+      Quiru — publicly allies — fought a covert fleet-scale engagement over Bunny.
+      Session 15: Continued Revenant's Echo boarding — partial fleet-coordination
+      records confirmed Newhall was AMBUSHED by Quiru while pursuing Bunny (not
+      just a covert mutual fight). Vacuum-adapted squid-like organisms inhabit
+      the Echo's power core; forced retreat. Intercepted a Cooper-Akachi
+      surveillance buoy launching for planet Maitz — see the
+      "Party's Ship Signature Compromised" lead and `coop-ak-buoy-found` /
+      `coop-ak-buoy-timeline` / `party-ship-signature-leaked` key_intel.
+      Savage Intent confirmed operable; party departing Maitz with both ships
+      bound for Stoyben (Adamant left unboarded; investigation winds down on-site).
 
   - name: "Decode Star of Carella Encrypted Files"
     priority: high
@@ -140,25 +163,32 @@ active_leads:
     status: in_progress
     description: |
       Newhall 100 dT scout ship that was the Priority 1 target of Star of Carella's
-      capture-or-destroy orders. Newhall was hunting one of its own — likely a defector,
-      whistleblower, or thief carrying high-value information.
+      capture-or-destroy orders. Session 14 reframed the picture: the Deepest Light
+      was not at the gas-giant debris field on the party's arrival, and was never
+      seen by the crew in real time (only via Victor's hindsight on the Revenant's
+      Echo). Presumed extracted from the battlefield by Quiru along with Bunny.
     action_required: |
-      Determine the Deepest Light's fate: did it escape Maitz, was it destroyed, or is
-      it among the wrecks? If among the wrecks, board it. If it escaped, track it.
+      Track the Deepest Light from Maitz. Most likely went with Quiru after the
+      Bunny extraction.
     established: Session 13
+    last_update: Session 14
     notes: |
-      A ship named Deepest Light is listed among the Maitz wrecks (size marker 5).
-      Confirm whether this is the same ship or a coincidence/decoy.
-      Whatever the Deepest Light was carrying is what Newhall command wanted silenced.
+      What the Deepest Light was carrying is now known to be a person codenamed
+      Bunny (see lead "Recover Bunny"). The S13 entry for a wreck named "Deepest
+      Light" in the gas-giant debris field was incorrect; the actual Deepest Light
+      had already left the battlefield before the party arrived.
 
   - name: "Board Other Maitz Wrecks"
     priority: medium
-    status: pending
+    status: in_progress
     description: |
-      Four named wrecks remain unboarded: Revenant's Echo (largest, primary intent),
-      Adamant, Savage Intent, Deepest Light. Plus two debris fields too disintegrated to ID.
-    action_required: "Board Revenant's Echo (party's stated intent). Then sweep the rest."
+      Session 14: Savage Intent (Quiru) and Revenant's Echo boarded. Adamant
+      remains the last named wreck at the gas-giant field. (Deepest Light was
+      not at Maitz when the party arrived — removed from this list; see the
+      "Locate the Deepest Light" lead.)
+    action_required: "Board Adamant. Decide whether to seize the Savage Intent (jump-capable with skeleton crew)."
     established: Session 13
+    last_update: Session 14
     notes: |
       "Cry baby cry" diversion left aboard Star of Carella — should buy time before any
       response party arrives.
@@ -201,6 +231,88 @@ active_leads:
     notes: |
       Aligns with party's existing Choo investigation lead. Total payout: 35k Cr.
       Mora is further afield — would require significant travel beyond current plans.
+
+  - name: "Recover Bunny (Quiru custody)"
+    priority: critical
+    status: in_progress
+    description: |
+      Bunny is a person — codename, not a real name — extracted from the Newhall
+      scout Deepest Light by Quiru marines off the Savage Intent during the Maitz
+      engagement. Currently presumed in Quiru custody; location unknown. Both
+      Quiru and Newhall went to fleet engagement over Bunny.
+    action_required: |
+      Determine where Quiru took Bunny. Identify Bunny if possible. Assess whether
+      recovery is feasible.
+    established: Session 14
+    notes: |
+      Confirmed via two of Victor's hindsight viewings on the Revenant's Echo
+      bridge — captain's-chair retreat order ("Bunny taken and lost") and sensor
+      record showing Quiru marines extracting a human from a 100 dT scout with
+      the Savage Intent in background. Bunny is the operational reason for the
+      entire Maitz engagement; whoever Bunny is, they were worth a fleet-scale
+      fight between supposed allies.
+
+  - name: "Newhall–Quiru Covert Fight at Maitz"
+    priority: high
+    status: in_progress
+    description: |
+      Newhall and Quiru are publicly allied, yet fought a covert fleet-scale
+      engagement at Maitz over Bunny in a sparse, low-witness system. Session
+      15 reframed this: partial fleet-coordination records on the Revenant's
+      Echo show Newhall was AMBUSHED by Quiru — not a mutual covert fight,
+      a one-sided ambush by putative allies.
+    action_required: "Probe for the political/strategic rift between Newhall and Quiru. Watch for cover-ups of the Maitz engagement."
+    established: Session 14
+    last_update: Session 15
+    notes: |
+      Aligns with Faisal al-Amin's prior framing of the Maitz incident as a
+      "border skirmish" (`maitz-skirmish-wk12`) — but Session 14 evidence
+      showed the engagement was about Bunny specifically, not territorial.
+      Session 15 evidence (Revenant's Echo captain's-chair records) shows
+      it was a deliberate Quiru ambush of a Newhall force in pursuit of
+      Bunny. See `revenant-echo-records-quiru-ambush`.
+
+  - name: "Cooper-Akachi Involvement at Maitz"
+    priority: high
+    status: in_progress
+    description: |
+      Cooper-Akachi presence at or after Maitz is now corroborated from two
+      independent pieces of physical evidence: (1) high-end Coop-Ak parts in
+      the Savage Intent's jump-drive bomb (Session 14, disarmed by Samir);
+      and (2) a Cooper-Akachi-branded surveillance buoy intercepted at the
+      battlefield (Session 15) — deployed Wk 18 by a Coop-Ak ship, with full
+      decoded logs of all subsequent battlefield activity.
+    action_required: |
+      Cross-reference with the Wk 10 Thane-transit Coop-Ak commandos
+      (`coop-ak-thane-wk10`) and the broader Solal / Coop-Ak thread. Confirm
+      whether Coop-Ak is operating with Quiru, with Newhall, or against both.
+    established: Session 14
+    last_update: Session 15
+    notes: |
+      First piece of direct material evidence for Coop-Ak activity tied to the
+      Maitz operation (Session 14) — confirms William's earlier speculation.
+      Session 15: A second piece of evidence — the Cooper-Akachi surveillance
+      buoy intercepted at the battlefield. Buoy was deployed Wk 18 by a Coop-Ak
+      ship and surveilled the battlefield through Session 15, transmitting the
+      party's ship signature toward Maitz before exhausting fuel. See
+      `coop-ak-buoy-found`, `coop-ak-buoy-timeline`, `party-ship-signature-leaked`.
+
+  - name: "Party's Ship Signature Compromised"
+    priority: high
+    status: in_progress
+    description: |
+      The Cooper-Akachi surveillance buoy intercepted at Maitz emitted a
+      directional radio burst toward the planet Maitz, transmitting VoL II's
+      transponder code and physical description, just before exhausting fuel.
+      An unknown party on Maitz (most likely Cooper-Akachi) now has the
+      party's ship signature; that information will eventually spread.
+    action_required: |
+      Stay ahead of the spread. The crew's emerging operational answer
+      (per S15 council) is to sell the Savage Intent at Stoyben and swap
+      to a new ship — but that's a future action, not an investigation lead.
+    established: Session 15
+    notes: |
+      See `party-ship-signature-leaked` for the underlying intel.
 
 # =============================================================================
 # RESOLVED LEADS
@@ -348,14 +460,75 @@ open_questions:
   - question: "What is the Deepest Light carrying — or who is aboard?"
     priority: high
     notes: |
-      Newhall command considered the Deepest Light a high-priority target worth a
-      capture-or-destroy order. The cargo or person aboard is the real prize.
+      RESOLVED (Session 14): A person, codename Bunny. Extracted from the Deepest
+      Light by Quiru marines off the Savage Intent. See key_intel:bunny-is-a-person
+      and the "Recover Bunny" active lead.
 
   - question: "Is Cooper-Akachi involved at Maitz?"
     priority: medium
     notes: |
-      William speculates Cooper-Akachi may have been here (consistent with the Coop-Ak
-      commandos passing through Thane Wk 10). Not yet confirmed by any wreckage or intel.
+      RESOLVED (Session 14): Yes. High-end Cooper-Akachi parts were used in the
+      Savage Intent's jump-drive bomb (disarmed by Samir). Direct material evidence.
+      See key_intel:coop-ak-parts-on-bomb and the "Cooper-Akachi Involvement at
+      Maitz" active lead.
+
+  - question: "Who or what is Bunny? Why so valuable?"
+    priority: critical
+    notes: |
+      Bunny is a person (Session 14 hindsight confirmed). True identity, origin,
+      and reason for value are unknown. Both Newhall and Quiru went to a fleet
+      engagement over them. "Bunny" appears to be a codename.
+
+  - question: "Where did Quiru take Bunny — and the Deepest Light — after Maitz?"
+    priority: critical
+    notes: |
+      Quiru extracted Bunny from the Deepest Light during the battle, then both
+      Bunny and the Deepest Light left Maitz before the party's arrival. Current
+      location unknown.
+
+  - question: "Why are Newhall and Quiru fighting in secret?"
+    priority: high
+    notes: |
+      They are publicly allied yet fought a fleet-scale engagement over Bunny at a
+      sparse, low-witness system, and both sides appear to want it kept quiet.
+      The rift's nature may be the regional storyline.
+
+  - question: "Who placed the Cooper-Akachi bomb in the Savage Intent's jump drive?"
+    priority: high
+    notes: |
+      Savage Intent's crew evacuated in good order — bomb could be internal
+      Quiru-side sabotage, OR third-party cleanup after the evacuation. Either
+      reading carries large implications.
+
+  - question: "Why was the Savage Intent's computer destroyed but the black box left intact?"
+    priority: medium
+    notes: |
+      Surgical destruction of the main computer while the black box remained
+      readable. Could be hasty sabotage, an oversight, or a deliberate choice
+      to leave a specific narrative behind.
+
+  - question: "Who on Maitz received the Cooper-Akachi buoy's directional radio burst?"
+    priority: high
+    notes: |
+      Directional burst toward planet Maitz containing VoL II's transponder
+      code and physical description. Most likely recipient: a Cooper-Akachi
+      contact/station on Maitz. Identifying them would tell us how soon the
+      party's ship signature spreads, and where it spreads first.
+
+  - question: "What was in the Revenant's Echo captain's-quarters safe?"
+    priority: medium
+    notes: |
+      Victor was actively cracking the safe when the squid attack interrupted
+      him. The safe was abandoned during the retreat; contents unknown. The
+      Revenant's Echo's status as the Newhall flagship at Maitz makes its
+      captain's personal safe a high-curiosity item.
+
+  - question: "What are the vacuum-adapted squids? Where did they come from?"
+    priority: low
+    notes: |
+      Encountered at the Revenant's Echo power core. Attracted to heat;
+      capable of breaching helmet glass. Unknown origin — native to wreckage
+      ecologies? Engineered? Predators that arrived after the battle?
 
   - question: "What was the missing book from Star of Carella's captain's bookshelf?"
     priority: low
@@ -486,45 +659,177 @@ key_intel:
       command comms. Not yet decoded.
     source: Star of Carella loot (Session 13)
 
+  - id: bunny-is-a-person
+    category: Maitz Battle
+    fact: "'Bunny' is a person — extracted by Quiru from the Deepest Light"
+    details: |
+      Confirmed by two of Victor's hindsight viewings aboard the Revenant's
+      Echo. (1) Captain's chair at the moment of retreat — the order
+      explicitly referenced the boarding party extracting Bunny from the ship.
+      (2) Sensor officer's station — visual record of Quiru marines extracting
+      a human-appearing figure from a 100 dT scout (Deepest Light), with the
+      Savage Intent in the background. Newhall and Quiru fought the entire
+      engagement over Bunny.
+    source: Victor's hindsight aboard the Revenant's Echo (Session 14)
+
+  - id: savage-intent-quiru-400t
+    category: Maitz Battle
+    fact: "Savage Intent is a Quiru 400-ton marine vessel that extracted Bunny"
+    details: |
+      Mostly intact; uninhabited; orderly evacuation by a mostly-marine crew.
+      Black box decoded: laid in wait behind a moon, then took an intercept
+      and station-matching course onto a target on a gas-skim trajectory.
+      That intercept was the Bunny extraction operation against the Deepest
+      Light.
+    source: Party boarding action and decoded black box (Session 14)
+
+  - id: savage-intent-sabotage-pattern
+    category: Maitz Battle
+    fact: "Savage Intent was deliberately sabotaged post-evacuation"
+    details: |
+      Three distinct sabotage measures: bridge-door grenade booby trap (Corinne
+      injured), ship's computer destroyed by an anti-personnel-grade explosive,
+      jump drive expertly wired with a bomb built from high-end Cooper-Akachi
+      parts (disarmed by Samir). Crew evacuation was orderly but the ship was
+      left thoroughly poisoned. Surgical, professional, deniability-focused.
+    source: Party investigation aboard the Savage Intent (Session 14)
+
+  - id: coop-ak-parts-on-bomb
+    category: Cooper-Akachi Movements
+    fact: "High-end Cooper-Akachi parts used in the Savage Intent jump-drive bomb"
+    details: |
+      Direct material evidence of Cooper-Akachi presence at or after the Maitz
+      engagement. Reinforces the Coop-Ak Wk 10 Thane transit
+      (`coop-ak-thane-wk10`). Whether Coop-Ak placed the bomb themselves or
+      sold the parts to a third party is unclear.
+    source: Samir's disarm and parts inspection (Session 14)
+
+  - id: revenant-echo-battle-roster
+    category: Maitz Battle
+    fact: "Full Newhall-side battle roster recovered from Revenant's Echo captain's logs"
+    details: |
+      Captain's combat logs partially spliced. The recovery contains the names
+      of all other Newhall ships in the engagement. The Deepest Light is
+      conspicuously never named in the logs. Multiple references to "Bunny."
+    source: Captain's log splice on the Revenant's Echo (Session 14)
+
+  - id: newhall-quiru-secret-fight-at-maitz
+    category: Maitz Battle
+    fact: "Newhall and Quiru (publicly allies) fought a covert fleet engagement over Bunny"
+    details: |
+      The Maitz engagement is no border skirmish: it was a fleet-scale fight
+      between supposed allies over one person, in a sparse low-witness system,
+      and both sides appear to want it kept quiet. Implies a covert rift in
+      the Newhall–Quiru alliance.
+    source: Synthesis of Revenant's Echo logs, hindsight, and Star of Carella orders (Session 14)
+
+  - id: deepest-light-left-maitz
+    category: Maitz Battle
+    fact: "Deepest Light was not at Maitz on the party's arrival"
+    details: |
+      The S13 working assumption that one of the surveyed wrecks was the
+      Deepest Light was wrong. The party has only ever "seen" the Deepest
+      Light via Victor's hindsight on the Revenant's Echo. Presumed extracted
+      from the battlefield by Quiru along with Bunny.
+    source: Party reassessment after Session 14 hindsight (Session 14)
+
+  - id: revenant-echo-records-quiru-ambush
+    category: Maitz Battle
+    fact: "Quiru AMBUSHED Newhall at Maitz (not a covert mutual fight)"
+    details: |
+      Partial fleet-coordination records pulled from the Revenant's Echo
+      captain's chair confirm Newhall came to Maitz pursuing Bunny and was
+      ambushed by Quiru — putative allies acting against Newhall. Reframes
+      the engagement as a one-sided ambush rather than a co-equal covert
+      fight between allies.
+    source: Revenant's Echo captain's-chair records (Session 15)
+
+  - id: coop-ak-buoy-found
+    category: Cooper-Akachi Movements
+    fact: "Cooper-Akachi-branded surveillance buoy intercepted at Maitz"
+    details: |
+      Small craft, smooth outer hull, subtle Coop-Ak branding, uninhabited.
+      Spotted launching from behind the Revenant's Echo for planet Maitz.
+      Pursued, disassembled, hard drives recovered and decoded.
+    source: Party investigation (Session 15)
+
+  - id: coop-ak-buoy-timeline
+    category: Cooper-Akachi Movements
+    fact: "Cooper-Akachi was surveilling the Maitz battlefield from Wk 18 onward"
+    details: |
+      Decoded buoy log: deployed Wk 18 by a Cooper-Akachi ship. Wk 22 a
+      Newhall ship arrived, inspected the field for ~12 hours, and left.
+      Buoy also detected and monitored the party's arrival in Session 13–14
+      until they intercepted it in Session 15.
+    source: Decoded buoy hard drives (Session 15)
+
+  - id: party-ship-signature-leaked
+    category: Cooper-Akachi Movements
+    fact: "Party's ship signature broadcast toward planet Maitz"
+    details: |
+      Just before exhausting fuel, the Cooper-Akachi buoy emitted a
+      directional radio burst toward planet Maitz transmitting VoL II's
+      transponder code and physical description. An unknown party on
+      Maitz (most likely Cooper-Akachi) now has the party's ship
+      signature. Recovery is impossible — the broadcast has already
+      occurred — so the operational response is to swap ships (council
+      decision: sell Savage Intent at Stoyben to fund a faster
+      replacement).
+    source: Decoded buoy hard drives (Session 15)
+
+  - id: revenant-echo-squids
+    category: Maitz Battle
+    fact: "Revenant's Echo's power core harbors vacuum-adapted squid-like organisms"
+    details: |
+      Encountered en route to the power core for a restart attempt.
+      Attracted to heat (Corinne's hunch, confirmed when van Leeuwen killed
+      one by smashing it into a plasma-liquified bulkhead). Capable of
+      latching onto shuttles and breaching helmet glass. Origin and species
+      unknown.
+    source: Party encounter aboard the Revenant's Echo (Session 15)
+
+  - id: savage-intent-operable
+    category: Maitz Battle
+    fact: "Savage Intent confirmed operable with a skeleton crew"
+    details: |
+      Operability check during Session 15 confirmed the party can run the
+      Savage Intent with a skeleton crew and jump it out of the system.
+      Council decision (S15): move it to Stoyben for sale (Jade Front
+      right of first refusal). Replaces S14's "potential prize" framing.
+    source: Party operability check (Session 15)
+
 # =============================================================================
 # STRATEGIC PLAN
 # =============================================================================
 current_plan:
-  summary: |
-    Arrived in Maitz and began surveying the post-battle wrecks around the gas giant.
-    Stripped Star of Carella (Newhall) of data, fuel, two shuttlecraft, and 16 tons of Rx;
-    decoded its capture-or-destroy orders against the Newhall scout Deepest Light.
-    Revenant's Echo is the next intended target. Encrypted battle logs / comms still
-    pending decryption. Rivis Thane job (Kara Wiley message delivery) remains deferred.
-
   timeline:
-    - day: 6.3
+    - week: 6.3
       status: past
       location: Stoyben Spaceport
       notes: "Weapons traded to Reed. Rivis trust gained. Two jobs offered. Passengers and trade goods aboard."
 
-    - day: 8.2
+    - week: 8.2
       status: past
       location: O'Neill cylinder (Stoyben system)
       notes: |
         Cylinder operation concluded. Arvi murdered Torin; Vondel extracted.
         Isaiah Reed cut pay but issued letter of recommendation. Departed for Mowebe.
 
-    - day: 13.2
+    - week: 13.2
       status: past
       location: Mowebe
       notes: |
         Arrived Mowebe. Sold trade goods (broke even). Met Kikonye. Accepted Solal kidnapping op.
         Received polygraph detector implants; gave away stealthsuits + Ugrik transport. Kitty: 97,010 Cr.
 
-    - day: 14.6
+    - week: 14.6
       status: past
       location: Mowebe (Nbangu Dikila Nature Preserve / Solal estate)
       notes: |
         Infiltrated estate. Hacked servers. Spiked hunting party food. Extraction attempt.
         Vicentio Saviolo KIA. Fled with Solal. Interceptors engaged. Misjump. Kitty: 73,750 Cr.
 
-    - day: 19.2
+    - week: 19.2
       status: past
       location: En route to Maitz (from Mowebe JF lunar depot)
       notes: |
@@ -532,21 +837,57 @@ current_plan:
         Powerplant repaired. Faisal al-Amin debriefed. Decided to investigate Maitz space battle.
         Kitty: 109,950 Cr. Ship Fuel: 2/2.
 
-    - day: 24.2
-      status: current
+    - week: 24.2
+      status: past
       location: Maitz (gas giant debris field)
       notes: |
-        Arrived Maitz. Surveyed 6 wrecks around the gas giant — 4 named (Revenant's Echo,
-        Star of Carella, Adamant, Savage Intent, Deepest Light) plus 2 debris fields.
-        Stripped Star of Carella (Newhall): data slabs, 2 x 10 dT shuttlecraft, 16 tons Rx,
-        siphoned fuel. "Cry baby cry" diversion staged. Decrypted orders: Tivid → Maitz,
-        Priority 1, capture or destroy Deepest Light. Battle logs / encrypted comms pending.
-        Kitty: 93,850 Cr. Ship Fuel: 2/2.
+        Arrived Maitz. Surveyed 6 things at the gas giant — 4 named wrecks (Revenant's
+        Echo, Star of Carella, Adamant, Savage Intent) plus 2 debris fields. (A 5th hull
+        in the S13 record had been tentatively labeled Deepest Light; Session 14
+        corrected this.) Stripped Star of Carella (Newhall): data slabs, 2 x 10 dT
+        shuttlecraft, 16 tons Rx, siphoned fuel. "Cry baby cry" diversion staged.
+        Decrypted orders: Tivid → Maitz, Priority 1, capture or destroy Deepest Light.
+        Battle logs / encrypted comms pending. Kitty: 93,850 Cr. Ship Fuel: 2/2.
 
-    - day: "TBD"
-      status: planned
-      location: Maitz (Revenant's Echo)
-      event: "Board the largest derelict — Revenant's Echo"
+    - week: 24.2
+      status: past
+      location: Maitz (Savage Intent / Revenant's Echo)
+      notes: |
+        Boarded the Savage Intent (Quiru, 400 t, mostly intact, uninhabited) and the
+        Revenant's Echo (largest Newhall casualty). Savage Intent: bridge-door grenade
+        booby trap (Corinne injured); computer destroyed by anti-personnel explosive;
+        Cooper-Akachi-parts bomb on jump drive (disarmed by Samir); black box decoded
+        — Savage Intent intercepted a gas-skimming target from behind a moon. Cargo
+        crates inventoried. Crew assessed Savage Intent as jump-capable with a
+        skeleton crew (possible prize). Revenant's Echo: bow blown open; missile bay
+        cooked off; captain's combat logs partially spliced — full Newhall battle
+        roster recovered; Deepest Light never named; multiple Bunny references;
+        retreat ordered after Bunny extracted. Two hindsight viewings (Victor)
+        confirmed: Bunny is a person, extracted by Quiru marines from the Deepest
+        Light via the Savage Intent. Deepest Light absent from Maitz on the party's
+        arrival — presumed Quiru-captured along with Bunny. Kitty: 93,850 Cr.
+        Ship Fuel: 2/2.
+
+    - week: 24.3
+      status: current
+      location: Maitz (Cooper-Akachi buoy / Revenant's Echo)
+      notes: |
+        Intercepted a Cooper-Akachi surveillance buoy launching from behind the
+        Revenant's Echo toward planet Maitz. Decoded its drives: deployed Wk 18 by
+        a Coop-Ak ship, monitored a Wk 22 Newhall inspection (~12 h), then monitored
+        the party — and just before fuel exhaustion emitted a directional radio
+        burst toward planet Maitz with VoL II's transponder code and physical
+        description. Party ship signature is leaked. Continued boarding of the
+        Revenant's Echo: captain's-chair partial records confirm Quiru AMBUSHED
+        Newhall while pursuing Bunny. Attacked at the power core by vacuum-adapted
+        squid-like organisms attracted to heat; Hung's helmet glass breached;
+        Corinne re-injured; van Leeuwen killed one against a plasma-liquified
+        bulkhead and Hung killed the other with his beam laser pistol. Captain's-
+        quarters safe abandoned during the retreat. Confirmed Savage Intent is
+        operable with a skeleton crew. Council decided to move both VoL II and
+        Savage Intent to Stoyben; sell Savage Intent to fund a faster replacement
+        ship; Jade Front gets right of first refusal. Adamant left unboarded.
+        Kitty: 93,850 Cr. Ship Fuel: 2/2.
 
   assets:
     - "Voice of Liberation II (fully fueled, missiles restocked, powerplant repaired)"
@@ -561,3 +902,9 @@ current_plan:
     - "2 x 10 dT shuttlecraft (looted from Star of Carella, in VoL II cargo)"
     - "16 tons Rx (pharmaceuticals, split across the two looted shuttles in cargo)"
     - "Star of Carella data slabs (orders decoded; thousands of encrypted files / battle logs pending)"
+    - "Savage Intent black box (decoded — intercept-course log used to launch the Bunny extraction)"
+    - "Revenant's Echo captain's combat logs (partial splice — full Newhall battle roster; multiple Bunny references)"
+    - "Cooper-Akachi bomb components from Savage Intent jump drive (material evidence — disarmed by Samir)"
+    - "Cooper-Akachi surveillance buoy — hard drives decoded (deployed Wk 18; party ship signature broadcast to Maitz)"
+    - "Revenant's Echo captain's-chair fleet-coordination records (partial — Quiru ambush of Newhall confirmed)"
+    - "Savage Intent (party-controlled, operable with skeleton crew, bound for Stoyben — JF right of first refusal on sale)"

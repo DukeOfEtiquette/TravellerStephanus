@@ -26,14 +26,14 @@ session:
     Kitty: 147,300 cr
 
   narrative_events:
-    - day: 2.0
+    - week: 2.0
       title: "Cooper-Akachi elite team dispatched to Mora"
       description: |
         JF contacts Petra and Samir share a street-level rumor that
         Cooper-Akachi have dispatched an elite team of operatives to Mora
         in pursuit of the mask.
       location: "I'ith, Ith"
-    - day: 2.2
+    - week: 2.2
       title: "Iron Commerce 18 identified as al-Thani transport"
       description: |
         The 300 dT tramp freighter Iron Commerce 18 falsified its cargo
@@ -45,18 +45,18 @@ session:
       location: "I'ith, Ith"
 
   crew_events:
-    - day: 2.0
+    - week: 2.0
       title: "Met JF contacts Petra and Samir"
       description: "Rendezvous in I'ith — first contact with the cell that would feed leads going forward."
       location: "I'ith, Ith"
-    - day: 2.2
+    - week: 2.2
       title: "Bribed Customs Inspector Angus Graham"
       description: |
         Bribed Graham (at exorbitant rate) to falsify the party's
         destination as Stoyben and cargo as light construction vehicles,
         masking the real itinerary.
       location: "I'ith, Ith"
-    - day: 2.4
+    - week: 2.4
       title: "Departed for Ith L3 research station"
       description: |
         On Petra's suggestion, headed for the scientific station at Ith's

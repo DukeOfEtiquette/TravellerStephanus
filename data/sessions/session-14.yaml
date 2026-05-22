@@ -1,0 +1,240 @@
+session:
+  number: 14
+  date: 2026-05-08
+  recap: |
+    Having finished with the Star of Carella, the crew moved to the Savage Intent, a 400-ton Quiru vessel that was mostly intact.
+
+    The vessel was completely uninhabited, and showed signs of an orderly exit by whatever crew it once had, which consisted almost entirely of marines.
+
+    The crew found/did four things of note:
+    - Corinne was injured by a booby trap at the bridge door (grenade).
+    - Victor extracted the ship's black box, and eventually used it to recreate the ship's movements: the ship laid in wait behind a moon, then appeared to take an intercept and station-matching course alongside some (now absent) object.
+    - The crew found that the ship's computer had been crudely but effectively destroyed, like with an anti-personnel grenade.
+    - The crew discovered and had Samir disarm a bomb, made from high-end Cooper-Akachi parts, that had been expertly wired into the ship's jump drive.
+
+    The crew judges that the ship could be taken and jumped away with a skeleton crew.
+
+    Next, the crew approached the Revenant's Echo (see #handouts), entering the bridge through the blown-open remains of the ship's forward end. They found extensive damage and casualties inside.
+
+    Victor used his object reading powers ("hindsight") to view the captain of the ship ordering the fleet to retreat after "Bunny" was "taken" and "lost." He also hindsighted the navigation officer's station to see sensor images of space marines extracting something or someone from a small, 100-ton scout ship, with the Savage Intent in the background.
+
+    Date: 24.2
+    Kitty: 93,850
+    Fuel: 2/2
+
+  narrative_events:
+    - week: 24.2
+      title: "Savage Intent boarded — Quiru 400t, orderly evacuation"
+      description: |
+        Mostly intact; uninhabited; nothing in disarray. The crew's signs
+        indicated an orderly departure by a crew that was almost entirely
+        marines.
+      location: "Savage Intent, Maitz gas-giant field"
+
+    - week: 24.2
+      title: "Bridge-door grenade booby trap injures Corinne"
+      description: |
+        Bridge door was unusually difficult to open. When forced, a grenade
+        detonated. Corinne — first through the door — took the blast.
+      location: "Savage Intent, bridge approach"
+
+    - week: 24.2
+      title: "Computer room: ship's computer destroyed by explosive"
+      description: |
+        The ship's computer had been crudely but effectively destroyed,
+        consistent with an anti-personnel-grade explosive set off in the
+        server cabinets. The destruction was confined to the computer; the
+        rest of the room and the broader ship were otherwise undamaged.
+      location: "Savage Intent, computer room"
+
+    - week: 24.2
+      title: "Black box recovered and decoded"
+      description: |
+        Victor extracted the Savage Intent's black box and recreated the
+        ship's movements: it laid in wait behind a moon, then took an
+        intercept and station-matching course alongside a now-absent object
+        that was on a gas-skim trajectory through the system.
+      location: "Savage Intent, bridge"
+
+    - week: 24.2
+      title: "Cooper-Akachi bomb on jump drive — Samir disarms alone"
+      description: |
+        The jump drive had been expertly wired with a bomb built from
+        high-end Cooper-Akachi parts; designed to trigger on tamper or on
+        jump-drive start. Samir stayed aboard alone to disarm it while the
+        rest of the crew returned to VoL II. Disarmed successfully.
+      location: "Savage Intent, jump drive"
+
+    - week: 24.2
+      title: "Cargo crate inventory"
+      description: |
+        Before leaving the Savage Intent, the crew opened the cargo crates:
+        one empty, two empty with racks, balance loaded with rations.
+      location: "Savage Intent, cargo bay"
+
+    - week: 24.2
+      title: "Savage Intent assessed as a skeleton-crew prize"
+      description: |
+        With the bomb disarmed and the computer the only critical loss, the
+        crew judged the Savage Intent jump-capable with a skeleton crew —
+        a possible future capture.
+      location: "Savage Intent"
+
+    - week: 24.2
+      title: "Revenant's Echo boarded through blown-open bow"
+      description: |
+        Largest casualty in the battle; forward tip blown off; forward
+        missile bay appears to have cooked off internally; bridge severed.
+        Extensive damage and casualties inside.
+      location: "Revenant's Echo, Maitz gas-giant field"
+
+    - week: 24.2
+      title: "Captain's combat logs partially spliced"
+      description: |
+        Thousands of combat messages recovered. Full Newhall-side battle
+        roster obtained (names of all other ships in the engagement). The
+        Deepest Light is never named in the logs. Multiple references to
+        "Bunny." Late-battle traffic: Bunny flagged at risk of Quiru
+        capture → orders shifted from capture to destroy → both failed →
+        retreat ordered after Bunny was extracted.
+      location: "Revenant's Echo, bridge"
+
+    - week: 24.2
+      title: "Hindsight #1 — captain's chair, moment of retreat"
+      description: |
+        Victor's first hindsight viewing on the Revenant's Echo bridge:
+        the captain ordered fleet retreat after Bunny was "taken" and
+        "lost." The order explicitly referenced the boarding party having
+        extracted Bunny from the ship — Bunny is a person, not a ship.
+      location: "Revenant's Echo, captain's chair"
+
+    - week: 24.2
+      title: "Hindsight #2 — sensor officer's chair"
+      description: |
+        Second hindsight on the navigation/sensor officer's station: visual
+        sensor record showed Quiru marines extracting a human-appearing
+        figure from a small 100-ton scout ship (the Deepest Light), with
+        the Savage Intent in the background.
+      location: "Revenant's Echo, sensor station"
+
+    - week: 24.2
+      title: "Deepest Light confirmed absent from Maitz"
+      description: |
+        The party concluded the Deepest Light was never at the gas-giant
+        debris field when they arrived. Its only "appearance" to the crew
+        was through Victor's hindsight. Presumed extracted from the
+        battlefield by Quiru along with Bunny. The S13 entry treating one
+        of the surveyed wrecks as the Deepest Light was incorrect.
+      location: "Maitz, gas-giant field"
+
+  crew_events:
+    - week: 24.2
+      title: "Corinne injured by Savage Intent bridge booby trap"
+      description: "Grenade at the bridge door. Lead PC into the room; non-life-threatening hit."
+
+    - week: 24.2
+      title: "Samir solo disarm of Cooper-Akachi jump-drive bomb"
+      description: "Remained aboard the Savage Intent alone; disarmed successfully."
+
+    - week: 24.2
+      title: "Victor decoded Savage Intent black box"
+      description: "Recreated the ship's full intercept-and-station-matching maneuver."
+
+    - week: 24.2
+      title: "Victor used hindsight twice aboard Revenant's Echo"
+      description: |
+        Captain's chair (retreat moment) and sensor officer's station
+        (extraction visual).
+
+  npcs_introduced:
+    - name: "Bunny"
+      affiliation: "Unknown (carried aboard the Newhall scout Deepest Light)"
+      role: "Mission objective — high-value person"
+      notes: |
+        A person — not a ship or cargo — extracted by Quiru marines from
+        the Deepest Light during the Maitz engagement. Currently presumed
+        in Quiru custody. Both Quiru and Newhall went to fleet engagement
+        over Bunny. "Bunny" reads as a codename. See npcs.yaml for the
+        full registry entry.
+
+  key_events:
+    - "Boarded Savage Intent (Quiru, 400 t, mostly intact, uninhabited; crew was almost entirely marines)"
+    - "Corinne injured by a grenade booby trap at the Savage Intent bridge door"
+    - "Computer room: Savage Intent's ship computer destroyed by an anti-personnel-grade explosive"
+    - "Recovered and decoded the Savage Intent black box — intercept course from behind a moon, matched onto a gas-skim target"
+    - "Samir disarmed a high-end Cooper-Akachi bomb wired into the Savage Intent's jump drive"
+    - "Cargo crates aboard Savage Intent: 1 empty, 2 empty with racks, balance rations"
+    - "Crew assessment: Savage Intent jump-capable with a skeleton crew (potential prize, not seized)"
+    - "Boarded Revenant's Echo (largest casualty; bow blown open; forward missile bay cooked off; extensive casualties)"
+    - "Partial splice of captain's combat logs: full Newhall battle roster; Deepest Light never named; multiple Bunny references"
+    - "Logs: capture-Bunny → destroy-Bunny → both failed → retreat after Bunny extracted by Quiru"
+    - "Hindsight #1 (Victor, captain's chair): retreat order explicitly referenced Bunny being extracted from the ship — Bunny is a person"
+    - "Hindsight #2 (Victor, sensor station): visual of Quiru marines extracting a human from a 100 dT scout (Deepest Light), Savage Intent in background"
+    - "Concluded the Deepest Light was never at Maitz on arrival — presumed Quiru-captured with Bunny"
+    - "Working theory: Bunny was the Deepest Light's payload; Quiru took both; Newhall and Quiru (supposed allies) fought a covert fleet engagement over Bunny"
+
+  ship_events:
+    - event: "Refueled status"
+      outcome: "VoL II fuel 2/2 (unchanged — no fuel use this session)"
+
+    - event: "Savage Intent flagged as a possible future skeleton-crew capture"
+      outcome: "Bomb disarmed, computer is the only critical loss; not yet seized."
+
+  derelicts_surveyed:
+    - name: "Star of Carella"
+      size_marker: 5
+      faction: Newhall
+      notes: |
+        Looted in Session 13 (data slabs, 2 x 10 dT shuttlecraft, 16 t Rx,
+        siphoned fuel; "cry baby cry" diversion staged). Work concluded at
+        the open of Session 14.
+
+    - name: "Savage Intent"
+      size_marker: 3
+      faction: Quiru
+      notes: |
+        400-ton Quiru vessel. **Boarded Session 14.** Mostly intact;
+        uninhabited; orderly evacuation by a mostly-marine crew. Sabotage
+        pattern: bridge-door grenade booby trap (Corinne injured), computer
+        destroyed by anti-personnel explosive, jump-drive bomb of high-end
+        Cooper-Akachi parts (disarmed by Samir). Black box recovered and
+        decoded: lay in wait behind a moon, intercepted and matched course
+        onto a gas-skim target (the now-absent Deepest Light). Cargo: 1
+        empty crate, 2 empty with racks, balance rations. Crew assessed:
+        jump-capable with a skeleton crew — possible future prize.
+
+    - name: "Revenant's Echo"
+      size_marker: 6
+      faction: Newhall
+      notes: |
+        Largest casualty in the battle. **Boarded Session 14.** Forward
+        tip blown off; forward missile bay cooked off internally; bridge
+        severed. Extensive damage and casualties inside. Captain's combat
+        logs partially spliced: full Newhall battle roster recovered;
+        Deepest Light not named; multiple Bunny references; retreat
+        ordered after Bunny extracted. Victor performed two hindsight
+        viewings here — captain's chair (extraction-confirmed retreat
+        order) and sensor station (visual of Quiru marines extracting a
+        human from the Deepest Light, Savage Intent in background).
+
+    - name: "Adamant"
+      size_marker: 3
+      faction: unknown
+      notes: "Surveyed Session 13, not boarded. No Session 14 activity."
+
+    - name: "Deepest Light"
+      size_marker: null
+      faction: Newhall
+      notes: |
+        **NOT at Maitz when the party arrived.** S13's working assumption
+        that one of the surveyed wrecks was the Deepest Light was wrong.
+        Hindsight on the Revenant's Echo confirmed the Deepest Light was
+        at the battle and that Quiru marines extracted Bunny from it via
+        the Savage Intent. Presumed Quiru-captured (extracted from the
+        battlefield) and removed from the system before the party arrived.
+
+    - name: "(unidentified debris field)"
+      faction: unknown
+      notes: "One of the original two debris fields — too disintegrated to identify. Unchanged from Session 13."
+
+  absent_pcs: []

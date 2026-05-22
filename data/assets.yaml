@@ -5,8 +5,8 @@
 # PARTY FUNDS
 # =============================================================================
 party_kitty:
-  balance: 93850  # Cr, as of Session 13
-  last_updated: "Session 13"
+  balance: 93850  # Cr, as of Session 15
+  last_updated: "Session 15"
   notes: |
     Started with 150,000 Cr from Kyle Newhouse (encrypted Ithian credit chips).
     Spent 200 Cr on expenses during Session 2.
@@ -22,6 +22,8 @@ party_kitty:
                Missile resupply and other expenses deducted. Kitty 109,950 Cr.
     Session 13: Pre-jump kit-out and resupply at Mowebe before jump to Maitz.
                Kitty 93,850 Cr (-16,100 Cr).
+    Session 14: No expenditures or income. Balance unchanged at 93,850 Cr.
+    Session 15: No expenditures or income. Balance unchanged at 93,850 Cr.
 
 # =============================================================================
 # SHARED EQUIPMENT
@@ -207,12 +209,69 @@ ships:
           and dumped manufactured trade goods to make room. Reorganized the
           pre-existing 20 t of Rx — 8 t loaded into each looted shuttle as
           internal storage, 4 t left loose in the bay.
+      - session: 14
+        event: |
+          Used as the staging vessel for boarding the Savage Intent (Quiru,
+          400 t) and the Revenant's Echo. Samir remained aboard the Savage
+          Intent alone to disarm a Cooper-Akachi-parts bomb wired into the
+          jump drive. Crew assessed the Savage Intent as jump-capable with a
+          skeleton crew — flagged as a possible future prize, not yet seized.
+          No ship-to-ship combat. Fuel 2/2 (unchanged).
+      - session: 15
+        event: |
+          Used to intercept a Cooper-Akachi surveillance buoy that launched
+          from behind the Revenant's Echo for planet Maitz. Continued
+          staging the Revenant's Echo boarding (captain's-chair records
+          recovered; vacuum-adapted squid combat at the power core forced
+          a desperate retreat). Council decided to move both VoL II and the
+          Savage Intent to Stoyben, with the Savage Intent slated for sale.
+          Critical: the buoy emitted a directional radio burst to Maitz
+          containing VoL II's transponder code and physical description
+          before fuel exhaustion — the ship's signature is leaked. No
+          ship-to-ship combat. Fuel 2/2 (unchanged).
 
     damage_log:
       - session: 12
         damage: "Powerplant damaged during misjump into Oort cloud"
         repaired: true
         repaired_by: "Van Leeuwen and Corinne Page at lunar JF depot"
+
+  - name: "Savage Intent"
+    type: "Military vessel (Quiru, 400 t)"
+    owner: "Party (de facto, post-Maitz)"
+    acquired: "Session 15"
+    status: operational
+
+    description: |
+      Quiru 400-ton military vessel originally crewed almost entirely by
+      marines. Recovered at Maitz: boarded Session 14, operability confirmed
+      Session 15. Sabotage on board was neutralized in Session 14 (bridge-
+      door grenade detonated; ship's computer destroyed by an anti-personnel-
+      grade explosive; high-end Cooper-Akachi bomb wired into the jump drive
+      disarmed by Samir).
+
+    frame:
+      tonnage: 400
+
+    disposition: |
+      Council decision (Session 15): move to Stoyben with VoL II to sell.
+      Jade Front gets right of first refusal. Intent is to fund a faster
+      replacement ship and break the leaked VoL II ship signature trail
+      (see investigation.yaml key_intel:party-ship-signature-leaked).
+
+    history:
+      - session: 14
+        event: |
+          Boarded. Sabotage neutralized: bridge-door grenade trap (Corinne
+          injured), ship's computer destroyed, Cooper-Akachi-parts jump-
+          drive bomb disarmed by Samir. Black box decoded. Cargo crates
+          inventoried (1 empty, 2 empty with racks, rest rations). Crew
+          assessed: jump-capable with a skeleton crew.
+      - session: 15
+        event: |
+          Operability confirmed — the ship can be run with a skeleton crew
+          and jumped out of the system. Council decision to move it to
+          Stoyben for sale (JF right of first refusal).
 
 # =============================================================================
 # RECOVERED INTELLIGENCE / DATA
@@ -229,5 +288,69 @@ recovered_data:
       - description: "Captain's stateroom search — only anomaly was a missing book from a bookshelf"
         status: open
         notes: "Physical paper books are unusual. Missing one may be hidden, smuggled, or a hollowed cache."
+
+  - source: "Savage Intent (Quiru) — Session 14"
+    items:
+      - description: "Black box (decoded) — intercept-course log"
+        status: decoded
+        notes: |
+          Laid in wait behind a moon, then matched course alongside an object on a
+          gas-skim trajectory. Used to launch the extraction of a person codenamed
+          Bunny from the Newhall scout Deepest Light.
+      - description: "Cooper-Akachi bomb components from the jump drive (disarmed)"
+        status: evidence
+        notes: |
+          High-end Cooper-Akachi parts. Material evidence of Cooper-Akachi presence
+          at or after the Maitz engagement. Disarmed alone aboard by Samir.
+      - description: "Cargo manifest observation"
+        status: observed
+        notes: "1 empty crate, 2 empty with racks, balance rations."
+
+  - source: "Revenant's Echo (Newhall) — Session 14"
+    items:
+      - description: "Captain's combat logs (partial splice)"
+        status: decoded_partial
+        notes: |
+          Full Newhall-side battle roster recovered (names of all other ships in
+          the engagement). Deepest Light never named in the logs. Multiple
+          references to "Bunny." Captain ordered fleet retreat after Bunny was
+          "taken" and "lost."
+      - description: "Hindsight viewings (Victor) — captain's chair and sensor station"
+        status: recorded
+        notes: |
+          Captain's chair (moment of retreat): order explicitly referenced the
+          boarding party extracting Bunny from the ship — confirms Bunny is a
+          person. Sensor station: visual of Quiru marines extracting a human-
+          appearing figure from a 100 dT scout (the Deepest Light), with the
+          Savage Intent in the background.
+
+  - source: "Cooper-Akachi surveillance buoy (Maitz battlefield) — Session 15"
+    items:
+      - description: "Buoy hard drives — decoded surveillance log"
+        status: decoded
+        notes: |
+          Buoy deployed at the Maitz battlefield in Campaign Week 18 by a
+          Cooper-Akachi ship. Wk 22: a Newhall ship arrived, inspected the
+          field for ~12 hours, and left. The buoy also detected and
+          monitored the party's arrival in Session 13–14 until they
+          intercepted it in Session 15. Just before running out of fuel,
+          it emitted a directional radio burst toward planet Maitz
+          transmitting VoL II's transponder code and physical description.
+          Party ship signature is leaked.
+
+  - source: "Revenant's Echo (Newhall) — Session 15"
+    items:
+      - description: "Captain's-chair partial fleet-coordination records"
+        status: decoded_partial
+        notes: |
+          Confirms Newhall came to Maitz pursuing Bunny and was AMBUSHED by
+          Quiru — reframes the engagement as a one-sided Quiru ambush of
+          putative allies, not a co-equal covert fight.
+      - description: "Captain's-quarters safe (abandoned during squid attack)"
+        status: open
+        notes: |
+          Victor was actively cracking the safe when the squid attack at
+          the power core interrupted him. Safe was left untouched during
+          the retreat; contents unknown.
 
 # Note: hanger contents are now nested under each ship's `hanger:` field above.

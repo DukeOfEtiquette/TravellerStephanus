@@ -31,24 +31,24 @@ session:
     Arrive at Mowebe: 12.2
 
   narrative_events:
-    - day: 7.5
+    - week: 7.5
       title: "Arvi adopting Torin's role"
       description: "Surveillance suggests Arvi is taking up some part of Torin's role in the cylinder's affairs."
       location: "O'Neill cylinder"
-    - day: 7.6
+    - week: 7.6
       title: "Passenger-less ship runs a fuel-only loop to Stoyben"
       description: |
         The fully booked but strangely passenger-less ship Arvi tried to
         board went to Stoyben, took on fuel without any embark or disembark,
         and returned to the cylinder. Purpose unclear.
-    - day: 8.0
+    - week: 8.0
       title: "Arvi murders Torin; Tevetz cleared"
       description: |
         Arvi murdered Torin to free Vondel from years of abuse. Tevetz, as
         it turned out, was not working a family agenda — he had been
         genuinely helping Vondel in good faith.
       location: "O'Neill cylinder"
-    - day: 8.1
+    - week: 8.1
       title: "Political fallout forces Vondel to flee the entire system"
       description: |
         Torin's murder caused a major uproar. Reed had to pay Vondel far
@@ -57,25 +57,25 @@ session:
         pay but issued a positive letter of recommendation.
 
   crew_events:
-    - day: 7.5
+    - week: 7.5
       title: "Doctored sniper-scope video of Tevetz"
       description: |
         Took a video of Tevetz through a sniper scope, doctored it to look
         like a threat from Torin, and sent it to Vondel to pressure her to
         flee. Unbeknownst to the party, this accelerated her own plan.
-    - day: 8.0
+    - week: 8.0
       title: "Surveilled Arvi to a Torin tryst"
       description: |
         Finnegan trailed Arvi to her secret meeting with Torin. Meanwhile
         Harrow and Vicentio attended Vondel's keynote fundraiser.
       location: "O'Neill cylinder"
-    - day: 8.1
+    - week: 8.1
       title: "Bundled Vondel and fled the cylinder"
       description: |
         At Arvi's urgent request, the party extracted Vondel onto the ship
         after the murder.
       location: "O'Neill cylinder"
-    - day: 8.2
+    - week: 8.2
       title: "Departed for Mowebe (four-week jump)"
       description: "Immediate departure from the Stoyben system."
 

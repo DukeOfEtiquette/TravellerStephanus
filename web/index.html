@@ -258,7 +258,7 @@
 
   /* =====================================================================
      Campaign Timeline — vertical axis, narrative on the left, crew on the right.
-     Top of the page is the most recent in-game day; scrolling down moves back.
+     Top of the page is the most recent in-game week; scrolling down moves back.
      ===================================================================== */
   .timeline-legend {
     display: flex;
@@ -330,8 +330,8 @@
     position: relative;
   }
 
-  /* Day chapter break: a thin rule slices across the full row width and
-     is visually interrupted by the day pill straddling the central axis. */
+  /* Week chapter break: a thin rule slices across the full row width and
+     is visually interrupted by the week pill straddling the central axis. */
   .timeline-row::before {
     content: "";
     position: absolute;
@@ -354,14 +354,14 @@
     opacity: 0.55;
   }
 
-  .day-marker {
+  .week-marker {
     grid-column: 2;
     text-align: center;
     position: relative;
     z-index: 2;
     margin-top: -8px;
   }
-  .day-marker .day-pill {
+  .week-marker .week-pill {
     display: inline-block;
     background: var(--bg);
     border: 1px solid var(--accent);
@@ -374,7 +374,7 @@
     white-space: nowrap;
     box-shadow: 0 0 0 5px var(--bg);
   }
-  .day-marker .day-sublabel {
+  .week-marker .week-sublabel {
     display: block;
     color: var(--text-faint);
     font-size: 0.65rem;
@@ -459,9 +459,9 @@
   .campaign-timeline.hide-crew .timeline-card.crew,
   .campaign-timeline.hide-crew .timeline-col.crew { display: none; }
 
-  /* Mobile: day marker becomes a section-header band above its stack of
+  /* Mobile: week marker becomes a section-header band above its stack of
      cards. Single-column flow, no central axis, no fixed left gutter
-     (the previous fixed 44px gutter overflowed for "Day 24.1"). */
+     (the previous fixed 44px gutter overflowed for "Week 24.1"). */
   @media (max-width: 760px) {
     .campaign-timeline::before { display: none; }
 
@@ -473,7 +473,7 @@
     .timeline-row::before { display: none; }
     .timeline-row:first-child { margin-top: 6px; }
 
-    .day-marker {
+    .week-marker {
       grid-column: auto;
       display: flex;
       align-items: center;
@@ -481,14 +481,14 @@
       margin: 0 0 10px;
       text-align: left;
     }
-    .day-marker .day-pill {
+    .week-marker .week-pill {
       font-size: 0.78rem;
       padding: 4px 11px;
       box-shadow: none;
       flex: 0 0 auto;
     }
-    .day-marker .day-sublabel { margin: 0; }
-    .day-marker::after {
+    .week-marker .week-sublabel { margin: 0; }
+    .week-marker::after {
       content: "";
       flex: 1 1 auto;
       height: 1px;
@@ -612,7 +612,7 @@
 // Manifests (hand-maintained — update when new files are added)
 // =========================================================================
 
-const SESSION_NUMBERS = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+const SESSION_NUMBERS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
 const RULES_FILES = [
   { id: 'character-creation', label: 'Character Creation' },
@@ -1028,17 +1028,17 @@ async function viewInvestigation() {
 // within a session (not across reloads).
 let _timelineFilter = 'both'; // 'both' | 'narrative' | 'crew'
 
-function _dayNum(d) {
+function _weekNum(d) {
   if (typeof d === 'number') return d;
   if (d == null) return -Infinity;
   const f = parseFloat(d);
   return Number.isFinite(f) ? f : Infinity; // unparseable (e.g. "TBD") → top
 }
 
-function _fmtDay(d) {
+function _fmtWeek(d) {
   if (d == null || d === '') return '';
   if (typeof d === 'number') {
-    // Keep one decimal place; trim trailing ".0" so whole days read clean.
+    // Keep one decimal place; trim trailing ".0" so whole weeks read clean.
     return Number.isInteger(d) ? String(d) : d.toFixed(1).replace(/\.0$/, '');
   }
   return String(d);
@@ -1091,7 +1091,7 @@ async function viewTimeline() {
       html += `<div class="card">
         <h3>${esc(p.event || p.notes || 'Planned action')}</h3>
         <div class="pill-row">
-          ${p.day ? `<span class="tag dim">Day ${esc(p.day)}</span>` : ''}
+          ${p.week ? `<span class="tag dim">Week ${esc(p.week)}</span>` : ''}
           ${p.location ? `<span class="tag dim">${esc(p.location)}</span>` : ''}
         </div>
         ${p.notes && p.notes !== p.event ? `<div style="white-space: pre-wrap; margin-top: 4px;">${esc(p.notes)}</div>` : ''}
@@ -1110,27 +1110,27 @@ async function viewTimeline() {
   const narrativeCount = events.filter(e => e.type === 'narrative').length;
   const crewCount = events.filter(e => e.type === 'crew').length;
 
-  // Sort desc by in-game day; ties keep their array order (most recent
+  // Sort desc by in-game week; ties keep their array order (most recent
   // sessions first because we load in increasing session order, then push).
-  // Actually we loaded sessions 1..N in order, so within the same day the
+  // Actually we loaded sessions 1..N in order, so within the same week the
   // earlier session appears first; secondary sort by session desc keeps
   // newer sessions on top for ties.
   events.sort((a, b) => {
-    const dd = _dayNum(b.day) - _dayNum(a.day);
+    const dd = _weekNum(b.week) - _weekNum(a.week);
     if (dd !== 0) return dd;
     return (b.session || 0) - (a.session || 0);
   });
 
-  // Group consecutive events sharing the same in-game day.
+  // Group consecutive events sharing the same in-game week.
   const groups = [];
   let last = null;
   for (const ev of events) {
-    if (!last || _dayNum(last.day) !== _dayNum(ev.day)) {
-      last = { day: ev.day, session: ev.session, narrative: [], crew: [] };
+    if (!last || _weekNum(last.week) !== _weekNum(ev.week)) {
+      last = { week: ev.week, session: ev.session, narrative: [], crew: [] };
       groups.push(last);
     }
     last[ev.type].push(ev);
-    // If a later event for the same day comes from a higher session
+    // If a later event for the same week comes from a higher session
     // number, prefer that one as the row's "primary" session label.
     if (ev.session > (last.session || 0)) last.session = ev.session;
   }
@@ -1140,7 +1140,7 @@ async function viewTimeline() {
     <button class="filter-btn" type="button" data-filter="both" aria-pressed="${_timelineFilter === 'both'}">Both</button>
     <button class="filter-btn" type="button" data-filter="narrative" aria-pressed="${_timelineFilter === 'narrative'}"><span class="swatch narrative"></span>Narrative · ${narrativeCount}</button>
     <button class="filter-btn" type="button" data-filter="crew" aria-pressed="${_timelineFilter === 'crew'}"><span class="swatch crew"></span>Crew · ${crewCount}</button>
-    <span class="timeline-count">${groups.length} day${groups.length === 1 ? '' : 's'} · ${events.length} events</span>
+    <span class="timeline-count">${groups.length} week${groups.length === 1 ? '' : 's'} · ${events.length} events</span>
   </div>`;
 
   const rootCls = _timelineFilter === 'narrative' ? 'campaign-timeline hide-crew'
@@ -1169,10 +1169,10 @@ async function viewTimeline() {
     const crewHtml = g.crew.length
       ? g.crew.map(renderCard).join('')
       : '';
-    html += `<div class="timeline-row" data-day="${esc(_fmtDay(g.day))}">
-      <div class="day-marker">
-        <span class="day-pill">Day ${esc(_fmtDay(g.day))}</span>
-        ${g.session ? `<span class="day-sublabel">Session ${g.session}</span>` : ''}
+    html += `<div class="timeline-row" data-week="${esc(_fmtWeek(g.week))}">
+      <div class="week-marker">
+        <span class="week-pill">Week ${esc(_fmtWeek(g.week))}</span>
+        ${g.session ? `<span class="week-sublabel">Session ${g.session}</span>` : ''}
       </div>
       <div class="timeline-col narrative${g.narrative.length ? '' : ' empty'}">${narrHtml}</div>
       <div class="timeline-col crew${g.crew.length ? '' : ' empty'}">${crewHtml}</div>

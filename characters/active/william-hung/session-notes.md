@@ -524,7 +524,7 @@ Then on to Revenant's Echo — the largest casualty (front tip blown off, bridge
 severed in half, missile bay cooked off internally). Spliced into the captain's
 chair computer: thousands of combat message logs. No direct mention of the
 Deepest Light, but repeated references to "Bunny" — unclear if person or ship.
-Late-battle traffic: Bunny at risk of capture by Queru → orders shifted from
+Late-battle traffic: Bunny at risk of capture by Quiru → orders shifted from
 capture-Bunny to destroy-Bunny → both failed → after Bunny was captured,
 retreat ordered. Aligns with the orders we pulled off Star of Carella last
 session.
@@ -547,14 +547,14 @@ Savage Intent into Deepest Light and returning with one additional individual.
 - Boarded Revenant's Echo (largest casualty in the field)
 - Spliced captain's chair computer — thousands of combat logs
 - Logs referenced "Bunny" repeatedly — unclear if person or ship
-- Logs: capture-Bunny → switched to destroy-Bunny when Queru moved on Bunny → both failed → retreat after Bunny captured
+- Logs: capture-Bunny → switched to destroy-Bunny when Quiru moved on Bunny → both failed → retreat after Bunny captured
 - Hindsight #1 (captain's chair): retreat order said Bunny was "extracted from the ship" — Bunny = person
 - Hindsight #2 (sensor officer's chair): visual of Savage Intent docked to Deepest Light, Marines crossing over and returning with one extra individual
 
 ### NPCs Encountered
 | Name | Description | Location | Notes |
 |------|-------------|----------|-------|
-| "Bunny" | Unknown individual — referenced in Revenant's Echo combat logs | Deepest Light → extracted | Apparently a person, not a ship; both Newhall and Queru wanted them; ultimately captured (by whom?) |
+| "Bunny" | Unknown individual — referenced in Revenant's Echo combat logs | Deepest Light → extracted | Apparently a person, not a ship; both Newhall and Quiru wanted them; ultimately captured (by whom?) |
 
 ### Locations Visited
 - Savage Intent (boarded, searched, jump-drive bomb disarmed)
@@ -574,15 +574,15 @@ Savage Intent into Deepest Light and returning with one additional individual.
 - Savage Intent's damage pattern was surgical — server cabinets only, plus a bridge booby trap and a jump-drive bomb. Whoever sabotaged it knew exactly what to hit.
 - The "other ship" Savage Intent was intercepting per the black box was on a gas-skim-and-leave trajectory — possibly the Deepest Light itself, or a third party
 - Bunny is a person, not a ship — extracted from the Deepest Light by Marines off the Savage Intent
-- Queru was active in the engagement and at some point captured Bunny (per Newhall logs)
-- Newhall escalated from capture to destroy once Queru got hold of Bunny — Bunny is valuable enough that denying them to Queru was worth killing them over
-- Newhall's own Marines (off Savage Intent) appear to have been the ones who pulled Bunny off the Deepest Light originally — so was Bunny a Newhall asset that Queru then took? Or did the Marines fail and Queru took Bunny next?
+- Quiru was active in the engagement and at some point captured Bunny (per Newhall logs)
+- Newhall escalated from capture to destroy once Quiru got hold of Bunny — Bunny is valuable enough that denying them to Quiru was worth killing them over
+- Newhall's own Marines (off Savage Intent) appear to have been the ones who pulled Bunny off the Deepest Light originally — so was Bunny a Newhall asset that Quiru then took? Or did the Marines fail and Quiru took Bunny next?
 - Revenant's Echo intel aligns with the Star of Carella orders — same operation
 
 ### Unresolved Threads
-- Who is Bunny? Why does Newhall want them captured-or-killed, and why does Queru want them?
-- Where is Bunny now? Queru-held? Dead?
-- Who sabotaged Savage Intent (server room, bridge door, jump drive)? Internal job? Queru?
+- Who is Bunny? Why does Newhall want them captured-or-killed, and why does Quiru want them?
+- Where is Bunny now? Quiru-held? Dead?
+- Who sabotaged Savage Intent (server room, bridge door, jump drive)? Internal job? Quiru?
 - Was the gas-skimming ship the Deepest Light, or a third party we haven't identified?
 - Is the Deepest Light still out there to find — and is Bunny's extraction the reason it was worth hunting?
 - Still haven't boarded Adamant or located/boarded the Deepest Light wreck (if it is one)
@@ -591,8 +591,8 @@ Savage Intent into Deepest Light and returning with one additional individual.
 ### Notes
 The Bunny thread is the new center of gravity. Newhall's whole operation at
 Maitz was apparently about controlling one person — first extracting them off
-the Deepest Light, then trying to keep Queru from taking them, then trying to
-kill them rather than let Queru have them. That's a person worth a fleet
+the Deepest Light, then trying to keep Quiru from taking them, then trying to
+kill them rather than let Quiru have them. That's a person worth a fleet
 engagement. Finding Bunny (or whoever has them now) is probably more valuable
 than recovering the Deepest Light itself.
 

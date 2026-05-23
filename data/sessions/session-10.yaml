@@ -48,19 +48,18 @@ session:
         something.
       location: "Mowebe"
     - week: 14.0
-      title: "Cooper-Akachi over-represented in Solal's calendar"
+      title: "Cooper-Akachi heavily booked into Solal's calendar"
       description: |
-        Manipulated schedule data revealed a suspicious number of
-        Cooper-Akachi Diversified Industries meetings booked with Solal -
-        plus several hunting expeditions and a "black hole" gap day.
+        Solal's schedule (captured at wk 14.0) contained a suspicious
+        number of Cooper-Akachi Diversified Industries meetings, several
+        hunting expeditions, and a "black hole" gap day.
       location: "Solal estate, Mowebe"
     - week: 14.4
-      title: "Hassan revealed as Solal's illegitimate son"
+      title: "Hassan is Solal's illegitimate son"
       description: |
-        Corinne Page broke into Hassan's (majordomo) office hoping for a
-        personal tracker keyed to Solal. Found instead a cache of tender
-        personal letters from Solal to Hassan - Hassan is his bastard son,
-        and Solal cares deeply for him.
+        A cache of tender personal letters from Solal to Hassan
+        (Solal's majordomo) reveals Hassan is his bastard son, and Solal
+        cares deeply for him.
       location: "Solal estate, Mowebe"
 
   crew_events:
@@ -76,6 +75,14 @@ session:
         planted a timed virus (intermittent beeping alarms in toilets and
         sleeping areas) for re-entry on the gap day, and created four
         false security staff profiles using crew biometrics.
+      location: "Solal estate, Mowebe"
+    - week: 14.4
+      title: "Corinne broke into Hassan's office; found Solal's letters"
+      description: |
+        Looking for a personal tracker keyed to Solal, Corinne Page broke
+        into Hassan's office. Found instead a cache of tender personal
+        letters from Solal to Hassan revealing Hassan as Solal's bastard
+        son.
       location: "Solal estate, Mowebe"
     - week: 14.5
       title: "Bought sleeping drugs that evade anti-poison countermeasures"

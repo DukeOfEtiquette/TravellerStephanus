@@ -23,7 +23,9 @@ session:
     Day: 14.6
     Kitty: 73,750 Cr
 
-  narrative_events:
+  narrative_events: []
+
+  crew_events:
     - week: 14.6
       title: "Solal's nanos counter the poison"
       description: |
@@ -32,19 +34,18 @@ session:
         immediately bled time.
       location: "Nbangu Dikila Nature Preserve, Mowebe"
     - week: 14.6
-      title: "Power-armor bodyguard intervenes from the sky"
-      description: |
-        A jetpack-equipped bodyguard in power armor smashed into Vicentio
-        from the air - a contingency the party had not modeled for.
-
-  crew_events:
-    - week: 14.6
       title: "Overwatch from anchored yachts; perimeter cleared"
       description: |
         Vicentio and Petra on yacht overwatch. Van Leeuwen and Bobby
         dispatched four perimeter guards (both injured in the firefight).
         Vicentio crashed his yacht into the shore to neutralize it; Petra
         secured hers for overwatch.
+    - week: 14.6
+      title: "Power-armor bodyguard intervenes from the sky"
+      description: |
+        A jetpack-equipped bodyguard in power armor smashed into Vicentio
+        from the air - a contingency the party had not modeled for.
+      location: "Nbangu Dikila Nature Preserve, Mowebe"
     - week: 14.6
       title: "Vicentio Saviolo killed"
       description: |

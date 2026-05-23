@@ -31,20 +31,12 @@ session:
 
   narrative_events:
     - week: 6.0
-      title: "Choo's assistant Pardeep Sarsar identified - also missing"
+      title: "Pardeep Sarsar also missing"
       description: |
-        Rivis grants Capt. Leeuwen tentative trust and reveals key context:
-        Choo is always punctual, so the long silence is severely out of
-        character. Choo's assistant Pardeep Sarsar handles courier filings
-        - and is also missing. Sarsar's family has no recent contact;
-        nobody at the spaceport has seen him.
-      location: "Stoyben Interstellar News Dispatch"
-    - week: 6.2
-      title: "Rivis offers two jobs"
-      description: |
-        1) Deliver an encrypted message to Kara Wiley (undercover Dispatch
-        reporter embedded in a political family on Thane) - 40k/80k Cr.
-        2) Check on Choo's wellbeing on Mora - 10k/25k Cr.
+        Choo's assistant Pardeep Sarsar - who handles courier filings -
+        is also missing. His family has no recent contact; nobody at the
+        spaceport has seen him.
+      location: "Stoyben"
 
   crew_events:
     - week: 6.0
@@ -53,6 +45,21 @@ session:
         Capt. Leeuwen returned alone to Rivis, apologized for the earlier
         approach, and shared more on courier routes and the investigation
         (excluding the JF connection).
+    - week: 6.0
+      title: "Identified Sarsar as Choo's assistant; canvassed for him"
+      description: |
+        Rivis revealed Choo's punctuality and named Pardeep Sarsar as the
+        courier assistant. Rivis called Sarsar's family (no information);
+        the party canvassed the spaceport (no sightings).
+      location: "Stoyben Interstellar News Dispatch"
+    - week: 6.2
+      title: "Accepted two jobs from Rivis"
+      description: |
+        Rivis offered, and the party took, two jobs:
+        1) Deliver an encrypted message to Kara Wiley (undercover Dispatch
+        reporter embedded in a political family on Thane) - 40k/80k Cr.
+        2) Check on Choo's wellbeing on Mora - 10k/25k Cr.
+      location: "Stoyben Interstellar News Dispatch"
     - week: 6.2
       title: "Traded weapons cargo to Reed for refined fuel"
       description: "Closed the cargo-for-fuel deal with the JF station chief."

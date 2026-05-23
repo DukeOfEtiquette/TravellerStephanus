@@ -34,14 +34,13 @@ session:
         in pursuit of the mask.
       location: "I'ith, Ith"
     - week: 2.2
-      title: "Iron Commerce 18 identified as al-Thani transport"
+      title: "Iron Commerce 18 (al-Thani transport) departed Ith for 'home'"
       description: |
         The 300 dT tramp freighter Iron Commerce 18 falsified its cargo
         (pharmaceuticals and manufacturing drones) and its destination,
         buying paid-off clearance from Licensed Customs Inspector Angus
-        Graham - took on 20 tons of fuel and did no trade. Psychic viewing
-        and legwork confirmed at least two of the crew were al-Thani.
-        Bribed Graham later revealed their true destination was "home."
+        Graham. Took on 20 tons of fuel, did no trade, and departed. True
+        destination (per a later-bribed Graham): "home."
       location: "I'ith, Ith"
 
   crew_events:
@@ -50,11 +49,18 @@ session:
       description: "Rendezvous in I'ith - first contact with the cell that would feed leads going forward."
       location: "I'ith, Ith"
     - week: 2.2
+      title: "Identified Iron Commerce 18 crew as al-Thani"
+      description: |
+        Through psychic viewing and old-fashioned legwork, confirmed at
+        least two of the IC18 crew were al-Thani.
+      location: "I'ith, Ith"
+    - week: 2.2
       title: "Bribed Customs Inspector Angus Graham"
       description: |
         Bribed Graham (at exorbitant rate) to falsify the party's
         destination as Stoyben and cargo as light construction vehicles,
-        masking the real itinerary.
+        masking the real itinerary. Graham also revealed IC18's true
+        destination was "home."
       location: "I'ith, Ith"
     - week: 2.4
       title: "Departed for Ith L3 research station"

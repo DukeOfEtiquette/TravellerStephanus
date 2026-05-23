@@ -22,16 +22,21 @@ session:
 
   narrative_events:
 
-    # --- Historical events recovered from the buoy hard drives -----------
-    # Per Adam's clarification (S15), these go at their appropriate
-    # historical spot on the campaign timeline, not at the session day.
+    - week: 12.0
+      title: "Newhall fleet ambushed by Quiru at Maitz"
+      description: |
+        Newhall came to Maitz pursuing Bunny and was ambushed by their
+        putative allies, Quiru. Reframes the Wk 12 engagement as an
+        ambush, not a co-equal fight. (Recovered Wk 24.3 from Revenant's
+        Echo captain's-chair fleet-coordination records.)
+      location: "Maitz"
 
     - week: 18.0
       title: "Cooper-Akachi buoy deployed at the Maitz battlefield"
       description: |
         A Cooper-Akachi ship deployed a covert surveillance buoy at the
         Maitz battlefield (post-engagement). Per the buoy's own decoded
-        logs (recovered Session 15).
+        logs (recovered Wk 24.3).
       location: "Maitz battlefield"
 
     - week: 22.0
@@ -39,85 +44,75 @@ session:
       description: |
         A Newhall ship arrived at the Maitz battlefield, inspected for
         about twelve hours, then departed. Recorded by the Cooper-Akachi
-        buoy (logs decoded Session 15).
+        buoy (logs decoded Wk 24.3).
       location: "Maitz battlefield"
 
-    # --- Session-day events at day 24.3 ----------------------------------
-
     - week: 24.3
-      title: "Small craft spotted launching from behind the Revenant's Echo"
+      title: "Cooper-Akachi buoy burst-transmitted VoL II's signature to Maitz"
       description: |
-        Before boarding the Echo, the crew spotted a small craft taking off
-        from the far side of the wreck's hull on a heading for planet Maitz.
-        They paused boarding to pursue.
+        Running low on fuel, the buoy emitted a directional radio burst
+        toward planet Maitz transmitting VoL II's transponder code and
+        physical description. An unknown party on Maitz (most likely
+        Cooper-Akachi) now has the VoL II's ship signature.
+      location: "Maitz gas-giant field"
+
+  crew_events:
+    - week: 24.3
+      title: "Spotted and pursued small craft launching from the Echo"
+      description: |
+        Before boarding the Echo, the crew spotted a small craft taking
+        off from the far side of the wreck's hull on a heading for planet
+        Maitz. Paused boarding to pursue.
       location: "Maitz gas-giant field"
 
     - week: 24.3
-      title: "Intercepted craft revealed as a Cooper-Akachi buoy"
+      title: "Intercepted craft; identified as a Cooper-Akachi buoy"
       description: |
         Pursued and intercepted. Smooth outer hull; subtle Cooper-Akachi
         branding; uninhabited.
       location: "Near Maitz gas giant"
 
     - week: 24.3
-      title: "Buoy disassembled; hard drives recovered and decoded"
+      title: "Disassembled buoy; decoded its hard drives"
       description: |
-        Crew took the buoy apart and analyzed its drives. Recovered full
-        operational log.
-
-    - week: 24.3
-      title: "Buoy log decoded - battlefield surveillance timeline"
-      description: |
-        Wk 18: deployed by a Cooper-Akachi ship. Wk 22: a Newhall ship
-        arrived, inspected the field for ~12 hours, and left. The buoy
-        also detected and monitored the party's arrival. Just before
-        running out of fuel, it emitted a directional radio burst toward
-        planet Maitz transmitting VoL II's transponder code and physical
-        description.
-      location: "Maitz gas-giant field"
-
-    - week: 24.3
-      title: "Party ship signature leaked toward planet Maitz"
-      description: |
-        An unknown party on Maitz (most likely Cooper-Akachi) now has
-        VoL II's transponder and physical description as a result of the
-        buoy's final radio burst.
+        Recovered full operational log: Wk 18 deployment by a Cooper-Akachi
+        ship; Wk 22 Newhall inspection visit; the buoy also detected and
+        monitored the party's arrival; final-fuel directional radio burst
+        toward planet Maitz with VoL II's signature.
 
     - week: 24.3
       title: "Boarded the Revenant's Echo and powered the captain's chair"
       description: |
-        The crew plugged power into the captain's chair to access partial
-        records.
+        Plugged power into the captain's chair to access partial records.
+        Recovered fleet-coordination commands that confirmed Newhall was
+        ambushed by Quiru at Maitz while pursuing Bunny.
       location: "Revenant's Echo, bridge"
 
     - week: 24.3
-      title: "Fleet records: Quiru ambushed Newhall at Maitz"
+      title: "Confirmed Savage Intent operability"
       description: |
-        Recovered partial fleet-coordination commands confirmed Newhall
-        came to Maitz pursuing Bunny and was ambushed by their putative
-        allies, Quiru. Reframes the Newhall–Quiru engagement as an
-        ambush, not a co-equal fight.
-      location: "Revenant's Echo, captain's chair"
-
-    - week: 24.3
-      title: "Savage Intent operability check passes"
-      description: |
-        The crew investigated the Savage Intent's drives and systems and
-        determined the ship could be run with a skeleton crew and jumped
-        out of the system.
+        Investigated the Savage Intent's drives and systems; ship can be
+        run with a skeleton crew and jumped out of the system.
       location: "Savage Intent"
 
     - week: 24.3
-      title: "Vacuum-adapted squid attack at the Revenant's Echo power core"
+      title: "Attacked by vacuum-adapted squids at the power core"
       description: |
         En route to the power core for a restart attempt, the crew
         encountered signs of organic life and were attacked by squid-like
-        vacuum-adapted organisms. Two of them latched onto the shuttle as
-        the crew tried to exit.
+        vacuum-adapted organisms. Two latched onto the shuttle as the
+        crew tried to exit. Corinne was wounded.
       location: "Revenant's Echo, power core / shuttle"
 
     - week: 24.3
-      title: "Van Leeuwen kills first squid against a plasma-liquified bulkhead"
+      title: "Samir panicked during the escape"
+      description: |
+        Two squids attached to the shuttle; Samir froze under pressure
+        before being talked into opening the shuttle door.
+      location: "Revenant's Echo, shuttle"
+
+    - week: 24.3
+      title: "Van Leeuwen zero-G save of Corinne; first squid killed"
       description: |
         Acting on Corinne's hunch that the creatures were attracted to
         heat, Capt. van Leeuwen (zero-G adept) saved the injured Corinne
@@ -126,17 +121,22 @@ session:
       location: "Revenant's Echo, shuttle bay"
 
     - week: 24.3
-      title: "Hung's helmet attacked; squid killed by Victor and Hung"
+      title: "Victor abandoned the captain's-quarters safe"
+      description: |
+        Broke off the safe attempt to defend Hung. Safe contents unknown.
+      location: "Revenant's Echo, captain's quarters"
+
+    - week: 24.3
+      title: "Hung's helmet breached; second squid killed by Victor and Hung"
       description: |
         Hung squeezed through broken blast doors and convinced Samir to
         open the shuttle, but was attacked by a squid that wrapped around
-        his helmet and began breaking the glass. Victor abandoned the
-        captain's-quarters safe, shot and injured the creature, and Hung
-        cut it in half with his beam laser pistol.
+        his helmet and began breaking the glass. Victor shot and injured
+        the creature; Hung cut it in half with his beam laser pistol.
       location: "Revenant's Echo, shuttle"
 
     - week: 24.3
-      title: "Crew beat a desperate retreat from the Revenant's Echo"
+      title: "Beat a desperate retreat from the Revenant's Echo"
       description: |
         Withdrew under pressure. Captain's-quarters safe abandoned;
         contents unknown.
@@ -148,27 +148,6 @@ session:
         Intent to Stoyben, with the intent to sell the Savage Intent to
         fund a faster replacement ship. The Jade Front gets right of
         first refusal on the vessel.
-
-  crew_events:
-    - week: 24.3
-      title: "Corinne injured by squids at the Revenant's Echo"
-      description: "Wounded during the power-core exit; saved by van Leeuwen."
-
-    - week: 24.3
-      title: "Van Leeuwen's zero-G save of Corinne and kill on first squid"
-      description: "Adept-level zero-G combat; first kill against a plasma-liquified bulkhead."
-
-    - week: 24.3
-      title: "Victor abandoned the captain's-quarters safe"
-      description: "Broke off the safe attempt to defend Hung; safe contents unknown."
-
-    - week: 24.3
-      title: "Hung's helmet glass breached by a squid"
-      description: "Squid wrapped around the helmet and cracked the glass; survived with squad assistance."
-
-    - week: 24.3
-      title: "Samir panicked during the escape"
-      description: "Two squids attached to the shuttle; Samir froze under pressure before being talked into opening the shuttle door."
 
   npcs_introduced: []
 

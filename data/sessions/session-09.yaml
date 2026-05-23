@@ -32,30 +32,28 @@ session:
     Kitty: 97,010 Cr
 
   narrative_events:
-    - week: 13.0
-      title: "Kikonye, JF Mowebe station chief, makes two offers"
+    - week: 13.6
+      title: "Jassem Solal due to arrive at his Mowebe estate"
       description: |
-        Kikonye - zealous, ruthless, cover identity as a luxury art dealer
-        - offers two operations: a sabotage job (likely forces a quick
-        system exit), or a kidnap-and-extract of a high-value target
-        (followed by accessory to murder soon after). Cash payment or
-        in-system weapons-depot rewards (including Quantum tech).
-      location: "Mowebe spaceport"
-    - week: 13.1
-      title: "Jassem Solal targeted; estate and timetable shared"
-      description: |
-        Target: Jassem Solal, wealthy Thani noble in his mid-sixties,
-        arriving ~Day 13.6 at his private estate with three wives, multiple
-        children, mistresses, and a large household staff. Met JF
-        operatives "Jake" and "Iké", who had already recruited Okomi (an
-        estate guard) as asset and supplied timetables and satellite
-        reconnaissance.
-      location: "Mowebe spaceport"
+        Wealthy Thani noble, mid-sixties, scheduled to arrive at his
+        private estate with three wives, multiple children, mistresses,
+        and a large household staff.
+      location: "Solal estate, Mowebe"
 
   crew_events:
     - week: 12.5
       title: "Arrived Mowebe; customs handled honestly"
       description: "No false papers filed at the port of entry."
+    - week: 13.0
+      title: "Met Kikonye; received two job offers"
+      description: |
+        JF Mowebe station chief Kikonye - zealous, ruthless, cover identity
+        as a luxury art dealer - offered two operations: a sabotage job
+        (likely forces a quick system exit), or a kidnap-and-extract of a
+        high-value target (followed by accessory to murder soon after).
+        Cash payment or in-system weapons-depot rewards (including Quantum
+        tech).
+      location: "Mowebe spaceport"
     - week: 13.0
       title: "Sold cargo at orbital manufactories"
       description: |
@@ -65,6 +63,13 @@ session:
       title: "Landed at the major spaceport"
       description: ""
       location: "Mowebe"
+    - week: 13.1
+      title: "Briefed by Jake and Iké on the Solal target"
+      description: |
+        Met JF operatives "Jake" and "Iké", who had already recruited
+        estate guard Okomi as an asset and supplied timetables and
+        satellite reconnaissance of the Solal compound.
+      location: "Mowebe spaceport"
     - week: 13.2
       title: "Accepted Solal kidnapping; negotiated rewards"
       description: |

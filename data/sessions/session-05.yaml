@@ -35,39 +35,41 @@ session:
     Kitty: 21,100 cr
 
   narrative_events:
-    - week: 5.0
-      title: "Isaiah Reed (JF Stoyben chief) sets terms"
-      description: |
-        Reed has no knowledge of the party's specific mission but agrees
-        to trade weapons for refined fuel. Notes JF needs weapons on
-        Ugrik if the party is heading that way.
-      location: "Stoyben Spaceport"
     - week: 5.2
-      title: "Choo missing three months; Rivis worried"
+      title: "Choo missing three months"
       description: |
-        Doné Rivis (Investigative Editor at Stoyben Interstellar News
-        Dispatch) has no knowledge of the mask or Choophong Thanatkha's
-        specific story, but is alarmed that Choo hasn't surfaced in three
-        months.
+        Choophong Thanatkha (Stoyben investigative journalist on the mask
+        story) has not surfaced in three months. Doné Rivis, his editor,
+        is alarmed - the silence is severely out of character.
       location: "Stoyben Interstellar News Dispatch"
-    - week: 5.2
-      title: "Cuevas: many contacts, no help"
-      description: |
-        JF informant Antonio Jose Cuevas (Dispatch Marketing Account
-        Manager) - entitled, fruitless - produced nothing useful.
-    - week: 5.2
-      title: "Kelly Fitzpatrick (deceased) ruled out"
-      description: |
-        Recently deceased press shift supervisor - soft-ruled out as
-        connected to the mask story.
 
   crew_events:
+    - week: 5.0
+      title: "Met Isaiah Reed; set terms for weapons-for-fuel trade"
+      description: |
+        JF Stoyben station chief Reed has no knowledge of the party's
+        specific mission but agreed to trade weapons for refined fuel.
+        Noted JF needs weapons on Ugrik if the party heads that way.
+      location: "Stoyben Spaceport"
     - week: 5.0
       title: "Legally declared cargo; jumped the shipyard queue"
       description: |
         Used Baron Harrow's influence to win an immediate shipyard slot for
         the fuel-tank retrofit (due Week 7).
       location: "Stoyben Interstellar Spaceport"
+    - week: 5.2
+      title: "Shook down Cuevas - no useful intel"
+      description: |
+        JF informant Antonio Jose Cuevas (Dispatch Marketing Account
+        Manager) has many contacts but is entitled and fruitless. Produced
+        nothing useful on the mask story.
+      location: "Stoyben Interstellar News Dispatch"
+    - week: 5.2
+      title: "Ruled out Kelly Fitzpatrick as a lead"
+      description: |
+        Recently deceased press shift supervisor - soft-ruled out as
+        connected to the mask story.
+      location: "Stoyben Interstellar News Dispatch"
     - week: 5.2
       title: "Hypnotized Rivis to check for blackmail material"
       description: |

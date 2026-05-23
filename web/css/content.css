@@ -1,0 +1,121 @@
+/* =========================================================================
+   Traveller Stephanus — content typography, code, tables, markdown
+   Used by index.html. Chrome-level layout lives in site.css.
+   ========================================================================= */
+
+h2 {
+  color: var(--accent);
+  font-size: 1.15rem;
+  margin: 22px 0 10px;
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  color: var(--accent-3);
+  font-size: 0.98rem;
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+p { margin-bottom: 8px; }
+
+ul, ol { padding-left: 22px; margin-bottom: 8px; }
+li { margin-bottom: 3px; }
+
+pre, code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85em;
+}
+pre {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+code {
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+pre code { background: none; padding: 0; }
+
+/* === Tables === */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 8px 0 14px;
+  font-size: 0.88rem;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+th, td {
+  text-align: left;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+th {
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+tbody tr:nth-child(even) td { background: var(--row-stripe); }
+tbody tr:hover td { background: var(--accent-2-tint-soft); }
+
+/* Wrapper added by setView so wide tables scroll horizontally on small screens
+   instead of forcing the whole page to scroll. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 8px 0 14px;
+  border-radius: 4px;
+}
+.table-scroll > table { margin: 0; }
+
+/* Prices tables — sized to content so columns stay tight */
+table.prices-table {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+}
+table.prices-table th,
+table.prices-table td {
+  padding: 5px 14px;
+  white-space: nowrap;
+}
+table.prices-table td:last-child,
+table.prices-table th:last-child { padding-right: 16px; }
+
+/* === Markdown content === */
+
+.md h1 { color: var(--accent); font-size: 1.4rem; margin: 18px 0 10px; }
+.md h2 { color: var(--accent); font-size: 1.1rem; margin: 16px 0 8px; }
+.md h3 { color: var(--accent-3); font-size: 0.98rem; margin: 12px 0 6px; }
+.md table { font-size: 0.85rem; }
+.md hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+.md blockquote {
+  border-left: 3px solid var(--accent-2);
+  padding: 4px 12px;
+  color: var(--text-dim);
+  margin: 8px 0;
+}
+
+/* === Responsive typography === */
+
+@media (max-width: 800px) {
+  h2 { font-size: 1.05rem; }
+  h3 { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  pre { padding: 10px; font-size: 0.78rem; }
+}

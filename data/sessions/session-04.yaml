@@ -41,14 +41,6 @@ session:
         listening on Thane for two months for updates from Mora. Rendezvous
         set for Campaign Week 20 (seventeen weeks out).
     - week: 3.5
-      title: "Sint Motor Systems (JF cover) offers cargo and arms"
-      description: |
-        Oa Danel, an Ithian with a polished demeanor, introduces herself at
-        L3 as a representative of Sint Motor Systems Tfd. - a JF cover R&D
-        company. Offers pharmaceutical cover cargo and illicit arms to
-        smuggle.
-      location: "Ith L3 station"
-    - week: 3.5
       title: "Dylan Connell surveilling JF operations"
       description: |
         Ithian intelligence agent Dylan Connell - a true-believer - and
@@ -57,6 +49,13 @@ session:
       location: "Ith L3 station"
 
   crew_events:
+    - week: 3.5
+      title: "Oa Danel (Sint Motor Systems) offers cargo and arms"
+      description: |
+        Met Oa Danel at L3 - an Ithian with a polished demeanor representing
+        Sint Motor Systems Tfd., a JF cover R&D company. She offered
+        pharmaceutical cover cargo and illicit arms to smuggle.
+      location: "Ith L3 station"
     - week: 4.0
       title: "Assassinated Dylan Connell"
       description: |

@@ -23,128 +23,128 @@ session:
     Fuel: 2/2
 
   narrative_events:
-    - week: 24.2
-      title: "Savage Intent boarded - Quiru 400t, orderly evacuation"
+    - week: 12.0
+      title: "Quiru extracted 'Bunny' from the Newhall scout Deepest Light"
       description: |
-        Mostly intact; uninhabited; nothing in disarray. The crew's signs
-        indicated an orderly departure by a crew that was almost entirely
-        marines.
-      location: "Savage Intent, Maitz gas-giant field"
-
-    - week: 24.2
-      title: "Bridge-door grenade booby trap injures Corinne"
-      description: |
-        Bridge door was unusually difficult to open. When forced, a grenade
-        detonated. Corinne - first through the door - took the blast.
-      location: "Savage Intent, bridge approach"
-
-    - week: 24.2
-      title: "Computer room: ship's computer destroyed by explosive"
-      description: |
-        The ship's computer had been crudely but effectively destroyed,
-        consistent with an anti-personnel-grade explosive set off in the
-        server cabinets. The destruction was confined to the computer; the
-        rest of the room and the broader ship were otherwise undamaged.
-      location: "Savage Intent, computer room"
-
-    - week: 24.2
-      title: "Black box recovered and decoded"
-      description: |
-        Victor extracted the Savage Intent's black box and recreated the
-        ship's movements: it laid in wait behind a moon, then took an
-        intercept and station-matching course alongside a now-absent object
-        that was on a gas-skim trajectory through the system.
-      location: "Savage Intent, bridge"
-
-    - week: 24.2
-      title: "Cooper-Akachi bomb on jump drive - Samir disarms alone"
-      description: |
-        The jump drive had been expertly wired with a bomb built from
-        high-end Cooper-Akachi parts; designed to trigger on tamper or on
-        jump-drive start. Samir stayed aboard alone to disarm it while the
-        rest of the crew returned to VoL II. Disarmed successfully.
-      location: "Savage Intent, jump drive"
-
-    - week: 24.2
-      title: "Cargo crate inventory"
-      description: |
-        Before leaving the Savage Intent, the crew opened the cargo crates:
-        one empty, two empty with racks, balance loaded with rations.
-      location: "Savage Intent, cargo bay"
-
-    - week: 24.2
-      title: "Savage Intent assessed as a skeleton-crew prize"
-      description: |
-        With the bomb disarmed and the computer the only critical loss, the
-        crew judged the Savage Intent jump-capable with a skeleton crew -
-        a possible future capture.
-      location: "Savage Intent"
-
-    - week: 24.2
-      title: "Revenant's Echo boarded through blown-open bow"
-      description: |
-        Largest casualty in the battle; forward tip blown off; forward
-        missile bay appears to have cooked off internally; bridge severed.
-        Extensive damage and casualties inside.
-      location: "Revenant's Echo, Maitz gas-giant field"
-
-    - week: 24.2
-      title: "Captain's combat logs partially spliced"
-      description: |
-        Thousands of combat messages recovered. Full Newhall-side battle
-        roster obtained (names of all other ships in the engagement). The
-        Deepest Light is never named in the logs. Multiple references to
-        "Bunny." Late-battle traffic: Bunny flagged at risk of Quiru
-        capture → orders shifted from capture to destroy → both failed →
-        retreat ordered after Bunny was extracted.
-      location: "Revenant's Echo, bridge"
-
-    - week: 24.2
-      title: "Hindsight #1 - captain's chair, moment of retreat"
-      description: |
-        Victor's first hindsight viewing on the Revenant's Echo bridge:
-        the captain ordered fleet retreat after Bunny was "taken" and
-        "lost." The order explicitly referenced the boarding party having
-        extracted Bunny from the ship - Bunny is a person, not a ship.
-      location: "Revenant's Echo, captain's chair"
-
-    - week: 24.2
-      title: "Hindsight #2 - sensor officer's chair"
-      description: |
-        Second hindsight on the navigation/sensor officer's station: visual
-        sensor record showed Quiru marines extracting a human-appearing
-        figure from a small 100-ton scout ship (the Deepest Light), with
-        the Savage Intent in the background.
-      location: "Revenant's Echo, sensor station"
-
-    - week: 24.2
-      title: "Deepest Light confirmed absent from Maitz"
-      description: |
-        The party concluded the Deepest Light was never at the gas-giant
-        debris field when they arrived. Its only "appearance" to the crew
-        was through Victor's hindsight. Presumed extracted from the
-        battlefield by Quiru along with Bunny. The S13 entry treating one
-        of the surveyed wrecks as the Deepest Light was incorrect.
+        During the Wk 12 Maitz engagement, Quiru marines extracted a
+        human-appearing figure - codenamed "Bunny" - from the Newhall
+        100 dT scout Deepest Light, with the Quiru 400 t Savage Intent
+        in the background. Newhall orders shifted from capture Bunny →
+        destroy Bunny; both failed. The Newhall fleet captain ordered
+        retreat after Bunny was "taken" and "lost." Bunny is a person,
+        not a ship.
       location: "Maitz, gas-giant field"
+
+    - week: 12.0
+      title: "Savage Intent's ambush maneuver and sabotaged evacuation"
+      description: |
+        Savage Intent (Quiru, 400 t) lay in wait behind a moon, then took
+        an intercept and station-matching course alongside the Deepest
+        Light on a gas-skim trajectory. After the extraction, the Quiru
+        marine crew evacuated in good order, destroying the ship's
+        computer with an anti-personnel-grade explosive and expertly
+        wiring the jump drive with a bomb built from high-end
+        Cooper-Akachi parts. Vessel otherwise left mostly intact.
+      location: "Savage Intent, Maitz"
+
+    - week: 12.0
+      title: "Revenant's Echo crippled in the engagement"
+      description: |
+        Largest Newhall casualty in the battle: forward tip blown off;
+        forward missile bay cooked off internally; bridge severed.
+        Extensive casualties inside.
+      location: "Revenant's Echo, Maitz"
 
   crew_events:
     - week: 24.2
-      title: "Corinne injured by Savage Intent bridge booby trap"
-      description: "Grenade at the bridge door. Lead PC into the room; non-life-threatening hit."
+      title: "Boarded the Savage Intent"
+      description: |
+        400-ton Quiru vessel, mostly intact, uninhabited. Signs indicated
+        an orderly departure by a crew that was almost entirely marines.
+      location: "Savage Intent, Maitz gas-giant field"
 
     - week: 24.2
-      title: "Samir solo disarm of Cooper-Akachi jump-drive bomb"
-      description: "Remained aboard the Savage Intent alone; disarmed successfully."
+      title: "Corinne injured by bridge-door grenade booby trap"
+      description: |
+        Bridge door was unusually difficult to open. When forced, a
+        grenade detonated. Corinne - first through the door - took the
+        blast.
+      location: "Savage Intent, bridge approach"
 
     - week: 24.2
-      title: "Victor decoded Savage Intent black box"
-      description: "Recreated the ship's full intercept-and-station-matching maneuver."
+      title: "Found ship's computer destroyed by explosive"
+      description: |
+        Anti-personnel-grade explosive set off in the server cabinets.
+        Destruction confined to the computer; rest of the room and the
+        broader ship otherwise undamaged.
+      location: "Savage Intent, computer room"
+
+    - week: 24.2
+      title: "Victor recovered and decoded the Savage Intent black box"
+      description: |
+        Reconstructed the ship's movements: lay in wait behind a moon,
+        then intercepted and matched course onto a now-absent gas-skim
+        target.
+      location: "Savage Intent, bridge"
+
+    - week: 24.2
+      title: "Samir solo-disarmed Cooper-Akachi jump-drive bomb"
+      description: |
+        Designed to trigger on tamper or on jump-drive start. Samir
+        stayed aboard alone to disarm it while the rest of the crew
+        returned to VoL II. Disarmed successfully.
+      location: "Savage Intent, jump drive"
+
+    - week: 24.2
+      title: "Inventoried Savage Intent cargo crates"
+      description: |
+        One empty, two empty with racks, balance loaded with rations.
+      location: "Savage Intent, cargo bay"
+
+    - week: 24.2
+      title: "Assessed Savage Intent as a skeleton-crew prize"
+      description: |
+        With the bomb disarmed and the computer the only critical loss,
+        the crew judged the Savage Intent jump-capable with a skeleton
+        crew - a possible future capture.
+      location: "Savage Intent"
+
+    - week: 24.2
+      title: "Boarded the Revenant's Echo through the blown-open bow"
+      description: |
+        Entered the wreck through the destroyed forward end; extensive
+        damage and casualties inside.
+      location: "Revenant's Echo, Maitz gas-giant field"
+
+    - week: 24.2
+      title: "Partially spliced the captain's combat logs"
+      description: |
+        Recovered thousands of combat messages. Obtained the full
+        Newhall-side battle roster. Deepest Light is never named in the
+        logs; multiple references to "Bunny" and the capture → destroy →
+        retreat sequence around Bunny's extraction.
+      location: "Revenant's Echo, bridge"
 
     - week: 24.2
       title: "Victor used hindsight twice aboard Revenant's Echo"
       description: |
-        Captain's chair (retreat moment) and sensor officer's station
-        (extraction visual).
+        Captain's chair: viewed the captain ordering fleet retreat after
+        Bunny was "taken" and "lost" - the order explicitly referenced
+        the boarding party having extracted Bunny from the ship.
+        Sensor officer's station: visual sensor record showed Quiru
+        marines extracting a human-appearing figure from a small 100-ton
+        scout (the Deepest Light), with the Savage Intent in the
+        background.
+      location: "Revenant's Echo"
+
+    - week: 24.2
+      title: "Concluded the Deepest Light was never at Maitz on arrival"
+      description: |
+        Its only "appearance" to the crew was through Victor's hindsight.
+        Presumed extracted from the battlefield by Quiru along with
+        Bunny. The S13 entry treating one of the surveyed wrecks as the
+        Deepest Light was incorrect.
+      location: "Maitz, gas-giant field"
 
   npcs_introduced:
     - name: "Bunny"

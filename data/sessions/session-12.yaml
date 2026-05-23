@@ -36,47 +36,54 @@ session:
     Ship Fuel: 2/2
 
   narrative_events:
-    - week: 14.6
-      title: "Mowebe Home Defense Forces engage"
+    - week: 10.0
+      title: "Cooper-Akachi commandos pass through Thane"
       description: |
-        Two fighter-interceptors from the Mowebe Home Defense Forces
-        closed on the fleeing VoL II as a second (uninvolved) shuttle
-        stood down.
-      location: "Mowebe orbit"
-    - week: 17.0
-      title: "Misjump diverts VoL II to the Oort cloud"
+        Per intel collected by JF operative Faisal al-Amin on his
+        Ith → Mowebe → Thane → Mowebe circuit (debriefed Wk 19).
+      location: "Thane"
+    - week: 12.0
+      title: "Quiru-Newhall border skirmish flares at Maitz"
       description: |
-        Snake eyes on the jump - VoL II was diverted into the Oort cloud
-        with powerplant damage. The ship limped to the rendezvous.
-    - week: 19.0
-      title: "Faisal al-Amin debriefs the party"
-      description: |
-        JF intelligence operative Faisal al-Amin, returning from the
-        Ith → Mowebe → Thane → Mowebe circuit, met the party at the JF
-        lunar depot. Key intel: Coop-Ak commandos passed through Thane
-        in Week 10, and a Quiru-Newhall border skirmish flared at Maitz
-        in Week 12.
-      location: "JF lunar depot, Mowebe"
+        A border skirmish between Quiru and Newhall forces occurred at
+        Maitz in Week 12. Per intel collected by Faisal al-Amin on his
+        Thane circuit (debriefed Wk 19).
+      location: "Maitz"
 
   crew_events:
     - week: 14.6
-      title: "Trap fired all 4 missiles + pulse laser"
+      title: "Mowebe Home Defense interceptors engage; trap with all 4 missiles + pulse laser"
       description: |
-        Area-denial airburst pattern caught both interceptors - one had
-        a wing sheared off, the other lawn-darted into the ocean
-        (interceptors rolled 4 and 5 against 6+ to evade - first time the
-        crew's poor rolling paid off).
+        Two MHDF fighter-interceptors closed on the fleeing VoL II as a
+        second (uninvolved) shuttle stood down. Area-denial airburst
+        pattern caught both interceptors - one had a wing sheared off,
+        the other lawn-darted into the ocean (interceptors rolled 4 and
+        5 against 6+ to evade - first time the crew's poor rolling paid
+        off).
       location: "Mowebe orbit"
     - week: 15.0
       title: "Made orbit; jumped to JF lunar depot"
       description: |
         The new ship's doctor - a skilled mariner - laid in the jump for
         the distant rendezvous.
+    - week: 17.0
+      title: "Misjump diverts VoL II to the Oort cloud"
+      description: |
+        Snake eyes on the jump - VoL II was diverted into the Oort cloud
+        with powerplant damage. The ship limped to the rendezvous.
     - week: 17.5
       title: "Powerplant repaired in transit"
       description: |
         Van Leeuwen and Corinne Page repaired the misjump damage handily
         and without much expense.
+    - week: 19.0
+      title: "Debriefed by Faisal al-Amin"
+      description: |
+        Met JF intelligence operative Faisal al-Amin at the lunar depot.
+        He returned from the Ith → Mowebe → Thane → Mowebe circuit with
+        key intel: Coop-Ak commandos through Thane in Wk 10; Quiru-Newhall
+        border skirmish at Maitz in Wk 12.
+      location: "JF lunar depot, Mowebe"
     - week: 19.0
       title: "Kikonye's reward delivered"
       description: |

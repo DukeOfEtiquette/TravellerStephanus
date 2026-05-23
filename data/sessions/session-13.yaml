@@ -32,48 +32,40 @@ session:
     Ship Fuel: 2/2
 
   narrative_events:
-    - week: 23.0
-      title: "Six wrecks identified around the Maitz gas giant"
-      description: |
-        Six wrecks surveyed (two are little more than debris fields):
-        Revenant's Echo (largest), Star of Carella (Newhall), Adamant,
-        Savage Intent, Deepest Light (Newhall, 100 dT scout), plus an
-        unidentified debris field.
-      location: "Maitz, gas giant debris field"
-    - week: 24.0
-      title: "Captain's bookshelf: a single book missing"
-      description: |
-        Sole anomaly in the captain's stateroom on the Star of Carella -
-        out-of-the-ordinary in an otherwise undisturbed space.
-      location: "Star of Carella, Maitz"
-    - week: 24.1
-      title: "Star of Carella's Priority 1 orders decrypted"
+    - week: 12.0
+      title: "Star of Carella issued Priority 1 orders for Deepest Light"
       description: |
         Unsigned orders from Tivid to Maitz: capture - or if not feasible,
         destroy - the Newhall scout Deepest Light. Marked Priority 1.
-    - week: 24.1
-      title: "Eight hours of encrypted comm traffic on storage crystals"
+        (Recovered from Star of Carella storage crystals decrypted Wk 24.1.)
+    - week: 12.0
+      title: "Eight hours of encrypted comm traffic generated at Maitz"
       description: |
-        Thousands of short, high-grade encrypted files spanning the
-        window from Star of Carella's arrival at Maitz until 8 hours
-        later - believed to be battle logs and/or command comms. None yet
-        decoded.
+        Thousands of short, high-grade encrypted files spanning the window
+        from Star of Carella's arrival at Maitz until 8 hours later -
+        believed to be battle logs and/or command comms. (Storage crystals
+        recovered Wk 24.1; comms not yet decoded.)
+      location: "Star of Carella, Maitz"
 
   crew_events:
     - week: 19.5
       title: "Resupplied and jumped to Maitz"
       description: "Resupplied at Mowebe JF lunar depot; rearranged stocks; jumped."
     - week: 23.0
-      title: "Surveyed the gas-giant debris field"
+      title: "Surveyed the gas-giant debris field; identified six wrecks"
       description: |
-        Settled on the Revenant's Echo (largest) as the primary target -
-        but staged a diversion first.
+        Six wrecks surveyed (two are little more than debris fields):
+        Revenant's Echo (largest), Star of Carella (Newhall), Adamant,
+        Savage Intent, Deepest Light (Newhall, 100 dT scout), plus an
+        unidentified debris field. Settled on the Revenant's Echo as
+        primary target - but staged a diversion first.
       location: "Maitz, gas giant"
     - week: 24.0
       title: "Looted the Star of Carella"
       description: |
         Took physical storage media from the bridge and computer room,
-        carefully searched the captain's stateroom, siphoned fuel to refill
+        carefully searched the captain's stateroom (the sole anomaly was
+        a single book missing from the bookshelf), siphoned fuel to refill
         VoL II (2/2), and seized two 10 dTon shuttlecraft and 16 tons of
         Rx.
       location: "Star of Carella, Maitz"
@@ -82,11 +74,16 @@ session:
       description: |
         Set up a draw to pull attention to Star of Carella before exploring
         the Revenant's Echo.
-    - week: 24.2
-      title: "Decrypted Star of Carella storage crystals"
+    - week: 24.1
+      title: "Decrypted Star of Carella Priority 1 orders"
       description: |
-        Cracked the bridge/comp-room storage media - orders + battle
-        traffic. The 8-hour encrypted comm trove still remains undecoded.
+        Cracked the bridge/comp-room storage media. Revealed unsigned orders
+        from Tivid: capture or destroy the Newhall scout Deepest Light.
+    - week: 24.1
+      title: "Recovered 8h of Maitz comm traffic on storage crystals"
+      description: |
+        Thousands of short, high-grade encrypted files spanning Star of
+        Carella's arrival at Maitz through 8 hours later. None yet decoded.
 
   npcs_introduced: []
 

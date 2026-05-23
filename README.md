@@ -31,13 +31,13 @@ remains at [`web/travel.html`](web/travel.html).
 The campaign takes place in the Mora cluster, featuring:
 
 - **Interstellar travel** via jump drives (1 week in jump space regardless of distance)
-- **No FTL communication** — information travels at the speed of ships
-- **Diverse worlds** — from primitive societies to quantum-tech civilizations
+- **No FTL communication** - information travels at the speed of ships
+- **Diverse worlds** - from primitive societies to quantum-tech civilizations
 
 ### Political Factions
 
-- **Quiru-Newhall alliance** — The dominant imperialist power bloc
-- **Jade Front** — Resistance movement opposing the alliance
+- **Quiru-Newhall alliance** - The dominant imperialist power bloc
+- **Jade Front** - Resistance movement opposing the alliance
 
 Key locations include Mora (fallen cultural hegemon), Newhall (imperialist power), Ith (advanced starfarers), and Mowebe (diaspora traders).
 
@@ -45,9 +45,9 @@ Key locations include Mora (fallen cultural hegemon), Newhall (imperialist power
 
 Traveller Stephanus is a custom variant of Classic Traveller, an old-school sci-fi RPG focused on competent veteran characters adventuring across an interstellar setting. This project provides:
 
-- **Structured Game Data** — Rules, careers, and world information in machine-readable formats
-- **Character Records** — Character sheets and creation analysis
-- **Campaign Knowledge Base** — Quick reference for rules, worlds, and setting information
+- **Structured Game Data** - Rules, careers, and world information in machine-readable formats
+- **Character Records** - Character sheets and creation analysis
+- **Campaign Knowledge Base** - Quick reference for rules, worlds, and setting information
 
 ## Characters
 

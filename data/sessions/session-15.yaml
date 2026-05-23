@@ -66,7 +66,7 @@ session:
         operational log.
 
     - week: 24.3
-      title: "Buoy log decoded — battlefield surveillance timeline"
+      title: "Buoy log decoded - battlefield surveillance timeline"
       description: |
         Wk 18: deployed by a Cooper-Akachi ship. Wk 22: a Newhall ship
         arrived, inspected the field for ~12 hours, and left. The buoy
@@ -174,7 +174,7 @@ session:
 
   key_events:
     - "Spotted and pursued a small craft launching from behind the Revenant's Echo toward planet Maitz"
-    - "Intercepted craft was a Cooper-Akachi-branded surveillance buoy — uninhabited, smooth outer hull"
+    - "Intercepted craft was a Cooper-Akachi-branded surveillance buoy - uninhabited, smooth outer hull"
     - "Buoy hard drives decoded: deployed Wk 18 by a Cooper-Akachi ship; Wk 22 a Newhall ship inspected the field for ~12h; party's arrival monitored"
     - "Buoy's final act before fuel exhaustion: directional radio burst toward planet Maitz transmitting VoL II's transponder code and physical description (party ship signature now compromised)"
     - "Boarded the Revenant's Echo; partial fleet-coordination records confirmed Newhall was AMBUSHED by Quiru while pursuing Bunny"

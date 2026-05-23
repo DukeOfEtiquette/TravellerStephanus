@@ -39,7 +39,7 @@ session:
         The 300 dT tramp freighter Iron Commerce 18 falsified its cargo
         (pharmaceuticals and manufacturing drones) and its destination,
         buying paid-off clearance from Licensed Customs Inspector Angus
-        Graham — took on 20 tons of fuel and did no trade. Psychic viewing
+        Graham - took on 20 tons of fuel and did no trade. Psychic viewing
         and legwork confirmed at least two of the crew were al-Thani.
         Bribed Graham later revealed their true destination was "home."
       location: "I'ith, Ith"
@@ -47,7 +47,7 @@ session:
   crew_events:
     - week: 2.0
       title: "Met JF contacts Petra and Samir"
-      description: "Rendezvous in I'ith — first contact with the cell that would feed leads going forward."
+      description: "Rendezvous in I'ith - first contact with the cell that would feed leads going forward."
       location: "I'ith, Ith"
     - week: 2.2
       title: "Bribed Customs Inspector Angus Graham"

@@ -5,9 +5,9 @@ session:
     The company engaged two fighter-interceptors from the Mowebe Home Defense Forces. While the
     second (uninvolved) shuttle stood down, the Voice of Liberation II sprang a trap: as the
     interceptors passed, she fired all four missiles in an area denial airburst pattern and
-    opened up with her pulse laser. The interceptors tried to evade — one's wing was sheered off,
+    opened up with her pulse laser. The interceptors tried to evade - one's wing was sheered off,
     and the other was affected by the blast wave and lawn-darted into the ocean. (The players
-    rolled for the interceptors on 6+ to evade — they rolled 4 and 5. First time their poor
+    rolled for the interceptors on 6+ to evade - they rolled 4 and 5. First time their poor
     rolling paid off!)
 
     The VoL2 made orbit and the new ship's doctor, a skilled mariner, laid in a jump for the
@@ -25,7 +25,7 @@ session:
 
     Finally, the company made contact with the agent they'd previously dispatched to Thane to
     gather information: Faisal al-Amin. (Debriefing tracked on the Investigation page under
-    Key Intel — "Coop-Ak commandos through Thane (Wk 10)" and "Quiru-Newhall border skirmish
+    Key Intel - "Coop-Ak commandos through Thane (Wk 10)" and "Quiru-Newhall border skirmish
     at Maitz (Wk 12)".)
 
     After much debate, they decided to take on supplies and jump to Maitz to investigate rumors
@@ -46,7 +46,7 @@ session:
     - week: 17.0
       title: "Misjump diverts VoL II to the Oort cloud"
       description: |
-        Snake eyes on the jump — VoL II was diverted into the Oort cloud
+        Snake eyes on the jump - VoL II was diverted into the Oort cloud
         with powerplant damage. The ship limped to the rendezvous.
     - week: 19.0
       title: "Faisal al-Amin debriefs the party"
@@ -62,15 +62,15 @@ session:
     - week: 14.6
       title: "Trap fired all 4 missiles + pulse laser"
       description: |
-        Area-denial airburst pattern caught both interceptors — one had
+        Area-denial airburst pattern caught both interceptors - one had
         a wing sheared off, the other lawn-darted into the ocean
-        (interceptors rolled 4 and 5 against 6+ to evade — first time the
+        (interceptors rolled 4 and 5 against 6+ to evade - first time the
         crew's poor rolling paid off).
       location: "Mowebe orbit"
     - week: 15.0
       title: "Made orbit; jumped to JF lunar depot"
       description: |
-        The new ship's doctor — a skilled mariner — laid in the jump for
+        The new ship's doctor - a skilled mariner - laid in the jump for
         the distant rendezvous.
     - week: 17.5
       title: "Powerplant repaired in transit"
@@ -111,7 +111,7 @@ session:
     - "Van Leeuwen and Corinne Page repaired damaged powerplant"
     - "Restocked capital missiles and refined fuel; Ship Fuel: 2/2"
     - "Pocketed Solal's jewelry and personal effects: 105,000 Cr"
-    - "Made contact with Faisal al-Amin — JF operative returning from Thane intelligence circuit"
+    - "Made contact with Faisal al-Amin - JF operative returning from Thane intelligence circuit"
     - "Decided to jump to Maitz to investigate rumors of recent space battle"
 
   ship_events:

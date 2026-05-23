@@ -4,22 +4,22 @@ session:
   recap: |
     Capt. Leeuwen returned alone to Doné Rivis at the Stoyben Interstellar News Dispatch,
     apologized for their earlier approach, and shared more information about courier routes
-    and the investigation—excluding the Jade Front connection. This won Rivis's tentative trust.
+    and the investigation-excluding the Jade Front connection. This won Rivis's tentative trust.
 
     Rivis shared key intelligence:
-    - Choo is always punctual — the prolonged silence is very out of character
+    - Choo is always punctual - the prolonged silence is very out of character
     - Choo has an assistant who delivers his stories: Pardeep Sarsar
     - The common document-intake process at the News Dispatch
 
     Rivis called Sarsar's family, who reported no new information or knowledge of
-    his location. The company also canvassed the spaceport — nobody has seen Sarsar.
+    his location. The company also canvassed the spaceport - nobody has seen Sarsar.
 
     The company traded their weapons cargo to Isaiah Reed (JF station chief) for
     refined fuel and
     solicited Rivis for jobs. Rivis offered two:
-      1. 40k/80k Cr — deliver encrypted message to Kara Wiley, an undercover reporter
+      1. 40k/80k Cr - deliver encrypted message to Kara Wiley, an undercover reporter
          embedded in a political family on Thane
-      2. 10k/25k Cr — check on Choo's wellbeing on Mora
+      2. 10k/25k Cr - check on Choo's wellbeing on Mora
 
     The company took on two middle passengers bound for Mowebe. William Hung
     brokered a deal to transport electronics components to Mowebe. Trade goods
@@ -31,20 +31,20 @@ session:
 
   narrative_events:
     - week: 6.0
-      title: "Choo's assistant Pardeep Sarsar identified — also missing"
+      title: "Choo's assistant Pardeep Sarsar identified - also missing"
       description: |
         Rivis grants Capt. Leeuwen tentative trust and reveals key context:
         Choo is always punctual, so the long silence is severely out of
         character. Choo's assistant Pardeep Sarsar handles courier filings
-        — and is also missing. Sarsar's family has no recent contact;
+        - and is also missing. Sarsar's family has no recent contact;
         nobody at the spaceport has seen him.
       location: "Stoyben Interstellar News Dispatch"
     - week: 6.2
       title: "Rivis offers two jobs"
       description: |
         1) Deliver an encrypted message to Kara Wiley (undercover Dispatch
-        reporter embedded in a political family on Thane) — 40k/80k Cr.
-        2) Check on Choo's wellbeing on Mora — 10k/25k Cr.
+        reporter embedded in a political family on Thane) - 40k/80k Cr.
+        2) Check on Choo's wellbeing on Mora - 10k/25k Cr.
 
   crew_events:
     - week: 6.0
@@ -77,8 +77,8 @@ session:
 
   key_events:
     - "Leeuwen returned to Rivis alone, apologized, earned tentative trust"
-    - "Choo is always punctual — prolonged silence is out of character"
-    - "Learned about Pardeep Sarsar (Choo's assistant/courier for filing stories) — also missing"
+    - "Choo is always punctual - prolonged silence is out of character"
+    - "Learned about Pardeep Sarsar (Choo's assistant/courier for filing stories) - also missing"
     - "Learned about News Dispatch document-intake process"
     - "Sarsar's family has no sign or recent communication; nobody at spaceport has seen him"
     - "Traded weapons cargo to Isaiah Reed for refined fuel"

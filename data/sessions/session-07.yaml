@@ -14,11 +14,11 @@ session:
       her connections to protect Vondel
     - Vondel initially agreed, but got cold feet during exfiltration
     - Notably: Vondel had been scared and anxious for months of grooming, but when she
-      backed out she appeared confident and determined — a suspicious behavioral shift
+      backed out she appeared confident and determined - a suspicious behavioral shift
     - Vondel doesn't know about "Alicia's" JF connection
     - "Alicia" is now burned as Vondel's handler
 
-    The party split up to avoid drawing attention — some took shuttlecrafts, others took
+    The party split up to avoid drawing attention - some took shuttlecrafts, others took
     commercial transport to the cylinder.
 
     The company took a multi-pronged approach:
@@ -46,7 +46,7 @@ session:
         Thousands of O'Neill cylinders orbit Stoyben; each is run by a Civic
         Administrator. JF agent "Alicia" befriended Administrator Torin's
         wife Vondel and convinced her to leave her abusive, distant husband
-        — in exchange for downloading his work hard drive and using
+        - in exchange for downloading his work hard drive and using
         "Alicia's" connections to protect her. Vondel agreed, then got cold
         feet during exfiltration. Suspiciously, her behavior shifted from
         anxious to confident the moment she backed out. Vondel doesn't know
@@ -56,14 +56,14 @@ session:
       title: "Torin's affairs: Kenna openly, Arvi secretly"
       description: |
         Investigation reveals Torin is openly sleeping with Kenna, and
-        secretly sleeping with Arvi — Vondel's sister. Tetzel (editor of
+        secretly sleeping with Arvi - Vondel's sister. Tetzel (editor of
         the station's Page 6 gossip rag) wants photos of Torin with a
         mistress.
       location: "O'Neill cylinder"
     - week: 7.0
       title: "Tevetz newly familiar with Vondel"
       description: |
-        Tevetz — a hot young scion of a wealthy business family — has
+        Tevetz - a hot young scion of a wealthy business family - has
         recently seemed familiar with Vondel. His motives are unclear.
 
   crew_events:
@@ -82,7 +82,7 @@ session:
       title: "Met Tetzel; canvassed bars; planted bugs"
       description: |
         Met gossip editor Tetzel (arranged via Doné Rivis). Hung and
-        Bootman canvassed bars for a week — found Tevetz's driver's cousin.
+        Bootman canvassed bars for a week - found Tevetz's driver's cousin.
         Finnegan planted recording devices in Arvi's hotel room and
         captured Torin/Arvi blackmail. Harrow gained Torin's trust at a
         fundraiser and was invited to the brewing operation at his
@@ -131,13 +131,13 @@ session:
   key_events:
     - "Loaded vehicles into shuttlecrafts (Hung's unarmored car + Saviolo's armored car into Hung's)"
     - "Took on 19 tons of electronics cargo"
-    - "Accepted official JF job from Isaiah Reed — cylinder colony operation"
+    - "Accepted official JF job from Isaiah Reed - cylinder colony operation"
     - "Traveled to O'Neill cylinder (split party to avoid attention)"
-    - "Met Tetzel (gossip reporter, Rivis contact) — wants photos of Torin with mistress"
+    - "Met Tetzel (gossip reporter, Rivis contact) - wants photos of Torin with mistress"
     - "Attended fundraiser: discovered Tevetz familiar with Vondel, Torin's affairs with Kenna (open) and Arvi (secret)"
     - "Harrow gained Torin's trust, invited to brewing operation at residence"
-    - "Hung and Bootman canvassed bars for a week — found Tevetz driver's cousin"
-    - "Finnegan planted recording devices in Avri's hotel room — captured Torin/Avri blackmail"
+    - "Hung and Bootman canvassed bars for a week - found Tevetz driver's cousin"
+    - "Finnegan planted recording devices in Avri's hotel room - captured Torin/Avri blackmail"
     - "Harrow visited Torin's residence, impressed with nobility and business acumen"
 
     - "Ship retrofit (jump fuel pods) completed"

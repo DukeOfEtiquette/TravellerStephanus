@@ -57,7 +57,7 @@ Kelly's attributes were slightly below average (-1 from expected) with normal va
 - **Modified Total**: 1
 - **Result**: Agricultural (Atsah)
 - **Probability given SOC**: 30% (rolls 1-3)
-- **Assessment**: Expected — Agricultural was tied for most likely with Industrial for her SOC
+- **Assessment**: Expected - Agricultural was tied for most likely with Industrial for her SOC
 
 ### 2.2 Schooling
 - **SOC modifier (×2)**: -2
@@ -65,7 +65,7 @@ Kelly's attributes were slightly below average (-1 from expected) with normal va
 - **Modified Total**: 8
 - **Result**: University
 - **Probability given SOC**: 20% (only rolls 9-10 after modifier)
-- **Assessment**: Lucky — with a -2 modifier, she had only a 20% chance of University, but rolled a natural 10
+- **Assessment**: Lucky - with a -2 modifier, she had only a 20% chance of University, but rolled a natural 10
 
 ### 2.3 Psychic Talent
 - **INT**: 7 (modifier: 0)
@@ -74,10 +74,10 @@ Kelly's attributes were slightly below average (-1 from expected) with normal va
 - **Target**: 12+
 - **Result**: Fail
 - **Probability of success**: 2.78%
-- **Assessment**: Expected failure — with no INT modifier, she needed a natural 12
+- **Assessment**: Expected failure - with no INT modifier, she needed a natural 12
 
 ### Step 2 Summary
-Kelly's background shows mixed luck. Her homeworld was statistically expected for her low SOC, but she got very lucky on schooling — rolling a 10 to reach University despite the -2 modifier. This created her defining narrative: a humble farm kid who earned her way to the sector's best education through merit.
+Kelly's background shows mixed luck. Her homeworld was statistically expected for her low SOC, but she got very lucky on schooling - rolling a 10 to reach University despite the -2 modifier. This created her defining narrative: a humble farm kid who earned her way to the sector's best education through merit.
 
 ---
 
@@ -87,7 +87,7 @@ Kelly's background shows mixed luck. Her homeworld was statistically expected fo
 - **Roll**: 8
 - **Result**: 5 terms
 - **Probability**: 50% (rolls 7-10)
-- **Assessment**: Average — 5 terms is the most common result
+- **Assessment**: Average - 5 terms is the most common result
 
 ### 3.2 Career Distribution
 - **Distribution rolls**: [4, 2]
@@ -101,4 +101,4 @@ Average term count with a distribution heavily weighted toward her first career.
 
 ## Pre-Career Overall Assessment
 
-Kelly Clarkson entered character creation with slightly below-average raw material (sum 41, net modifier -1) distributed in a way that created clear strengths and weaknesses. Her low STR and SOC pushed her toward a humble origin, while her high END pointed toward physical careers like Frontier. The defining moment of her pre-career phase was rolling a natural 10 on schooling — with her -2 SOC modifier, she had only a 20% chance of reaching University, but she made it. This lucky roll established her entire character arc: the bright farm kid from Atsah who proved herself worthy of Ith's prestigious education, even if she never quite fit in with the trillions of urbanites around her.
+Kelly Clarkson entered character creation with slightly below-average raw material (sum 41, net modifier -1) distributed in a way that created clear strengths and weaknesses. Her low STR and SOC pushed her toward a humble origin, while her high END pointed toward physical careers like Frontier. The defining moment of her pre-career phase was rolling a natural 10 on schooling - with her -2 SOC modifier, she had only a 20% chance of reaching University, but she made it. This lucky roll established her entire character arc: the bright farm kid from Atsah who proved herself worthy of Ith's prestigious education, even if she never quite fit in with the trillions of urbanites around her.

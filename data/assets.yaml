@@ -129,10 +129,10 @@ ships:
     cargo:
       - item: "Pharmaceuticals (Rx)"
         tons: 4
-        value: 14000   # Cr — covers all 20 t (this 4 t + 8 t in each shuttle)
+        value: 14000   # Cr - covers all 20 t (this 4 t + 8 t in each shuttle)
         notes: |
           Loose stowage. 16 additional tons are stored inside the two shuttles
-          below — those tons don't count against bay capacity because 'tonnage'
+          below - those tons don't count against bay capacity because 'tonnage'
           is volume and the shuttles enclose their own internal volume.
           Total 20 t of Rx valued at 14,000 Cr.
       - name: "Shuttlecraft (Cosmic)"
@@ -207,7 +207,7 @@ ships:
           Jumped to Maitz; refueled by siphoning the Star of Carella wreck
           (fuel 2/2 maintained). Looted two 10 dT shuttlecraft from the wreck
           and dumped manufactured trade goods to make room. Reorganized the
-          pre-existing 20 t of Rx — 8 t loaded into each looted shuttle as
+          pre-existing 20 t of Rx - 8 t loaded into each looted shuttle as
           internal storage, 4 t left loose in the bay.
       - session: 14
         event: |
@@ -215,7 +215,7 @@ ships:
           400 t) and the Revenant's Echo. Samir remained aboard the Savage
           Intent alone to disarm a Cooper-Akachi-parts bomb wired into the
           jump drive. Crew assessed the Savage Intent as jump-capable with a
-          skeleton crew — flagged as a possible future prize, not yet seized.
+          skeleton crew - flagged as a possible future prize, not yet seized.
           No ship-to-ship combat. Fuel 2/2 (unchanged).
       - session: 15
         event: |
@@ -227,7 +227,7 @@ ships:
           Savage Intent to Stoyben, with the Savage Intent slated for sale.
           Critical: the buoy emitted a directional radio burst to Maitz
           containing VoL II's transponder code and physical description
-          before fuel exhaustion — the ship's signature is leaked. No
+          before fuel exhaustion - the ship's signature is leaked. No
           ship-to-ship combat. Fuel 2/2 (unchanged).
 
     damage_log:
@@ -269,7 +269,7 @@ ships:
           assessed: jump-capable with a skeleton crew.
       - session: 15
         event: |
-          Operability confirmed — the ship can be run with a skeleton crew
+          Operability confirmed - the ship can be run with a skeleton crew
           and jumped out of the system. Council decision to move it to
           Stoyben for sale (JF right of first refusal).
 
@@ -277,7 +277,7 @@ ships:
 # RECOVERED INTELLIGENCE / DATA
 # =============================================================================
 recovered_data:
-  - source: "Star of Carella (Newhall) — Session 13"
+  - source: "Star of Carella (Newhall) - Session 13"
     items:
       - description: "Decrypted orders: Tivid → Maitz, Priority 1, capture or destroy Newhall scout Deepest Light"
         status: decoded
@@ -285,13 +285,13 @@ recovered_data:
       - description: "Thousands of short, encrypted files spanning 8 hours from Star of Carella's Maitz arrival"
         status: pending
         notes: "Suspected to be battle logs and/or comms traffic. Higher-grade encryption."
-      - description: "Captain's stateroom search — only anomaly was a missing book from a bookshelf"
+      - description: "Captain's stateroom search - only anomaly was a missing book from a bookshelf"
         status: open
         notes: "Physical paper books are unusual. Missing one may be hidden, smuggled, or a hollowed cache."
 
-  - source: "Savage Intent (Quiru) — Session 14"
+  - source: "Savage Intent (Quiru) - Session 14"
     items:
-      - description: "Black box (decoded) — intercept-course log"
+      - description: "Black box (decoded) - intercept-course log"
         status: decoded
         notes: |
           Laid in wait behind a moon, then matched course alongside an object on a
@@ -306,7 +306,7 @@ recovered_data:
         status: observed
         notes: "1 empty crate, 2 empty with racks, balance rations."
 
-  - source: "Revenant's Echo (Newhall) — Session 14"
+  - source: "Revenant's Echo (Newhall) - Session 14"
     items:
       - description: "Captain's combat logs (partial splice)"
         status: decoded_partial
@@ -315,18 +315,18 @@ recovered_data:
           the engagement). Deepest Light never named in the logs. Multiple
           references to "Bunny." Captain ordered fleet retreat after Bunny was
           "taken" and "lost."
-      - description: "Hindsight viewings (Victor) — captain's chair and sensor station"
+      - description: "Hindsight viewings (Victor) - captain's chair and sensor station"
         status: recorded
         notes: |
           Captain's chair (moment of retreat): order explicitly referenced the
-          boarding party extracting Bunny from the ship — confirms Bunny is a
+          boarding party extracting Bunny from the ship - confirms Bunny is a
           person. Sensor station: visual of Quiru marines extracting a human-
           appearing figure from a 100 dT scout (the Deepest Light), with the
           Savage Intent in the background.
 
-  - source: "Cooper-Akachi surveillance buoy (Maitz battlefield) — Session 15"
+  - source: "Cooper-Akachi surveillance buoy (Maitz battlefield) - Session 15"
     items:
-      - description: "Buoy hard drives — decoded surveillance log"
+      - description: "Buoy hard drives - decoded surveillance log"
         status: decoded
         notes: |
           Buoy deployed at the Maitz battlefield in Campaign Week 18 by a
@@ -338,13 +338,13 @@ recovered_data:
           transmitting VoL II's transponder code and physical description.
           Party ship signature is leaked.
 
-  - source: "Revenant's Echo (Newhall) — Session 15"
+  - source: "Revenant's Echo (Newhall) - Session 15"
     items:
       - description: "Captain's-chair partial fleet-coordination records"
         status: decoded_partial
         notes: |
           Confirms Newhall came to Maitz pursuing Bunny and was AMBUSHED by
-          Quiru — reframes the engagement as a one-sided Quiru ambush of
+          Quiru - reframes the engagement as a one-sided Quiru ambush of
           putative allies, not a co-equal covert fight.
       - description: "Captain's-quarters safe (abandoned during squid attack)"
         status: open

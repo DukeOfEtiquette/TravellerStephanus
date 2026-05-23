@@ -1,5 +1,5 @@
 /* =========================================================================
-   Traveller Stephanus — content typography, code, tables, markdown
+   Traveller Stephanus - content typography, code, tables, markdown
    Used by index.html. Chrome-level layout lives in site.css.
    ========================================================================= */
 
@@ -81,7 +81,7 @@ tbody tr:hover td { background: var(--accent-2-tint-soft); }
 }
 .table-scroll > table { margin: 0; }
 
-/* Prices tables — sized to content so columns stay tight */
+/* Prices tables - sized to content so columns stay tight */
 table.prices-table {
   width: auto;
   min-width: 0;

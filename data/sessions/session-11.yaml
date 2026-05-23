@@ -13,7 +13,7 @@ session:
     Then a bodyguard in power armor and a jetpack intervened. He smashed into Vicentio from the
     air, but Vicentio's monomolecular unikatana broke open his helmet. When Vicentio charged him,
     broken ribs and all, the guard panic-fired all his anti-personnel cluster rockets at point
-    blank range — killing both men instantly.
+    blank range - killing both men instantly.
 
     Vincentio Saviolo is dead.
 
@@ -28,14 +28,14 @@ session:
       title: "Solal's nanos counter the poison"
       description: |
         Nano-augmentation in Solal and his bodyguards began neutralizing
-        the toxin moments after ingestion — the entire poisoning approach
+        the toxin moments after ingestion - the entire poisoning approach
         immediately bled time.
       location: "Nbangu Dikila Nature Preserve, Mowebe"
     - week: 14.6
       title: "Power-armor bodyguard intervenes from the sky"
       description: |
         A jetpack-equipped bodyguard in power armor smashed into Vicentio
-        from the air — a contingency the party had not modeled for.
+        from the air - a contingency the party had not modeled for.
 
   crew_events:
     - week: 14.6
@@ -51,7 +51,7 @@ session:
         Vicentio's monomolecular unikatana cracked the power-armor
         bodyguard's helmet. When he charged with broken ribs, the guard
         panic-fired all his anti-personnel cluster rockets at point-blank
-        range — killing both men instantly.
+        range - killing both men instantly.
     - week: 14.6
       title: "Fled the scene with Solal"
       description: |
@@ -67,8 +67,8 @@ session:
     - "Vicentio crashed his yacht into shore to neutralize it; Petra secured hers for overwatch"
     - "Power armor bodyguard with jetpack smashed Vicentio from the air"
     - "Vicentio's monomolecular unikatana broke open the bodyguard's helmet"
-    - "Vicentio charged the exposed guard (broken ribs) — guard panic-fired cluster rockets at point blank range"
-    - "VINCENTIO SAVIOLO KILLED — both Vicentio and the bodyguard killed instantly"
+    - "Vicentio charged the exposed guard (broken ribs) - guard panic-fired cluster rockets at point blank range"
+    - "VINCENTIO SAVIOLO KILLED - both Vicentio and the bodyguard killed instantly"
     - "Samir arrived with a shuttle; wounded survivors fled the scene with Solal"
     - "Two radar clicks detected closing fast as the party escaped"
 

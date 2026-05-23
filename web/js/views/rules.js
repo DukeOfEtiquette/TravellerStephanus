@@ -125,7 +125,7 @@ function renderProcedureSection(sec, depth = 0) {
   if (scalars.length) {
     html += '<div class="kv">';
     for (const [k, v] of scalars) {
-      const display = v == null ? '<span style="color: var(--text-faint);">—</span>' : esc(String(v));
+      const display = v == null ? '<span style="color: var(--text-faint);">-</span>' : esc(String(v));
       html += `<dt>${esc(titleCase(k))}</dt><dd>${display}</dd>`;
     }
     html += '</div>';
@@ -139,7 +139,7 @@ function renderProcedureSection(sec, depth = 0) {
 }
 
 // =========================================================================
-// Character creation — bespoke renderer
+// Character creation - bespoke renderer
 // =========================================================================
 
 function renderCharacterCreation(raw) {
@@ -308,7 +308,7 @@ function renderCharacterCreation(raw) {
 }
 
 // =========================================================================
-// Combat rules — bespoke renderer (the YAML is too structured for renderYaml)
+// Combat rules - bespoke renderer (the YAML is too structured for renderYaml)
 // =========================================================================
 
 function combatKey(k) {
@@ -397,7 +397,7 @@ function renderCombat(raw) {
     html += `</div>`;
   }
 
-  // Attack procedure (open by default — most-used reference)
+  // Attack procedure (open by default - most-used reference)
   if (ap) {
     html += `<details class="collapsible" open><summary><h2>Attack Procedure</h2></summary>`;
     html += `<div class="kv">`;

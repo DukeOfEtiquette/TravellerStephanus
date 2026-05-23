@@ -17,8 +17,8 @@ async function viewHome() {
     <div class="card">
       <p>${nl2br(camp.mcguffin?.description || '')}</p>
       <div class="kv" style="margin-top: 8px;">
-        <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '—')}</dd>
-        <dt>Note</dt><dd>${esc(camp.mcguffin?.material_note || '—')}</dd>
+        <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '-')}</dd>
+        <dt>Note</dt><dd>${esc(camp.mcguffin?.material_note || '-')}</dd>
       </div>
     </div>
   `;
@@ -100,14 +100,14 @@ async function viewSession(num) {
   if (s.npcs_introduced?.length) {
     html += `<h2>NPCs Introduced</h2><ul>${s.npcs_introduced.map(n =>
       typeof n === 'string' ? `<li>${esc(n)}</li>`
-                            : `<li><strong>${esc(n.name)}</strong>${n.role ? ` — ${esc(n.role)}` : ''}${n.notes ? `: ${esc(n.notes)}` : ''}</li>`
+                            : `<li><strong>${esc(n.name)}</strong>${n.role ? ` - ${esc(n.role)}` : ''}${n.notes ? `: ${esc(n.notes)}` : ''}</li>`
     ).join('')}</ul>`;
   }
 
   if (s.ship_events?.length) {
     html += `<h2>Ship Events</h2><ul>${s.ship_events.map(e =>
       typeof e === 'string' ? `<li>${esc(e)}</li>`
-                            : `<li><strong>${esc(e.event || '')}</strong>${e.outcome ? ` — ${esc(e.outcome)}` : ''}</li>`
+                            : `<li><strong>${esc(e.event || '')}</strong>${e.outcome ? ` - ${esc(e.outcome)}` : ''}</li>`
     ).join('')}</ul>`;
   }
 
@@ -261,7 +261,7 @@ async function viewInvestigation() {
 
   if (inv.open_questions?.length) {
     const items = inv.open_questions.map(q =>
-      typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` — ${esc(q.notes)}` : ''}</li>`
+      typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` - ${esc(q.notes)}` : ''}</li>`
     ).join('');
     html += `<details class="collapsible"><summary><h2>Open Questions <span class="tag dim">${inv.open_questions.length}</span></h2></summary><ul>${items}</ul></details>`;
   }
@@ -356,7 +356,7 @@ async function viewTimeline() {
 
   if (events.length === 0) {
     html += `<p style="color: var(--text-dim); margin-top: 18px;">
-      No events yet — add <code>narrative_events</code> and
+      No events yet - add <code>narrative_events</code> and
       <code>crew_events</code> arrays to a session yaml.</p>`;
     return setView(html);
   }
@@ -436,7 +436,7 @@ async function viewTimeline() {
   html += `</div>`;
   setView(html);
 
-  // Wire up the filter pills — re-render in place rather than re-fetching.
+  // Wire up the filter pills - re-render in place rather than re-fetching.
   const legend = document.getElementById('timeline-legend');
   const tl = document.getElementById('campaign-timeline');
   if (legend && tl) {

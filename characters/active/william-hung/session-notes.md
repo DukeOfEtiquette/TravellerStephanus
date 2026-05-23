@@ -242,13 +242,13 @@ Capt. Leeuwen returned alone to Doné Rivis to apologize and share more info abo
 ### Key Events
 - Leeuwen returned to Rivis alone to apologize and give more info about courier routes
 - Won Rivis's tentative trust
-- Choo is always punctual — prolonged silence is very out of character
-- Learned about Pardeep Sarsar — Choo's trusted assistant and courier for filing stories
-- Sarsar is also missing — family has no sign or recent communication
+- Choo is always punctual - prolonged silence is very out of character
+- Learned about Pardeep Sarsar - Choo's trusted assistant and courier for filing stories
+- Sarsar is also missing - family has no sign or recent communication
 - Nobody at spaceport has seen Sarsar either
 - Learned about News Dispatch common document-intake process
 - Traded weapons cargo to Isaiah Reed for refined fuel
-- Solicited Rivis for jobs — two offers received
+- Solicited Rivis for jobs - two offers received
 - Took on two middle passengers to Mowebe
 - William brokered deal to transport electronics to Mowebe
 - Trade goods available: 20 tons electronics components, 30 tons chemicals
@@ -258,8 +258,8 @@ Capt. Leeuwen returned alone to Doné Rivis to apologize and share more info abo
 |------|-------------|----------|-------|
 | Doné Rivis | Managing Editor, Investigative Reporting | Dispatch | Tentative trust achieved, offered two jobs |
 | Isaiah Reed | JF station chief | Stoyben | Traded weapons to him |
-| Pardeep Sarsar | Choo's assistant/courier | Unknown | Missing — new lead (mentioned by Rivis) |
-| Kara Wiley | Undercover reporter | Thane | Mentioned by Rivis — embedded in political family |
+| Pardeep Sarsar | Choo's assistant/courier | Unknown | Missing - new lead (mentioned by Rivis) |
+| Kara Wiley | Undercover reporter | Thane | Mentioned by Rivis - embedded in political family |
 
 ### Locations Visited
 - Stoyben Spaceport
@@ -277,17 +277,17 @@ Capt. Leeuwen returned alone to Doné Rivis to apologize and share more info abo
 - Party Kitty: 21,000 Cr
 
 ### Clues/Information Learned
-- Choo is always punctual — prolonged silence is very out of character
+- Choo is always punctual - prolonged silence is very out of character
 - Pardeep Sarsar is Choo's trusted assistant and frequent courier for filing stories
-- Sarsar is also missing — family has had no sign or recent communication
+- Sarsar is also missing - family has had no sign or recent communication
 - Nobody at Stoyben spaceport has seen Sarsar
-- Two people connected to the same story now missing — suggests foul play
+- Two people connected to the same story now missing - suggests foul play
 - Rivis knows nothing about the content of Choo's story or death mask connection
 - News Dispatch document-intake process explained by Rivis
 
 ### Jobs Offered by Rivis
-1. **Deliver encrypted message to Kara Wiley on Thane** — 40k up front, 80k on completion. Wiley is an undercover reporter embedded in a political family.
-2. **Check on Choo's wellbeing on Mora** — 10k up front, 25k on completion.
+1. **Deliver encrypted message to Kara Wiley on Thane** - 40k up front, 80k on completion. Wiley is an undercover reporter embedded in a political family.
+2. **Check on Choo's wellbeing on Mora** - 10k up front, 25k on completion.
 
 ### Unresolved Threads
 - Where are Choo and Sarsar? Two connected disappearances.
@@ -295,7 +295,7 @@ Capt. Leeuwen returned alone to Doné Rivis to apologize and share more info abo
 - What is the document-intake process and how can it be leveraged?
 
 ### Notes
-Active session. Personally brokered the electronics transport deal to Mowebe. The Rivis relationship is now productive — two well-paying jobs that align with our travel direction (Thane is en route to Mowebe). The Kara Wiley delivery (120k total) is lucrative and could combine with the Week 20 rendezvous plan. Sarsar's disappearance alongside Choo's — especially given that Choo is always punctual — strongly suggests someone is actively silencing people connected to the mask story.
+Active session. Personally brokered the electronics transport deal to Mowebe. The Rivis relationship is now productive - two well-paying jobs that align with our travel direction (Thane is en route to Mowebe). The Kara Wiley delivery (120k total) is lucrative and could combine with the Week 20 rendezvous plan. Sarsar's disappearance alongside Choo's - especially given that Choo is always punctual - strongly suggests someone is actively silencing people connected to the mask story.
 
 ---
 
@@ -303,21 +303,21 @@ Active session. Personally brokered the electronics transport deal to Mowebe. Th
 **Date:** 2026-02-20
 
 ### Summary
-Official Jade Front job from Isaiah Reed — operation on an O'Neill cylinder two days from Stoyben involving Civic Administrator Torin and his wife Vondel. The company took a multi-pronged approach: PI dirt collection, socialite events, estate relationship building, and working staff nightlife. William and Bootman spent the week canvassing bars for intel on Torin's household. Session ended mid-operation.
+Official Jade Front job from Isaiah Reed - operation on an O'Neill cylinder two days from Stoyben involving Civic Administrator Torin and his wife Vondel. The company took a multi-pronged approach: PI dirt collection, socialite events, estate relationship building, and working staff nightlife. William and Bootman spent the week canvassing bars for intel on Torin's household. Session ended mid-operation.
 
 ### Key Events
 - Loaded Hung's unarmored car (2t) and Saviolo's armored car (4t) into Hung's shuttlecraft
 - Took on 19 tons of electronics cargo
-- Accepted official JF job from Reed — cylinder colony operation
+- Accepted official JF job from Reed - cylinder colony operation
 - Unloaded all vehicles except grav bike (Hung's shuttle) and grav car (Victor's shuttle)
 - Split party to travel to cylinder (shuttlecrafts + commercial transport)
-- Met Tetzel (gossip reporter, arranged by Rivis) — Finnegan posed as job seeker
+- Met Tetzel (gossip reporter, arranged by Rivis) - Finnegan posed as job seeker
 - Harrow/Victor/Saviolo attended high-end fundraiser; discovered Vondel's lover Tevetz and Torin's affair with Avri
 - Harrow gained Torin's trust using noble status, invited to residence for brewing tour
 - Hung and Bootman hit bars for a week seeking Torin residence service workers
-- Found cousin of Tevetz's car driver — confirmed Vondel/Tevetz relationship
+- Found cousin of Tevetz's car driver - confirmed Vondel/Tevetz relationship
 - Leeuwen/Finnegan bribed hotel workers, learned Avri's hotel arrangement
-- Finnegan planted recording devices in Avri's room — captured Torin/Avri blackmail
+- Finnegan planted recording devices in Avri's room - captured Torin/Avri blackmail
 - Harrow/Victor/Saviolo visited Torin's residence for brewing tour
 
 ### NPCs Encountered
@@ -349,12 +349,12 @@ Official Jade Front job from Isaiah Reed — operation on an O'Neill cylinder tw
 
 ### Clues/Information Learned
 - O'Neill cylinders orbit Stoyben, each governed by a Civic Administrator
-- JF agent "Alicia" groomed Vondel for months — she was scared/anxious throughout; "Alicia" is now burned as handler
-- When Vondel backed out, she became confident and determined — suspicious shift
+- JF agent "Alicia" groomed Vondel for months - she was scared/anxious throughout; "Alicia" is now burned as handler
+- When Vondel backed out, she became confident and determined - suspicious shift
 - Vondel doesn't know about "Alicia's" JF connection
 - Torin is openly sleeping with Kenna and secretly sleeping with Arvi (Vondel's sister)
 - Tevetz is a hot young scion of a wealthy business family, recently seems familiar with Vondel
-- Tetzel is the editor of the station's Page 6 gossip rag — wants photos of Torin with a mistress
+- Tetzel is the editor of the station's Page 6 gossip rag - wants photos of Torin with a mistress
 - Ship retrofit (jump fuel pods) completed
 
 ### Unresolved Threads
@@ -364,7 +364,7 @@ Official Jade Front job from Isaiah Reed — operation on an O'Neill cylinder tw
 - What does Tetzel gain the party if they deliver the photos?
 
 ### Notes
-Hung and Bootman did the grunt work this session — a week of bar-hopping to find service workers. Best lead was only the cousin of Tevetz's car driver. Meanwhile the noble contingent (Harrow, Victor, Saviolo) worked the high society angle much more effectively. Finnegan's hotel infiltration was the real score — blackmail on Torin is a powerful lever. Session ended mid-operation with Harrow inside Torin's residence. Ship retrofit (jump fuel pods) completed this session.
+Hung and Bootman did the grunt work this session - a week of bar-hopping to find service workers. Best lead was only the cousin of Tevetz's car driver. Meanwhile the noble contingent (Harrow, Victor, Saviolo) worked the high society angle much more effectively. Finnegan's hotel infiltration was the real score - blackmail on Torin is a powerful lever. Session ended mid-operation with Harrow inside Torin's residence. Ship retrofit (jump fuel pods) completed this session.
 
 ---
 
@@ -380,7 +380,7 @@ Hung and Bootman did the grunt work this session — a week of bar-hopping to fi
 ## Session 9
 **Date:** 2026-03-06
 
-- Station chief is ruthless JF operative — Kikonye
+- Station chief is ruthless JF operative - Kikonye
 - Sell chemicals + electronics in Mowebe space station in orbit
 - Drop off Vondel planetside
 - Make contact w/ Kikonye at his art gallery
@@ -426,24 +426,24 @@ Hung and Bootman did the grunt work this session — a week of bar-hopping to fi
 Kitted out at Mowebe and jumped to Maitz to investigate the recent space battle.
 Found six hulls floating around Maitz's gas giant. Headed straight in. Took the
 shuttle (everyone but Michaela) to the smaller Newhall ship Star of Carella to
-loot it before tackling the big derelict, Revenant's Echo. Stripped the ship —
-data slabs, two shuttlecraft, fuel — and decrypted the captain's data: orders
+loot it before tackling the big derelict, Revenant's Echo. Stripped the ship -
+data slabs, two shuttlecraft, fuel - and decrypted the captain's data: orders
 from Tivid to capture or destroy a fleeing Newhall scout, the Deepest Light.
 Plus tons of battle logs from the engagement.
 
 ### Key Events
 - Kitted out at Mowebe before departure
-- Jumped to Maitz — big recent space battle confirmed
+- Jumped to Maitz - big recent space battle confirmed
 - Suspected Cooper-Akachi may have been involved here
-- Approached the battle site directly — 6 hulls around the gas giant
+- Approached the battle site directly - 6 hulls around the gas giant
 - Flew shuttle (everyone but Michaela aboard) to Star of Carella
-- Searched captain's room — expensive Yak blue milk, physical paper books with one missing
+- Searched captain's room - expensive Yak blue milk, physical paper books with one missing
 - Took all data slabs from the computer room
 - Took 2 shuttlecraft from the Star of Carella, loaded into VoL II cargo bay
 - Dumped manufactured goods to make room
 - Split 16 tons of Rx across the two shuttles in cargo
 - Hacked the data slabs: Star of Carella was based in Tivid, dispatched to Maitz ASAP under orders to support operations
-- Confirmed target was the Deepest Light — also from Newhall, a scout ship
+- Confirmed target was the Deepest Light - also from Newhall, a scout ship
 - Orders: capture or destroy
 - Higher-level security/encryption was used on the orders
 - Tons of battle logs recovered (not yet decrypted)
@@ -454,7 +454,7 @@ Plus tons of battle logs from the engagement.
 ### NPCs Encountered
 | Name | Description | Location | Notes |
 |------|-------------|----------|-------|
-| (none) | | | No living crew encountered — all wrecks |
+| (none) | | | No living crew encountered - all wrecks |
 
 ### Locations Visited
 - Maitz system (jump arrival)
@@ -469,35 +469,35 @@ Plus tons of battle logs from the engagement.
 - (-) Manufactured trade goods (dumped to make cargo space)
 
 ### Credits
-- Starting: 21,300 Cr (personal — unchanged)
-- Ending: 21,300 Cr (personal — unchanged)
+- Starting: 21,300 Cr (personal - unchanged)
+- Ending: 21,300 Cr (personal - unchanged)
 - Net: 0 Cr
-- Party Kitty: 93,850 Cr (down from 109,950 — pre-jump kit-out and resupply)
+- Party Kitty: 93,850 Cr (down from 109,950 - pre-jump kit-out and resupply)
 
 ### Clues/Information Learned
-- Maitz really did see a major recent engagement — 6 wrecks around the gas giant
+- Maitz really did see a major recent engagement - 6 wrecks around the gas giant
 - Star of Carella was a Newhall ship out of Tivid, dispatched to Maitz ASAP
 - Star of Carella's stated mission: support broader Newhall operations
 - Specific tasking: capture or destroy the Deepest Light (Newhall scout)
-- Newhall was hunting one of its own ships — likely a defector or thief
-- Orders unsigned but Priority 1 — high-level command, deniability built in
+- Newhall was hunting one of its own ships - likely a defector or thief
+- Orders unsigned but Priority 1 - high-level command, deniability built in
 - Encryption on the orders was higher-grade than standard ship traffic
 - Battle logs span an 8-hour window from the moment Star of Carella arrived
-- Captain had physical paper books in his stateroom — one missing. Stolen? Hidden?
+- Captain had physical paper books in his stateroom - one missing. Stolen? Hidden?
 - Cooper-Akachi presence at Maitz remains unconfirmed but suspected (per Faisal's intel)
 
 ### Unresolved Threads
 - What was in the missing book from the captain's bookshelf?
 - What's on those thousands of battle logs / encrypted files?
 - Where is the Deepest Light? Did it escape, get destroyed, or is it among the wrecks?
-- Whose unsigned Priority 1 orders were these — who in Newhall command?
+- Whose unsigned Priority 1 orders were these - who in Newhall command?
 - What are the "operations" Star of Carella was supporting?
 - Is Cooper-Akachi tied into this Newhall internal conflict?
-- Status of the four other wrecks (Revenant's Echo, Adamant, Savage Intent, Deepest Light) — unboarded
+- Status of the four other wrecks (Revenant's Echo, Adamant, Savage Intent, Deepest Light) - unboarded
 
 ### Notes
 A productive scavenge. Star of Carella gave us a free refuel, two shuttlecraft, a
-pharmaceutical haul, and — most importantly — a window into what Newhall was
+pharmaceutical haul, and - most importantly - a window into what Newhall was
 doing here. The fact that Newhall was hunting another Newhall ship is the
 headline. The Deepest Light has something or someone Newhall command badly wants
 silenced. Whoever they are, we may want to find them first. Revenant's Echo is
@@ -511,7 +511,7 @@ buy us time.
 
 ### Summary
 Picked up in the aftermath of the Maitz battle. Boarded the Savage Intent (most
-intact wreck) — a military ship with no grav or life support. Damage was
+intact wreck) - a military ship with no grav or life support. Damage was
 superficial except for one precise, deliberate explosion inside the server
 cabinets in the computer room. Bridge door was booby-trapped; one crewmate took
 a non-life-threatening hit. Pulled the black box: Savage Intent had been on
@@ -520,41 +520,41 @@ leaving. The jump drive had a bomb wired to detonate on tamper or jump-drive
 start; Samir stayed aboard and successfully disarmed it while the rest of us
 returned to VoL II.
 
-Then on to Revenant's Echo — the largest casualty (front tip blown off, bridge
+Then on to Revenant's Echo - the largest casualty (front tip blown off, bridge
 severed in half, missile bay cooked off internally). Spliced into the captain's
 chair computer: thousands of combat message logs. No direct mention of the
-Deepest Light, but repeated references to "Bunny" — unclear if person or ship.
+Deepest Light, but repeated references to "Bunny" - unclear if person or ship.
 Late-battle traffic: Bunny at risk of capture by Quiru → orders shifted from
 capture-Bunny to destroy-Bunny → both failed → after Bunny was captured,
 retreat ordered. Aligns with the orders we pulled off Star of Carella last
 session.
 
 Psionic ran Hindsight twice on the bridge. First, at the captain's chair on the
-moment of retreat — the verbal order referenced Bunny being "extracted from the
+moment of retreat - the verbal order referenced Bunny being "extracted from the
 ship," strongly suggesting Bunny is a person. Second, at the sensor officer's
-chair at the same moment — opticals showed Savage Intent docked right next to
+chair at the same moment - opticals showed Savage Intent docked right next to
 the Deepest Light, with several specs (Marines in EVA suits) crossing from
 Savage Intent into Deepest Light and returning with one additional individual.
 
 ### Key Events
-- Boarded Savage Intent via shuttle — no grav, no life support
+- Boarded Savage Intent via shuttle - no grav, no life support
 - Computer room: precise internal explosion in server cabinets, only damage on the ship
-- Bridge door booby-trapped — explosion injured one crewmate (non-lethal)
+- Bridge door booby-trapped - explosion injured one crewmate (non-lethal)
 - Recovered black box from bridge
 - Black box: Savage Intent was intercepting another ship that was gas-skimming and leaving
 - Found bomb wired to the jump drive (trips on tamper or jump start)
-- Samir stayed aboard, disarmed the bomb successfully — rest of us rejoined VoL II
+- Samir stayed aboard, disarmed the bomb successfully - rest of us rejoined VoL II
 - Boarded Revenant's Echo (largest casualty in the field)
-- Spliced captain's chair computer — thousands of combat logs
-- Logs referenced "Bunny" repeatedly — unclear if person or ship
+- Spliced captain's chair computer - thousands of combat logs
+- Logs referenced "Bunny" repeatedly - unclear if person or ship
 - Logs: capture-Bunny → switched to destroy-Bunny when Quiru moved on Bunny → both failed → retreat after Bunny captured
-- Hindsight #1 (captain's chair): retreat order said Bunny was "extracted from the ship" — Bunny = person
+- Hindsight #1 (captain's chair): retreat order said Bunny was "extracted from the ship" - Bunny = person
 - Hindsight #2 (sensor officer's chair): visual of Savage Intent docked to Deepest Light, Marines crossing over and returning with one extra individual
 
 ### NPCs Encountered
 | Name | Description | Location | Notes |
 |------|-------------|----------|-------|
-| "Bunny" | Unknown individual — referenced in Revenant's Echo combat logs | Deepest Light → extracted | Apparently a person, not a ship; both Newhall and Quiru wanted them; ultimately captured (by whom?) |
+| "Bunny" | Unknown individual - referenced in Revenant's Echo combat logs | Deepest Light → extracted | Apparently a person, not a ship; both Newhall and Quiru wanted them; ultimately captured (by whom?) |
 
 ### Locations Visited
 - Savage Intent (boarded, searched, jump-drive bomb disarmed)
@@ -562,41 +562,41 @@ Savage Intent into Deepest Light and returning with one additional individual.
 
 ### Items Gained/Lost
 - (+) Savage Intent black box (intercept course data)
-- (+) Revenant's Echo combat message logs (thousands — not yet fully analyzed)
+- (+) Revenant's Echo combat message logs (thousands - not yet fully analyzed)
 - Jump drive bomb on Savage Intent neutralized (ship potentially salvageable now)
 
 ### Credits
-- Starting: 21,300 Cr (personal — unchanged)
-- Ending: 21,300 Cr (personal — unchanged)
+- Starting: 21,300 Cr (personal - unchanged)
+- Ending: 21,300 Cr (personal - unchanged)
 - Net: 0 Cr
 
 ### Clues/Information Learned
-- Savage Intent's damage pattern was surgical — server cabinets only, plus a bridge booby trap and a jump-drive bomb. Whoever sabotaged it knew exactly what to hit.
-- The "other ship" Savage Intent was intercepting per the black box was on a gas-skim-and-leave trajectory — possibly the Deepest Light itself, or a third party
-- Bunny is a person, not a ship — extracted from the Deepest Light by Marines off the Savage Intent
+- Savage Intent's damage pattern was surgical - server cabinets only, plus a bridge booby trap and a jump-drive bomb. Whoever sabotaged it knew exactly what to hit.
+- The "other ship" Savage Intent was intercepting per the black box was on a gas-skim-and-leave trajectory - possibly the Deepest Light itself, or a third party
+- Bunny is a person, not a ship - extracted from the Deepest Light by Marines off the Savage Intent
 - Quiru was active in the engagement and at some point captured Bunny (per Newhall logs)
-- Newhall escalated from capture to destroy once Quiru got hold of Bunny — Bunny is valuable enough that denying them to Quiru was worth killing them over
-- Newhall's own Marines (off Savage Intent) appear to have been the ones who pulled Bunny off the Deepest Light originally — so was Bunny a Newhall asset that Quiru then took? Or did the Marines fail and Quiru took Bunny next?
-- Revenant's Echo intel aligns with the Star of Carella orders — same operation
+- Newhall escalated from capture to destroy once Quiru got hold of Bunny - Bunny is valuable enough that denying them to Quiru was worth killing them over
+- Newhall's own Marines (off Savage Intent) appear to have been the ones who pulled Bunny off the Deepest Light originally - so was Bunny a Newhall asset that Quiru then took? Or did the Marines fail and Quiru took Bunny next?
+- Revenant's Echo intel aligns with the Star of Carella orders - same operation
 
 ### Unresolved Threads
 - Who is Bunny? Why does Newhall want them captured-or-killed, and why does Quiru want them?
 - Where is Bunny now? Quiru-held? Dead?
 - Who sabotaged Savage Intent (server room, bridge door, jump drive)? Internal job? Quiru?
 - Was the gas-skimming ship the Deepest Light, or a third party we haven't identified?
-- Is the Deepest Light still out there to find — and is Bunny's extraction the reason it was worth hunting?
+- Is the Deepest Light still out there to find - and is Bunny's extraction the reason it was worth hunting?
 - Still haven't boarded Adamant or located/boarded the Deepest Light wreck (if it is one)
 - Thousands of unparsed combat logs from Revenant's Echo
 
 ### Notes
 The Bunny thread is the new center of gravity. Newhall's whole operation at
-Maitz was apparently about controlling one person — first extracting them off
+Maitz was apparently about controlling one person - first extracting them off
 the Deepest Light, then trying to keep Quiru from taking them, then trying to
 kill them rather than let Quiru have them. That's a person worth a fleet
 engagement. Finding Bunny (or whoever has them now) is probably more valuable
 than recovering the Deepest Light itself.
 
-The Savage Intent sabotage pattern is also interesting — surgical strikes on
+The Savage Intent sabotage pattern is also interesting - surgical strikes on
 exactly the systems that would prevent the ship being recovered or its data
 read. Someone wanted Savage Intent dead and silent specifically.
 

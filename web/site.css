@@ -1,5 +1,5 @@
 /* =========================================================================
-   Traveller Stephanus — shared chrome styles
+   Traveller Stephanus - shared chrome styles
    Used by both index.html and travel.html. Page-specific styles stay inline.
    ========================================================================= */
 
@@ -7,7 +7,7 @@
 
 /* === Palettes === */
 
-/* Phosphor — amber CRT on warm coal (default) */
+/* Phosphor - amber CRT on warm coal (default) */
 :root,
 html[data-palette="phosphor"] {
   --bg: #0c0a07;
@@ -53,7 +53,7 @@ html[data-palette="phosphor"] {
   --starport-X-fill: #6e2b2b;
 }
 
-/* Star Chart — cosmic black, atlas gold + signal cyan */
+/* Star Chart - cosmic black, atlas gold + signal cyan */
 html[data-palette="starchart"] {
   --bg: #07080d;
   --bg-2: #0e1118;
@@ -98,7 +98,7 @@ html[data-palette="starchart"] {
   --starport-X-fill: #5a2540;
 }
 
-/* Field Dossier — cream paper, oxblood ink, registry teal */
+/* Field Dossier - cream paper, oxblood ink, registry teal */
 html[data-palette="dossier"] {
   --bg: #efe6cf;
   --bg-2: #e6dab9;
@@ -205,7 +205,7 @@ aside.sidebar {
   margin-top: 4px;
 }
 
-/* Palette cycle button — three swatch dots, current one ringed */
+/* Palette cycle button - three swatch dots, current one ringed */
 .palette-toggle {
   display: inline-flex;
   align-items: center;

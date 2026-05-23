@@ -52,7 +52,7 @@ function renderPriceCategory(obj, depth) {
 
 function renderPriceTable(rows) {
   if (!rows.length) return '';
-  // Non-object rows (e.g. simple strings) — fall back to a list
+  // Non-object rows (e.g. simple strings) - fall back to a list
   if (rows.some(r => typeof r !== 'object' || r === null)) {
     return `<ul>${rows.map(r => `<li>${esc(String(r))}</li>`).join('')}</ul>`;
   }

@@ -142,7 +142,7 @@ Note the percentage loss in Hit Protection due to aging.
 
 #### Term [X]
 - **Roll**: [X]
-- **Effect**: [Mild/Moderate/Severe] — [description]
+- **Effect**: [Mild/Moderate/Severe] - [description]
 - **Attributes Affected**: [list with before→after]
 - **Points Lost**: [X]
 - **Assessment**: [lucky/average/unlucky]
@@ -206,19 +206,19 @@ Note the percentage loss in Hit Protection due to aging.
 
 #### Term 4
 - **Roll**: 3
-- **Effect**: Mild — -1 from one random physical attribute
+- **Effect**: Mild - -1 from one random physical attribute
 - **Attribute Selection**: Rolled 6 → END
 - **Attributes Affected**: END 6→5
 - **Points Lost**: 1
-- **Assessment**: Lucky — rolled in the favorable 1-3 range
+- **Assessment**: Lucky - rolled in the favorable 1-3 range
 
 #### Term 5
 - **Roll**: 6
-- **Effect**: Severe — -1 from three random attributes (STR/DEX/END/INT)
+- **Effect**: Severe - -1 from three random attributes (STR/DEX/END/INT)
 - **Attribute Selection**: STR spared; DEX, END, and INT affected
 - **Attributes Affected**: DEX 10→9, END 5→4, INT 10→9
 - **Points Lost**: 3
-- **Assessment**: Unlucky — rolled the worst possible result (16.67% chance)
+- **Assessment**: Unlucky - rolled the worst possible result (16.67% chance)
 
 ---
 
@@ -227,7 +227,7 @@ Note the percentage loss in Hit Protection due to aging.
 #### Total Attribute Loss
 - **Expected**: 3.33
 - **Actual**: 4
-- **Assessment**: Slightly unlucky — lost about 0.7 points more than expected
+- **Assessment**: Slightly unlucky - lost about 0.7 points more than expected
 
 #### Affected Attributes Summary
 
@@ -257,4 +257,4 @@ For a social/merchant character, losing physical attributes hurts less than it w
 
 ### Post-Career Overall Assessment
 
-William Hung's aging was slightly unlucky overall, losing 4 attribute points against an expected 3.33. The term 5 roll of 6 (severe aging) was painful — only a 16.67% chance — but the damage was mitigated by good fortune on which attributes were hit: STR was spared entirely, and the losses to DEX and INT still left him with positive modifiers. His END took the brunt of the punishment, dropping to 4, which narratively suggests a man who's spent too many years at parties and not enough in the gym. For a character whose strengths are social rather than physical, he aged about as gracefully as one could hope after rolling a 6.
+William Hung's aging was slightly unlucky overall, losing 4 attribute points against an expected 3.33. The term 5 roll of 6 (severe aging) was painful - only a 16.67% chance - but the damage was mitigated by good fortune on which attributes were hit: STR was spared entirely, and the losses to DEX and INT still left him with positive modifiers. His END took the brunt of the punishment, dropping to 4, which narratively suggests a man who's spent too many years at parties and not enough in the gym. For a character whose strengths are social rather than physical, he aged about as gracefully as one could hope after rolling a 6.

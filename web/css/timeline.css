@@ -1,5 +1,5 @@
 /* =========================================================================
-   Campaign Timeline — vertical axis, narrative on the left, crew on the right.
+   Campaign Timeline - vertical axis, narrative on the left, crew on the right.
    Top of the page is the most recent in-game week; scrolling down moves back.
    ========================================================================= */
 
@@ -50,7 +50,7 @@
   position: relative;
   padding: 0 0 30px;
 }
-/* Faint central axis — a quiet through-line, not a heavy spine. */
+/* Faint central axis - a quiet through-line, not a heavy spine. */
 .campaign-timeline::before {
   content: "";
   position: absolute;

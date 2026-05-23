@@ -1,5 +1,5 @@
 /* =========================================================================
-   Traveller Stephanus — reusable UI components
+   Traveller Stephanus - reusable UI components
    Cards, tags, kv lists, filter bars, error/loading, collapsibles, etc.
    ========================================================================= */
 
@@ -182,6 +182,6 @@ details.collapsible > summary:hover > h2 {
 @media (max-width: 480px) {
   .card { padding: 12px 14px; }
   .recap-block { padding: 10px 12px; font-size: 0.88rem; }
-  /* Tag chips can crowd in narrow rows — give them a little breathing room. */
+  /* Tag chips can crowd in narrow rows - give them a little breathing room. */
   .pill-row .tag { margin-bottom: 4px; }
 }

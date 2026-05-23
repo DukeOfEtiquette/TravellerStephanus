@@ -46,7 +46,7 @@ function preprocessReferenceMd(text) {
                   || /^\[[A-EX]+\][- ]/.test(s);
   const lines = text.split('\n');
   const out = [];
-  // Skip the first non-blank line — that's the document title and we render it
+  // Skip the first non-blank line - that's the document title and we render it
   // separately as the page title.
   let titleSkipped = false;
 
@@ -61,7 +61,7 @@ function preprocessReferenceMd(text) {
 
     if (!titleSkipped) {
       titleSkipped = true;
-      // Drop it — page title already shows the document title
+      // Drop it - page title already shows the document title
       continue;
     }
 

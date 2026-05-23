@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Traveller Stephanus — Travel Calculator</title>
+<title>Traveller Stephanus - Travel Calculator</title>
 <script>
   // Apply saved palette/font before stylesheets evaluate, to avoid flash-of-default.
   try {
@@ -374,7 +374,7 @@ function populateDropdowns() {
   const srcEl = document.getElementById('source');
   const dstEl = document.getElementById('dest');
   for (const sys of systems) {
-    const label = `${sys.id} — ${sys.system} (Starport ${sys.starport})`;
+    const label = `${sys.id} - ${sys.system} (Starport ${sys.starport})`;
     srcEl.add(new Option(label, sys.id));
     dstEl.add(new Option(label, sys.id));
   }
@@ -632,7 +632,7 @@ function renderResult(result) {
   for (let i = 0; i < result.jumps.length; i++) {
     const j = result.jumps[i];
     const fuelClass = j.fuelType === 'Refined' ? 'fuel-refined' : 'fuel-unrefined';
-    html += `<div class="step">Jump ${i + 1}: ${esc(hexLabel(j.from))} → ${esc(hexLabel(j.to))} (${j.parsecs} pc) — <span class="${fuelClass}">${j.fuelType}</span></div>`;
+    html += `<div class="step">Jump ${i + 1}: ${esc(hexLabel(j.from))} → ${esc(hexLabel(j.to))} (${j.parsecs} pc) - <span class="${fuelClass}">${j.fuelType}</span></div>`;
   }
 
   // Summary
@@ -667,11 +667,11 @@ function renderPlanResult(result) {
   for (const step of result.steps) {
     if (step.type === 'jump') {
       jumpNum++;
-      html += `<div class="step">Jump ${jumpNum}: ${esc(hexLabel(step.from))} → ${esc(hexLabel(step.to))} (${step.parsecs} pc) — <span class="fuel-refined">Refined</span> [${step.fuelAfter} left]</div>`;
+      html += `<div class="step">Jump ${jumpNum}: ${esc(hexLabel(step.from))} → ${esc(hexLabel(step.to))} (${step.parsecs} pc) - <span class="fuel-refined">Refined</span> [${step.fuelAfter} left]</div>`;
     } else {
       const hex = hexById[step.at];
       const timeCost = step.atOrigin ? 'at origin' : '2 weeks';
-      html += `<div class="step"><span class="refuel-stop">Refuel at ${esc(hexLabel(step.at))}: buy ${step.purchased} refined (Starport ${hex.starport}) — ${timeCost}</span></div>`;
+      html += `<div class="step"><span class="refuel-stop">Refuel at ${esc(hexLabel(step.at))}: buy ${step.purchased} refined (Starport ${hex.starport}) - ${timeCost}</span></div>`;
     }
   }
 

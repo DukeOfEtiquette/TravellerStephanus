@@ -98,7 +98,7 @@ function crumbs(parts) {
   ).join(' / ')}</div>`;
 }
 
-// Generic recursive YAML renderer — used as the catch-all by several views
+// Generic recursive YAML renderer - used as the catch-all by several views
 // when a section's shape isn't worth a bespoke renderer.
 function renderYaml(obj, depth = 0) {
   if (obj == null) return '<em>null</em>';

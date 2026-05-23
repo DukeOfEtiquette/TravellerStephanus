@@ -4,7 +4,7 @@ session:
   recap: |
     The crew hatched a plan to gather more information and arrange a more suitable situation for
     the abduction. They arranged for Chief Broker Hung to be hired as catering manager at the
-    estate, while Baron Harrow led a team who posed as computer technicians — and secretly hacked
+    estate, while Baron Harrow led a team who posed as computer technicians - and secretly hacked
     the estate's servers with a high degree of success, gaining root administrator access.
 
     The crew used their access to:
@@ -22,14 +22,14 @@ session:
 
     The crew failed to intervene during the gap day itself. However, Corinne Page broke into
     Hassan's office hoping to find a personal tracker of some sort keyed to Solal. She did not
-    find one, but did find tender, personal letters from Solal to his illegitimate son — Hassan
+    find one, but did find tender, personal letters from Solal to his illegitimate son - Hassan
     himself. Solal cares very deeply for his bastard child.
 
     Finally, the crew purchased a very large amount of powerful sleeping drugs that should evade
     automated anti-poison countermeasures (thanks to Dr. van Leeuwen).
 
     Using these drugs, Catering Manager Hung arranged to spike the food of the entire hunting
-    party — Solal, his household guard, all guests and staff — during the hunting expedition at
+    party - Solal, his household guard, all guests and staff - during the hunting expedition at
     the Nbangu Dikila Nature Preserve. The party applied antidote for themselves.
 
     We resume next session after the hunting party arrives back at the pavilion following the
@@ -40,18 +40,18 @@ session:
 
   narrative_events:
     - week: 13.6
-      title: "Solal arrived late, burned in at 9 G — suspicious"
+      title: "Solal arrived late, burned in at 9 G - suspicious"
       description: |
         Solal arrived in the system late, then burned at 9 Gs to make
         planetfall before the schedule gap day. The maneuver itself is
-        notable — the speed and timing imply he was urgent or expecting
+        notable - the speed and timing imply he was urgent or expecting
         something.
       location: "Mowebe"
     - week: 14.0
       title: "Cooper-Akachi over-represented in Solal's calendar"
       description: |
         Manipulated schedule data revealed a suspicious number of
-        Cooper-Akachi Diversified Industries meetings booked with Solal —
+        Cooper-Akachi Diversified Industries meetings booked with Solal -
         plus several hunting expeditions and a "black hole" gap day.
       location: "Solal estate, Mowebe"
     - week: 14.4
@@ -59,7 +59,7 @@ session:
       description: |
         Corinne Page broke into Hassan's (majordomo) office hoping for a
         personal tracker keyed to Solal. Found instead a cache of tender
-        personal letters from Solal to Hassan — Hassan is his bastard son,
+        personal letters from Solal to Hassan - Hassan is his bastard son,
         and Solal cares deeply for him.
       location: "Solal estate, Mowebe"
 
@@ -86,7 +86,7 @@ session:
       title: "Spiked the hunting party's food at Nbangu Dikila"
       description: |
         Catering Manager Hung arranged to spike the entire hunting
-        expedition's meal — Solal, household guard, guests, staff. The
+        expedition's meal - Solal, household guard, guests, staff. The
         party applied antidote to themselves.
       location: "Nbangu Dikila Nature Preserve, Mowebe"
 
@@ -96,7 +96,7 @@ session:
       role: Majordomo / Chief of Staff
       description: |
         Solal's majordomo and chief of staff. Runs the estate. Discovered to be Solal's
-        illegitimate son — Solal writes him tender, personal letters and cares for him deeply,
+        illegitimate son - Solal writes him tender, personal letters and cares for him deeply,
         though this relationship appears to be secret.
       status: active
 
@@ -112,18 +112,18 @@ session:
     - "Hung hired as catering manager at Solal's estate"
     - "Baron Harrow led team posing as computer technicians; hacked estate servers to root admin access"
     - "Manipulated all estate schedules (hunting trips, Cooper-Akachi meetings, gap day)"
-    - "Profiled Hassan — target's majordomo and chief of staff"
+    - "Profiled Hassan - target's majordomo and chief of staff"
     - "Planted timed virus: gap day causes intermittent beeping alarms in toilets and sleeping areas"
     - "Created four false security staff profiles using crew biometrics"
     - "Solal arrived late in the system, burned in at 9 Gs to make planetfall before gap day"
     - "Crew failed to intervene during gap day"
-    - "Corinne Page broke into Hassan's office; found personal letters from Solal to Hassan — his illegitimate son"
+    - "Corinne Page broke into Hassan's office; found personal letters from Solal to Hassan - his illegitimate son"
     - "Purchased powerful sleeping drugs that evade automated anti-poison countermeasures (Dr. van Leeuwen)"
     - "Catering Manager Hung spiked entire hunting party's food at Nbangu Dikila Nature Preserve"
     - "Party administered antidote to themselves before the meal"
 
   intel:
-    - "Cooper-Akachi Diversified Industries reps were meeting with Solal in suspicious numbers — scheduling data captured"
+    - "Cooper-Akachi Diversified Industries reps were meeting with Solal in suspicious numbers - scheduling data captured"
     - "Hassan is Jassem Solal's illegitimate son; Solal cares deeply for him (discovered via personal letters)"
 
   absent_pcs: []

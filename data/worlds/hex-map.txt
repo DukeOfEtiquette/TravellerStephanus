@@ -1,4 +1,4 @@
-Sector Hex Map — Flat-top, even-q offset
+Sector Hex Map - Flat-top, even-q offset
 Odd columns (1, 3) shifted down by half a hex.
 Starport in parentheses: A/B/C = refined fuel, D = unrefined only, X = none.
 

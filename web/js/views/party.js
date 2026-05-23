@@ -5,7 +5,7 @@
 'use strict';
 
 async function viewParty() {
-  setView('<div class="loading">Loading party…</div>');
+  setView('<div class="loading">Loading crew…</div>');
   let raw;
   try { raw = await load('../data/party.yaml'); }
   catch (e) { return showError(e, '../data/party.yaml'); }
@@ -17,7 +17,7 @@ async function viewParty() {
   const renderCard = (m) => {
     const dead = m.status === 'DECEASED';
     return `<div class="card">
-      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED${m.died ? ` — ${esc(m.died)}` : ''}</span>` : ''}</h3>
+      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED${m.died ? ` - ${esc(m.died)}` : ''}</span>` : ''}</h3>
       <div class="pill-row">
         ${m.upp ? `<span class="tag dim">UPP ${esc(m.upp)}</span>` : ''}
         ${m.age ? `<span class="tag dim">age ${esc(m.age)}</span>` : ''}
@@ -27,13 +27,13 @@ async function viewParty() {
         ${m.background.homeworld ? `<dt>Homeworld</dt><dd>${esc(m.background.homeworld)}</dd>` : ''}
         ${m.background.schooling ? `<dt>Schooling</dt><dd>${esc(m.background.schooling)}</dd>` : ''}
       </div>` : ''}
-      ${m.careers?.length ? `<h3 style="margin-top: 8px;">Careers</h3><ul>${m.careers.map(c => `<li>${esc(c.name)}${c.terms != null ? ` — ${esc(c.terms)} terms` : ''}${c.rank != null ? `, rank ${esc(c.rank)}` : ''}</li>`).join('')}</ul>` : ''}
+      ${m.careers?.length ? `<h3 style="margin-top: 8px;">Careers</h3><ul>${m.careers.map(c => `<li>${esc(c.name)}${c.terms != null ? ` - ${esc(c.terms)} terms` : ''}${c.rank != null ? `, rank ${esc(c.rank)}` : ''}</li>`).join('')}</ul>` : ''}
       ${m.skills?.length ? `<h3>Skills</h3><div>${m.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>` : ''}
       ${m.notes ? `<div style="margin-top: 8px; white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem;">${esc(m.notes)}</div>` : ''}
     </div>`;
   };
 
-  let html = `<h1 class="page-title">Party Members</h1>`;
+  let html = `<h1 class="page-title">Crew</h1>`;
   html += `<p style="color: var(--text-dim); margin-bottom: 12px;">PCs in the group.</p>`;
 
   html += `<div class="card-grid">${active.map(renderCard).join('')}</div>`;
@@ -167,7 +167,7 @@ async function viewShips() {
                 ${v.source ? `<span class="tag dim">${esc(v.source)}</span>` : ''}
               </div>
               ${v.current_cargo?.length
-                ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.count ? ` ×${esc(c.count)}` : ''}${c.tons ? ` (${esc(c.tons)} t${c.count ? ` each` : ''})` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
+                ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.count ? ` ×${esc(c.count)}` : ''}${c.tons ? ` (${esc(c.tons)} t${c.count ? ` each` : ''})` : ''}${c.notes ? ` - ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
                 : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
               ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
             </div>
@@ -192,18 +192,18 @@ async function viewShips() {
           ${ship.frame.tonnage ? `<dt>Tonnage</dt><dd>${esc(ship.frame.tonnage)}</dd>` : ''}
           ${ship.frame.hull_hp ? `<dt>Hull HP</dt><dd>${esc(ship.frame.hull_current ?? ship.frame.hull_hp)} / ${esc(ship.frame.hull_hp)}</dd>` : ''}
           ${cargoCap ? `<dt>Cargo</dt><dd>${cargoUsed} / ${cargoCap} t</dd>` : ''}
-          ${hangerCap ? `<dt>Hanger</dt><dd>${hangerUsed || '—'} / ${hangerCap} t</dd>` : ''}
+          ${hangerCap ? `<dt>Hanger</dt><dd>${hangerUsed || '-'} / ${hangerCap} t</dd>` : ''}
         </div>` : ''}
 
         ${ship.systems ? `<h3>Systems</h3><pre>${esc(jsyaml.dump(ship.systems))}</pre>` : ''}
         ${ship.amenities ? `<h3>Amenities</h3><pre>${esc(jsyaml.dump(ship.amenities))}</pre>` : ''}
-        ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` — boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
+        ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` - boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
 
         ${renderBay('Cargo Bay', cargoList, cargoCap)}
 
         ${renderBay('Hanger', hangerList, hangerCap)}
 
-        ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` — ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
+        ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` - ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
       </div>`;
     }
   }

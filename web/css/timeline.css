@@ -40,10 +40,34 @@
 }
 .timeline-legend .filter-btn .swatch.narrative { background: var(--accent-2); }
 .timeline-legend .filter-btn .swatch.crew { background: var(--accent); }
+.timeline-legend .timeline-search {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  min-width: 200px;
+}
+.timeline-legend .timeline-search:focus {
+  outline: none;
+  border-color: var(--accent-2);
+}
+.timeline-legend .timeline-search::placeholder {
+  color: var(--text-faint);
+}
 .timeline-legend .timeline-count {
   color: var(--text-faint);
   font-size: 0.78rem;
   margin-left: auto;
+}
+.timeline-empty {
+  padding: 28px 12px;
+  color: var(--text-dim);
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .campaign-timeline {

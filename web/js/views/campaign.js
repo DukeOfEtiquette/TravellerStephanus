@@ -281,6 +281,7 @@ async function viewInvestigation() {
 // User's current filter for the timeline view. Persists across renders
 // within a session (not across reloads).
 let _timelineFilter = 'both'; // 'both' | 'narrative' | 'crew'
+let _timelineSearch = '';
 
 function _weekNum(d) {
   if (typeof d === 'number') return d;
@@ -361,9 +362,6 @@ async function viewTimeline() {
     return setView(html);
   }
 
-  const narrativeCount = events.filter(e => e.type === 'narrative').length;
-  const crewCount = events.filter(e => e.type === 'crew').length;
-
   // Sort desc by in-game week; ties keep their array order (most recent
   // sessions first because we load in increasing session order, then push).
   // Actually we loaded sessions 1..N in order, so within the same week the
@@ -374,33 +372,6 @@ async function viewTimeline() {
     if (dd !== 0) return dd;
     return (b.session || 0) - (a.session || 0);
   });
-
-  // Group consecutive events sharing the same in-game week.
-  const groups = [];
-  let last = null;
-  for (const ev of events) {
-    if (!last || _weekNum(last.week) !== _weekNum(ev.week)) {
-      last = { week: ev.week, session: ev.session, narrative: [], crew: [] };
-      groups.push(last);
-    }
-    last[ev.type].push(ev);
-    // If a later event for the same week comes from a higher session
-    // number, prefer that one as the row's "primary" session label.
-    if (ev.session > (last.session || 0)) last.session = ev.session;
-  }
-
-  // Legend + filter pills
-  html += `<div class="timeline-legend" id="timeline-legend">
-    <button class="filter-btn" type="button" data-filter="both" aria-pressed="${_timelineFilter === 'both'}">Both</button>
-    <button class="filter-btn" type="button" data-filter="narrative" aria-pressed="${_timelineFilter === 'narrative'}"><span class="swatch narrative"></span>Narrative · ${narrativeCount}</button>
-    <button class="filter-btn" type="button" data-filter="crew" aria-pressed="${_timelineFilter === 'crew'}"><span class="swatch crew"></span>Crew · ${crewCount}</button>
-    <span class="timeline-count">${groups.length} week${groups.length === 1 ? '' : 's'} · ${events.length} events</span>
-  </div>`;
-
-  const rootCls = _timelineFilter === 'narrative' ? 'campaign-timeline hide-crew'
-                : _timelineFilter === 'crew' ? 'campaign-timeline hide-narrative'
-                : 'campaign-timeline';
-  html += `<div class="${rootCls}" id="campaign-timeline">`;
 
   const renderCard = (ev) => {
     const sessionLink = ev.session
@@ -416,29 +387,81 @@ async function viewTimeline() {
     </article>`;
   };
 
-  for (const g of groups) {
-    const narrHtml = g.narrative.length
-      ? g.narrative.map(renderCard).join('')
-      : '';
-    const crewHtml = g.crew.length
-      ? g.crew.map(renderCard).join('')
-      : '';
-    html += `<div class="timeline-row" data-week="${esc(_fmtWeek(g.week))}">
-      <div class="week-marker">
-        <span class="week-pill">Week ${esc(_fmtWeek(g.week))}</span>
-        ${g.session ? `<span class="week-sublabel">Session ${g.session}</span>` : ''}
-      </div>
-      <div class="timeline-col narrative${g.narrative.length ? '' : ' empty'}">${narrHtml}</div>
-      <div class="timeline-col crew${g.crew.length ? '' : ' empty'}">${crewHtml}</div>
-    </div>`;
-  }
+  // Legend + search + filter pills. Counts are filled in by renderBody().
+  html += `<div class="timeline-legend" id="timeline-legend">
+    <input type="search" id="timeline-search" class="timeline-search" placeholder="Search events…" value="${esc(_timelineSearch)}" autocomplete="off">
+    <button class="filter-btn" type="button" data-filter="both" aria-pressed="${_timelineFilter === 'both'}">Both</button>
+    <button class="filter-btn" type="button" data-filter="narrative" aria-pressed="${_timelineFilter === 'narrative'}"><span class="swatch narrative"></span>Narrative · <span class="filter-count" data-count="narrative">0</span></button>
+    <button class="filter-btn" type="button" data-filter="crew" aria-pressed="${_timelineFilter === 'crew'}"><span class="swatch crew"></span>Crew · <span class="filter-count" data-count="crew">0</span></button>
+    <span class="timeline-count" id="timeline-count">0 weeks · 0 events</span>
+  </div>`;
 
-  html += `</div>`;
+  const rootCls = _timelineFilter === 'narrative' ? 'campaign-timeline hide-crew'
+                : _timelineFilter === 'crew' ? 'campaign-timeline hide-narrative'
+                : 'campaign-timeline';
+  html += `<div class="${rootCls}" id="campaign-timeline"></div>`;
   setView(html);
 
-  // Wire up the filter pills - re-render in place rather than re-fetching.
-  const legend = document.getElementById('timeline-legend');
   const tl = document.getElementById('campaign-timeline');
+  const legend = document.getElementById('timeline-legend');
+
+  const renderBody = () => {
+    const q = _timelineSearch.trim().toLowerCase();
+    const filtered = q
+      ? events.filter(ev => {
+          const hay = [ev.title, ev.description, ev.location]
+            .filter(Boolean).join(' ').toLowerCase();
+          return hay.includes(q);
+        })
+      : events;
+
+    // Group consecutive events sharing the same in-game week.
+    const groups = [];
+    let last = null;
+    for (const ev of filtered) {
+      if (!last || _weekNum(last.week) !== _weekNum(ev.week)) {
+        last = { week: ev.week, session: ev.session, narrative: [], crew: [] };
+        groups.push(last);
+      }
+      last[ev.type].push(ev);
+      // If a later event for the same week comes from a higher session
+      // number, prefer that one as the row's "primary" session label.
+      if (ev.session > (last.session || 0)) last.session = ev.session;
+    }
+
+    const narrativeCount = filtered.filter(e => e.type === 'narrative').length;
+    const crewCount = filtered.filter(e => e.type === 'crew').length;
+    const nEl = legend?.querySelector('[data-count="narrative"]');
+    const cEl = legend?.querySelector('[data-count="crew"]');
+    const tEl = document.getElementById('timeline-count');
+    if (nEl) nEl.textContent = String(narrativeCount);
+    if (cEl) cEl.textContent = String(crewCount);
+    if (tEl) tEl.textContent = `${groups.length} week${groups.length === 1 ? '' : 's'} · ${filtered.length} event${filtered.length === 1 ? '' : 's'}`;
+
+    if (!tl) return;
+    if (groups.length === 0) {
+      tl.innerHTML = `<div class="timeline-empty">No events match “${esc(_timelineSearch)}”.</div>`;
+      return;
+    }
+    let body = '';
+    for (const g of groups) {
+      const narrHtml = g.narrative.length ? g.narrative.map(renderCard).join('') : '';
+      const crewHtml = g.crew.length ? g.crew.map(renderCard).join('') : '';
+      body += `<div class="timeline-row" data-week="${esc(_fmtWeek(g.week))}">
+        <div class="week-marker">
+          <span class="week-pill">Week ${esc(_fmtWeek(g.week))}</span>
+          ${g.session ? `<span class="week-sublabel">Session ${g.session}</span>` : ''}
+        </div>
+        <div class="timeline-col narrative${g.narrative.length ? '' : ' empty'}">${narrHtml}</div>
+        <div class="timeline-col crew${g.crew.length ? '' : ' empty'}">${crewHtml}</div>
+      </div>`;
+    }
+    tl.innerHTML = body;
+  };
+
+  renderBody();
+
+  // Wire up the filter pills - re-render in place rather than re-fetching.
   if (legend && tl) {
     legend.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-btn');
@@ -449,6 +472,14 @@ async function viewTimeline() {
       }
       tl.classList.toggle('hide-narrative', _timelineFilter === 'crew');
       tl.classList.toggle('hide-crew', _timelineFilter === 'narrative');
+    });
+  }
+
+  const searchInput = document.getElementById('timeline-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      _timelineSearch = e.target.value;
+      renderBody();
     });
   }
 }

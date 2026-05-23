@@ -20,7 +20,7 @@ session:
 
     On the decrypted storage crystals, they found orders for the Star from Tivid
     to Maitz to intercept a fleeing Newhall ship, a 100 dT scout ship called the
-    Deepest Light. Their unsigned orders — marked Priority 1 — ordered them to
+    Deepest Light. Their unsigned orders - marked Priority 1 - ordered them to
     capture or, if that was not feasible, destroy the Deepest Light.
 
     The crystals also contained thousands of short, encrypted files that started
@@ -43,20 +43,20 @@ session:
     - week: 24.0
       title: "Captain's bookshelf: a single book missing"
       description: |
-        Sole anomaly in the captain's stateroom on the Star of Carella —
+        Sole anomaly in the captain's stateroom on the Star of Carella -
         out-of-the-ordinary in an otherwise undisturbed space.
       location: "Star of Carella, Maitz"
     - week: 24.1
       title: "Star of Carella's Priority 1 orders decrypted"
       description: |
-        Unsigned orders from Tivid to Maitz: capture — or if not feasible,
-        destroy — the Newhall scout Deepest Light. Marked Priority 1.
+        Unsigned orders from Tivid to Maitz: capture - or if not feasible,
+        destroy - the Newhall scout Deepest Light. Marked Priority 1.
     - week: 24.1
       title: "Eight hours of encrypted comm traffic on storage crystals"
       description: |
         Thousands of short, high-grade encrypted files spanning the
         window from Star of Carella's arrival at Maitz until 8 hours
-        later — believed to be battle logs and/or command comms. None yet
+        later - believed to be battle logs and/or command comms. None yet
         decoded.
 
   crew_events:
@@ -66,7 +66,7 @@ session:
     - week: 23.0
       title: "Surveyed the gas-giant debris field"
       description: |
-        Settled on the Revenant's Echo (largest) as the primary target —
+        Settled on the Revenant's Echo (largest) as the primary target -
         but staged a diversion first.
       location: "Maitz, gas giant"
     - week: 24.0
@@ -85,19 +85,19 @@ session:
     - week: 24.2
       title: "Decrypted Star of Carella storage crystals"
       description: |
-        Cracked the bridge/comp-room storage media — orders + battle
+        Cracked the bridge/comp-room storage media - orders + battle
         traffic. The 8-hour encrypted comm trove still remains undecoded.
 
   npcs_introduced: []
 
   key_events:
     - "Crew resupplied at Mowebe JF lunar depot and jumped to Maitz"
-    - "Surveyed wrecks around Maitz's sole gas giant — 6 total: Revenant's Echo (largest), Star of Carella (Newhall), Adamant, Savage Intent, Deepest Light, plus debris (two of the six were debris fields)"
+    - "Surveyed wrecks around Maitz's sole gas giant - 6 total: Revenant's Echo (largest), Star of Carella (Newhall), Adamant, Savage Intent, Deepest Light, plus debris (two of the six were debris fields)"
     - "Set 'cry baby cry' diversion aboard Star of Carella before exploring the larger Revenant's Echo"
     - "Looted Star of Carella: physical storage media (bridge + computer room), captain's stateroom (only anomaly was a missing book from a bookshelf), 2 x 10 dTon shuttlecraft"
     - "Siphoned fuel from Star of Carella to refill VoL II tanks (2/2)"
     - "Decrypted Star of Carella storage crystals: orders from Tivid to Maitz to capture or destroy the Newhall scout Deepest Light (100 dT), unsigned, Priority 1"
-    - "Crystals also contained thousands of short, encrypted files spanning an 8-hour window starting from Star of Carella's arrival in Maitz — none yet decoded"
+    - "Crystals also contained thousands of short, encrypted files spanning an 8-hour window starting from Star of Carella's arrival in Maitz - none yet decoded"
 
   ship_events:
     - event: "Jumped from Mowebe JF lunar depot to Maitz"
@@ -135,6 +135,6 @@ session:
         Surveyed but not yet boarded.
     - name: "(unidentified debris field)"
       faction: unknown
-      notes: "One of the two debris fields — too disintegrated to name."
+      notes: "One of the two debris fields - too disintegrated to name."
 
   absent_pcs: []

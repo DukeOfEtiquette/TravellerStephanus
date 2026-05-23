@@ -145,8 +145,8 @@ For character-specific session notes, see `characters/active/*/session-notes.md`
 ## Processing Session Notes
 
 There are two distinct, non-exclusive sources of session notes:
-- **GM notes** (`data/sessions/session-NN.yaml`) — official narrative recaps provided by the GM after each session. These are the source of truth for what happened.
-- **Player notes** (`characters/active/william-hung/session-notes.md`) — notes written by Adam (the player) from William's perspective. These are Adam's own record and are NOT updated from GM notes.
+- **GM notes** (`data/sessions/session-NN.yaml`) - official narrative recaps provided by the GM after each session. These are the source of truth for what happened.
+- **Player notes** (`characters/active/william-hung/session-notes.md`) - notes written by Adam (the player) from William's perspective. These are Adam's own record and are NOT updated from GM notes.
 
 When the user provides new **GM session notes**, update ONLY the following files:
 
@@ -164,11 +164,11 @@ Sessions always occur on **Fridays**. The `date` field in both `data/sessions/` 
 
 **Critical:** Discord timestamps on the GM's posts reflect when he uploaded the notes, which can be days or weeks after the session. Never use a Discord timestamp as a session date.
 
-**Deriving unknown dates:** When the actual session date is not recorded, calculate it by counting Fridays from a confirmed anchor — but note that scheduling gaps occur and sessions are not always strictly weekly. All dates for sessions 1–12 have been confirmed accurate.
+**Deriving unknown dates:** When the actual session date is not recorded, calculate it by counting Fridays from a confirmed anchor - but note that scheduling gaps occur and sessions are not always strictly weekly. All dates for sessions 1–12 have been confirmed accurate.
 
 ## Testing the Web Viewer
 
-The static site in `web/` (`index.html`, `travel.html`) can be tested end-to-end via the **Playwright MCP** — use `mcp__playwright__browser_*` tools to navigate, click, snapshot, and screenshot.
+The static site in `web/` (`index.html`, `travel.html`) can be tested end-to-end via the **Playwright MCP** - use `mcp__playwright__browser_*` tools to navigate, click, snapshot, and screenshot.
 
 To serve locally, start `python3 -m http.server` from the **repo root** (not `web/`), because the HTML fetches `../data/...`. Netlify handles this in production via the build step in `netlify.toml`, which copies `data/` into `web/data/`.
 

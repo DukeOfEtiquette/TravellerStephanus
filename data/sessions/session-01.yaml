@@ -49,5 +49,5 @@ session:
       description: |
         Faction-based starting ship upgrade menu presented (combat: beam
         lasers, missiles, shields-1, armor-1; assets: armory-1, two
-        staterooms-1, barracks-1 for five marines) — pick three. Decision
+        staterooms-1, barracks-1 for five marines) - pick three. Decision
         deferred to Session 2.

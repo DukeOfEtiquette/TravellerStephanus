@@ -16,7 +16,7 @@
 - **Total**: 7
 - **Result**: Pass (exactly)
 - **P(Success)**: 72.22% (with +1 modifier)
-- **Assessment**: Made it by the skin of his teeth. Needed 6+ and rolled exactly 6. A roll of 5 would have meant draft or Drifter — his entire career trajectory hung on this single point.
+- **Assessment**: Made it by the skin of his teeth. Needed 6+ and rolled exactly 6. A roll of 5 would have meant draft or Drifter - his entire career trajectory hung on this single point.
 
 ### Basic Training
 - **Table**: Service
@@ -43,7 +43,7 @@
 
 - **Expected Successes**: 1.17
 - **Actual Successes**: 1
-- **Assessment**: Average quantity, but that natural 12 on term 1 was a memorable moment — the best possible roll.
+- **Assessment**: Average quantity, but that natural 12 on term 1 was a memorable moment - the best possible roll.
 
 ### Bonus Training
 
@@ -51,7 +51,7 @@
 |---|---------|------|-------------|
 | 1 | Service | 2    | Carousing-1 |
 
-- **Assessment**: Carousing fits the character perfectly — the charming purser who throws the best crew parties.
+- **Assessment**: Carousing fits the character perfectly - the charming purser who throws the best crew parties.
 
 ### Leadership
 
@@ -87,10 +87,10 @@
 | 4    | +1 SOC (3→4) |
 
 - **Summary**: 1 vehicle, +1 EDU, +1 SOC
-- **Assessment**: Excellent spread. The attribute bumps helped offset his weak starting stats — EDU improvement would make career 2 leadership easier (modifier goes from -1 to 0).
+- **Assessment**: Excellent spread. The attribute bumps helped offset his weak starting stats - EDU improvement would make career 2 leadership easier (modifier goes from -1 to 0).
 
 ### Career 1 Summary
-William's first Mercantile career was a foundation-building phase. He barely qualified, advanced slowly due to poor education, but made the most of his opportunities. The natural 12 on his first special assignment showed flashes of the luck that would define his second career. He left at 26 with core Mercantile skills, improved attributes, and a ground car — ready for whatever came next.
+William's first Mercantile career was a foundation-building phase. He barely qualified, advanced slowly due to poor education, but made the most of his opportunities. The natural 12 on his first special assignment showed flashes of the luck that would define his second career. He left at 26 with core Mercantile skills, improved attributes, and a ground car - ready for whatever came next.
 
 ---
 
@@ -104,7 +104,7 @@ William's first Mercantile career was a foundation-building phase. He barely qua
 - **Total**: 4
 - **Result**: Fail
 - **P(Success)**: 83.33%
-- **Assessment**: Very unlucky. Military has an 83% base success rate, and he rolled below the threshold. This failure forced him back into Mercantile via draft — but narratively, this "failure" led to his greatest success under Vasquez's mentorship.
+- **Assessment**: Very unlucky. Military has an 83% base success rate, and he rolled below the threshold. This failure forced him back into Mercantile via draft - but narratively, this "failure" led to his greatest success under Vasquez's mentorship.
 
 ### Training (3 terms)
 
@@ -178,16 +178,16 @@ William's first Mercantile career was a foundation-building phase. He barely qua
 | 5    | Personal Vehicle |
 
 - **Summary**: 4 Personal Vehicles, 2 High Passages
-- **Assessment**: Extremely lucky on vehicles — four results of 5-6 out of six rolls. The vehicle haul enabled the shuttlecraft. No attribute bumps, but the rank benefits already provided +1 EDU.
+- **Assessment**: Extremely lucky on vehicles - four results of 5-6 out of six rolls. The vehicle haul enabled the shuttlecraft. No attribute bumps, but the rank benefits already provided +1 EDU.
 
 ### Career 2 Summary
-William's second career was blessed by the dice. After unluckily failing Military qualification (17% failure rate), everything went his way: perfect 3/3 on special assignments, perfect 3/3 on promotions, strong retirement rolls. The combined probability of his special assignment and leadership success was roughly 4% — this was genuinely exceptional luck. The narrative of Vasquez's mentorship perfectly explains these mechanics: she put him in positions to succeed, advocated for his promotions, and he delivered every time.
+William's second career was blessed by the dice. After unluckily failing Military qualification (17% failure rate), everything went his way: perfect 3/3 on special assignments, perfect 3/3 on promotions, strong retirement rolls. The combined probability of his special assignment and leadership success was roughly 4% - this was genuinely exceptional luck. The narrative of Vasquez's mentorship perfectly explains these mechanics: she put him in positions to succeed, advocated for his promotions, and he delivered every time.
 
 ---
 
 ## Careers Overall Assessment
 
-William Hung's career phase tells a story of redemption through patronage. His first career was modest — barely qualified, slow advancement, average results. His failed attempt at Military (rolling 4 when he needed 5 on an 83% check) could have derailed everything. Instead, being drafted back into Mercantile under Captain Vasquez's wing transformed his trajectory.
+William Hung's career phase tells a story of redemption through patronage. His first career was modest - barely qualified, slow advancement, average results. His failed attempt at Military (rolling 4 when he needed 5 on an 83% check) could have derailed everything. Instead, being drafted back into Mercantile under Captain Vasquez's wing transformed his trajectory.
 
 The second career saw exceptional luck:
 - **Special Assignments**: 3/3 (19.85% odds)
@@ -200,4 +200,4 @@ The second career saw exceptional luck:
 - **Attribute Improvements**: +2 EDU (5→7), +1 SOC (3→4)
 - **Equipment**: 5 Personal Vehicles → Shuttlecraft + Ground Car + Grav Bike, 2 High Passages
 
-The dice created a character who started rough, failed at branching out, but found his calling when a mentor gave him a second chance. His astronomical Carousing (eventually rank 5) and maxed-out Broker/Steward skills make him one of the most capable social operators in the sector — a reputation built on luck, skill, and the woman who believed in him when no one else did.
+The dice created a character who started rough, failed at branching out, but found his calling when a mentor gave him a second chance. His astronomical Carousing (eventually rank 5) and maxed-out Broker/Steward skills make him one of the most capable social operators in the sector - a reputation built on luck, skill, and the woman who believed in him when no one else did.

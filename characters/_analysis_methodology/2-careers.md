@@ -51,7 +51,7 @@ Steps 4 and 5 use identical procedures, except additional careers skip basic tra
 | Mercantile | INT       | 7+     | 58.33%          |
 | Frontier   | END       | 5+     | 83.33%          |
 | Noble      | SOC       | 9+     | 27.78%          |
-| Drifter    | —         | Auto   | 100%            |
+| Drifter    | -         | Auto   | 100%            |
 | Psion      | PSI       | 7+     | 58.33%          |
 
 ### Leadership Targets
@@ -62,7 +62,7 @@ Steps 4 and 5 use identical procedures, except additional careers skip basic tra
 | Mercantile | EDU       | 7+     |
 | Frontier   | DEX       | 7+     |
 | Noble      | SOC       | 7+     |
-| Drifter    | —         | N/A    |
+| Drifter    | -         | N/A    |
 | Psion      | INT       | 7+     |
 
 ---
@@ -144,7 +144,7 @@ Each term: roll 2d6 + attribute modifier vs 7+.
 - **Average advancement**: Within ±1 of expected
 - **Slow advancement**: Promoted fewer terms than expected
 
-**Drifter Exception:** Drifters don't roll for leadership. Instead, they roll for "Specials" — analyze these separately.
+**Drifter Exception:** Drifters don't roll for leadership. Instead, they roll for "Specials" - analyze these separately.
 
 ### 4.6 Retirement Analysis
 
@@ -330,7 +330,7 @@ Roll 1d6 once per term PLUS once per leadership rank.
 |---|---------|------|-------------|
 | 1 | Service | 2    | Carousing-1 |
 
-- **Assessment**: Carousing fits the character perfectly — the party-throwing purser.
+- **Assessment**: Carousing fits the character perfectly - the party-throwing purser.
 
 #### Leadership
 
@@ -462,13 +462,13 @@ William's first career was a near-miss success story. He barely qualified, advan
 - **Assessment**: Extremely lucky on vehicles (four 5s and 6s), but no attribute bumps. The vehicle haul enabled a shuttlecraft.
 
 #### Career 2 Summary
-William's second Mercantile career was blessed by the dice. After unluckily failing Military qualification, everything went his way: 3/3 special assignments, 3/3 promotions, excellent retirement rolls. The narrative of Vasquez's mentorship perfectly explains this mechanical luck — she put him in positions to succeed, and he delivered every time.
+William's second Mercantile career was blessed by the dice. After unluckily failing Military qualification, everything went his way: 3/3 special assignments, 3/3 promotions, excellent retirement rolls. The narrative of Vasquez's mentorship perfectly explains this mechanical luck - she put him in positions to succeed, and he delivered every time.
 
 ---
 
 ### Careers Overall Assessment
 
-William Hung's career phase tells a story of redemption through patronage. His first career was modest — barely qualified, slow advancement, average results. His failed attempt at Military could have derailed everything, but being drafted back into Mercantile under Vasquez's wing transformed his trajectory. The second career saw exceptional luck: perfect special assignment success (19.85% odds), perfect promotion success (19.85% odds), and a retirement haul heavy on vehicles.
+William Hung's career phase tells a story of redemption through patronage. His first career was modest - barely qualified, slow advancement, average results. His failed attempt at Military could have derailed everything, but being drafted back into Mercantile under Vasquez's wing transformed his trajectory. The second career saw exceptional luck: perfect special assignment success (19.85% odds), perfect promotion success (19.85% odds), and a retirement haul heavy on vehicles.
 
 **Final Career Statistics:**
 - **Total Cash**: 75,000 Cr

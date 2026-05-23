@@ -1,5 +1,5 @@
 /* =========================================================================
-   Traveller Stephanus — shared chrome scripts
+   Traveller Stephanus - shared chrome scripts
    Used by both index.html and travel.html. Page-specific scripts stay inline.
    Exposes globals: NAV, renderNav, highlightNav (the router calls highlightNav
    on each hash change).
@@ -12,13 +12,13 @@
 const NAV = [
   { group: 'Campaign', items: [
     { route: '#/',              label: 'Overview' },
-    { route: '#/investigation', label: 'Investigation' },
     { route: '#/timeline',      label: 'Timeline' },
+    { route: '#/investigation', label: 'Investigation' },
     { route: '#/npcs',          label: 'NPCs' },
     { route: '#/sessions',      label: 'GM Session Recaps' }
   ]},
   { group: 'Party', items: [
-    { route: '#/party',  label: 'Party Members' },
+    { route: '#/party',  label: 'Crew' },
     { route: '#/ships',  label: 'Ships' },
     { route: '#/assets', label: 'Assets' }
   ]},

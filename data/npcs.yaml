@@ -66,7 +66,7 @@ npcs:
     notes: |
       Session 5: Expressed need for weapons on Ugrik if party travels that way.
       Session 6: Traded weapons for refined fuel.
-      Session 7: Assigned official JF job — O'Neill cylinder operation involving
+      Session 7: Assigned official JF job - O'Neill cylinder operation involving
       Administrator Torin and his wife Vondel.
       Session 8: Cut party's pay after Arvi murdered Torin and Vondel had to flee
       the entire Stoyben system (more expensive than planned exfil). Still issued
@@ -81,7 +81,7 @@ npcs:
     description: |
       JF Mowebe station chief. Tall, chiseled, handsome. Early 50s. Dresses extremely sharp.
       Runs ops out of a luxury art gallery. Known to be extremely zealous and ruthless, even
-      callous — will sacrifice agents if the mission demands it.
+      callous - will sacrifice agents if the mission demands it.
     notes: |
       Session 9: Offered sabotage job or Solal kidnapping; party chose kidnapping.
       Session 12: Rewarded party with 45k Cr, stealthsuit, 2 quantum weapons, and
@@ -143,7 +143,7 @@ npcs:
     first_appearance: Session 10
     description: |
       Solal's majordomo and chief of staff. Runs the estate with considerable authority.
-      Secretly Jassem Solal's illegitimate son — Solal writes him tender personal letters
+      Secretly Jassem Solal's illegitimate son - Solal writes him tender personal letters
       and cares deeply for him, though this appears to be a closely kept secret.
     notes: |
       Corinne Page found the letters from Solal to Hassan during a break-in (Session 10).
@@ -156,13 +156,13 @@ npcs:
     first_appearance: Session 12
     description: |
       Thani drunkard. White-collar thief and embezzler. Cover identity: helionite-processing
-      equipment salesman. Prone to violence — rumors he killed a former domestic partner.
+      equipment salesman. Prone to violence - rumors he killed a former domestic partner.
       Has connections to Thani intelligence.
     notes: |
       Was the "JF intelligence operative" dispatched at the end of Session 4 on the
       Ith → Mowebe → Thane → Mowebe circuit. Designated "Agent #3" by JF.
       Debriefed party at lunar JF depot (Session 12). Returns Campaign Week 16.
-      Key intel from debrief: see Investigation > Key Intel — "Coop-Ak commandos through
+      Key intel from debrief: see Investigation > Key Intel - "Coop-Ak commandos through
       Thane (Wk 10)" and "Quiru-Newhall border skirmish at Maitz (Wk 12)".
 
   - name: '"Alicia"'
@@ -209,7 +209,7 @@ npcs:
     first_appearance: Session 7
     description: |
       Wife of Civic Administrator Torin. Abused for years. Stopped acting afraid
-      and pulled out from the JF plan to flee — behavioral shift explained by Arvi's
+      and pulled out from the JF plan to flee - behavioral shift explained by Arvi's
       own plan taking shape.
     notes: |
       Was groomed by JF agent "Alicia" to leave Torin and download his work
@@ -245,7 +245,7 @@ npcs:
       rate at a local hotel where she met Torin.
     notes: |
       Finnegan planted audio/video recording devices in her hotel room.
-      Devices captured Torin and Arvi together — blackmail material secured.
+      Devices captured Torin and Arvi together - blackmail material secured.
       Session 8: Arvi murdered Torin to help Vondel escape his abuse, then
       urgently requested the party bundle Vondel and flee with them. Boarded
       Voice of Liberation II during the exfiltration and remains aboard.
@@ -299,7 +299,7 @@ npcs:
     description: |
       Stoybeni investigative journalist who broke the story about the Ithian
       death mask being stolen from Keith Sevont's estate before repatriation.
-      Always punctual — the prolonged silence is very out of character.
+      Always punctual - the prolonged silence is very out of character.
     notes: |
       Editor Doné Rivis is worried about Choo's 3-month disappearance.
       Party attempted to find traces of Choo's filed story in Dispatch systems.
@@ -325,10 +325,10 @@ npcs:
       (excluding JF connection). Amends made, slight levels of trust achieved.
       Revealed Pardeep Sarsar as Choo's trusted assistant/courier. Explained
       common document-intake process at the Dispatch. Checked in with Sarsar's
-      family at party's request — no sign or recent communication.
+      family at party's request - no sign or recent communication.
       Offered two jobs:
-        1. 40k/80k — deliver encrypted message to undercover reporter Kara Wiley on Thane
-        2. 10k/25k — check on Choo's wellbeing on Mora
+        1. 40k/80k - deliver encrypted message to undercover reporter Kara Wiley on Thane
+        2. 10k/25k - check on Choo's wellbeing on Mora
 
   - name: Kara Wiley
     affiliation: Stoyben Interstellar News Dispatch (undercover)
@@ -448,22 +448,22 @@ npcs:
       Acquired mask ~71 years ago at end of 2nd Agretic War.
 
   # ===========================================================================
-  # MAITZ BATTLE — PERSONS OF INTEREST
+  # MAITZ BATTLE - PERSONS OF INTEREST
   # ===========================================================================
 
   - name: Bunny
     aliases: []
     affiliation: Unknown (carried aboard the Newhall scout Deepest Light)
-    role: Mission objective — high-value person
+    role: Mission objective - high-value person
     location: Unknown (presumed Quiru custody as of the Maitz engagement)
     status: captured (by Quiru)
     first_appearance: Session 14
     description: |
-      A person — not a ship or cargo — extracted from the Newhall scout
+      A person - not a ship or cargo - extracted from the Newhall scout
       Deepest Light by Quiru space marines off the Savage Intent during
       the Maitz engagement. Appeared human in the sensor record reviewed
       via Victor's hindsight. "Bunny" is consistently in scare-quotes in
-      the Newhall logs — almost certainly a codename, not a real name.
+      the Newhall logs - almost certainly a codename, not a real name.
     notes: |
       Newhall and Quiru (publicly allies) fought a fleet-scale engagement
       over Bunny at Maitz. Newhall ordered first capture, then destroy,

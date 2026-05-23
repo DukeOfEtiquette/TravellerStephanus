@@ -4,7 +4,7 @@ session:
   recap: |
     The company arrived at Mowebe, made the customary arrangements with authorities (no false
     papers filed), and sold their electronics components and chemicals at one of the many orbital
-    manufactories — basically breaking even — before landing at the major spaceport (Day 13.1).
+    manufactories - basically breaking even - before landing at the major spaceport (Day 13.1).
 
     Being at least two weeks early for their planned rendezvous with the Jade Front's intelligence
     operative, the company met the JF's Mowebe station chief: Kikonye, a zealous, ruthless man
@@ -12,7 +12,7 @@ session:
 
     He offered two jobs on behalf of the Jade Front:
     1. A sabotage job with a higher likelihood of requiring a quick exit from the system.
-    2. A kidnapping and extraction of a high-value target to Ugrik — and obviously accessory to
+    2. A kidnapping and extraction of a high-value target to Ugrik - and obviously accessory to
        murder soon after.
 
     He offered cash for either job, or rewards from a weapons depot in system (including Quantum
@@ -35,8 +35,8 @@ session:
     - week: 13.0
       title: "Kikonye, JF Mowebe station chief, makes two offers"
       description: |
-        Kikonye — zealous, ruthless, cover identity as a luxury art dealer
-        — offers two operations: a sabotage job (likely forces a quick
+        Kikonye - zealous, ruthless, cover identity as a luxury art dealer
+        - offers two operations: a sabotage job (likely forces a quick
         system exit), or a kidnap-and-extract of a high-value target
         (followed by accessory to murder soon after). Cash payment or
         in-system weapons-depot rewards (including Quantum tech).
@@ -60,7 +60,7 @@ session:
       title: "Sold cargo at orbital manufactories"
       description: |
         Sold electronics components and chemicals at one of Mowebe's many
-        orbital manufactories — basically broke even on the freight job.
+        orbital manufactories - basically broke even on the freight job.
     - week: 13.1
       title: "Landed at the major spaceport"
       description: ""
@@ -114,7 +114,7 @@ session:
     - "Arrived at Mowebe; customs arrangements made honestly (no false papers)"
     - "Sold electronics components and chemicals at orbital manufactories (broke even)"
     - "Landed at major spaceport (Day 13.1)"
-    - "Met Kikonye — JF Mowebe station chief, cover as luxury art dealer"
+    - "Met Kikonye - JF Mowebe station chief, cover as luxury art dealer"
     - "Offered two JF jobs: sabotage or kidnapping of high-value target"
     - "Chose kidnapping of Jassem Solal; reward = weapons depot goods (Quantum tech available)"
     - "Negotiated: gave up transport to Ugrik + stealthsuits; retained 'polygraph detector' cybernetic implants"

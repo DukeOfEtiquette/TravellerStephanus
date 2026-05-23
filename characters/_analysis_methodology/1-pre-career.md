@@ -428,7 +428,7 @@ William's rolls were statistically average in aggregate but exhibited high varia
 - **Modified Total**: 2
 - **Result**: Agricultural (Atsah)
 - **Probability given SOC**: 30% (rolls 1-3)
-- **Assessment**: Expected — Agricultural was the most likely result for his SOC
+- **Assessment**: Expected - Agricultural was the most likely result for his SOC
 
 #### 2.2 Schooling
 - **SOC modifier (×2)**: -2
@@ -436,7 +436,7 @@ William's rolls were statistically average in aggregate but exhibited high varia
 - **Modified Total**: 1
 - **Result**: The Streets
 - **Probability given SOC**: 40% (rolls 1-4)
-- **Assessment**: Expected — The Streets was the most likely result for his SOC, though he had a 60% chance of something better
+- **Assessment**: Expected - The Streets was the most likely result for his SOC, though he had a 60% chance of something better
 
 #### 2.3 Psychic Talent
 - **INT**: 10 (modifier: +1)
@@ -445,7 +445,7 @@ William's rolls were statistically average in aggregate but exhibited high varia
 - **Target**: 12+
 - **Result**: Fail
 - **Probability of success**: 8.33%
-- **Assessment**: Close miss — rolled 11, needed 12. One of the few characters with a real shot at PSI.
+- **Assessment**: Close miss - rolled 11, needed 12. One of the few characters with a real shot at PSI.
 
 #### Step 2 Summary
 William's low SOC made poor background outcomes likely, and the dice delivered exactly that. His high INT gave him a rare chance at psychic talent, but he missed by one point.
@@ -458,7 +458,7 @@ William's low SOC made poor background outcomes likely, and the dice delivered e
 - **Roll**: 8
 - **Result**: 5 terms
 - **Probability**: 50% (rolls 7-10)
-- **Assessment**: Average — 5 terms is the most common result
+- **Assessment**: Average - 5 terms is the most common result
 
 #### 3.2 Career Distribution
 - **Distribution rolls**: [2, 4]
@@ -466,7 +466,7 @@ William's low SOC made poor background outcomes likely, and the dice delivered e
 - **Assessment**: The short first career (2 terms) limited his initial advancement, but his second career (3 terms) gave him time to reach Rank 3 under Vasquez's mentorship. A longer first career might have meant more advancement there but less dramatic character arc.
 
 #### Step 3 Summary
-Average term count with a distribution that created narrative opportunity — short first act, longer second act with a mentor figure.
+Average term count with a distribution that created narrative opportunity - short first act, longer second act with a mentor figure.
 
 ---
 

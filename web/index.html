@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Traveller Stephanus — Campaign Viewer</title>
+<title>Traveller Stephanus - Campaign Viewer</title>
 <script>
   // Apply saved palette before stylesheets evaluate, to avoid flash-of-default.
   try {
@@ -202,7 +202,7 @@
   .starport-D { color: var(--starport-D); }
   .starport-X { color: var(--starport-X); }
 
-  /* Prices tables — sized to content so columns stay tight */
+  /* Prices tables - sized to content so columns stay tight */
   table.prices-table {
     width: auto;
     min-width: 0;
@@ -257,7 +257,7 @@
   }
 
   /* =====================================================================
-     Campaign Timeline — vertical axis, narrative on the left, crew on the right.
+     Campaign Timeline - vertical axis, narrative on the left, crew on the right.
      Top of the page is the most recent in-game week; scrolling down moves back.
      ===================================================================== */
   .timeline-legend {
@@ -307,7 +307,7 @@
     position: relative;
     padding: 0 0 30px;
   }
-  /* Faint central axis — a quiet through-line, not a heavy spine. */
+  /* Faint central axis - a quiet through-line, not a heavy spine. */
   .campaign-timeline::before {
     content: "";
     position: absolute;
@@ -558,7 +558,7 @@
     .card { padding: 12px 14px; }
     .recap-block { padding: 10px 12px; font-size: 0.88rem; }
     pre { padding: 10px; font-size: 0.78rem; }
-    /* Tag chips can crowd in narrow rows — give them a little breathing room. */
+    /* Tag chips can crowd in narrow rows - give them a little breathing room. */
     .pill-row .tag { margin-bottom: 4px; }
   }
 
@@ -609,7 +609,7 @@
 'use strict';
 
 // =========================================================================
-// Manifests (hand-maintained — update when new files are added)
+// Manifests (hand-maintained - update when new files are added)
 // =========================================================================
 
 const SESSION_NUMBERS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
@@ -762,8 +762,8 @@ async function viewHome() {
     <div class="card">
       <p>${nl2br(camp.mcguffin?.description || '')}</p>
       <div class="kv" style="margin-top: 8px;">
-        <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '—')}</dd>
-        <dt>Note</dt><dd>${esc(camp.mcguffin?.material_note || '—')}</dd>
+        <dt>Material</dt><dd>${esc(camp.mcguffin?.material || '-')}</dd>
+        <dt>Note</dt><dd>${esc(camp.mcguffin?.material_note || '-')}</dd>
       </div>
     </div>
   `;
@@ -850,14 +850,14 @@ async function viewSession(num) {
   if (s.npcs_introduced?.length) {
     html += `<h2>NPCs Introduced</h2><ul>${s.npcs_introduced.map(n =>
       typeof n === 'string' ? `<li>${esc(n)}</li>`
-                            : `<li><strong>${esc(n.name)}</strong>${n.role ? ` — ${esc(n.role)}` : ''}${n.notes ? `: ${esc(n.notes)}` : ''}</li>`
+                            : `<li><strong>${esc(n.name)}</strong>${n.role ? ` - ${esc(n.role)}` : ''}${n.notes ? `: ${esc(n.notes)}` : ''}</li>`
     ).join('')}</ul>`;
   }
 
   if (s.ship_events?.length) {
     html += `<h2>Ship Events</h2><ul>${s.ship_events.map(e =>
       typeof e === 'string' ? `<li>${esc(e)}</li>`
-                            : `<li><strong>${esc(e.event || '')}</strong>${e.outcome ? ` — ${esc(e.outcome)}` : ''}</li>`
+                            : `<li><strong>${esc(e.event || '')}</strong>${e.outcome ? ` - ${esc(e.outcome)}` : ''}</li>`
     ).join('')}</ul>`;
   }
 
@@ -1009,7 +1009,7 @@ async function viewInvestigation() {
 
   if (inv.open_questions?.length) {
     const items = inv.open_questions.map(q =>
-      typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` — ${esc(q.notes)}` : ''}</li>`
+      typeof q === 'string' ? `<li>${esc(q)}</li>` : `<li><strong>${esc(q.question || q.fact || '')}</strong>${q.notes ? ` - ${esc(q.notes)}` : ''}</li>`
     ).join('');
     html += `<details class="collapsible"><summary><h2>Open Questions <span class="tag dim">${inv.open_questions.length}</span></h2></summary><ul>${items}</ul></details>`;
   }
@@ -1102,7 +1102,7 @@ async function viewTimeline() {
 
   if (events.length === 0) {
     html += `<p style="color: var(--text-dim); margin-top: 18px;">
-      No events yet — add <code>narrative_events</code> and
+      No events yet - add <code>narrative_events</code> and
       <code>crew_events</code> arrays to a session yaml.</p>`;
     return setView(html);
   }
@@ -1182,7 +1182,7 @@ async function viewTimeline() {
   html += `</div>`;
   setView(html);
 
-  // Wire up the filter pills — re-render in place rather than re-fetching.
+  // Wire up the filter pills - re-render in place rather than re-fetching.
   const legend = document.getElementById('timeline-legend');
   const tl = document.getElementById('campaign-timeline');
   if (legend && tl) {
@@ -1409,7 +1409,7 @@ async function viewWorld(slug) {
 }
 
 async function viewParty() {
-  setView('<div class="loading">Loading party…</div>');
+  setView('<div class="loading">Loading crew…</div>');
   let raw;
   try { raw = await load('../data/party.yaml'); }
   catch (e) { return showError(e, '../data/party.yaml'); }
@@ -1421,7 +1421,7 @@ async function viewParty() {
   const renderCard = (m) => {
     const dead = m.status === 'DECEASED';
     return `<div class="card">
-      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED${m.died ? ` — ${esc(m.died)}` : ''}</span>` : ''}</h3>
+      <h3>${esc(m.name)}${dead ? ` <span class="tag bad">DECEASED${m.died ? ` - ${esc(m.died)}` : ''}</span>` : ''}</h3>
       <div class="pill-row">
         ${m.upp ? `<span class="tag dim">UPP ${esc(m.upp)}</span>` : ''}
         ${m.age ? `<span class="tag dim">age ${esc(m.age)}</span>` : ''}
@@ -1431,13 +1431,13 @@ async function viewParty() {
         ${m.background.homeworld ? `<dt>Homeworld</dt><dd>${esc(m.background.homeworld)}</dd>` : ''}
         ${m.background.schooling ? `<dt>Schooling</dt><dd>${esc(m.background.schooling)}</dd>` : ''}
       </div>` : ''}
-      ${m.careers?.length ? `<h3 style="margin-top: 8px;">Careers</h3><ul>${m.careers.map(c => `<li>${esc(c.name)}${c.terms != null ? ` — ${esc(c.terms)} terms` : ''}${c.rank != null ? `, rank ${esc(c.rank)}` : ''}</li>`).join('')}</ul>` : ''}
+      ${m.careers?.length ? `<h3 style="margin-top: 8px;">Careers</h3><ul>${m.careers.map(c => `<li>${esc(c.name)}${c.terms != null ? ` - ${esc(c.terms)} terms` : ''}${c.rank != null ? `, rank ${esc(c.rank)}` : ''}</li>`).join('')}</ul>` : ''}
       ${m.skills?.length ? `<h3>Skills</h3><div>${m.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>` : ''}
       ${m.notes ? `<div style="margin-top: 8px; white-space: pre-wrap; color: var(--text-dim); font-size: 0.88rem;">${esc(m.notes)}</div>` : ''}
     </div>`;
   };
 
-  let html = `<h1 class="page-title">Party Members</h1>`;
+  let html = `<h1 class="page-title">Crew</h1>`;
   html += `<p style="color: var(--text-dim); margin-bottom: 12px;">PCs in the group.</p>`;
 
   html += `<div class="card-grid">${active.map(renderCard).join('')}</div>`;
@@ -1571,7 +1571,7 @@ async function viewShips() {
                 ${v.source ? `<span class="tag dim">${esc(v.source)}</span>` : ''}
               </div>
               ${v.current_cargo?.length
-                ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.count ? ` ×${esc(c.count)}` : ''}${c.tons ? ` (${esc(c.tons)} t${c.count ? ` each` : ''})` : ''}${c.notes ? ` — ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
+                ? `<ul style="margin: 0;">${v.current_cargo.map(c => `<li>${esc(c.item)}${c.count ? ` ×${esc(c.count)}` : ''}${c.tons ? ` (${esc(c.tons)} t${c.count ? ` each` : ''})` : ''}${c.notes ? ` - ${esc(c.notes)}` : ''}</li>`).join('')}</ul>`
                 : '<div style="color: var(--text-dim); font-size: 0.85rem;">empty</div>'}
               ${v.notes ? `<div style="margin-top: 6px; white-space: pre-wrap; font-size: 0.85rem; color: var(--text-dim);">${esc(v.notes)}</div>` : ''}
             </div>
@@ -1596,18 +1596,18 @@ async function viewShips() {
           ${ship.frame.tonnage ? `<dt>Tonnage</dt><dd>${esc(ship.frame.tonnage)}</dd>` : ''}
           ${ship.frame.hull_hp ? `<dt>Hull HP</dt><dd>${esc(ship.frame.hull_current ?? ship.frame.hull_hp)} / ${esc(ship.frame.hull_hp)}</dd>` : ''}
           ${cargoCap ? `<dt>Cargo</dt><dd>${cargoUsed} / ${cargoCap} t</dd>` : ''}
-          ${hangerCap ? `<dt>Hanger</dt><dd>${hangerUsed || '—'} / ${hangerCap} t</dd>` : ''}
+          ${hangerCap ? `<dt>Hanger</dt><dd>${hangerUsed || '-'} / ${hangerCap} t</dd>` : ''}
         </div>` : ''}
 
         ${ship.systems ? `<h3>Systems</h3><pre>${esc(jsyaml.dump(ship.systems))}</pre>` : ''}
         ${ship.amenities ? `<h3>Amenities</h3><pre>${esc(jsyaml.dump(ship.amenities))}</pre>` : ''}
-        ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` — boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
+        ${ship.passengers?.length ? `<h3>Passengers</h3><ul>${ship.passengers.map(p => `<li><strong>${esc(p.name)}</strong>${p.role ? ` (${esc(p.role)})` : ''}${p.boarded ? ` - boarded ${esc(p.boarded)}` : ''}${p.notes ? `: ${esc(p.notes)}` : ''}</li>`).join('')}</ul>` : ''}
 
         ${renderBay('Cargo Bay', cargoList, cargoCap)}
 
         ${renderBay('Hanger', hangerList, hangerCap)}
 
-        ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` — ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
+        ${ship.damage_log?.length ? `<h3>Damage Log</h3><ul>${ship.damage_log.map(d => `<li>Session ${esc(d.session)}: ${esc(d.damage)}${d.repaired ? ` <span class="tag good">repaired</span>` : ` <span class="tag warn">unrepaired</span>`}${d.repaired_by ? ` - ${esc(d.repaired_by)}` : ''}</li>`).join('')}</ul>` : ''}
       </div>`;
     }
   }
@@ -1748,7 +1748,7 @@ function renderProcedureSection(sec, depth = 0) {
   if (scalars.length) {
     html += '<div class="kv">';
     for (const [k, v] of scalars) {
-      const display = v == null ? '<span style="color: var(--text-faint);">—</span>' : esc(String(v));
+      const display = v == null ? '<span style="color: var(--text-faint);">-</span>' : esc(String(v));
       html += `<dt>${esc(titleCase(k))}</dt><dd>${display}</dd>`;
     }
     html += '</div>';
@@ -1927,7 +1927,7 @@ function renderCharacterCreation(raw) {
 }
 
 // =========================================================================
-// Combat rules — bespoke renderer (the YAML is too structured for renderYaml)
+// Combat rules - bespoke renderer (the YAML is too structured for renderYaml)
 // =========================================================================
 
 function combatKey(k) {
@@ -2016,7 +2016,7 @@ function renderCombat(raw) {
     html += `</div>`;
   }
 
-  // Attack procedure (open by default — most-used reference)
+  // Attack procedure (open by default - most-used reference)
   if (ap) {
     html += `<details class="collapsible" open><summary><h2>Attack Procedure</h2></summary>`;
     html += `<div class="kv">`;
@@ -2285,7 +2285,7 @@ const PRICE_COL_LABELS = {
 
 function renderPriceTable(rows) {
   if (!rows.length) return '';
-  // Non-object rows (e.g. simple strings) — fall back to a list
+  // Non-object rows (e.g. simple strings) - fall back to a list
   if (rows.some(r => typeof r !== 'object' || r === null)) {
     return `<ul>${rows.map(r => `<li>${esc(String(r))}</li>`).join('')}</ul>`;
   }
@@ -2364,7 +2364,7 @@ function preprocessReferenceMd(text) {
                   || /^\[[A-EX]+\][- ]/.test(s);
   const lines = text.split('\n');
   const out = [];
-  // Skip the first non-blank line — that's the document title and we render it
+  // Skip the first non-blank line - that's the document title and we render it
   // separately as the page title.
   let titleSkipped = false;
 
@@ -2379,7 +2379,7 @@ function preprocessReferenceMd(text) {
 
     if (!titleSkipped) {
       titleSkipped = true;
-      // Drop it — page title already shows the document title
+      // Drop it - page title already shows the document title
       continue;
     }
 

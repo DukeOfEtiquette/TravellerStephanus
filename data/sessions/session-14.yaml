@@ -24,7 +24,7 @@ session:
 
   narrative_events:
     - week: 24.2
-      title: "Savage Intent boarded — Quiru 400t, orderly evacuation"
+      title: "Savage Intent boarded - Quiru 400t, orderly evacuation"
       description: |
         Mostly intact; uninhabited; nothing in disarray. The crew's signs
         indicated an orderly departure by a crew that was almost entirely
@@ -35,7 +35,7 @@ session:
       title: "Bridge-door grenade booby trap injures Corinne"
       description: |
         Bridge door was unusually difficult to open. When forced, a grenade
-        detonated. Corinne — first through the door — took the blast.
+        detonated. Corinne - first through the door - took the blast.
       location: "Savage Intent, bridge approach"
 
     - week: 24.2
@@ -57,7 +57,7 @@ session:
       location: "Savage Intent, bridge"
 
     - week: 24.2
-      title: "Cooper-Akachi bomb on jump drive — Samir disarms alone"
+      title: "Cooper-Akachi bomb on jump drive - Samir disarms alone"
       description: |
         The jump drive had been expertly wired with a bomb built from
         high-end Cooper-Akachi parts; designed to trigger on tamper or on
@@ -76,7 +76,7 @@ session:
       title: "Savage Intent assessed as a skeleton-crew prize"
       description: |
         With the bomb disarmed and the computer the only critical loss, the
-        crew judged the Savage Intent jump-capable with a skeleton crew —
+        crew judged the Savage Intent jump-capable with a skeleton crew -
         a possible future capture.
       location: "Savage Intent"
 
@@ -100,16 +100,16 @@ session:
       location: "Revenant's Echo, bridge"
 
     - week: 24.2
-      title: "Hindsight #1 — captain's chair, moment of retreat"
+      title: "Hindsight #1 - captain's chair, moment of retreat"
       description: |
         Victor's first hindsight viewing on the Revenant's Echo bridge:
         the captain ordered fleet retreat after Bunny was "taken" and
         "lost." The order explicitly referenced the boarding party having
-        extracted Bunny from the ship — Bunny is a person, not a ship.
+        extracted Bunny from the ship - Bunny is a person, not a ship.
       location: "Revenant's Echo, captain's chair"
 
     - week: 24.2
-      title: "Hindsight #2 — sensor officer's chair"
+      title: "Hindsight #2 - sensor officer's chair"
       description: |
         Second hindsight on the navigation/sensor officer's station: visual
         sensor record showed Quiru marines extracting a human-appearing
@@ -149,9 +149,9 @@ session:
   npcs_introduced:
     - name: "Bunny"
       affiliation: "Unknown (carried aboard the Newhall scout Deepest Light)"
-      role: "Mission objective — high-value person"
+      role: "Mission objective - high-value person"
       notes: |
-        A person — not a ship or cargo — extracted by Quiru marines from
+        A person - not a ship or cargo - extracted by Quiru marines from
         the Deepest Light during the Maitz engagement. Currently presumed
         in Quiru custody. Both Quiru and Newhall went to fleet engagement
         over Bunny. "Bunny" reads as a codename. See npcs.yaml for the
@@ -161,21 +161,21 @@ session:
     - "Boarded Savage Intent (Quiru, 400 t, mostly intact, uninhabited; crew was almost entirely marines)"
     - "Corinne injured by a grenade booby trap at the Savage Intent bridge door"
     - "Computer room: Savage Intent's ship computer destroyed by an anti-personnel-grade explosive"
-    - "Recovered and decoded the Savage Intent black box — intercept course from behind a moon, matched onto a gas-skim target"
+    - "Recovered and decoded the Savage Intent black box - intercept course from behind a moon, matched onto a gas-skim target"
     - "Samir disarmed a high-end Cooper-Akachi bomb wired into the Savage Intent's jump drive"
     - "Cargo crates aboard Savage Intent: 1 empty, 2 empty with racks, balance rations"
     - "Crew assessment: Savage Intent jump-capable with a skeleton crew (potential prize, not seized)"
     - "Boarded Revenant's Echo (largest casualty; bow blown open; forward missile bay cooked off; extensive casualties)"
     - "Partial splice of captain's combat logs: full Newhall battle roster; Deepest Light never named; multiple Bunny references"
     - "Logs: capture-Bunny → destroy-Bunny → both failed → retreat after Bunny extracted by Quiru"
-    - "Hindsight #1 (Victor, captain's chair): retreat order explicitly referenced Bunny being extracted from the ship — Bunny is a person"
+    - "Hindsight #1 (Victor, captain's chair): retreat order explicitly referenced Bunny being extracted from the ship - Bunny is a person"
     - "Hindsight #2 (Victor, sensor station): visual of Quiru marines extracting a human from a 100 dT scout (Deepest Light), Savage Intent in background"
-    - "Concluded the Deepest Light was never at Maitz on arrival — presumed Quiru-captured with Bunny"
+    - "Concluded the Deepest Light was never at Maitz on arrival - presumed Quiru-captured with Bunny"
     - "Working theory: Bunny was the Deepest Light's payload; Quiru took both; Newhall and Quiru (supposed allies) fought a covert fleet engagement over Bunny"
 
   ship_events:
     - event: "Refueled status"
-      outcome: "VoL II fuel 2/2 (unchanged — no fuel use this session)"
+      outcome: "VoL II fuel 2/2 (unchanged - no fuel use this session)"
 
     - event: "Savage Intent flagged as a possible future skeleton-crew capture"
       outcome: "Bomb disarmed, computer is the only critical loss; not yet seized."
@@ -201,7 +201,7 @@ session:
         decoded: lay in wait behind a moon, intercepted and matched course
         onto a gas-skim target (the now-absent Deepest Light). Cargo: 1
         empty crate, 2 empty with racks, balance rations. Crew assessed:
-        jump-capable with a skeleton crew — possible future prize.
+        jump-capable with a skeleton crew - possible future prize.
 
     - name: "Revenant's Echo"
       size_marker: 6
@@ -213,7 +213,7 @@ session:
         logs partially spliced: full Newhall battle roster recovered;
         Deepest Light not named; multiple Bunny references; retreat
         ordered after Bunny extracted. Victor performed two hindsight
-        viewings here — captain's chair (extraction-confirmed retreat
+        viewings here - captain's chair (extraction-confirmed retreat
         order) and sensor station (visual of Quiru marines extracting a
         human from the Deepest Light, Savage Intent in background).
 
@@ -235,6 +235,6 @@ session:
 
     - name: "(unidentified debris field)"
       faction: unknown
-      notes: "One of the original two debris fields — too disintegrated to identify. Unchanged from Session 13."
+      notes: "One of the original two debris fields - too disintegrated to identify. Unchanged from Session 13."
 
   absent_pcs: []
